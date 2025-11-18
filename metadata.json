@@ -1,0 +1,70 @@
+{
+  "last_updated": "2025-11-17T00:00:00Z",
+  "version": "1.0.0",
+  "categories": {
+    "daily-news": {
+      "last_updated": null,
+      "files": ["top_news.json", "sector_news.json"],
+      "update_frequency": "Every 15 minutes during market hours (9:30am-4:00pm ET)"
+    },
+    "analyst-trends": {
+      "last_updated": null,
+      "files": ["recommendation_trends.json", "sector_recommendation_trends.json"],
+      "update_frequency": "Daily at 5:00pm ET"
+    },
+    "earnings-calendar": {
+      "last_updated": null,
+      "files": ["earnings_calendar.json"],
+      "update_frequency": "Daily at 5:00pm ET"
+    },
+    "earnings-surprises": {
+      "last_updated": null,
+      "files": ["earnings_surprises.json"],
+      "update_frequency": "Daily at 5:00pm ET"
+    },
+    "advance-decline": {
+      "last_updated": null,
+      "files": [
+        "daily_breadth.json",
+        "ad_line_historical.json",
+        "ma_percentage_historical.json",
+        "highs_lows_historical.json"
+      ],
+      "update_frequency": "Hourly during market hours (9:00am-5:00pm ET)"
+    },
+    "major-indexes": {
+      "last_updated": null,
+      "files": [
+        "us_major.json",
+        "sectors.json",
+        "growth_value.json",
+        "international.json",
+        "bonds.json",
+        "commodities.json"
+      ],
+      "update_frequency": "Every 15 minutes during market hours (9:30am-4:00pm ET)"
+    },
+    "implied-volatility": {
+      "last_updated": null,
+      "files": ["vix_data.json", "major_indices_iv.json", "sector_etfs_iv.json"],
+      "update_frequency": "Hourly during market hours (9:00am-5:00pm ET)"
+    }
+  },
+  "stats": {
+    "total_categories": 7,
+    "total_files": 0,
+    "repository_size_mb": 0
+  },
+  "data_sources": {
+    "finnhub": {
+      "name": "Finnhub API",
+      "url": "https://finnhub.io",
+      "datasets": ["daily-news", "analyst-trends", "earnings-calendar", "earnings-surprises"]
+    },
+    "yahoo_finance": {
+      "name": "Yahoo Finance (via yfinance)",
+      "url": "https://finance.yahoo.com",
+      "datasets": ["advance-decline", "major-indexes", "implied-volatility"]
+    }
+  }
+}
