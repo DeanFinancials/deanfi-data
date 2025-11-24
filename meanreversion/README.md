@@ -2,7 +2,7 @@
 
 **Statistical analysis of price deviations from moving averages and MA spread patterns**
 
-This dataset provides comprehensive mean reversion metrics for major US market indices, enabling traders and analysts to identify overbought/oversold conditions and potential mean reversion opportunities using institutional-grade statistical measures.
+This dataset provides comprehensive mean reversion metrics for major US market ETFs, enabling traders and analysts to identify overbought/oversold conditions and potential mean reversion opportunities using institutional-grade statistical measures.
 
 ## 📊 Overview
 
@@ -21,11 +21,19 @@ Mean reversion is a financial theory suggesting that asset prices and historical
 - **`ma_spreads_snapshot.json`** - Current spreads between MA pairs
 - **`ma_spreads_historical.json`** - 504-day historical MA spread metrics
 
-## 🎯 Indices Tracked
+## 🎯 ETFs Tracked
 
-- **^GSPC** - S&P 500 (Large-cap benchmark)
-- **^IXIC** - Nasdaq Composite (Tech-heavy)
-- **^RUT** - Russell 2000 (Small-cap benchmark)
+| Symbol | ETF Name | Tracks Index | Market Segment |
+|--------|----------|--------------|----------------|
+| **SPY** | SPDR S&P 500 ETF Trust | S&P 500 | Large-cap benchmark |
+| **QQQ** | Invesco QQQ Trust | Nasdaq-100 | Tech-heavy growth stocks |
+| **IWM** | iShares Russell 2000 ETF | Russell 2000 | Small-cap benchmark |
+
+**Why ETFs instead of indices?**
+- More reliable data with fewer gaps
+- Actually tradeable instruments (useful for backtesting)
+- Better data consistency across providers
+- Standard trading hours and no special handling needed
 
 ## 📈 Moving Averages
 
@@ -124,6 +132,8 @@ Use extreme z-scores as contrarian signals:
 - **Exit**: Z-score returns to 0 (mean reversion complete)
 - **Confirmation**: Price crosses back through the MA
 
+**Note**: All metrics are based on ETF prices (SPY, QQQ, IWM) which are tradeable and provide more reliable signals than index quotes.
+
 ### Trend Following Filter
 Combine with trend direction:
 - Only take longs when price > 200-day MA
@@ -152,30 +162,39 @@ When MA spread z-score is extreme:
 
 ## 📅 Data Specifications
 
+- **Instruments**: ETFs (SPY, QQQ, IWM) tracking major US indices
 - **Update Frequency**: Every 15 minutes during market hours (9:30am - 4:15pm ET)
-- **Historical Period**: 504 trading days (~2 years)
+- **Historical Period**: 504 trading days (~2 years of clean data)
+- **Fetch Period**: 956 trading days (includes 452-day warmup for calculations)
 - **Z-Score Lookback**: 252 trading days (1 year)
 - **Data Source**: Yahoo Finance (yfinance)
 - **Calculation Method**: Simple Moving Averages (SMA)
 - **Price Data**: Adjusted closing prices
+- **Data Quality**: Zero null values - all z-scores fully populated
 
 ## 🔧 Data Quality
 
 All calculations require minimum data points:
 - **20-day MA**: 20 days minimum
 - **50-day MA**: 50 days minimum
-- **200-day MA**: 200 days minimum
-- **Z-Scores**: 252 days minimum
+- **200-day MA**: 200 days minimum (warmup begins here)
+- **Z-Scores**: 252 days minimum after MA stabilization
 
-Insufficient data periods will show `null` values.
+**Warmup Period**: The system fetches 956 days of data but outputs only the most recent 504 days. This ensures:
+- First 200 days: 200-day MA calculation stabilizes
+- Next 252 days: Z-score calculation accumulates sufficient history
+- Final 504 days: Output data with **zero null values**
+
+All historical records contain complete, valid z-scores with no missing data.
 
 ## 📖 Example Usage
 
 ### Identifying Overbought Conditions
 ```javascript
 // Price vs MA approach
-if (price_vs_ma.metrics_by_ma.ma_50.zscore > 2) {
-  console.log("S&P 500 is statistically overbought vs 50-day MA");
+const spy = price_vs_ma.indices.SPY;
+if (spy.metrics_by_ma.ma_50.zscore > 2) {
+  console.log(`${spy.tracks_index} (${spy.symbol}) is statistically overbought vs 50-day MA`);
   console.log("Mean reversion likely - consider profit taking or shorts");
 }
 
@@ -188,11 +207,12 @@ if (ma_spreads.ma_pairs.short_term_vs_intermediate.zscore > 2) {
 
 ### Detecting Golden Cross
 ```javascript
-const spread_50_200 = ma_spreads.ma_pairs.intermediate_vs_long_term;
+const spy = ma_spreads.indices.SPY;
+const spread_50_200 = spy.ma_pairs.intermediate_vs_long_term;
 
 if (spread_50_200.spread > 0 && spread_50_200.alignment === 'bullish') {
-  console.log("Golden Cross detected! 50-day above 200-day");
-  console.log("Long-term bullish signal");
+  console.log(`Golden Cross detected for ${spy.tracks_index} (${spy.symbol})!`);
+  console.log("50-day above 200-day - Long-term bullish signal");
 }
 ```
 
