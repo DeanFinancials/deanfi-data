@@ -1,0 +1,180 @@
+{
+  "_README": {
+    "title": "Price vs Moving Average - Mean Reversion Snapshot",
+    "description": "Current price distance from key moving averages for major US indices",
+    "purpose": "Identify overbought/oversold conditions and potential mean reversion opportunities",
+    "update_frequency": "Every 15 minutes during market hours",
+    "indices_tracked": [
+      "^GSPC",
+      "^IXIC",
+      "^RUT"
+    ],
+    "moving_averages": {
+      "ma_20": "20-day SMA (short-term trend, ~1 month)",
+      "ma_50": "50-day SMA (intermediate trend, ~2.5 months)",
+      "ma_200": "200-day SMA (long-term trend, ~1 year)"
+    },
+    "metrics_explained": {
+      "distance": {
+        "description": "Point distance between current price and MA",
+        "formula": "current_price - ma_value",
+        "interpretation": "Positive = above MA (bullish), Negative = below MA (bearish)"
+      },
+      "distance_percent": {
+        "description": "Percentage distance from MA",
+        "formula": "(current_price - ma_value) / ma_value * 100",
+        "interpretation": {
+          ">5%": "Significantly overbought",
+          "2% to 5%": "Moderately overbought",
+          "-2% to 2%": "Normal range",
+          "-5% to -2%": "Moderately oversold",
+          "<-5%": "Significantly oversold"
+        }
+      },
+      "zscore": {
+        "description": "Statistical z-score of price distance from MA",
+        "formula": "(current_price - ma) / std_dev(price - ma)",
+        "lookback_period": "252 days",
+        "interpretation": {
+          ">2": "Statistically overbought (>95th percentile) - Strong mean reversion signal",
+          "1 to 2": "Moderately overbought",
+          "-1 to 1": "Normal statistical range",
+          "-2 to -1": "Moderately oversold",
+          "<-2": "Statistically oversold (<5th percentile) - Strong mean reversion signal"
+        },
+        "usage": "Institutional standard for normalized mean reversion signals"
+      }
+    },
+    "signal_types": {
+      "extremely_overbought": "Z-score > 2 (potential reversal down)",
+      "moderately_overbought": "Z-score 1 to 2",
+      "normal_range": "Z-score -1 to 1",
+      "moderately_oversold": "Z-score -2 to -1",
+      "extremely_oversold": "Z-score < -2 (potential reversal up)",
+      "insufficient_data": "Not enough data for calculation"
+    },
+    "trend_alignment": {
+      "strong_bullish": "20-day > 50-day > 200-day (all MAs aligned bullish)",
+      "moderate_bullish": "20-day > 50-day (short above medium)",
+      "strong_bearish": "20-day < 50-day < 200-day (all MAs aligned bearish)",
+      "moderate_bearish": "20-day < 50-day (short below medium)",
+      "mixed": "No clear alignment"
+    },
+    "trading_applications": {
+      "mean_reversion": "Use extreme z-scores as contrarian entry signals",
+      "trend_filter": "Only trade mean reversion in direction of 200-day MA",
+      "overbought_oversold": "Distance >5% or z-score >2 indicates stretched conditions"
+    }
+  },
+  "metadata": {
+    "generated_at": "2025-11-24T14:19:23.623101+00:00",
+    "data_source": "Yahoo Finance (yfinance)",
+    "indices_count": 3,
+    "description": "Price distance from moving averages for mean reversion analysis",
+    "calculation_note": "All metrics use adjusted closing prices"
+  },
+  "indices": {
+    "^GSPC": {
+      "symbol": "^GSPC",
+      "name": "S&P 500",
+      "description": "Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "date": "2025-11-21",
+      "current_price": 6602.99,
+      "moving_averages": {
+        "ma_20": 6763.17,
+        "ma_50": 6711.41,
+        "ma_200": 6162.75
+      },
+      "metrics_by_ma": {
+        "ma_20": {
+          "distance": -160.18,
+          "distance_percent": -2.37,
+          "zscore": -1.38,
+          "signal": "moderately_oversold"
+        },
+        "ma_50": {
+          "distance": -108.42,
+          "distance_percent": -1.62,
+          "zscore": -0.87,
+          "signal": "normal_range"
+        },
+        "ma_200": {
+          "distance": 440.24,
+          "distance_percent": 7.14,
+          "zscore": 0.37,
+          "signal": "normal_range"
+        }
+      },
+      "trend_alignment": "strong_bullish"
+    },
+    "^IXIC": {
+      "symbol": "^IXIC",
+      "name": "Nasdaq Composite",
+      "description": "Tech-heavy broad market",
+      "market_segment": "Tech/Growth",
+      "date": "2025-11-21",
+      "current_price": 22273.08,
+      "moving_averages": {
+        "ma_20": 23185.02,
+        "ma_50": 22881.38,
+        "ma_200": 20243.93
+      },
+      "metrics_by_ma": {
+        "ma_20": {
+          "distance": -911.94,
+          "distance_percent": -3.93,
+          "zscore": -1.77,
+          "signal": "moderately_oversold"
+        },
+        "ma_50": {
+          "distance": -608.3,
+          "distance_percent": -2.66,
+          "zscore": -1.01,
+          "signal": "moderately_oversold"
+        },
+        "ma_200": {
+          "distance": 2029.15,
+          "distance_percent": 10.02,
+          "zscore": 0.4,
+          "signal": "normal_range"
+        }
+      },
+      "trend_alignment": "strong_bullish"
+    },
+    "^RUT": {
+      "symbol": "^RUT",
+      "name": "Russell 2000",
+      "description": "Small-cap benchmark",
+      "market_segment": "Small-Cap",
+      "date": "2025-11-21",
+      "current_price": 2369.59,
+      "moving_averages": {
+        "ma_20": 2426.04,
+        "ma_50": 2444.52,
+        "ma_200": 2216.71
+      },
+      "metrics_by_ma": {
+        "ma_20": {
+          "distance": -56.45,
+          "distance_percent": -2.33,
+          "zscore": -0.84,
+          "signal": "normal_range"
+        },
+        "ma_50": {
+          "distance": -74.93,
+          "distance_percent": -3.07,
+          "zscore": -0.79,
+          "signal": "normal_range"
+        },
+        "ma_200": {
+          "distance": 152.88,
+          "distance_percent": 6.9,
+          "zscore": 0.57,
+          "signal": "normal_range"
+        }
+      },
+      "trend_alignment": "moderate_bearish"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "_README": {
+    "title": "Moving Average Spreads - Mean Reversion Snapshot",
+    "description": "Current spread between moving average pairs for major US indices",
+    "purpose": "Identify extreme MA spreads that may signal mean reversion opportunities",
+    "update_frequency": "Every 15 minutes during market hours",
+    "indices_tracked": [
+      "^GSPC",
+      "^IXIC",
+      "^RUT"
+    ],
+    "ma_pairs_analyzed": {
+      "short_term_vs_intermediate": "20-day vs 50-day MA (swing trading timeframe)",
+      "short_term_vs_long_term": "20-day vs 200-day MA (trend identification)",
+      "intermediate_vs_long_term": "50-day vs 200-day MA (major trend changes)"
+    },
+    "metrics_explained": {
+      "spread": {
+        "description": "Point difference between two moving averages",
+        "formula": "ma_short - ma_long",
+        "interpretation": {
+          "positive": "Short MA above long MA (bullish alignment)",
+          "negative": "Short MA below long MA (bearish alignment)",
+          "large_magnitude": "Wide spread suggests potential snapback to mean"
+        }
+      },
+      "spread_percent": {
+        "description": "Percentage spread between two MAs",
+        "formula": "(ma_short - ma_long) / ma_long * 100",
+        "interpretation": "Normalizes spread for comparison across different price levels",
+        "usage": "Compare signals across different instruments"
+      },
+      "zscore": {
+        "description": "Statistical z-score of MA spread",
+        "formula": "(current_spread - mean_spread) / std_dev(spread)",
+        "lookback_period": "252 days",
+        "interpretation": {
+          ">2": "Extremely wide spread - Strong mean reversion signal (spread likely to narrow)",
+          "1 to 2": "Moderately wide spread",
+          "-1 to 1": "Normal spread range",
+          "-2 to -1": "Moderately narrow spread",
+          "<-2": "Extremely narrow/negative spread - Potential breakout or trend reversal"
+        },
+        "usage": "Most common institutional method for MA spread mean reversion"
+      }
+    },
+    "signal_types": {
+      "extremely_overbought": "Z-score > 2 (spread unusually wide, expect narrowing)",
+      "moderately_overbought": "Z-score 1 to 2 (spread above average)",
+      "normal_range": "Z-score -1 to 1 (spread in normal range)",
+      "moderately_oversold": "Z-score -2 to -1 (spread below average)",
+      "extremely_oversold": "Z-score < -2 (spread unusually narrow, potential expansion)",
+      "insufficient_data": "Not enough data for calculation"
+    },
+    "alignment_types": {
+      "bullish": "Shorter MA above longer MA (uptrend)",
+      "bearish": "Shorter MA below longer MA (downtrend)"
+    },
+    "trading_applications": {
+      "golden_cross": "50-day crosses above 200-day (bullish signal)",
+      "death_cross": "50-day crosses below 200-day (bearish signal)",
+      "extreme_spread_mean_reversion": "Z-score > 2 or < -2 suggests spread will revert to mean",
+      "trend_following": "Trade in direction of MA alignment (bullish/bearish)",
+      "swing_trading": "Use 20-day vs 50-day for short-term entries/exits"
+    },
+    "professional_usage": {
+      "description": "Institutional traders focus on MA spread z-scores",
+      "strategy": "When spread z-score is extreme, expect snapback to mean",
+      "timeframes": {
+        "20_vs_50": "Swing trading (days to weeks)",
+        "20_vs_200": "Trend validation (weeks to months)",
+        "50_vs_200": "Major trend changes (months to years)"
+      }
+    }
+  },
+  "metadata": {
+    "generated_at": "2025-11-24T14:19:25.452498+00:00",
+    "data_source": "Yahoo Finance (yfinance)",
+    "indices_count": 3,
+    "description": "Moving average spread metrics for mean reversion analysis",
+    "calculation_note": "All metrics use adjusted closing prices"
+  },
+  "indices": {
+    "^GSPC": {
+      "symbol": "^GSPC",
+      "name": "S&P 500",
+      "description": "Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "date": "2025-11-21",
+      "current_price": 6602.99,
+      "moving_averages": {
+        "ma_20": 6763.17,
+        "ma_50": 6711.41,
+        "ma_200": 6162.75
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": 51.76,
+          "spread_percent": 0.77,
+          "zscore": -0.03,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 600.42,
+          "spread_percent": 9.74,
+          "zscore": 1.09,
+          "signal": "moderately_overbought",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 548.66,
+          "spread_percent": 8.9,
+          "zscore": 1.37,
+          "signal": "moderately_overbought",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
+    "^IXIC": {
+      "symbol": "^IXIC",
+      "name": "Nasdaq Composite",
+      "description": "Tech-heavy broad market",
+      "market_segment": "Tech/Growth",
+      "date": "2025-11-21",
+      "current_price": 22273.08,
+      "moving_averages": {
+        "ma_20": 23185.02,
+        "ma_50": 22881.38,
+        "ma_200": 20243.93
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": 303.63,
+          "spread_percent": 1.33,
+          "zscore": 0.04,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 2941.09,
+          "spread_percent": 14.53,
+          "zscore": 1.26,
+          "signal": "moderately_overbought",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 2637.45,
+          "spread_percent": 13.03,
+          "zscore": 1.58,
+          "signal": "moderately_overbought",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
+    "^RUT": {
+      "symbol": "^RUT",
+      "name": "Russell 2000",
+      "description": "Small-cap benchmark",
+      "market_segment": "Small-Cap",
+      "date": "2025-11-21",
+      "current_price": 2369.59,
+      "moving_averages": {
+        "ma_20": 2426.04,
+        "ma_50": 2444.52,
+        "ma_200": 2216.71
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": -18.48,
+          "spread_percent": -0.76,
+          "zscore": -0.45,
+          "signal": "normal_range",
+          "alignment": "bearish",
+          "alignment_note": "20-day MA is below 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 209.33,
+          "spread_percent": 9.44,
+          "zscore": 0.97,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 227.81,
+          "spread_percent": 10.28,
+          "zscore": 1.41,
+          "signal": "moderately_overbought",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    }
+  }
+}
