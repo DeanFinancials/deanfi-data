@@ -1,13 +1,13 @@
 {
   "_README": {
     "title": "Price vs Moving Average - Mean Reversion Snapshot",
-    "description": "Current price distance from key moving averages for major US indices",
+    "description": "Current price distance from key moving averages for major US ETFs",
     "purpose": "Identify overbought/oversold conditions and potential mean reversion opportunities",
     "update_frequency": "Every 15 minutes during market hours",
     "indices_tracked": [
-      "^GSPC",
-      "^IXIC",
-      "^RUT"
+      "SPY",
+      "QQQ",
+      "IWM"
     ],
     "moving_averages": {
       "ma_20": "20-day SMA (short-term trend, ~1 month)",
@@ -67,110 +67,113 @@
     }
   },
   "metadata": {
-    "generated_at": "2025-11-24T15:44:37.843592+00:00",
+    "generated_at": "2025-11-24T21:18:13.872968+00:00",
     "data_source": "Yahoo Finance (yfinance)",
-    "indices_count": 3,
+    "etfs_count": 3,
     "description": "Price distance from moving averages for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
-    "^GSPC": {
-      "symbol": "^GSPC",
-      "name": "S&P 500",
-      "description": "Large-cap benchmark (500 companies)",
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
       "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
       "date": "2025-11-24",
-      "current_price": 6682.02,
+      "current_price": 668.67,
       "moving_averages": {
-        "ma_20": 6753.51,
-        "ma_50": 6712.74,
-        "ma_200": 6166.03
+        "ma_20": 673.71,
+        "ma_50": 669.19,
+        "ma_200": 612.67
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -71.49,
-          "distance_percent": -1.06,
-          "zscore": -0.73,
+          "distance": -5.04,
+          "distance_percent": -0.75,
+          "zscore": -0.6,
           "signal": "normal_range"
         },
         "ma_50": {
-          "distance": -30.72,
-          "distance_percent": -0.46,
-          "zscore": -0.52,
+          "distance": -0.52,
+          "distance_percent": -0.08,
+          "zscore": -0.44,
           "signal": "normal_range"
         },
         "ma_200": {
-          "distance": 515.99,
-          "distance_percent": 8.37,
-          "zscore": 0.61,
+          "distance": 56.0,
+          "distance_percent": 9.14,
+          "zscore": 0.68,
           "signal": "normal_range"
         }
       },
       "trend_alignment": "strong_bullish"
     },
-    "^IXIC": {
-      "symbol": "^IXIC",
-      "name": "Nasdaq Composite",
-      "description": "Tech-heavy broad market",
+    "QQQ": {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "description": "Tracks Nasdaq-100 Index - Tech-heavy growth stocks",
       "market_segment": "Tech/Growth",
+      "tracks_index": "Nasdaq-100",
       "date": "2025-11-24",
-      "current_price": 22726.85,
+      "current_price": 605.16,
       "moving_averages": {
-        "ma_20": 23139.49,
-        "ma_50": 22888.95,
-        "ma_200": 20259.95
+        "ma_20": 614.19,
+        "ma_50": 607.37,
+        "ma_200": 543.08
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -412.64,
-          "distance_percent": -1.78,
-          "zscore": -0.93,
+          "distance": -9.03,
+          "distance_percent": -1.47,
+          "zscore": -0.84,
           "signal": "normal_range"
         },
         "ma_50": {
-          "distance": -162.1,
-          "distance_percent": -0.71,
-          "zscore": -0.57,
+          "distance": -2.21,
+          "distance_percent": -0.36,
+          "zscore": -0.53,
           "signal": "normal_range"
         },
         "ma_200": {
-          "distance": 2466.9,
-          "distance_percent": 12.18,
-          "zscore": 0.7,
+          "distance": 62.08,
+          "distance_percent": 11.43,
+          "zscore": 0.68,
           "signal": "normal_range"
         }
       },
       "trend_alignment": "strong_bullish"
     },
-    "^RUT": {
-      "symbol": "^RUT",
-      "name": "Russell 2000",
-      "description": "Small-cap benchmark",
+    "IWM": {
+      "symbol": "IWM",
+      "name": "iShares Russell 2000 ETF",
+      "description": "Tracks Russell 2000 Index - Small-cap benchmark (2000 companies)",
       "market_segment": "Small-Cap",
+      "tracks_index": "Russell 2000",
       "date": "2025-11-24",
-      "current_price": 2396.75,
+      "current_price": 239.87,
       "moving_averages": {
-        "ma_20": 2419.86,
-        "ma_50": 2444.36,
-        "ma_200": 2217.3
+        "ma_20": 240.53,
+        "ma_50": 242.77,
+        "ma_200": 219.39
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -23.11,
-          "distance_percent": -0.95,
-          "zscore": -0.36,
+          "distance": -0.66,
+          "distance_percent": -0.27,
+          "zscore": -0.14,
           "signal": "normal_range"
         },
         "ma_50": {
-          "distance": -47.6,
-          "distance_percent": -1.95,
-          "zscore": -0.55,
+          "distance": -2.9,
+          "distance_percent": -1.19,
+          "zscore": -0.41,
           "signal": "normal_range"
         },
         "ma_200": {
-          "distance": 179.46,
-          "distance_percent": 8.09,
-          "zscore": 0.72,
+          "distance": 20.48,
+          "distance_percent": 9.34,
+          "zscore": 0.82,
           "signal": "normal_range"
         }
       },
