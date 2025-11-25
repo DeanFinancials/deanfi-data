@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2025-11-25T09:27:31.597989-05:00",
+    "generated_at": "2025-11-25T12:26:21.954463-05:00",
     "data_source": "FRED API",
     "category": "Inflation & Prices",
     "indicators": [
@@ -54,10 +54,10 @@
   "current": {
     "date": "2025-09-01",
     "overall_grade": {
-      "grade": "C",
-      "label": "Fair",
-      "color": "warning",
-      "points": 1.6
+      "grade": "D",
+      "label": "Poor",
+      "color": "destructive",
+      "points": 1.1
     },
     "indicators": {
       "CPIAUCSL": {
@@ -68,19 +68,19 @@
         "percentile": 99.58,
         "grade": {
           "grade": "D",
-          "label": "Extreme",
+          "label": "Poor",
           "color": "destructive",
           "points": 1
         },
         "trend": "increasing",
-        "is_favorable": null,
+        "is_favorable": false,
         "changes": {
           "1y": 3.02,
           "5y": 24.76,
           "10y": 36.58,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       },
       "CPILFESL": {
         "name": "Core CPI (Excluding Food and Energy)",
@@ -90,19 +90,19 @@
         "percentile": 99.58,
         "grade": {
           "grade": "D",
-          "label": "Extreme",
+          "label": "Poor",
           "color": "destructive",
           "points": 1
         },
         "trend": "increasing",
-        "is_favorable": null,
+        "is_favorable": false,
         "changes": {
           "1y": 3.03,
           "5y": 22.91,
           "10y": 35.85,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       },
       "PCEPI": {
         "name": "Personal Consumption Expenditures Price Index",
@@ -112,19 +112,19 @@
         "percentile": 99.58,
         "grade": {
           "grade": "D",
-          "label": "Extreme",
+          "label": "Poor",
           "color": "destructive",
           "points": 1
         },
         "trend": "increasing",
-        "is_favorable": null,
+        "is_favorable": false,
         "changes": {
           "1y": 2.74,
           "5y": 21.37,
           "10y": 30.4,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       },
       "PCEPILFE": {
         "name": "Core PCE Price Index",
@@ -134,41 +134,41 @@
         "percentile": 99.58,
         "grade": {
           "grade": "D",
-          "label": "Extreme",
+          "label": "Poor",
           "color": "destructive",
           "points": 1
         },
         "trend": "increasing",
-        "is_favorable": null,
+        "is_favorable": false,
         "changes": {
           "1y": 2.91,
           "5y": 20.39,
           "10y": 30.55,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       },
       "PPIACO": {
         "name": "Producer Price Index (Final Demand)",
-        "value": 262.44,
+        "value": 262.34,
         "unit": "Index 1982=100",
         "frequency": "Monthly",
-        "percentile": 95.8,
+        "percentile": 95.82,
         "grade": {
           "grade": "D",
-          "label": "Extreme",
+          "label": "Poor",
           "color": "destructive",
           "points": 1
         },
-        "trend": "decreasing",
-        "is_favorable": null,
+        "trend": "increasing",
+        "is_favorable": false,
         "changes": {
-          "1y": 2.73,
-          "5y": 35.07,
-          "10y": 36.76,
+          "1y": 3.82,
+          "5y": 34.19,
+          "10y": 38.73,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       },
       "T5YIE": {
         "name": "5-Year Breakeven Inflation Rate",
@@ -177,20 +177,20 @@
         "frequency": "Daily",
         "percentile": 74.34,
         "grade": {
-          "grade": "A",
-          "label": "Normal Range",
-          "color": "success",
-          "points": 4
+          "grade": "C",
+          "label": "Fair",
+          "color": "warning",
+          "points": 2
         },
         "trend": "decreasing",
-        "is_favorable": null,
+        "is_favorable": true,
         "changes": {
           "1y": -4.56,
           "5y": 49.35,
           "10y": 93.28,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       },
       "CPIENGSL": {
         "name": "Energy Price Index (CPI Energy Component)",
@@ -199,23 +199,23 @@
         "frequency": "Monthly",
         "percentile": 89.96,
         "grade": {
-          "grade": "C",
-          "label": "Concerning",
+          "grade": "D",
+          "label": "Poor",
           "color": "destructive",
-          "points": 2
+          "points": 1
         },
         "trend": "increasing",
-        "is_favorable": null,
+        "is_favorable": false,
         "changes": {
           "1y": 2.88,
           "5y": 42.91,
           "10y": 42.52,
           "20y": null
         },
-        "interpretation": "neutral"
+        "interpretation": "lower_is_better"
       }
     },
-    "summary": "Inflation pressures are building and require attention."
+    "summary": "Inflation is significantly elevated or problematically low."
   },
   "history": {
     "series": {
@@ -2390,7 +2390,8 @@
           "2025-05-01",
           "2025-06-01",
           "2025-07-01",
-          "2025-08-01"
+          "2025-08-01",
+          "2025-09-01"
         ],
         "values": [
           163.7,
@@ -2627,10 +2628,11 @@
           259.498,
           258.525,
           258.392,
-          258.642,
-          260.69,
-          262.562,
-          262.443
+          258.678,
+          260.482,
+          262.363,
+          262.104,
+          262.344
         ]
       },
       "T5YIE": {
