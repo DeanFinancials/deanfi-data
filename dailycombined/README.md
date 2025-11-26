@@ -136,7 +136,7 @@ Updated weekly on Sundays:
 
 ```javascript
 // Fastest access via Cloudflare R2
-const url = 'https://r2.deanfinancials.com/dailycombined/market_snapshot.json';
+const url = 'https://r2.deanfi.com/dailycombined/market_snapshot.json';
 const response = await fetch(url);
 const snapshot = await response.json();
 
@@ -161,7 +161,7 @@ const snapshot = await response.json();
 import requests
 
 # Fetch combined snapshot
-url = 'https://r2.deanfinancials.com/dailycombined/market_snapshot.json'
+url = 'https://r2.deanfi.com/dailycombined/market_snapshot.json'
 response = requests.get(url)
 snapshot = response.json()
 

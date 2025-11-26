@@ -6,6 +6,26 @@ This document tracks all implementations, changes, and updates to the deanfi-dat
 
 ---
 
+## [2025-11-26] - R2 Domain Migration
+
+### Changed
+
+#### R2 URL Migration
+- **Migration**: Updated all R2 URLs from `r2.deanfinancials.com` to `r2.deanfi.com` to align with primary domain change
+- **Reason**: Primary domain migrated from deanfinancials.com to deanfi.com with page rule redirect. Old R2 subdomain now redirects, breaking data fetching.
+
+**Files Updated**:
+1. `.github/workflows/combine-daily-snapshots.yml` - Updated success message URL
+2. `dailycombined/README.md` - Updated JavaScript and Python example URLs (2 occurrences)
+3. `README.md` - Updated quick start examples for combined snapshot and individual datasets (2 occurrences)
+
+**Impact**:
+- All documentation now references correct R2 endpoint
+- GitHub Actions workflow outputs correct URL
+- Example code in READMEs works with current infrastructure
+
+---
+
 ## [2025-11-22] - Cloudflare R2 Integration & Documentation
 
 ### Added

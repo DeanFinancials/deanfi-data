@@ -35,7 +35,7 @@ Automated market data collection updated by the [deanfi-collectors](https://gith
 
 ```javascript
 // Single request for all market data
-const url = 'https://r2.deanfinancials.com/dailycombined/market_snapshot.json';
+const url = 'https://r2.deanfi.com/dailycombined/market_snapshot.json';
 const response = await fetch(url);
 const snapshot = await response.json();
 
@@ -58,7 +58,7 @@ High-performance edge access via Cloudflare R2:
 
 ```javascript
 // Fetch individual datasets from R2 (faster, no rate limits)
-const url = 'https://r2.deanfinancials.com/daily-news/top_news.json';
+const url = 'https://r2.deanfi.com/daily-news/top_news.json';
 const response = await fetch(url);
 const data = await response.json();
 

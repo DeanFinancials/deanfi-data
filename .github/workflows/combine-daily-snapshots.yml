@@ -61,7 +61,7 @@ jobs:
           # The path "dailycombined/market_snapshot.json" will create the dailycombined directory if it doesn't exist
           if wrangler r2 object put "$R2_BUCKET_NAME/dailycombined/market_snapshot.json" --file="dailycombined/market_snapshot.json" --remote; then
             echo "✅ Successfully uploaded to R2: dailycombined/market_snapshot.json"
-            echo "🌐 Available at: https://r2.deanfinancials.com/dailycombined/market_snapshot.json"
+            echo "🌐 Available at: https://r2.deanfi.com/dailycombined/market_snapshot.json"
             echo ""
             echo "📊 File Info:"
             ls -lh dailycombined/market_snapshot.json
