@@ -12,27 +12,53 @@ Automated market data collection updated by the [deanfi-collectors](https://gith
 
 | Dataset | File | Update Frequency | Last Updated |
 |---------|------|------------------|--------------|
+| **📦 Combined Snapshot** | [`dailycombined/market_snapshot.json`](dailycombined/market_snapshot.json) | Daily after close (4:38pm ET) | See metadata |
 | **Daily News** | [`daily-news/top_news.json`](daily-news/top_news.json) | Twice daily (9:30am & 4pm ET) | See metadata |
 | **Sector News** | [`daily-news/sector_news.json`](daily-news/sector_news.json) | Twice daily (9:30am & 4pm ET) | See metadata |
 | **Major Indexes** | [`major-indexes/`](major-indexes/) | Every 15 min (market hours) | See metadata |
 | **Advance/Decline** | [`advance-decline/daily_breadth.json`](advance-decline/daily_breadth.json) | Every 15 min (market hours) | See metadata |
 | **A/D Line Historical** | [`advance-decline/ad_line_historical.json`](advance-decline/ad_line_historical.json) | Every 15 min (market hours) | See metadata |
 | **MA % Historical** | [`advance-decline/ma_percentage_historical.json`](advance-decline/ma_percentage_historical.json) | Every 15 min (market hours) | See metadata |
+| **Mean Reversion** | [`meanreversion/`](meanreversion/) | Every 15 min (market hours) | See metadata |
 | **Analyst Trends** | [`analyst-trends/recommendation_trends.json`](analyst-trends/recommendation_trends.json) | Weekly (Sunday 12pm ET) | See metadata |
 | **Sector Analysis** | [`analyst-trends/sector_recommendation_trends.json`](analyst-trends/sector_recommendation_trends.json) | Weekly (Sunday 12pm ET) | See metadata |
 | **Earnings Calendar** | [`earnings-calendar/earnings_calendar.json`](earnings-calendar/earnings_calendar.json) | Weekly (Sunday 12pm ET) | See metadata |
 | **Earnings Surprises** | [`earnings-surprises/earnings_surprises.json`](earnings-surprises/earnings_surprises.json) | Weekly (Sunday 12pm ET) | See metadata |
 | **Implied Volatility** | [`implied-volatility/`](implied-volatility/) | Every 15 min (market hours) | See metadata |
+| **Economy Indicators** | [`economy-breadth/`](economy-breadth/) | Twice daily (8am & 12pm ET) | See metadata |
 
 ## 🚀 Quick Start
+
+### 📦 Combined Daily Snapshot (Easiest!)
+
+**NEW:** Get all daily market data in a single API call:
+
+```javascript
+// Single request for all market data
+const url = 'https://r2.deanfinancials.com/dailycombined/market_snapshot.json';
+const response = await fetch(url);
+const snapshot = await response.json();
+
+// Access everything
+console.log(snapshot.data.market_breadth);    // S&P 500 breadth
+console.log(snapshot.data.major_indexes);     // All index prices
+console.log(snapshot.data.news);              // Latest news
+console.log(snapshot.data.economy);           // Economic indicators
+```
+
+**Includes:** Market breadth, major indexes, mean reversion, implied volatility, news, economy data, and weekly earnings data. Updated daily at 4:38pm ET.
+
+See [`dailycombined/README.md`](dailycombined/README.md) for full documentation.
+
+---
 
 ### Cloudflare R2 Access (Recommended)
 
 High-performance edge access via Cloudflare R2:
 
 ```javascript
-// Fetch latest news from R2 (faster, no rate limits)
-const url = 'https://pub-xxxxx.r2.dev/daily-news/top_news.json';  // Replace with your R2 URL
+// Fetch individual datasets from R2 (faster, no rate limits)
+const url = 'https://r2.deanfinancials.com/daily-news/top_news.json';
 const response = await fetch(url);
 const data = await response.json();
 

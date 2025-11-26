@@ -1,0 +1,91 @@
+name: Combine Daily Snapshots
+
+on:
+  schedule:
+    # Every weekday at 4:38pm ET (21:38 UTC)
+    # Runs 3 minutes after the last daily market data workflow completes
+    # Note: Adjust for daylight saving time if needed (EDT vs EST)
+    - cron: '38 21 * * 1-5'
+  workflow_dispatch:  # Allow manual trigger
+
+env:
+  CLOUDFLARE_API_TOKEN: "${{ secrets.CLOUDFLARE_API_TOKEN }}"
+  CLOUDFLARE_ACCOUNT_ID: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+  R2_BUCKET_NAME: "${{ secrets.R2_BUCKET_NAME }}"
+
+jobs:
+  combine-snapshots:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout deanfi-data repo
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Combine daily snapshots
+        run: |
+          cd dailycombined
+          python combine_daily_snapshots.py
+          echo "✅ Daily snapshots combined"
+      
+      - name: Verify output file exists
+        run: |
+          if [ -f dailycombined/market_snapshot.json ]; then
+            echo "✅ market_snapshot.json created successfully"
+            ls -lh dailycombined/market_snapshot.json
+            echo ""
+            echo "📊 Summary:"
+            python3 -c "import json; data = json.load(open('dailycombined/market_snapshot.json')); print(f\"Categories: {', '.join(data['data'].keys())}\"); print(f\"Total sources: {data['metadata']['total_sources']}\"); print(f\"Generated: {data['metadata']['generated_at']}\")"
+          else
+            echo "❌ market_snapshot.json not found"
+            exit 1
+          fi
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Wrangler
+        run: npm install -g wrangler
+      
+      - name: Upload to R2
+        run: |
+          echo "📤 Uploading market_snapshot.json to R2 bucket: $R2_BUCKET_NAME"
+          
+          # Wrangler automatically creates directories as needed when uploading
+          # The path "dailycombined/market_snapshot.json" will create the dailycombined directory if it doesn't exist
+          if wrangler r2 object put "$R2_BUCKET_NAME/dailycombined/market_snapshot.json" --file="dailycombined/market_snapshot.json" --remote; then
+            echo "✅ Successfully uploaded to R2: dailycombined/market_snapshot.json"
+            echo "🌐 Available at: https://r2.deanfinancials.com/dailycombined/market_snapshot.json"
+            echo ""
+            echo "📊 File Info:"
+            ls -lh dailycombined/market_snapshot.json
+            FILE_SIZE_KB=$(du -k dailycombined/market_snapshot.json | cut -f1)
+            echo "📦 Size: ${FILE_SIZE_KB}KB (uncompressed)"
+            echo "📦 Gzipped: ~50-80KB (automatic with CDN)"
+            echo "⚡ Perfect size for AI/LLM consumption!"
+          else
+            echo "❌ Failed to upload to R2"
+            exit 1
+          fi
+      
+      - name: Optional - Commit to repository
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dailycombined/market_snapshot.json
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update daily market snapshot - $(date -u +"%Y-%m-%d %H:%M UTC")"
+            git pull --rebase origin main
+            git push
+            echo "✅ Combined snapshot also pushed to repository"
+          fi
