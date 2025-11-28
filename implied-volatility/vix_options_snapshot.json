@@ -3,7 +3,7 @@
     "description": "Implied volatility snapshot for VIX options (volatility of volatility)",
     "data_source": "yfinance (Yahoo Finance) - VIX options data",
     "update_frequency": "Real-time (run script to update)",
-    "last_updated": "2025-11-28T17:41:08.059455",
+    "last_updated": "2025-11-28T17:52:37.840980",
     "symbol": "^VIX",
     "important_note": "VIX options measure volatility OF volatility - different from equity options",
     "vix_background": {
@@ -41,24 +41,24 @@
   "data": {
     "^VIX": {
       "symbol": "^VIX",
-      "current_price": 16.6,
-      "timestamp": "2025-11-28T17:41:08.059212",
+      "current_price": 16.56,
+      "timestamp": "2025-11-28T17:52:37.840733",
       "expiration_date": "2025-12-10",
       "days_to_expiration": 12,
       "atm_call": {
         "strike": 17.0,
-        "implied_volatility": 1.843751,
-        "last_price": 2.26,
+        "implied_volatility": 1.856446,
+        "last_price": 2.09,
         "bid": 2.0,
-        "ask": 2.25,
-        "mid_price": 2.125,
-        "moneyness": 1.0241,
-        "pct_from_atm": 2.41,
+        "ask": 2.24,
+        "mid_price": 2.12,
+        "moneyness": 1.0266,
+        "pct_from_atm": 2.66,
         "classification": "OTM",
-        "volume": 68,
+        "volume": 69,
         "open_interest": 507,
-        "bid_ask_spread": 0.25,
-        "spread_pct": 11.76
+        "bid_ask_spread": 0.24,
+        "spread_pct": 11.32
       },
       "atm_put": {
         "strike": 17.0,
@@ -67,27 +67,27 @@
         "bid": 0.16,
         "ask": 0.3,
         "mid_price": 0.23,
-        "moneyness": 1.0241,
-        "pct_from_atm": 2.41,
+        "moneyness": 1.0266,
+        "pct_from_atm": 2.66,
         "classification": "OTM",
         "volume": 161,
         "open_interest": 1215,
         "bid_ask_spread": 0.14,
         "spread_pct": 60.87
       },
-      "average_iv": 0.92188,
+      "average_iv": 0.928228,
       "name": "CBOE Volatility Index",
       "description": "Market's expectation of 30-day S&P 500 volatility",
       "note": "VIX options measure volatility of volatility - unique characteristics",
-      "average_iv_formatted": "92.19%",
+      "average_iv_formatted": "92.82%",
       "iv_level": "Low",
       "historical_reference": {
         "historical_avg": 0.21,
         "historical_avg_formatted": "21%",
         "typical_low": 0.12,
         "typical_high": 0.3,
-        "current_vs_average": 0.7119,
-        "current_vs_average_pct": "338.99%",
+        "current_vs_average": 0.7182,
+        "current_vs_average_pct": "342.01%",
         "special_note": "VIX > 30 indicates high market uncertainty"
       }
     }
