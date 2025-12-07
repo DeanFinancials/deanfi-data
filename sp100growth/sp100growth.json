@@ -1,0 +1,3478 @@
+{
+  "_README": {
+    "title": "S&P 100 Growth Metrics",
+    "description": "Financial growth metrics extracted from SEC EDGAR filings for S&P 100 companies",
+    "purpose": "Track revenue and EPS growth for the largest US companies",
+    "data_sources": {
+      "primary": "SEC EDGAR (10-K and 10-Q filings)",
+      "fallback": "Finnhub API (for quarterly data when SEC is incomplete)"
+    },
+    "metrics_explained": {
+      "revenue_yoy": {
+        "description": "Year-over-year revenue growth rate",
+        "format": "Decimal (0.05 = 5% growth, -0.03 = 3% decline)",
+        "calculation": "(current_year_revenue / prior_year_revenue) - 1"
+      },
+      "eps_yoy": {
+        "description": "Year-over-year diluted EPS growth rate",
+        "format": "Decimal (0.10 = 10% growth)",
+        "calculation": "(current_year_eps / prior_year_eps) - 1"
+      },
+      "ttm": {
+        "description": "Trailing Twelve Months metrics from the most recent 4 quarters",
+        "fields": {
+          "revenue": "Sum of revenue from the last 4 quarters (USD)",
+          "eps_diluted": "Sum of diluted EPS from the last 4 quarters",
+          "revenue_yoy": "TTM revenue growth vs prior TTM",
+          "eps_yoy": "TTM EPS growth vs prior TTM",
+          "source": "'sec', 'finnhub', 'mixed', or 'annual_fallback'"
+        }
+      },
+      "cagr_3yr": {
+        "description": "3-year Compound Annual Growth Rate",
+        "calculation": "(end_value / start_value)^(1/3) - 1"
+      },
+      "cagr_5yr": {
+        "description": "5-year Compound Annual Growth Rate",
+        "calculation": "(end_value / start_value)^(1/5) - 1"
+      }
+    },
+    "trading_applications": {
+      "growth_screening": "Filter companies by revenue/EPS growth rates",
+      "momentum_analysis": "Track acceleration/deceleration in fundamentals",
+      "valuation_context": "Compare growth rates to P/E ratios",
+      "sector_comparison": "Identify growth leaders within sectors"
+    },
+    "notes": [
+      "All growth rates are decimals (multiply by 100 for percentage)",
+      "Null values indicate insufficient data",
+      "Revenue figures are in USD (not scaled)",
+      "Fiscal year end dates vary by company"
+    ]
+  },
+  "metadata": {
+    "generated_at": "2025-12-07T12:02:53.911804Z",
+    "data_source": "SEC EDGAR + Finnhub",
+    "ticker_count": 100,
+    "successful_extractions": 100,
+    "universe": "S&P 100"
+  },
+  "companies": {
+    "AAPL": {
+      "ticker": "AAPL",
+      "cik": "0000320193",
+      "company_name": "Apple Inc.",
+      "extracted_at": "2025-12-07T12:02:07.970884Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0643,
+          "2024": 0.0202,
+          "2023": -0.028,
+          "2022": 0.0779,
+          "2021": 0.3326
+        },
+        "eps_yoy": {
+          "2025": 0.227,
+          "2024": -0.0082,
+          "2023": 0.0033,
+          "2022": 0.0891,
+          "2021": 0.7104
+        },
+        "ttm": {
+          "revenue": 399472000000,
+          "eps_diluted": 7.02,
+          "revenue_yoy": 0.0323,
+          "eps_yoy": 0.0817,
+          "as_of_quarter": "2025-06-28",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0181,
+        "eps_cagr_3yr": 0.0688,
+        "revenue_cagr_5yr": 0.0868,
+        "eps_cagr_5yr": 0.1786
+      },
+      "errors": []
+    },
+    "ABBV": {
+      "ticker": "ABBV",
+      "cik": "0001551152",
+      "company_name": "AbbVie Inc.",
+      "extracted_at": "2025-12-07T12:02:08.336497Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0371,
+          "2023": -0.0644,
+          "2022": 0.033,
+          "2021": 0.2269,
+          "2020": 0.3769
+        },
+        "eps_yoy": {
+          "2024": -1.0074,
+          "2023": -0.5897,
+          "2022": 0.0279,
+          "2021": 1.3713,
+          "2020": -0.4848
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 2.2199999999999998,
+          "revenue_yoy": null,
+          "eps_yoy": -0.3967,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0008,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.1111,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "ABT": {
+      "ticker": "ABT",
+      "cik": "0000001800",
+      "company_name": "ABBOTT LABORATORIES",
+      "extracted_at": "2025-12-07T12:02:08.860025Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0459,
+          "2023": -0.0812,
+          "2022": 0.0134,
+          "2021": 0.2447,
+          "2020": 0.0848
+        },
+        "eps_yoy": {
+          "2024": 1.3436,
+          "2023": -0.1662,
+          "2022": -0.0076,
+          "2021": 0.576,
+          "2020": 0.2136
+        },
+        "ttm": {
+          "revenue": 43504000000,
+          "eps_diluted": 3.65,
+          "revenue_yoy": 0.0752,
+          "eps_yoy": 0.2007,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0088,
+        "eps_cagr_3yr": 0.247,
+        "revenue_cagr_5yr": 0.0563,
+        "eps_cagr_5yr": 0.2997
+      },
+      "errors": []
+    },
+    "ACN": {
+      "ticker": "ACN",
+      "cik": "0001467373",
+      "company_name": "Accenture plc",
+      "extracted_at": "2025-12-07T12:02:09.310125Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": -0.0582,
+          "2024": -0.0037
+        },
+        "eps_yoy": {
+          "2025": -0.2145,
+          "2024": -0.125
+        },
+        "ttm": {
+          "revenue": 68543545000,
+          "eps_diluted": 12.940000000000001,
+          "revenue_yoy": 0.0643,
+          "eps_yoy": 0.1482,
+          "as_of_quarter": "2025-05-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0018,
+        "eps_cagr_3yr": -0.1442,
+        "revenue_cagr_5yr": 0.0134,
+        "eps_cagr_5yr": -0.0584
+      },
+      "errors": []
+    },
+    "ADBE": {
+      "ticker": "ADBE",
+      "cik": "0000796343",
+      "company_name": "ADOBE INC.",
+      "extracted_at": "2025-12-07T12:02:09.657321Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.108,
+          "2023": 0.1024,
+          "2022": 0.1154,
+          "2021": 0.2267,
+          "2020": 2.9901
+        },
+        "eps_yoy": {
+          "2024": 0.0457,
+          "2023": 0.1703,
+          "2022": 0.008,
+          "2021": -0.0748,
+          "2020": 4.4975
+        },
+        "ttm": {
+          "revenue": 22983000000,
+          "eps_diluted": 16.019999999999996,
+          "revenue_yoy": 0.1379,
+          "eps_yoy": 0.4944,
+          "as_of_quarter": "2025-08-29",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1086,
+        "eps_cagr_3yr": 0.0725,
+        "revenue_cagr_5yr": 0.4615,
+        "eps_cagr_5yr": 0.4438
+      },
+      "errors": []
+    },
+    "AIG": {
+      "ticker": "AIG",
+      "cik": "0000005272",
+      "company_name": "American International Group, Inc.",
+      "extracted_at": "2025-12-07T12:02:10.221423Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0363,
+          "2023": -0.102
+        },
+        "eps_yoy": {
+          "2024": null,
+          "2023": null
+        },
+        "ttm": {
+          "revenue": 26976000000,
+          "eps_diluted": 4.78,
+          "revenue_yoy": -0.0375,
+          "eps_yoy": 6.7097,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.02,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": -0.0025,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "cik": "0000002488",
+      "company_name": "ADVANCED MICRO DEVICES, INC",
+      "extracted_at": "2025-12-07T12:02:10.590728Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1369,
+          "2023": -0.039,
+          "2022": 0.4361,
+          "2021": 0.6833,
+          "2020": 2.4855
+        },
+        "eps_yoy": {
+          "2024": 0.8868,
+          "2023": -0.369,
+          "2022": -0.6732,
+          "2021": 0.2476,
+          "2020": 5.4375
+        },
+        "ttm": {
+          "revenue": 31188000000,
+          "eps_diluted": 2.2,
+          "revenue_yoy": 0.3882,
+          "eps_yoy": 4.1163,
+          "as_of_quarter": "2025-09-27",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.162,
+        "eps_cagr_3yr": -0.2699,
+        "revenue_cagr_5yr": 0.5589,
+        "eps_cagr_5yr": 0.2559
+      },
+      "errors": []
+    },
+    "AMGN": {
+      "ticker": "AMGN",
+      "cik": "0000318154",
+      "company_name": "Amgen Inc.",
+      "extracted_at": "2025-12-07T12:02:10.903186Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1857,
+          "2023": 0.0709,
+          "2022": 0.0132,
+          "2021": 0.0218,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": -0.3947,
+          "2023": 0.0314,
+          "2022": 0.178,
+          "2021": -0.1649,
+          "2020": 2.5889
+        },
+        "ttm": {
+          "revenue": 35388000000,
+          "eps_diluted": 17.0,
+          "revenue_yoy": 0.1906,
+          "eps_yoy": 1.4425,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0876,
+        "eps_cagr_3yr": -0.0974,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.1712
+      },
+      "errors": []
+    },
+    "AMT": {
+      "ticker": "AMT",
+      "cik": "0001053507",
+      "company_name": "AMERICAN TOWER CORPORATION",
+      "extracted_at": "2025-12-07T12:02:11.365629Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null
+        },
+        "eps_yoy": {
+          "2024": 9.8889,
+          "2023": -0.8571
+        },
+        "ttm": {
+          "revenue": 906500000,
+          "eps_diluted": 1.9500000000000002,
+          "revenue_yoy": 0.2066,
+          "eps_yoy": -0.6834,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.1016,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.1577
+      },
+      "errors": []
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "cik": "0001018724",
+      "company_name": "AMAZON.COM, INC.",
+      "extracted_at": "2025-12-07T12:02:11.705222Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1099,
+          "2023": 0.1183,
+          "2022": 0.094,
+          "2021": 0.217,
+          "2020": 3.0154
+        },
+        "eps_yoy": {
+          "2024": 0.9069,
+          "2023": -11.7407,
+          "2022": -1.0833,
+          "2021": 0.5502,
+          "2020": -0.831
+        },
+        "ttm": {
+          "revenue": 662415000000,
+          "eps_diluted": 6.6499999999999995,
+          "revenue_yoy": 0.1647,
+          "eps_yoy": 0.7363,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1074,
+        "eps_cagr_3yr": 0.1951,
+        "revenue_cagr_5yr": 0.4601,
+        "eps_cagr_5yr": -0.1487
+      },
+      "errors": []
+    },
+    "AVGO": {
+      "ticker": "AVGO",
+      "cik": "0001730168",
+      "company_name": "Broadcom Inc.",
+      "extracted_at": "2025-12-07T12:02:12.031118Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.4399,
+          "2023": 0.0788,
+          "2022": 0.2096,
+          "2021": 0.1491,
+          "2020": 3.1038
+        },
+        "eps_yoy": {
+          "2024": -0.6273,
+          "2023": 0.2453,
+          "2022": -0.8233,
+          "2021": 1.3697,
+          "2020": 3.3655
+        },
+        "ttm": {
+          "revenue": 58944000000,
+          "eps_diluted": 2.6199999999999997,
+          "revenue_yoy": 0.4015,
+          "eps_yoy": -0.7282,
+          "as_of_quarter": "2025-08-03",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.2339,
+        "eps_cagr_3yr": -0.5656,
+        "revenue_cagr_5yr": 0.547,
+        "eps_cagr_5yr": -0.0324
+      },
+      "errors": []
+    },
+    "AXP": {
+      "ticker": "AXP",
+      "cik": "0000004962",
+      "company_name": "AMERICAN EXPRESS COMPANY",
+      "extracted_at": "2025-12-07T12:02:12.551122Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0432,
+          "2023": 0.0876,
+          "2022": 0.2346,
+          "2021": 0.2613,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.2498,
+          "2023": 0.1381,
+          "2022": -0.017,
+          "2021": 1.6578,
+          "2020": 1.9
+        },
+        "ttm": {
+          "revenue": 40078000000,
+          "eps_diluted": 15.35,
+          "revenue_yoy": 0.0556,
+          "eps_yoy": 0.1229,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1189,
+        "eps_cagr_3yr": 0.1182,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.6088
+      },
+      "errors": []
+    },
+    "BA": {
+      "ticker": "BA",
+      "cik": "0000012927",
+      "company_name": "THE BOEING COMPANY",
+      "extracted_at": "2025-12-07T12:02:12.965558Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 4.0027,
+          "2023": -0.5578,
+          "2022": 0.1608,
+          "2021": -0.6576,
+          "2020": 25.4304
+        },
+        "ttm": {
+          "revenue": 83355000000,
+          "eps_diluted": -18.19,
+          "revenue_yoy": 0.1692,
+          "eps_yoy": 2.1147,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "BAC": {
+      "ticker": "BAC",
+      "cik": "0000070858",
+      "company_name": "Bank of America Corporation",
+      "extracted_at": "2025-12-07T12:02:13.391845Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0335,
+          "2023": 0.0382,
+          "2022": 0.0655,
+          "2021": 0.0419,
+          "2020": -0.0626
+        },
+        "eps_yoy": {
+          "2024": 0.0422,
+          "2023": -0.0345,
+          "2022": -0.1064,
+          "2021": 0.9091,
+          "2020": -0.32
+        },
+        "ttm": {
+          "revenue": 107262000000,
+          "eps_diluted": 3.66,
+          "revenue_yoy": 0.0562,
+          "eps_yoy": 0.0861,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0457,
+        "eps_cagr_3yr": -0.0348,
+        "revenue_cagr_5yr": 0.0223,
+        "eps_cagr_5yr": 0.0314
+      },
+      "errors": []
+    },
+    "BK": {
+      "ticker": "BK",
+      "cik": "0001390777",
+      "company_name": "THE BANK OF NEW YORK MELLON CORPORATION",
+      "extracted_at": "2025-12-07T12:02:13.888811Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0521,
+          "2023": 0.0707,
+          "2022": 0.0375,
+          "2021": 0.0078,
+          "2020": -0.0397
+        },
+        "eps_yoy": {
+          "2024": 0.491,
+          "2023": 0.3507,
+          "2022": -0.3043,
+          "2021": 0.0809,
+          "2020": -0.1508
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 6.93,
+          "revenue_yoy": null,
+          "eps_yoy": 0.5469,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0533,
+        "eps_cagr_3yr": 0.1189,
+        "revenue_cagr_5yr": 0.0249,
+        "eps_cagr_5yr": 0.0516
+      },
+      "errors": []
+    },
+    "BKNG": {
+      "ticker": "BKNG",
+      "cik": "0001075531",
+      "company_name": "Booking Holdings Inc.",
+      "extracted_at": "2025-12-07T12:02:14.548369Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1111,
+          "2023": 0.2501,
+          "2022": 0.5596,
+          "2021": 0.6124,
+          "2020": -0.5489
+        },
+        "eps_yoy": {
+          "2024": 0.471,
+          "2023": 0.5377,
+          "2022": 1.7103,
+          "2021": 18.5625,
+          "2020": -0.9871
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 196.25,
+          "revenue_yoy": null,
+          "eps_yoy": 0.1447,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.2939,
+        "eps_cagr_3yr": 0.8302,
+        "revenue_cagr_5yr": 0.0952,
+        "eps_cagr_5yr": 0.0908
+      },
+      "errors": []
+    },
+    "BLK": {
+      "ticker": "BLK",
+      "cik": "0002012383",
+      "company_name": "BlackRock, Inc.",
+      "extracted_at": "2025-12-07T12:02:15.025116Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1427,
+          "2023": -0.0008
+        },
+        "eps_yoy": {
+          "2024": 0.1506,
+          "2023": 0.0748
+        },
+        "ttm": {
+          "revenue": 22405000000,
+          "eps_diluted": 39.16,
+          "revenue_yoy": null,
+          "eps_yoy": null,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "BMY": {
+      "ticker": "BMY",
+      "cik": "0000014272",
+      "company_name": "BRISTOL-MYERS SQUIBB COMPANY",
+      "extracted_at": "2025-12-07T12:02:15.590234Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0732,
+          "2023": -0.025,
+          "2022": -0.0049,
+          "2021": 0.0909,
+          "2020": 3.034
+        },
+        "eps_yoy": {
+          "2024": -2.1425,
+          "2023": 0.3085,
+          "2022": -0.0545,
+          "2021": -1.782,
+          "2020": -5.8659
+        },
+        "ttm": {
+          "revenue": 47584000000,
+          "eps_diluted": 3.52,
+          "revenue_yoy": 0.0287,
+          "eps_yoy": -2.121,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0136,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.3559,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "BRK-B": {
+      "ticker": "BRK-B",
+      "cik": "0001067983",
+      "company_name": "BERKSHIRE HATHAWAY INC",
+      "extracted_at": "2025-12-07T12:02:15.843828Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0204,
+          "2023": 0.2269,
+          "2022": 0.0864,
+          "2021": 0.1471,
+          "2020": -0.0554
+        },
+        "eps_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "ttm": {
+          "revenue": 246558000000,
+          "eps_diluted": null,
+          "revenue_yoy": -0.0346,
+          "eps_yoy": null,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.093,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.0718,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "C": {
+      "ticker": "C",
+      "cik": "0000831001",
+      "company_name": "Citigroup\u00a0Inc",
+      "extracted_at": "2025-12-07T12:02:16.667278Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0341,
+          "2023": 0.0415,
+          "2022": 0.048,
+          "2021": -0.0172
+        },
+        "eps_yoy": {
+          "2024": 0.4703,
+          "2023": -0.4229,
+          "2022": -0.3097,
+          "2021": -0.2456
+        },
+        "ttm": {
+          "revenue": 85563000000,
+          "eps_diluted": 7.29,
+          "revenue_yoy": 0.0613,
+          "eps_yoy": 0.203,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0412,
+        "eps_cagr_3yr": -0.1633,
+        "revenue_cagr_5yr": 0.3552,
+        "eps_cagr_5yr": 0.1582
+      },
+      "errors": []
+    },
+    "CAT": {
+      "ticker": "CAT",
+      "cik": "0000018230",
+      "company_name": "CATERPILLAR INC",
+      "extracted_at": "2025-12-07T12:02:17.177846Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0336,
+          "2023": 0.1284,
+          "2022": 0.1659,
+          "2021": 0.2209,
+          "2020": 3.2251
+        },
+        "eps_yoy": {
+          "2024": 0.0959,
+          "2023": 0.5918,
+          "2022": 0.0685,
+          "2021": 1.1667,
+          "2020": 3.4754
+        },
+        "ttm": {
+          "revenue": 64562000000,
+          "eps_diluted": 18.759999999999998,
+          "revenue_yoy": -0.0308,
+          "eps_yoy": -0.1606,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0834,
+        "eps_cagr_3yr": 0.2307,
+        "revenue_cagr_5yr": 0.4567,
+        "eps_cagr_5yr": 0.7841
+      },
+      "errors": []
+    },
+    "CL": {
+      "ticker": "CL",
+      "cik": "0000021665",
+      "company_name": "COLGATE-PALMOLIVE COMPANY",
+      "extracted_at": "2025-12-07T12:02:17.551312Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0331,
+          "2023": 0.0829,
+          "2022": 0.0313,
+          "2021": 0.0577,
+          "2020": 2.966
+        },
+        "eps_yoy": {
+          "2024": 0.2671,
+          "2023": 0.3005,
+          "2022": -0.1647,
+          "2021": -0.1879,
+          "2020": 2.8765
+        },
+        "ttm": {
+          "revenue": 20185000000,
+          "eps_diluted": 3.57,
+          "revenue_yoy": 0.0164,
+          "eps_yoy": 0.1226,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0489,
+        "eps_cagr_3yr": 0.1124,
+        "revenue_cagr_5yr": 0.3708,
+        "eps_cagr_5yr": 0.3408
+      },
+      "errors": []
+    },
+    "CMCSA": {
+      "ticker": "CMCSA",
+      "cik": "0001166691",
+      "company_name": "COMCAST\u00a0CORPORATION",
+      "extracted_at": "2025-12-07T12:02:17.953574Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0178,
+          "2023": 0.0012,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.1159,
+          "2023": 2.0661,
+          "2022": -0.602,
+          "2021": 0.3333,
+          "2020": 4.1818
+        },
+        "ttm": {
+          "revenue": 123468000000,
+          "eps_diluted": 5.709999999999999,
+          "revenue_yoy": 0.0257,
+          "eps_yoy": 0.4383,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.1084,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.5657
+      },
+      "errors": []
+    },
+    "COF": {
+      "ticker": "COF",
+      "cik": "0000927628",
+      "company_name": "CAPITAL\u00a0ONE\u00a0FINANCIAL\u00a0CORP",
+      "extracted_at": "2025-12-07T12:02:18.768484Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0478,
+          "2023": 0.0421,
+          "2022": 0.1333,
+          "2021": 0.2791,
+          "2020": -0.0217
+        },
+        "eps_yoy": {
+          "2024": -0.0301,
+          "2023": -0.3328,
+          "2022": -0.3352,
+          "2021": 4.2008,
+          "2020": -0.5312
+        },
+        "ttm": {
+          "revenue": 7063000000,
+          "eps_diluted": 4.11,
+          "revenue_yoy": 0.2286,
+          "eps_yoy": -0.6707,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0736,
+        "eps_cagr_3yr": -0.2451,
+        "revenue_cagr_5yr": 0.0914,
+        "eps_cagr_5yr": 0.0096
+      },
+      "errors": []
+    },
+    "COP": {
+      "ticker": "COP",
+      "cik": "0001163165",
+      "company_name": "ConocoPhillips",
+      "extracted_at": "2025-12-07T12:02:19.145111Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0185,
+          "2023": -0.2052,
+          "2022": 0.7649,
+          "2021": 1.5318,
+          "2020": -0.5805
+        },
+        "eps_yoy": {
+          "2024": -0.138,
+          "2023": -0.3782,
+          "2022": 1.4003,
+          "2021": -3.4183,
+          "2020": -1.3922
+        },
+        "ttm": {
+          "revenue": 52140000000,
+          "eps_diluted": 6.93,
+          "revenue_yoy": 0.0733,
+          "eps_yoy": -0.1641,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1263,
+        "eps_cagr_3yr": 0.0876,
+        "revenue_cagr_5yr": 0.087,
+        "eps_cagr_5yr": 0.0406
+      },
+      "errors": []
+    },
+    "COST": {
+      "ticker": "COST",
+      "cik": "0000909832",
+      "company_name": "COSTCO WHOLESALE CORP /NEW",
+      "extracted_at": "2025-12-07T12:02:19.521510Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0817,
+          "2024": 0.0502,
+          "2023": 0.0676,
+          "2022": 0.1583,
+          "2021": 0.1749
+        },
+        "eps_yoy": {
+          "2025": 0.0996,
+          "2024": 0.1695,
+          "2023": 0.0776,
+          "2022": 0.1659,
+          "2021": 0.2494
+        },
+        "ttm": {
+          "revenue": 247594000000,
+          "eps_diluted": 16.12,
+          "revenue_yoy": 0.0997,
+          "eps_yoy": 0.1741,
+          "as_of_quarter": "2025-05-11",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0664,
+        "eps_cagr_3yr": 0.1149,
+        "revenue_cagr_5yr": 0.1054,
+        "eps_cagr_5yr": 0.1509
+      },
+      "errors": []
+    },
+    "CRM": {
+      "ticker": "CRM",
+      "cik": "0001108524",
+      "company_name": "Salesforce, Inc.",
+      "extracted_at": "2025-12-07T12:02:19.954976Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0872,
+          "2024": 0.1118,
+          "2023": 0.1835,
+          "2022": 0.2466,
+          "2021": 0.243
+        },
+        "eps_yoy": {
+          "2025": 0.5143,
+          "2024": 19.0,
+          "2023": -0.8581,
+          "2022": -0.6621,
+          "2021": 28.2
+        },
+        "ttm": {
+          "revenue": 39768000000,
+          "eps_diluted": 7.32,
+          "revenue_yoy": 0.1114,
+          "eps_yoy": 0.3165,
+          "as_of_quarter": "2025-10-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1267,
+        "eps_cagr_3yr": 0.6258,
+        "revenue_cagr_5yr": 0.1725,
+        "eps_cagr_5yr": 1.1158
+      },
+      "errors": []
+    },
+    "CSCO": {
+      "ticker": "CSCO",
+      "cik": "0000858877",
+      "company_name": "CISCO SYSTEMS, INC.",
+      "extracted_at": "2025-12-07T12:02:20.525615Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.053,
+          "2024": -0.0561,
+          "2023": 0.1055,
+          "2022": 0.0349,
+          "2021": 0.0105
+        },
+        "eps_yoy": {
+          "2025": 0.0039,
+          "2024": -0.1726,
+          "2023": 0.0887,
+          "2022": 0.128,
+          "2021": -0.053
+        },
+        "ttm": {
+          "revenue": 56864000000,
+          "eps_diluted": 2.63,
+          "revenue_yoy": 0.039,
+          "eps_yoy": -0.054,
+          "as_of_quarter": "2025-10-25",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0319,
+        "eps_cagr_3yr": -0.033,
+        "revenue_cagr_5yr": 0.0282,
+        "eps_cagr_5yr": -0.0069
+      },
+      "errors": []
+    },
+    "CVS": {
+      "ticker": "CVS",
+      "cik": "0000064803",
+      "company_name": "CVS HEALTH CORPORATION",
+      "extracted_at": "2025-12-07T12:02:20.941113Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": -0.4343,
+          "2023": 0.9847,
+          "2022": -0.4585,
+          "2021": 0.1026,
+          "2020": 0.0748
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": -0.8500000000000001,
+          "revenue_yoy": null,
+          "eps_yoy": -1.154,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.1528,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": -0.0635
+      },
+      "errors": []
+    },
+    "CVX": {
+      "ticker": "CVX",
+      "cik": "0000093410",
+      "company_name": "Chevron Corp",
+      "extracted_at": "2025-12-07T12:02:21.634936Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0178,
+          "2023": -0.1646,
+          "2022": 0.5148,
+          "2021": 0.6471,
+          "2020": -0.3246
+        },
+        "eps_yoy": {
+          "2024": -0.1444,
+          "2023": -0.3786,
+          "2022": 1.2457,
+          "2021": -3.75,
+          "2020": -2.9221
+        },
+        "ttm": {
+          "revenue": 187571000000,
+          "eps_diluted": 7.75,
+          "revenue_yoy": -0.0395,
+          "eps_yoy": -0.3584,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0752,
+        "eps_cagr_3yr": 0.0609,
+        "revenue_cagr_5yr": 0.067,
+        "eps_cagr_5yr": 0.4455
+      },
+      "errors": []
+    },
+    "DE": {
+      "ticker": "DE",
+      "cik": "0000315189",
+      "company_name": "DEERE & CO",
+      "extracted_at": "2025-12-07T12:02:21.996599Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.1557,
+          "2023": 0.165,
+          "2022": 0.1943,
+          "2021": 0.2387,
+          "2020": 2.9821
+        },
+        "eps_yoy": {
+          "2024": -0.2602,
+          "2023": 0.4875,
+          "2022": 0.2259,
+          "2021": 1.1853,
+          "2020": 2.3813
+        },
+        "ttm": {
+          "revenue": 46441000000,
+          "eps_diluted": 20.87,
+          "revenue_yoy": -0.2337,
+          "eps_yoy": -0.397,
+          "as_of_quarter": "2025-07-27",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0551,
+        "eps_cagr_3yr": 0.105,
+        "revenue_cagr_5yr": 0.421,
+        "eps_cagr_5yr": 0.5839
+      },
+      "errors": []
+    },
+    "DHR": {
+      "ticker": "DHR",
+      "cik": "0000313616",
+      "company_name": "DANAHER CORPORATION",
+      "extracted_at": "2025-12-07T12:02:22.456175Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0006,
+          "2023": -0.7767
+        },
+        "eps_yoy": {
+          "2024": -0.1708,
+          "2023": -0.7992
+        },
+        "ttm": {
+          "revenue": 23528000000,
+          "eps_diluted": 4.48,
+          "revenue_yoy": 0.0196,
+          "eps_yoy": -0.2099,
+          "as_of_quarter": "2025-09-26",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.5925,
+        "eps_cagr_3yr": 0.5255,
+        "revenue_cagr_5yr": -0.0217,
+        "eps_cagr_5yr": -0.1135
+      },
+      "errors": []
+    },
+    "DIS": {
+      "ticker": "DIS",
+      "cik": "0001744489",
+      "company_name": "WALT DISNEY CO/",
+      "extracted_at": "2025-12-07T12:02:22.707702Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0335,
+          "2024": 0.0277,
+          "2023": 0.0747,
+          "2022": 0.227,
+          "2021": 0.031
+        },
+        "eps_yoy": {
+          "2025": 1.5184,
+          "2024": 1.1085,
+          "2023": -0.25,
+          "2022": 0.578,
+          "2021": -1.6899
+        },
+        "ttm": {
+          "revenue": 95116000000,
+          "eps_diluted": 7.5600000000000005,
+          "revenue_yoy": 0.0595,
+          "eps_yoy": 4.1429,
+          "as_of_quarter": "2025-06-28",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0451,
+        "eps_cagr_3yr": 0.5851,
+        "revenue_cagr_5yr": 0.0763,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "DUK": {
+      "ticker": "DUK",
+      "cik": "0001326160",
+      "company_name": "DUKE ENERGY CORPORATION",
+      "extracted_at": "2025-12-07T12:02:23.196027Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null
+        },
+        "eps_yoy": {
+          "2024": 0.613,
+          "2023": -0.6814
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 6.63,
+          "revenue_yoy": null,
+          "eps_yoy": 0.151,
+          "as_of_quarter": "2025-11-07",
+          "source": "mixed"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.1249
+      },
+      "errors": []
+    },
+    "EMR": {
+      "ticker": "EMR",
+      "cik": "0000032604",
+      "company_name": "EMERSON ELECTRIC CO.",
+      "extracted_at": "2025-12-07T12:02:23.805522Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0616,
+          "2024": 0.0546
+        },
+        "eps_yoy": {
+          "2025": -0.1569,
+          "2024": 2.0351
+        },
+        "ttm": {
+          "revenue": 17540000000,
+          "eps_diluted": 3.4899999999999998,
+          "revenue_yoy": 0.0831,
+          "eps_yoy": -0.8142,
+          "as_of_quarter": "2025-06-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0516,
+        "eps_cagr_3yr": 0.0317,
+        "revenue_cagr_5yr": 0.0208,
+        "eps_cagr_5yr": 0.1446
+      },
+      "errors": []
+    },
+    "FDX": {
+      "ticker": "FDX",
+      "cik": "0001048911",
+      "company_name": "FedEx Corporation",
+      "extracted_at": "2025-12-07T12:02:24.159720Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0027,
+          "2024": -0.0273,
+          "2023": -0.0359,
+          "2022": 0.1138,
+          "2021": 0.213
+        },
+        "eps_yoy": {
+          "2025": -0.0232,
+          "2024": 0.1118,
+          "2023": 0.0803,
+          "2022": -0.2632,
+          "2021": 2.9694
+        },
+        "ttm": {
+          "revenue": 87950000000,
+          "eps_diluted": 13.46,
+          "revenue_yoy": 0.0022,
+          "eps_yoy": -0.0614,
+          "as_of_quarter": "2025-08-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0203,
+        "eps_cagr_3yr": 0.0546,
+        "revenue_cagr_5yr": 0.049,
+        "eps_cagr_5yr": 0.2796
+      },
+      "errors": []
+    },
+    "GD": {
+      "ticker": "GD",
+      "cik": "0000040533",
+      "company_name": "GENERAL DYNAMICS CORPORATION",
+      "extracted_at": "2025-12-07T12:02:24.606360Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1288,
+          "2023": 0.0727,
+          "2022": 0.0244,
+          "2021": 0.0143,
+          "2020": -0.0362
+        },
+        "eps_yoy": {
+          "2024": 0.1339,
+          "2023": -0.0139,
+          "2022": 0.0554,
+          "2021": 0.05,
+          "2020": -0.0818
+        },
+        "ttm": {
+          "revenue": 49842000000,
+          "eps_diluted": null,
+          "revenue_yoy": 0.1476,
+          "eps_yoy": null,
+          "as_of_quarter": "2025-09-28",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0744,
+        "eps_cagr_3yr": 0.0567,
+        "revenue_cagr_5yr": 0.0393,
+        "eps_cagr_5yr": 0.0261
+      },
+      "errors": []
+    },
+    "GE": {
+      "ticker": "GE",
+      "cik": "0000040545",
+      "company_name": "GENERAL ELECTRIC COMPANY",
+      "extracted_at": "2025-12-07T12:02:25.375517Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0551,
+          "2023": 0.0102
+        },
+        "eps_yoy": {
+          "2024": -0.0278,
+          "2023": 5.0
+        },
+        "ttm": {
+          "revenue": 42981000000,
+          "eps_diluted": 7.44,
+          "revenue_yoy": 0.1904,
+          "eps_yoy": 1.6859,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0695,
+        "eps_cagr_3yr": 0.0772,
+        "revenue_cagr_5yr": 0.0315,
+        "eps_cagr_5yr": 0.4879
+      },
+      "errors": []
+    },
+    "GILD": {
+      "ticker": "GILD",
+      "cik": "0000882095",
+      "company_name": "GILEAD SCIENCES, INC.",
+      "extracted_at": "2025-12-07T12:02:25.792988Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0604,
+          "2023": -0.006,
+          "2022": -0.0009,
+          "2021": 0.106,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": -0.9156,
+          "2023": 0.2363,
+          "2022": -0.2617,
+          "2021": 48.3,
+          "2020": -0.6552
+        },
+        "ttm": {
+          "revenue": 29063000000,
+          "eps_diluted": 6.03,
+          "revenue_yoy": 0.065,
+          "eps_yoy": 10.8235,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0174,
+        "eps_cagr_3yr": -0.5744,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.0555
+      },
+      "errors": []
+    },
+    "GM": {
+      "ticker": "GM",
+      "cik": "0001467858",
+      "company_name": "GENERAL MOTORS COMPANY",
+      "extracted_at": "2025-12-07T12:02:26.162081Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0885,
+          "2023": 0.095,
+          "2022": 0.2675,
+          "2021": 0.0452,
+          "2020": -0.1143
+        },
+        "eps_yoy": {
+          "2024": -0.1298,
+          "2023": 0.1941,
+          "2022": -0.0851,
+          "2021": 0.5473,
+          "2020": -0.0525
+        },
+        "ttm": {
+          "revenue": 171721000000,
+          "eps_diluted": 9.29,
+          "revenue_yoy": 0.0406,
+          "eps_yoy": 0.0164,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1474,
+        "eps_cagr_3yr": -0.0167,
+        "revenue_cagr_5yr": 0.0694,
+        "eps_cagr_5yr": 0.0687
+      },
+      "errors": []
+    },
+    "GOOGL": {
+      "ticker": "GOOGL",
+      "cik": "0001652044",
+      "company_name": "Alphabet Inc.",
+      "extracted_at": "2025-12-07T12:02:26.767104Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1387,
+          "2023": 0.0868,
+          "2022": 0.0978,
+          "2021": 0.4115,
+          "2020": 0.1277
+        },
+        "eps_yoy": {
+          "2024": 0.3862,
+          "2023": 0.2719,
+          "2022": -0.1872,
+          "2021": 0.9147,
+          "2020": -0.9404
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 10.11,
+          "revenue_yoy": null,
+          "eps_yoy": 0.4934,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1075,
+        "eps_cagr_3yr": 0.1275,
+        "revenue_cagr_5yr": 0.1668,
+        "eps_cagr_5yr": -0.3038
+      },
+      "errors": []
+    },
+    "GS": {
+      "ticker": "GS",
+      "cik": "0000886982",
+      "company_name": "The Goldman Sachs Group, Inc.",
+      "extracted_at": "2025-12-07T12:02:27.141204Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.7726,
+          "2023": -0.2392,
+          "2022": -0.4944,
+          "2021": 1.403,
+          "2020": 0.1764
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 45.68,
+          "revenue_yoy": null,
+          "eps_yoy": 0.5889,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.1198,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.1403
+      },
+      "errors": [
+        "No annual revenue data found"
+      ]
+    },
+    "HD": {
+      "ticker": "HD",
+      "cik": "0000354950",
+      "company_name": "HOME DEPOT,\u00a0INC.",
+      "extracted_at": "2025-12-07T12:02:27.764434Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0448,
+          "2024": -0.0301,
+          "2023": 0.0413,
+          "2022": 0.1442,
+          "2021": 0.1985
+        },
+        "eps_yoy": {
+          "2025": -0.0132,
+          "2024": -0.0947,
+          "2023": 0.0747,
+          "2022": 0.3007,
+          "2021": 0.1649
+        },
+        "ttm": {
+          "revenue": 166702000000,
+          "eps_diluted": 15.319999999999999,
+          "revenue_yoy": 0.0405,
+          "eps_yoy": -0.0821,
+          "as_of_quarter": "2025-11-02",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0181,
+        "eps_cagr_3yr": -0.0135,
+        "revenue_cagr_5yr": 0.0767,
+        "eps_cagr_5yr": 0.0778
+      },
+      "errors": []
+    },
+    "HON": {
+      "ticker": "HON",
+      "cik": "0000773840",
+      "company_name": "Honeywell International Inc",
+      "extracted_at": "2025-12-07T12:02:28.162878Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0501,
+          "2023": 0.0337,
+          "2022": 0.0312,
+          "2021": 0.0538,
+          "2020": 3.1858
+        },
+        "eps_yoy": {
+          "2024": 0.0283,
+          "2023": 0.1651,
+          "2022": -0.0809,
+          "2021": 0.1771,
+          "2020": 5.2804
+        },
+        "ttm": {
+          "revenue": 40310000000,
+          "eps_diluted": 9.690000000000001,
+          "revenue_yoy": 0.0883,
+          "eps_yoy": 0.0672,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0383,
+        "eps_cagr_3yr": 0.0326,
+        "revenue_cagr_5yr": 0.3763,
+        "eps_cagr_5yr": 0.521
+      },
+      "errors": []
+    },
+    "IBM": {
+      "ticker": "IBM",
+      "cik": "0000051143",
+      "company_name": "INTERNATIONAL BUSINESS MACHINES CORPORATION",
+      "extracted_at": "2025-12-07T12:02:28.706287Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0144,
+          "2023": 0.022,
+          "2022": 0.0554,
+          "2021": 0.0393,
+          "2020": -0.0439
+        },
+        "eps_yoy": {
+          "2024": -0.2101,
+          "2023": 3.5222,
+          "2022": -0.7165,
+          "2021": 0.0193,
+          "2020": -0.41
+        },
+        "ttm": {
+          "revenue": 62817000000,
+          "eps_diluted": 4.91,
+          "revenue_yoy": 0.039,
+          "eps_yoy": -0.3218,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0305,
+        "eps_cagr_3yr": 0.0042,
+        "revenue_cagr_5yr": 0.0169,
+        "eps_cagr_5yr": -0.0945
+      },
+      "errors": []
+    },
+    "INTC": {
+      "ticker": "INTC",
+      "cik": "0000050863",
+      "company_name": "INTEL CORPORATION",
+      "extracted_at": "2025-12-07T12:02:29.054037Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0208,
+          "2023": -0.14,
+          "2022": -0.2021,
+          "2021": 0.0149,
+          "2020": 0.082
+        },
+        "eps_yoy": {
+          "2024": -11.95,
+          "2023": -0.7938,
+          "2022": -0.6008,
+          "2021": -0.0162,
+          "2020": 0.0488
+        },
+        "ttm": {
+          "revenue": 52463000000,
+          "eps_diluted": -3.84,
+          "revenue_yoy": -0.0038,
+          "eps_yoy": 75.8,
+          "as_of_quarter": "2025-09-27",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.1241,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": -0.059,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "INTU": {
+      "ticker": "INTU",
+      "cik": "0000896878",
+      "company_name": "INTUIT INC.",
+      "extracted_at": "2025-12-07T12:02:29.485470Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.1563,
+          "2024": 0.1334,
+          "2023": 0.129,
+          "2022": 0.3211,
+          "2021": 0.2545
+        },
+        "eps_yoy": {
+          "2025": 0.3106,
+          "2024": 0.2387,
+          "2023": 0.1566,
+          "2022": -0.037,
+          "2021": 0.0925
+        },
+        "ttm": {
+          "revenue": 18885000000,
+          "eps_diluted": 13.979999999999999,
+          "revenue_yoy": -0.0122,
+          "eps_yoy": -0.219,
+          "as_of_quarter": "2025-10-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1395,
+        "eps_cagr_3yr": 0.2337,
+        "revenue_cagr_5yr": 0.1965,
+        "eps_cagr_5yr": 0.1459
+      },
+      "errors": []
+    },
+    "ISRG": {
+      "ticker": "ISRG",
+      "cik": "0001035267",
+      "company_name": "Intuitive Surgical, Inc.",
+      "extracted_at": "2025-12-07T12:02:29.924843Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1724,
+          "2023": 0.1449,
+          "2022": 0.0897,
+          "2021": -0.0415
+        },
+        "eps_yoy": {
+          "2024": 0.2763,
+          "2023": 0.3781,
+          "2022": -0.2167,
+          "2021": -0.2676
+        },
+        "ttm": {
+          "revenue": 9236600000,
+          "eps_diluted": 7.24,
+          "revenue_yoy": 0.2482,
+          "eps_yoy": 0.3635,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1351,
+        "eps_cagr_3yr": 0.1127,
+        "revenue_cagr_5yr": 0.4166,
+        "eps_cagr_5yr": 0.3522
+      },
+      "errors": []
+    },
+    "JNJ": {
+      "ticker": "JNJ",
+      "cik": "0000200406",
+      "company_name": "Johnson & Johnson",
+      "extracted_at": "2025-12-07T12:02:30.241204Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.043,
+          "2023": -0.7388
+        },
+        "eps_yoy": {
+          "2024": -0.578,
+          "2023": -1.0045
+        },
+        "ttm": {
+          "revenue": 92100000000,
+          "eps_diluted": 10.059999999999999,
+          "revenue_yoy": 0.0623,
+          "eps_yoy": -0.3484,
+          "as_of_quarter": "2025-09-28",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.6041,
+        "eps_cagr_3yr": 0.4349,
+        "revenue_cagr_5yr": 0.0212,
+        "eps_cagr_5yr": -0.0296
+      },
+      "errors": []
+    },
+    "JPM": {
+      "ticker": "JPM",
+      "cik": "0000019617",
+      "company_name": "JPMorgan Chase & Co",
+      "extracted_at": "2025-12-07T12:02:30.733151Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.123,
+          "2023": 0.2285,
+          "2022": 0.0579,
+          "2021": 0.0142,
+          "2020": 0.0366
+        },
+        "eps_yoy": {
+          "2024": 0.2169,
+          "2023": 0.3424,
+          "2022": -0.2129,
+          "2021": 0.7297,
+          "2020": -0.1716
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 19.75,
+          "revenue_yoy": null,
+          "eps_yoy": 0.0056,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1343,
+        "eps_cagr_3yr": 0.0874,
+        "revenue_cagr_5yr": 0.0894,
+        "eps_cagr_5yr": 0.13
+      },
+      "errors": []
+    },
+    "KO": {
+      "ticker": "KO",
+      "cik": "0000021344",
+      "company_name": "COCA COLA CO",
+      "extracted_at": "2025-12-07T12:02:31.353492Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0286,
+          "2023": 0.0639,
+          "2022": 0.1125,
+          "2021": 0.1709,
+          "2020": -0.1141
+        },
+        "eps_yoy": {
+          "2024": -0.004,
+          "2023": 0.1279,
+          "2022": -0.0267,
+          "2021": 0.257,
+          "2020": -0.1353
+        },
+        "ttm": {
+          "revenue": 47973000000,
+          "eps_diluted": 3.17,
+          "revenue_yoy": 0.0081,
+          "eps_yoy": 0.2192,
+          "as_of_quarter": "2025-09-26",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0678,
+        "eps_cagr_3yr": 0.0302,
+        "revenue_cagr_5yr": 0.0478,
+        "eps_cagr_5yr": 0.0351
+      },
+      "errors": []
+    },
+    "LIN": {
+      "ticker": "LIN",
+      "cik": "0001707925",
+      "company_name": "Linde plc",
+      "extracted_at": "2025-12-07T12:02:31.629940Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0046,
+          "2023": -0.0153,
+          "2022": 0.0835,
+          "2021": 0.1303,
+          "2020": -0.0349
+        },
+        "eps_yoy": {
+          "2024": 0.0818,
+          "2023": 0.5298,
+          "2022": 0.1228,
+          "2021": 0.5563,
+          "2020": 0.1241
+        },
+        "ttm": {
+          "revenue": 33578000000,
+          "eps_diluted": 14.55,
+          "revenue_yoy": 0.026,
+          "eps_yoy": 0.1048,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0234,
+        "eps_cagr_3yr": 0.2294,
+        "revenue_cagr_5yr": 0.0318,
+        "eps_cagr_5yr": 0.2659
+      },
+      "errors": []
+    },
+    "LLY": {
+      "ticker": "LLY",
+      "cik": "0000059478",
+      "company_name": "ELI LILLY AND COMPANY",
+      "extracted_at": "2025-12-07T12:02:32.000980Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.32,
+          "2023": 0.1956,
+          "2022": 0.0079,
+          "2021": 0.154,
+          "2020": 0.0995
+        },
+        "eps_yoy": {
+          "2024": 1.019,
+          "2023": -0.1594,
+          "2022": 0.1275,
+          "2021": -0.0987,
+          "2020": -0.2362
+        },
+        "ttm": {
+          "revenue": 57326100000,
+          "eps_diluted": 16.63,
+          "revenue_yoy": 0.5133,
+          "eps_yoy": 1.1739,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1673,
+        "eps_cagr_3yr": 0.2415,
+        "revenue_cagr_5yr": 0.1508,
+        "eps_cagr_5yr": 0.0566
+      },
+      "errors": []
+    },
+    "LMT": {
+      "ticker": "LMT",
+      "cik": "0000936468",
+      "company_name": "LOCKHEED MARTIN CORPORATION",
+      "extracted_at": "2025-12-07T12:02:32.562400Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": -0.1902,
+          "2023": 0.2719,
+          "2022": -0.0483,
+          "2021": -0.0634,
+          "2020": 3.0165
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 22.490000000000002,
+          "revenue_yoy": null,
+          "eps_yoy": -0.1545,
+          "as_of_quarter": "2025-09-28",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.0066,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.2982
+      },
+      "errors": []
+    },
+    "LOW": {
+      "ticker": "LOW",
+      "cik": "0000060667",
+      "company_name": "LOWE\u2019S COMPANIES,\u00a0INC.",
+      "extracted_at": "2025-12-07T12:02:33.159512Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": -0.0313,
+          "2024": -0.1101,
+          "2023": 0.0084,
+          "2022": 0.0743,
+          "2021": 0.2419
+        },
+        "eps_yoy": {
+          "2025": -0.0735,
+          "2024": 0.2979,
+          "2023": -0.1553,
+          "2022": 0.5535,
+          "2021": 0.4117
+        },
+        "ttm": {
+          "revenue": 85872000000,
+          "eps_diluted": 13.06,
+          "revenue_yoy": -0.0498,
+          "eps_yoy": -0.1205,
+          "as_of_quarter": "2025-10-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0456,
+        "eps_cagr_3yr": 0.0052,
+        "revenue_cagr_5yr": 0.0301,
+        "eps_cagr_5yr": 0.1737
+      },
+      "errors": []
+    },
+    "MA": {
+      "ticker": "MA",
+      "cik": "0001141391",
+      "company_name": "Mastercard Incorporated",
+      "extracted_at": "2025-12-07T12:02:33.748441Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": 0.2638,
+          "2020": -0.0546
+        },
+        "eps_yoy": {
+          "2024": 0.1741,
+          "2023": 0.1575,
+          "2022": 0.1667,
+          "2021": 0.3752,
+          "2020": -0.1977
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 15.53,
+          "revenue_yoy": null,
+          "eps_yoy": 0.1846,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.1661,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.1183
+      },
+      "errors": []
+    },
+    "MCD": {
+      "ticker": "MCD",
+      "cik": "0000063908",
+      "company_name": "McDONALD\u2019S CORPORATION",
+      "extracted_at": "2025-12-07T12:02:34.471481Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0167,
+          "2023": 0.0997,
+          "2022": -0.0017,
+          "2021": 0.209,
+          "2020": -0.1009
+        },
+        "eps_yoy": {
+          "2024": -0.0147,
+          "2023": 0.3878,
+          "2022": -0.1703,
+          "2021": 0.5911,
+          "2020": -0.1992
+        },
+        "ttm": {
+          "revenue": 26750000000,
+          "eps_diluted": 12.05,
+          "revenue_yoy": 0.0349,
+          "eps_yoy": 0.0229,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0373,
+        "eps_cagr_3yr": 0.0429,
+        "revenue_cagr_5yr": 0.0394,
+        "eps_cagr_5yr": 0.0765
+      },
+      "errors": []
+    },
+    "MDLZ": {
+      "ticker": "MDLZ",
+      "cik": "0001103982",
+      "company_name": "Mondelez International, Inc.",
+      "extracted_at": "2025-12-07T12:02:34.917696Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0118,
+          "2023": 0.1435,
+          "2022": 0.0967,
+          "2021": 0.0805,
+          "2020": 2.9881
+        },
+        "eps_yoy": {
+          "2024": -0.0552,
+          "2023": 0.8469,
+          "2022": -0.3553,
+          "2021": 0.2308,
+          "2020": 2.1667
+        },
+        "ttm": {
+          "revenue": 37245000000,
+          "eps_diluted": 2.0,
+          "revenue_yoy": 0.059,
+          "eps_yoy": -0.3103,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0826,
+        "eps_cagr_3yr": 0.04,
+        "revenue_cagr_5yr": 0.4046,
+        "eps_cagr_5yr": 0.344
+      },
+      "errors": []
+    },
+    "MDT": {
+      "ticker": "MDT",
+      "cik": "0001613103",
+      "company_name": "Medtronic plc",
+      "extracted_at": "2025-12-07T12:02:35.301592Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0362,
+          "2024": 0.0364,
+          "2023": -0.0145,
+          "2022": 0.0521,
+          "2021": 0.0416
+        },
+        "eps_yoy": {
+          "2025": 0.308,
+          "2024": -0.0213,
+          "2023": -0.244,
+          "2022": 0.4023,
+          "2021": -0.2486
+        },
+        "ttm": {
+          "revenue": 34234000000,
+          "eps_diluted": 3.88,
+          "revenue_yoy": 0.0803,
+          "eps_yoy": 0.268,
+          "as_of_quarter": "2025-10-24",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0191,
+        "eps_cagr_3yr": -0.0108,
+        "revenue_cagr_5yr": 0.0301,
+        "eps_cagr_5yr": 0.0039
+      },
+      "errors": []
+    },
+    "MET": {
+      "ticker": "MET",
+      "cik": "0001099219",
+      "company_name": "MetLife, Inc.",
+      "extracted_at": "2025-12-07T12:02:35.954936Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0072,
+          "2023": null
+        },
+        "eps_yoy": {
+          "2024": 2.2818,
+          "2023": -0.9968
+        },
+        "ttm": {
+          "revenue": 2390000000,
+          "eps_diluted": 5.34,
+          "revenue_yoy": 0.0694,
+          "eps_yoy": 0.5614,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 1.313,
+        "revenue_cagr_5yr": 0.0125,
+        "eps_cagr_5yr": -0.0117
+      },
+      "errors": []
+    },
+    "META": {
+      "ticker": "META",
+      "cik": "0001326801",
+      "company_name": "Meta Platforms, Inc.",
+      "extracted_at": "2025-12-07T12:02:36.318687Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.2194,
+          "2023": 0.1569,
+          "2022": -0.0112,
+          "2021": 0.3718,
+          "2020": 0.216
+        },
+        "eps_yoy": {
+          "2024": 0.6046,
+          "2023": 0.7311,
+          "2022": -0.3762,
+          "2021": 0.3647,
+          "2020": 0.5692
+        },
+        "ttm": {
+          "revenue": 181661000000,
+          "eps_diluted": 20.65,
+          "revenue_yoy": 0.2823,
+          "eps_yoy": 0.1978,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1173,
+        "eps_cagr_3yr": 0.2011,
+        "revenue_cagr_5yr": 0.184,
+        "eps_cagr_5yr": 0.2998
+      },
+      "errors": []
+    },
+    "MMM": {
+      "ticker": "MMM",
+      "cik": "0000066740",
+      "company_name": "3M COMPANY",
+      "extracted_at": "2025-12-07T12:02:36.784642Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null
+        },
+        "eps_yoy": {
+          "2024": -0.0176,
+          "2023": -1.4545
+        },
+        "ttm": {
+          "revenue": 25109000000,
+          "eps_diluted": 7.41,
+          "revenue_yoy": 0.0115,
+          "eps_yoy": -1.6,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.0731,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "MO": {
+      "ticker": "MO",
+      "cik": "0000764180",
+      "company_name": "Altria Group, Inc.",
+      "extracted_at": "2025-12-07T12:02:37.062455Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.019,
+          "2023": -0.0244,
+          "2022": -0.0353,
+          "2021": -0.0054,
+          "2020": 2.6716
+        },
+        "eps_yoy": {
+          "2024": 0.4311,
+          "2023": 0.4326,
+          "2022": 1.3806,
+          "2021": -0.4417,
+          "2020": null
+        },
+        "ttm": {
+          "revenue": 23692000000,
+          "eps_diluted": 4.79,
+          "revenue_yoy": -0.0359,
+          "eps_yoy": -0.1784,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0262,
+        "eps_cagr_3yr": 0.6963,
+        "revenue_cagr_5yr": 0.2752,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "MRK": {
+      "ticker": "MRK",
+      "cik": "0000310158",
+      "company_name": "Merck\u00a0& Co., Inc.",
+      "extracted_at": "2025-12-07T12:02:37.543794Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0674,
+          "2023": 0.014,
+          "2022": 0.2172,
+          "2021": 0.1731,
+          "2020": 0.0613
+        },
+        "eps_yoy": {
+          "2024": 47.1429,
+          "2023": -0.9755,
+          "2022": 0.1109,
+          "2021": 0.8489,
+          "2020": -0.2703
+        },
+        "ttm": {
+          "revenue": 65268000000,
+          "eps_diluted": 7.33,
+          "revenue_yoy": 0.0379,
+          "eps_yoy": 1.0824,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0963,
+        "eps_cagr_3yr": 0.0945,
+        "revenue_cagr_5yr": 0.104,
+        "eps_cagr_5yr": 0.1208
+      },
+      "errors": []
+    },
+    "MS": {
+      "ticker": "MS",
+      "cik": "0000895421",
+      "company_name": "MORGAN STANLEY",
+      "extracted_at": "2025-12-07T12:02:37.951977Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.5347,
+          "2023": -0.1577,
+          "2022": -0.2341,
+          "2021": 0.243,
+          "2020": 2.8916
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 9.41,
+          "revenue_yoy": null,
+          "eps_yoy": 0.4567,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.0033,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.3679
+      },
+      "errors": []
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "cik": "0000789019",
+      "company_name": "MICROSOFT CORPORATION",
+      "extracted_at": "2025-12-07T12:02:38.512267Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.1493,
+          "2024": 0.1567,
+          "2023": 0.0688,
+          "2022": 0.1796,
+          "2021": 0.1753
+        },
+        "eps_yoy": {
+          "2025": 0.1559,
+          "2024": 0.219,
+          "2023": 0.0031,
+          "2022": 0.1988,
+          "2021": 0.3976
+        },
+        "ttm": {
+          "revenue": 282956000000,
+          "eps_diluted": 13.71,
+          "revenue_yoy": 0.2131,
+          "eps_yoy": 0.2122,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1242,
+        "eps_cagr_3yr": 0.1223,
+        "revenue_cagr_5yr": 0.1452,
+        "eps_cagr_5yr": 0.1882
+      },
+      "errors": []
+    },
+    "NEE": {
+      "ticker": "NEE",
+      "cik": "0000753308",
+      "company_name": "NEXTERA ENERGY, INC.",
+      "extracted_at": "2025-12-07T12:02:38.919545Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": -0.0639,
+          "2023": 0.7143,
+          "2022": 0.1602,
+          "2021": 0.223,
+          "2020": 1.3871
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 3.46,
+          "revenue_yoy": null,
+          "eps_yoy": -0.1059,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.2302,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.403
+      },
+      "errors": []
+    },
+    "NFLX": {
+      "ticker": "NFLX",
+      "cik": "0001065280",
+      "company_name": "Netflix, Inc.",
+      "extracted_at": "2025-12-07T12:02:39.444912Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1565,
+          "2023": 0.0667,
+          "2022": 0.0646,
+          "2021": 0.1881,
+          "2020": 2.884
+        },
+        "eps_yoy": {
+          "2024": 0.6484,
+          "2023": 0.209,
+          "2022": -0.1148,
+          "2021": 0.8487,
+          "2020": 2.4943
+        },
+        "ttm": {
+          "revenue": 42956977000,
+          "eps_diluted": 25.07,
+          "revenue_yoy": 0.2047,
+          "eps_yoy": 0.4593,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0951,
+        "eps_cagr_3yr": 0.2083,
+        "revenue_cagr_5yr": 0.4338,
+        "eps_cagr_5yr": 0.6269
+      },
+      "errors": []
+    },
+    "NKE": {
+      "ticker": "NKE",
+      "cik": "0000320187",
+      "company_name": "NIKE, Inc.",
+      "extracted_at": "2025-12-07T12:02:39.735788Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": -0.0984,
+          "2024": 0.0028,
+          "2023": 0.0965,
+          "2022": 0.0488,
+          "2021": 0.1908
+        },
+        "eps_yoy": {
+          "2025": -0.4209,
+          "2024": 0.1548,
+          "2023": -0.1387,
+          "2022": 0.0534,
+          "2021": 1.225
+        },
+        "ttm": {
+          "revenue": 46932000000,
+          "eps_diluted": 2.51,
+          "revenue_yoy": -0.0824,
+          "eps_yoy": -0.289,
+          "as_of_quarter": "2025-08-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0029,
+        "eps_cagr_3yr": -0.168,
+        "revenue_cagr_5yr": 0.0436,
+        "eps_cagr_5yr": 0.0619
+      },
+      "errors": []
+    },
+    "NOW": {
+      "ticker": "NOW",
+      "cik": "0001373715",
+      "company_name": "SERVICENOW, INC.",
+      "extracted_at": "2025-12-07T12:02:40.025688Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.2244,
+          "2023": 0.2382,
+          "2022": 0.2288,
+          "2021": 0.3047,
+          "2020": 0.3061
+        },
+        "eps_yoy": {
+          "2024": -0.1876,
+          "2023": 4.2625,
+          "2022": 0.4159,
+          "2021": 0.9153,
+          "2020": -0.8145
+        },
+        "ttm": {
+          "revenue": 12507000000,
+          "eps_diluted": 8.51,
+          "revenue_yoy": 0.2936,
+          "eps_yoy": -0.073,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.2305,
+        "eps_cagr_3yr": 0.8225,
+        "revenue_cagr_5yr": 0.2599,
+        "eps_cagr_5yr": 0.1655
+      },
+      "errors": []
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "company_name": "NVIDIA CORP",
+      "extracted_at": "2025-12-07T12:02:40.566279Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": null,
+          "2024": null,
+          "2023": null,
+          "2022": 0.614,
+          "2021": 0.5273
+        },
+        "eps_yoy": {
+          "2025": 1.4706,
+          "2024": 6.0,
+          "2023": -0.9558,
+          "2022": 1.2254,
+          "2021": 0.531
+        },
+        "ttm": {
+          "revenue": 182893000000,
+          "eps_diluted": 3.92,
+          "revenue_yoy": 1.0852,
+          "eps_yoy": 1.0741,
+          "as_of_quarter": "2025-10-26",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.086,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.2107
+      },
+      "errors": []
+    },
+    "ORCL": {
+      "ticker": "ORCL",
+      "cik": "0001341439",
+      "company_name": "Oracle Corporation",
+      "extracted_at": "2025-12-07T12:02:40.845677Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0838,
+          "2024": 0.0602,
+          "2023": 0.177,
+          "2022": 0.0484,
+          "2021": 0.0361
+        },
+        "eps_yoy": {
+          "2025": 0.1698,
+          "2024": 0.2085,
+          "2023": 0.2739,
+          "2022": -0.4703,
+          "2021": 0.4773
+        },
+        "ttm": {
+          "revenue": 56422000000,
+          "eps_diluted": 4.16,
+          "revenue_yoy": 0.1048,
+          "eps_yoy": 0.2683,
+          "as_of_quarter": "2025-08-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1059,
+        "eps_cagr_3yr": 0.2166,
+        "revenue_cagr_5yr": 0.08,
+        "eps_cagr_5yr": 0.071
+      },
+      "errors": []
+    },
+    "PEP": {
+      "ticker": "PEP",
+      "cik": "0000077476",
+      "company_name": "PepsiCo, Inc.",
+      "extracted_at": "2025-12-07T12:02:41.252563Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0042,
+          "2023": 0.0588,
+          "2022": 0.087,
+          "2021": 0.1293,
+          "2020": 0.0478
+        },
+        "eps_yoy": {
+          "2024": 0.0595,
+          "2023": 0.0218,
+          "2022": 0.1694,
+          "2021": 0.0723,
+          "2020": -0.0154
+        },
+        "ttm": {
+          "revenue": 87901000000,
+          "eps_diluted": 6.28,
+          "revenue_yoy": 0.0159,
+          "eps_yoy": -0.2091,
+          "as_of_quarter": "2025-09-06",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0494,
+        "eps_cagr_3yr": 0.0818,
+        "revenue_cagr_5yr": 0.0646,
+        "eps_cagr_5yr": 0.0597
+      },
+      "errors": []
+    },
+    "PFE": {
+      "ticker": "PFE",
+      "cik": "0000078003",
+      "company_name": "PFIZER INC",
+      "extracted_at": "2025-12-07T12:02:41.671640Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": -0.4453,
+          "2022": 0.2466,
+          "2021": 0.7679,
+          "2020": 0.0182
+        },
+        "eps_yoy": {
+          "2024": 2.8108,
+          "2023": -0.9324,
+          "2022": 0.4208,
+          "2021": 1.362,
+          "2020": -0.422
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 2.4299999999999997,
+          "revenue_yoy": null,
+          "eps_yoy": 3.4182,
+          "as_of_quarter": "2025-09-28",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.2845,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": -0.1294
+      },
+      "errors": []
+    },
+    "PG": {
+      "ticker": "PG",
+      "cik": "0000080424",
+      "company_name": "PROCTER & GAMBLE CO",
+      "extracted_at": "2025-12-07T12:02:42.229975Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0029,
+          "2024": 0.0248,
+          "2023": 0.0227,
+          "2022": 0.0535,
+          "2021": 0.0728
+        },
+        "eps_yoy": {
+          "2025": 0.0814,
+          "2024": 0.0203,
+          "2023": 0.0155,
+          "2022": 0.0564,
+          "2021": 0.1089
+        },
+        "ttm": {
+          "revenue": 85781000000,
+          "eps_diluted": 6.98,
+          "revenue_yoy": 0.0264,
+          "eps_yoy": 0.1405,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0167,
+        "eps_cagr_3yr": 0.0386,
+        "revenue_cagr_5yr": 0.035,
+        "eps_cagr_5yr": 0.0559
+      },
+      "errors": []
+    },
+    "PLTR": {
+      "ticker": "PLTR",
+      "cik": "0001321655",
+      "company_name": "Palantir Technologies Inc.",
+      "extracted_at": "2025-12-07T12:02:42.522000Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.2879,
+          "2023": 0.1675,
+          "2022": 0.2361,
+          "2021": 0.4111,
+          "2020": 0.4715
+        },
+        "eps_yoy": {
+          "2024": 1.1111,
+          "2023": -1.5,
+          "2022": -0.3333,
+          "2021": -0.775,
+          "2020": 0.1765
+        },
+        "ttm": {
+          "revenue": 3794160000,
+          "eps_diluted": 0.45,
+          "revenue_yoy": 0.5783,
+          "eps_yoy": 2.2143,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.2295,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.3101,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "PM": {
+      "ticker": "PM",
+      "cik": "0001413329",
+      "company_name": "Philip Morris International Inc.",
+      "extracted_at": "2025-12-07T12:02:42.881910Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0769,
+          "2023": 0.1074,
+          "2022": 0.0114,
+          "2021": 0.0945,
+          "2020": 2.8536
+        },
+        "eps_yoy": {
+          "2024": -0.0996,
+          "2023": -0.136,
+          "2022": -0.0034,
+          "2021": 0.1298,
+          "2020": 2.4865
+        },
+        "ttm": {
+          "revenue": 40197000000,
+          "eps_diluted": 7.869999999999999,
+          "revenue_yoy": 0.1053,
+          "eps_yoy": 0.499,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0645,
+        "eps_cagr_3yr": -0.0813,
+        "revenue_cagr_5yr": 0.3845,
+        "eps_cagr_5yr": 0.2502
+      },
+      "errors": []
+    },
+    "PYPL": {
+      "ticker": "PYPL",
+      "cik": "0001633917",
+      "company_name": "PayPal Holdings, Inc.",
+      "extracted_at": "2025-12-07T12:02:43.166828Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.0391,
+          "2023": 0.8373,
+          "2022": -0.4062,
+          "2021": -0.0056,
+          "2020": 3.1163
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 4.87,
+          "revenue_yoy": null,
+          "eps_yoy": 0.2952,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.0427,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.3592
+      },
+      "errors": []
+    },
+    "QCOM": {
+      "ticker": "QCOM",
+      "cik": "0000804328",
+      "company_name": "QUALCOMM INC/DE",
+      "extracted_at": "2025-12-07T12:02:43.838161Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.1366,
+          "2024": 0.0877,
+          "2023": -0.1896,
+          "2022": 0.3168,
+          "2021": 0.4265
+        },
+        "eps_yoy": {
+          "2025": -0.4415,
+          "2024": 0.3972,
+          "2023": -0.4354,
+          "2022": 0.4447,
+          "2021": 0.7412
+        },
+        "ttm": {
+          "revenue": 42406000000,
+          "eps_diluted": 9.66,
+          "revenue_yoy": 0.1446,
+          "eps_yoy": 0.2644,
+          "as_of_quarter": "2025-06-29",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0006,
+        "eps_cagr_3yr": -0.239,
+        "revenue_cagr_5yr": 0.1348,
+        "eps_cagr_5yr": 0.0208
+      },
+      "errors": []
+    },
+    "RTX": {
+      "ticker": "RTX",
+      "cik": "0000101829",
+      "company_name": "RTX CORPORATION",
+      "extracted_at": "2025-12-07T12:02:44.274045Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1715,
+          "2023": 0.0275,
+          "2022": 0.0417,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.5919,
+          "2023": -0.3629,
+          "2022": 0.3672,
+          "2021": -1.9884,
+          "2020": -16.2353
+        },
+        "ttm": {
+          "revenue": 84454000000,
+          "eps_diluted": 4.859999999999999,
+          "revenue_yoy": 0.1928,
+          "eps_yoy": 2.0759,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0783,
+        "eps_cagr_3yr": 0.1151,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.8364
+      },
+      "errors": []
+    },
+    "SBUX": {
+      "ticker": "SBUX",
+      "cik": "0000829224",
+      "company_name": "Starbucks Corporation",
+      "extracted_at": "2025-12-07T12:02:44.700209Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0279,
+          "2024": 0.0056,
+          "2023": 0.1155,
+          "2022": 0.1098,
+          "2021": 0.2357
+        },
+        "eps_yoy": {
+          "2025": -0.5076,
+          "2024": -0.0754,
+          "2023": 0.265,
+          "2022": -0.2006,
+          "2021": 3.481
+        },
+        "ttm": {
+          "revenue": 36729300000,
+          "eps_diluted": 2.45,
+          "revenue_yoy": 0.0238,
+          "eps_yoy": -0.2708,
+          "as_of_quarter": "2025-06-29",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0486,
+        "eps_cagr_3yr": -0.168,
+        "revenue_cagr_5yr": 0.096,
+        "eps_cagr_5yr": 0.1559
+      },
+      "errors": []
+    },
+    "SCHW": {
+      "ticker": "SCHW",
+      "cik": "0000316709",
+      "company_name": "SCHWAB CHARLES CORP",
+      "extracted_at": "2025-12-07T12:02:45.065433Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0408,
+          "2023": -0.0927,
+          "2022": 0.1211,
+          "2021": 0.5841,
+          "2020": 3.7757
+        },
+        "eps_yoy": {
+          "2024": 0.1772,
+          "2023": -0.2743,
+          "2022": 0.2367,
+          "2021": 0.3349,
+          "2020": 3.4167
+        },
+        "ttm": {
+          "revenue": 22432000000,
+          "eps_diluted": 4.04,
+          "revenue_yoy": 0.2001,
+          "eps_yoy": 0.5906,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0192,
+        "eps_cagr_3yr": 0.0185,
+        "revenue_cagr_5yr": 0.5161,
+        "eps_cagr_5yr": 0.4417
+      },
+      "errors": []
+    },
+    "SO": {
+      "ticker": "SO",
+      "cik": "0000092122",
+      "company_name": "The Southern Company",
+      "extracted_at": "2025-12-07T12:02:45.498562Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0583,
+          "2023": -0.1375,
+          "2022": 0.2668,
+          "2021": 0.1344,
+          "2020": -0.0487
+        },
+        "eps_yoy": {
+          "2024": 0.1022,
+          "2023": 0.1104,
+          "2022": 0.4554,
+          "2021": -0.2355,
+          "2020": -0.3489
+        },
+        "ttm": {
+          "revenue": 29845000000,
+          "eps_diluted": 4.93,
+          "revenue_yoy": 0.1551,
+          "eps_yoy": 0.1823,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0496,
+        "eps_cagr_3yr": 0.2122,
+        "revenue_cagr_5yr": 0.0453,
+        "eps_cagr_5yr": -0.0238
+      },
+      "errors": []
+    },
+    "SPG": {
+      "ticker": "SPG",
+      "cik": "0001063761",
+      "company_name": "SIMON PROPERTY GROUP,\u00a0INC.",
+      "extracted_at": "2025-12-07T12:02:45.897271Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0555,
+          "2023": 0.0826
+        },
+        "eps_yoy": {
+          "2024": -0.0175,
+          "2023": 0.2582
+        },
+        "ttm": {
+          "revenue": 6053753000,
+          "eps_diluted": 6.29,
+          "revenue_yoy": 0.0655,
+          "eps_yoy": -0.1103,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0313,
+        "eps_cagr_3yr": -0.0321,
+        "revenue_cagr_5yr": 0.0232,
+        "eps_cagr_5yr": 0.0231
+      },
+      "errors": []
+    },
+    "T": {
+      "ticker": "T",
+      "cik": "0000732717",
+      "company_name": "AT&T INC.",
+      "extracted_at": "2025-12-07T12:02:46.264258Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0008,
+          "2023": -0.7504
+        },
+        "eps_yoy": {
+          "2024": -0.2437,
+          "2023": null
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 2.49,
+          "revenue_yoy": null,
+          "eps_yoy": 0.2146,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.5991,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.0026,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "TGT": {
+      "ticker": "TGT",
+      "cik": "0000027419",
+      "company_name": "TARGET CORPORATION",
+      "extracted_at": "2025-12-07T12:02:46.958133Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": -0.0079,
+          "2024": -0.0157,
+          "2023": 0.0294,
+          "2022": 0.133,
+          "2021": 0.1978
+        },
+        "eps_yoy": {
+          "2025": -0.0089,
+          "2024": 0.495,
+          "2023": -0.5759,
+          "2022": 0.6319,
+          "2021": 0.3585
+        },
+        "ttm": {
+          "revenue": 99995000000,
+          "eps_diluted": 7.68,
+          "revenue_yoy": -0.0016,
+          "eps_yoy": -0.0965,
+          "as_of_quarter": "2025-11-01",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0018,
+        "eps_cagr_3yr": -0.1435,
+        "revenue_cagr_5yr": 0.0641,
+        "eps_cagr_5yr": 0.0686
+      },
+      "errors": []
+    },
+    "TMO": {
+      "ticker": "TMO",
+      "cik": "0000097745",
+      "company_name": "THERMO FISHER SCIENTIFIC INC.",
+      "extracted_at": "2025-12-07T12:02:47.624244Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0005,
+          "2023": -0.0458,
+          "2022": 0.1455,
+          "2021": 0.2171,
+          "2020": 0.2614
+        },
+        "eps_yoy": {
+          "2024": 0.0699,
+          "2023": -0.1237,
+          "2022": -0.094,
+          "2021": 0.2193,
+          "2020": 0.7405
+        },
+        "ttm": {
+          "revenue": 42939000000,
+          "eps_diluted": 16.78,
+          "revenue_yoy": 0.0188,
+          "eps_yoy": 0.0875,
+          "as_of_quarter": "2025-09-27",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0303,
+        "eps_cagr_3yr": -0.0529,
+        "revenue_cagr_5yr": 0.1092,
+        "eps_cagr_5yr": 0.1251
+      },
+      "errors": []
+    },
+    "TMUS": {
+      "ticker": "TMUS",
+      "cik": "0001283699",
+      "company_name": "T-MOBILE US, INC.",
+      "extracted_at": "2025-12-07T12:02:47.999455Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0362,
+          "2023": -0.0127,
+          "2022": -0.0068,
+          "2021": 0.1714,
+          "2020": 2.549
+        },
+        "eps_yoy": {
+          "2024": 0.3939,
+          "2023": 2.3641,
+          "2022": -0.1452,
+          "2021": -0.0906,
+          "2020": 1.65
+        },
+        "ttm": {
+          "revenue": 84137000000,
+          "eps_diluted": 10.44,
+          "revenue_yoy": 0.0813,
+          "eps_yoy": 0.2778,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0053,
+        "eps_cagr_3yr": 0.5885,
+        "revenue_cagr_5yr": 0.3339,
+        "eps_cagr_5yr": 0.574
+      },
+      "errors": []
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "cik": "0001318605",
+      "company_name": "Tesla, Inc.",
+      "extracted_at": "2025-12-07T12:02:48.345887Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": 0.188
+        },
+        "eps_yoy": {
+          "2024": -0.9209,
+          "2023": 0.1878
+        },
+        "ttm": {
+          "revenue": 95108000000,
+          "eps_diluted": 1.46,
+          "revenue_yoy": 0.0003,
+          "eps_yoy": -0.3113,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.8171,
+        "revenue_cagr_5yr": 0.037,
+        "eps_cagr_5yr": -0.1084
+      },
+      "errors": []
+    },
+    "TXN": {
+      "ticker": "TXN",
+      "cik": "0000097476",
+      "company_name": "TEXAS INSTRUMENTS INCORPORATED",
+      "extracted_at": "2025-12-07T12:02:48.701771Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.1072,
+          "2023": -0.1253,
+          "2022": 0.0918,
+          "2021": 0.2685,
+          "2020": 2.7886
+        },
+        "eps_yoy": {
+          "2024": -0.2645,
+          "2023": -0.2487,
+          "2022": 0.1392,
+          "2021": 0.3836,
+          "2020": 3.1172
+        },
+        "ttm": {
+          "revenue": 17410000000,
+          "eps_diluted": 5.64,
+          "revenue_yoy": 0.0522,
+          "eps_yoy": -0.0814,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0517,
+        "eps_cagr_3yr": -0.1429,
+        "revenue_cagr_5yr": 0.3259,
+        "eps_cagr_5yr": 0.291
+      },
+      "errors": []
+    },
+    "UBER": {
+      "ticker": "UBER",
+      "cik": "0001543151",
+      "company_name": "UBER TECHNOLOGIES, INC.",
+      "extracted_at": "2025-12-07T12:02:49.032393Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.1796,
+          "2023": 0.1695,
+          "2022": 0.8262,
+          "2021": 0.567,
+          "2020": -0.1432
+        },
+        "eps_yoy": {
+          "2024": 4.2414,
+          "2023": -1.1871,
+          "2022": 15.0345,
+          "2021": -0.9249,
+          "2020": -0.4332
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 5.77,
+          "revenue_yoy": null,
+          "eps_yoy": 12.4186,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.3607,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.276,
+        "eps_cagr_5yr": null
+      },
+      "errors": []
+    },
+    "UNH": {
+      "ticker": "UNH",
+      "cik": "0000731766",
+      "company_name": "UnitedHealth Group Incorporated",
+      "extracted_at": "2025-12-07T12:02:49.666640Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0771,
+          "2023": 0.1464,
+          "2022": 0.1271,
+          "2021": 0.1184,
+          "2020": 0.0619
+        },
+        "eps_yoy": {
+          "2024": -0.35,
+          "2023": 0.1265,
+          "2022": 0.1715,
+          "2021": 0.1279,
+          "2020": 0.1186
+        },
+        "ttm": {
+          "revenue": 435172000000,
+          "eps_diluted": 19.689999999999998,
+          "revenue_yoy": 0.1335,
+          "eps_yoy": 0.3066,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1165,
+        "eps_cagr_3yr": -0.0498,
+        "revenue_cagr_5yr": 0.1057,
+        "eps_cagr_5yr": 0.016
+      },
+      "errors": []
+    },
+    "UNP": {
+      "ticker": "UNP",
+      "cik": "0000100885",
+      "company_name": "UNION PACIFIC CORP",
+      "extracted_at": "2025-12-07T12:02:50.046891Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0054,
+          "2023": -0.0304,
+          "2022": 0.1408,
+          "2021": 0.1163,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.0612,
+          "2023": -0.0678,
+          "2022": 0.1266,
+          "2021": 0.2627,
+          "2020": 2.9204
+        },
+        "ttm": {
+          "revenue": 24516000000,
+          "eps_diluted": 11.61,
+          "revenue_yoy": 0.024,
+          "eps_yoy": 0.1047,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0361,
+        "eps_cagr_3yr": 0.0368,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.4072
+      },
+      "errors": []
+    },
+    "UPS": {
+      "ticker": "UPS",
+      "cik": "0001090727",
+      "company_name": "United Parcel Service, Inc.",
+      "extracted_at": "2025-12-07T12:02:50.655190Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0012,
+          "2023": -0.0935,
+          "2022": 0.0314,
+          "2021": 0.1496,
+          "2020": 2.9847
+        },
+        "eps_yoy": {
+          "2024": -0.1346,
+          "2023": -0.4091,
+          "2022": -0.1008,
+          "2021": 8.5325,
+          "2020": -0.3125
+        },
+        "ttm": {
+          "revenue": 86427000000,
+          "eps_diluted": 6.26,
+          "revenue_yoy": -0.0025,
+          "eps_yoy": -0.0629,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": -0.0218,
+        "eps_cagr_3yr": -0.2282,
+        "revenue_cagr_5yr": 0.338,
+        "eps_cagr_5yr": 0.2468
+      },
+      "errors": []
+    },
+    "USB": {
+      "ticker": "USB",
+      "cik": "0000036104",
+      "company_name": "US BANCORP \\DE\\",
+      "extracted_at": "2025-12-07T12:02:51.119611Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": -0.0245,
+          "2023": 0.1581,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.159,
+          "2023": -0.1138,
+          "2022": -0.2765,
+          "2021": 0.6667,
+          "2020": -0.2644
+        },
+        "ttm": {
+          "revenue": 28155000000,
+          "eps_diluted": 4.390000000000001,
+          "revenue_yoy": 0.0132,
+          "eps_yoy": 0.2543,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": -0.0942,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": -0.0185
+      },
+      "errors": []
+    },
+    "V": {
+      "ticker": "V",
+      "cik": "0001403161",
+      "company_name": "VISA INC.",
+      "extracted_at": "2025-12-07T12:02:51.629088Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.1134,
+          "2024": 0.1002,
+          "2023": 0.1141,
+          "2022": 0.2159,
+          "2021": 0.1034
+        },
+        "eps_yoy": {
+          "2025": null,
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null
+        },
+        "ttm": {
+          "revenue": 38176000000,
+          "eps_diluted": null,
+          "revenue_yoy": 0.139,
+          "eps_yoy": null,
+          "as_of_quarter": "2025-06-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.1092,
+        "eps_cagr_3yr": null,
+        "revenue_cagr_5yr": 0.1286,
+        "eps_cagr_5yr": null
+      },
+      "errors": [
+        "No annual EPS data found"
+      ]
+    },
+    "VZ": {
+      "ticker": "VZ",
+      "cik": "0000732712",
+      "company_name": "Verizon Communications Inc.",
+      "extracted_at": "2025-12-07T12:02:52.274864Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": 0.0061,
+          "2023": -0.0209,
+          "2022": 0.0241,
+          "2021": 0.0415,
+          "2020": -0.0271
+        },
+        "eps_yoy": {
+          "2024": 0.5055,
+          "2023": -0.4565,
+          "2022": -0.0489,
+          "2021": 0.2372,
+          "2020": -0.0753
+        },
+        "ttm": {
+          "revenue": 135140000000,
+          "eps_diluted": 4.279999999999999,
+          "revenue_yoy": 0.026,
+          "eps_yoy": -0.0295,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0029,
+        "eps_cagr_3yr": -0.0802,
+        "revenue_cagr_5yr": 0.0044,
+        "eps_cagr_5yr": -0.023
+      },
+      "errors": []
+    },
+    "WFC": {
+      "ticker": "WFC",
+      "cik": "0000072971",
+      "company_name": "WELLS FARGO & COMPANY/MN",
+      "extracted_at": "2025-12-07T12:02:52.797081Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": null,
+          "2020": null
+        },
+        "eps_yoy": {
+          "2024": 0.1118,
+          "2023": 0.4771,
+          "2022": -0.3563,
+          "2021": 10.814,
+          "2020": -0.8949
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 6.069999999999999,
+          "revenue_yoy": null,
+          "eps_yoy": 0.154,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.0187,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.056
+      },
+      "errors": []
+    },
+    "WMT": {
+      "ticker": "WMT",
+      "cik": "0000104169",
+      "company_name": "Walmart Inc.",
+      "extracted_at": "2025-12-07T12:02:53.345417Z",
+      "growth": {
+        "revenue_yoy": {
+          "2025": 0.0496,
+          "2024": 0.0607,
+          "2023": 0.0671,
+          "2022": 0.0226,
+          "2021": 0.0679
+        },
+        "eps_yoy": {
+          "2025": 0.2618,
+          "2024": 0.3451,
+          "2023": -0.1235,
+          "2022": -0.6589,
+          "2021": -0.0848
+        },
+        "ttm": {
+          "revenue": 685503000000,
+          "eps_diluted": 2.78,
+          "revenue_yoy": 0.0588,
+          "eps_yoy": 0.2523,
+          "as_of_quarter": "2025-10-31",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": 0.0591,
+        "eps_cagr_3yr": 0.1416,
+        "revenue_cagr_5yr": 0.0534,
+        "eps_cagr_5yr": -0.1422
+      },
+      "errors": []
+    },
+    "XOM": {
+      "ticker": "XOM",
+      "cik": "0000034088",
+      "company_name": "Exxon Mobil Corporation",
+      "extracted_at": "2025-12-07T12:02:53.666203Z",
+      "growth": {
+        "revenue_yoy": {
+          "2024": null,
+          "2023": null,
+          "2022": null,
+          "2021": 0.5495,
+          "2020": -0.3013
+        },
+        "eps_yoy": {
+          "2024": -0.1181,
+          "2023": -0.3296,
+          "2022": 1.4601,
+          "2021": -2.0267,
+          "2020": -2.5625
+        },
+        "ttm": {
+          "revenue": null,
+          "eps_diluted": 7.08,
+          "revenue_yoy": null,
+          "eps_yoy": -0.1561,
+          "as_of_quarter": "2025-09-30",
+          "source": "sec"
+        },
+        "revenue_cagr_3yr": null,
+        "eps_cagr_3yr": 0.133,
+        "revenue_cagr_5yr": null,
+        "eps_cagr_5yr": 0.1847
+      },
+      "errors": []
+    }
+  }
+}
