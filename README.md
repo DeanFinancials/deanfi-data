@@ -20,10 +20,11 @@ Automated market data collection updated by the [deanfi-collectors](https://gith
 | **A/D Line Historical** | [`advance-decline/ad_line_historical.json`](advance-decline/ad_line_historical.json) | Every 15 min (market hours) | See metadata |
 | **MA % Historical** | [`advance-decline/ma_percentage_historical.json`](advance-decline/ma_percentage_historical.json) | Every 15 min (market hours) | See metadata |
 | **Mean Reversion** | [`meanreversion/`](meanreversion/) | Every 15 min (market hours) | See metadata |
-| **Analyst Trends** | [`analyst-trends/recommendation_trends.json`](analyst-trends/recommendation_trends.json) | Weekly (Sunday 12pm ET) | See metadata |
-| **Sector Analysis** | [`analyst-trends/sector_recommendation_trends.json`](analyst-trends/sector_recommendation_trends.json) | Weekly (Sunday 12pm ET) | See metadata |
-| **Earnings Calendar** | [`earnings-calendar/earnings_calendar.json`](earnings-calendar/earnings_calendar.json) | Weekly (Sunday 12pm ET) | See metadata |
-| **Earnings Surprises** | [`earnings-surprises/earnings_surprises.json`](earnings-surprises/earnings_surprises.json) | Weekly (Sunday 12pm ET) | See metadata |
+| **Analyst Trends** | [`analyst-trends/recommendation_trends.json`](analyst-trends/recommendation_trends.json) | Nightly (11pm ET) | See metadata |
+| **Sector Analysis** | [`analyst-trends/sector_recommendation_trends.json`](analyst-trends/sector_recommendation_trends.json) | Nightly (11pm ET) | See metadata |
+| **Earnings Calendar** | [`earnings-calendar/earnings_calendar.json`](earnings-calendar/earnings_calendar.json) | Nightly (11pm ET) | See metadata |
+| **Earnings Surprises** | [`earnings-surprises/earnings_surprises.json`](earnings-surprises/earnings_surprises.json) | Nightly (11pm ET) | See metadata |
+| **SP100 Growth** | [`sp100growth/sp100growth.json`](sp100growth/sp100growth.json) | Nightly (11:15pm ET) | See metadata |
 | **Implied Volatility** | [`implied-volatility/`](implied-volatility/) | Every 15 min (market hours) | See metadata |
 | **Economy Indicators** | [`economy-breadth/`](economy-breadth/) | Twice daily (8am & 12pm ET) | See metadata |
 
