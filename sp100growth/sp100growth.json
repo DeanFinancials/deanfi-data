@@ -13,6 +13,11 @@
       "quarterly_fallback": "Finnhub API"
     },
     "metrics_explained": {
+      "sector": {
+        "description": "GICS sector classification for the company",
+        "format": "String (e.g., 'Information Technology', 'Health Care', 'Financials')",
+        "source": "shared/sector_mapping.py - comprehensive S&P 500 sector mapping"
+      },
       "revenue_yoy": {
         "description": "Year-over-year revenue growth rate",
         "format": "Decimal (0.05 = 5% growth, -0.03 = 3% decline)",
@@ -63,7 +68,7 @@
     ]
   },
   "metadata": {
-    "generated_at": "2025-12-07T18:26:59.594010Z",
+    "generated_at": "2025-12-07T18:37:34.754393Z",
     "data_sources": "SEC EDGAR + yfinance + Alpha Vantage + Finnhub",
     "ticker_count": 100,
     "successful_extractions": 100,
@@ -72,9 +77,10 @@
   "companies": {
     "AAPL": {
       "ticker": "AAPL",
+      "sector": "Information Technology",
       "cik": "0000320193",
       "company_name": "Apple Inc.",
-      "extracted_at": "2025-12-07T18:26:17.549302Z",
+      "extracted_at": "2025-12-07T18:36:42.919944Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0643,
@@ -107,9 +113,10 @@
     },
     "ABBV": {
       "ticker": "ABBV",
+      "sector": "Health Care",
       "cik": "0001551152",
       "company_name": "AbbVie Inc.",
-      "extracted_at": "2025-12-07T18:26:18.057460Z",
+      "extracted_at": "2025-12-07T18:36:43.265977Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0371,
@@ -142,9 +149,10 @@
     },
     "ABT": {
       "ticker": "ABT",
+      "sector": "Health Care",
       "cik": "0000001800",
       "company_name": "ABBOTT LABORATORIES",
-      "extracted_at": "2025-12-07T18:26:19.118414Z",
+      "extracted_at": "2025-12-07T18:36:43.590678Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0459,
@@ -177,9 +185,10 @@
     },
     "ACN": {
       "ticker": "ACN",
+      "sector": "Information Technology",
       "cik": "0001467373",
       "company_name": "Accenture plc",
-      "extracted_at": "2025-12-07T18:26:19.431062Z",
+      "extracted_at": "2025-12-07T18:36:44.021809Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0736,
@@ -212,9 +221,10 @@
     },
     "ADBE": {
       "ticker": "ADBE",
+      "sector": "Information Technology",
       "cik": "0000796343",
       "company_name": "ADOBE INC.",
-      "extracted_at": "2025-12-07T18:26:20.300524Z",
+      "extracted_at": "2025-12-07T18:36:44.503310Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.108,
@@ -247,9 +257,10 @@
     },
     "AIG": {
       "ticker": "AIG",
+      "sector": "Financials",
       "cik": "0000005272",
       "company_name": "American International Group, Inc.",
-      "extracted_at": "2025-12-07T18:26:21.123396Z",
+      "extracted_at": "2025-12-07T18:36:45.059721Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0246,
@@ -282,9 +293,10 @@
     },
     "AMD": {
       "ticker": "AMD",
+      "sector": "Information Technology",
       "cik": "0000002488",
       "company_name": "ADVANCED MICRO DEVICES, INC",
-      "extracted_at": "2025-12-07T18:26:21.574529Z",
+      "extracted_at": "2025-12-07T18:36:45.605011Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1369,
@@ -317,9 +329,10 @@
     },
     "AMGN": {
       "ticker": "AMGN",
+      "sector": "Health Care",
       "cik": "0000318154",
       "company_name": "Amgen Inc.",
-      "extracted_at": "2025-12-07T18:26:21.905712Z",
+      "extracted_at": "2025-12-07T18:36:46.095031Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1857,
@@ -352,9 +365,10 @@
     },
     "AMT": {
       "ticker": "AMT",
+      "sector": "Real Estate",
       "cik": "0001053507",
       "company_name": "AMERICAN TOWER CORPORATION",
-      "extracted_at": "2025-12-07T18:26:22.209575Z",
+      "extracted_at": "2025-12-07T18:36:46.818359Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0365,
@@ -387,9 +401,10 @@
     },
     "AMZN": {
       "ticker": "AMZN",
+      "sector": "Consumer Discretionary",
       "cik": "0001018724",
       "company_name": "AMAZON.COM, INC.",
-      "extracted_at": "2025-12-07T18:26:22.475708Z",
+      "extracted_at": "2025-12-07T18:36:47.334238Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1099,
@@ -422,9 +437,10 @@
     },
     "AVGO": {
       "ticker": "AVGO",
+      "sector": "Information Technology",
       "cik": "0001730168",
       "company_name": "Broadcom Inc.",
-      "extracted_at": "2025-12-07T18:26:22.722687Z",
+      "extracted_at": "2025-12-07T18:36:47.711531Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.4399,
@@ -457,9 +473,10 @@
     },
     "AXP": {
       "ticker": "AXP",
+      "sector": "Financials",
       "cik": "0000004962",
       "company_name": "AMERICAN EXPRESS COMPANY",
-      "extracted_at": "2025-12-07T18:26:23.184158Z",
+      "extracted_at": "2025-12-07T18:36:48.301828Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0432,
@@ -492,9 +509,10 @@
     },
     "BA": {
       "ticker": "BA",
+      "sector": "Industrials",
       "cik": "0000012927",
       "company_name": "THE BOEING COMPANY",
-      "extracted_at": "2025-12-07T18:26:23.595075Z",
+      "extracted_at": "2025-12-07T18:36:49.066932Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.145,
@@ -527,9 +545,10 @@
     },
     "BAC": {
       "ticker": "BAC",
+      "sector": "Financials",
       "cik": "0000070858",
       "company_name": "Bank of America Corporation",
-      "extracted_at": "2025-12-07T18:26:23.936926Z",
+      "extracted_at": "2025-12-07T18:36:49.924213Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0335,
@@ -562,9 +581,10 @@
     },
     "BK": {
       "ticker": "BK",
+      "sector": "Financials",
       "cik": "0001390777",
       "company_name": "THE BANK OF NEW YORK MELLON CORPORATION",
-      "extracted_at": "2025-12-07T18:26:24.414420Z",
+      "extracted_at": "2025-12-07T18:36:50.414201Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0521,
@@ -597,9 +617,10 @@
     },
     "BKNG": {
       "ticker": "BKNG",
+      "sector": "Consumer Discretionary",
       "cik": "0001075531",
       "company_name": "Booking Holdings Inc.",
-      "extracted_at": "2025-12-07T18:26:24.720713Z",
+      "extracted_at": "2025-12-07T18:36:50.746379Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1111,
@@ -632,9 +653,10 @@
     },
     "BLK": {
       "ticker": "BLK",
+      "sector": "Financials",
       "cik": "0002012383",
       "company_name": "BlackRock, Inc.",
-      "extracted_at": "2025-12-07T18:26:24.847688Z",
+      "extracted_at": "2025-12-07T18:36:51.068913Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1427,
@@ -667,9 +689,10 @@
     },
     "BMY": {
       "ticker": "BMY",
+      "sector": "Health Care",
       "cik": "0000014272",
       "company_name": "BRISTOL-MYERS SQUIBB COMPANY",
-      "extracted_at": "2025-12-07T18:26:26.331319Z",
+      "extracted_at": "2025-12-07T18:36:53.175572Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0732,
@@ -702,9 +725,10 @@
     },
     "BRK-B": {
       "ticker": "BRK-B",
+      "sector": "Financials",
       "cik": "0001067983",
       "company_name": "BERKSHIRE HATHAWAY INC",
-      "extracted_at": "2025-12-07T18:26:26.593129Z",
+      "extracted_at": "2025-12-07T18:36:53.449728Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0204,
@@ -739,9 +763,10 @@
     },
     "C": {
       "ticker": "C",
+      "sector": "Financials",
       "cik": "0000831001",
       "company_name": "Citigroup\u00a0Inc",
-      "extracted_at": "2025-12-07T18:26:28.180852Z",
+      "extracted_at": "2025-12-07T18:36:55.068135Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0341,
@@ -774,9 +799,10 @@
     },
     "CAT": {
       "ticker": "CAT",
+      "sector": "Industrials",
       "cik": "0000018230",
       "company_name": "CATERPILLAR INC",
-      "extracted_at": "2025-12-07T18:26:28.574651Z",
+      "extracted_at": "2025-12-07T18:36:55.634561Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0336,
@@ -809,9 +835,10 @@
     },
     "CL": {
       "ticker": "CL",
+      "sector": "Consumer Staples",
       "cik": "0000021665",
       "company_name": "COLGATE-PALMOLIVE COMPANY",
-      "extracted_at": "2025-12-07T18:26:28.865907Z",
+      "extracted_at": "2025-12-07T18:36:56.012399Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0331,
@@ -844,9 +871,10 @@
     },
     "CMCSA": {
       "ticker": "CMCSA",
+      "sector": "Communication Services",
       "cik": "0001166691",
       "company_name": "COMCAST\u00a0CORPORATION",
-      "extracted_at": "2025-12-07T18:26:29.191886Z",
+      "extracted_at": "2025-12-07T18:36:56.545312Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0178,
@@ -879,9 +907,10 @@
     },
     "COF": {
       "ticker": "COF",
+      "sector": "Financials",
       "cik": "0000927628",
       "company_name": "CAPITAL\u00a0ONE\u00a0FINANCIAL\u00a0CORP",
-      "extracted_at": "2025-12-07T18:26:30.109268Z",
+      "extracted_at": "2025-12-07T18:36:57.482362Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0478,
@@ -914,9 +943,10 @@
     },
     "COP": {
       "ticker": "COP",
+      "sector": "Energy",
       "cik": "0001163165",
       "company_name": "ConocoPhillips",
-      "extracted_at": "2025-12-07T18:26:30.400542Z",
+      "extracted_at": "2025-12-07T18:36:57.863000Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0185,
@@ -949,9 +979,10 @@
     },
     "COST": {
       "ticker": "COST",
+      "sector": "Consumer Staples",
       "cik": "0000909832",
       "company_name": "COSTCO WHOLESALE CORP /NEW",
-      "extracted_at": "2025-12-07T18:26:30.735293Z",
+      "extracted_at": "2025-12-07T18:36:58.195775Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0817,
@@ -984,9 +1015,10 @@
     },
     "CRM": {
       "ticker": "CRM",
+      "sector": "Information Technology",
       "cik": "0001108524",
       "company_name": "Salesforce, Inc.",
-      "extracted_at": "2025-12-07T18:26:31.420552Z",
+      "extracted_at": "2025-12-07T18:36:58.576259Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0872,
@@ -1019,9 +1051,10 @@
     },
     "CSCO": {
       "ticker": "CSCO",
+      "sector": "Information Technology",
       "cik": "0000858877",
       "company_name": "CISCO SYSTEMS, INC.",
-      "extracted_at": "2025-12-07T18:26:31.794638Z",
+      "extracted_at": "2025-12-07T18:36:58.957294Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.053,
@@ -1054,9 +1087,10 @@
     },
     "CVS": {
       "ticker": "CVS",
+      "sector": "Health Care",
       "cik": "0000064803",
       "company_name": "CVS HEALTH CORPORATION",
-      "extracted_at": "2025-12-07T18:26:32.115219Z",
+      "extracted_at": "2025-12-07T18:36:59.582977Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.042,
@@ -1089,9 +1123,10 @@
     },
     "CVX": {
       "ticker": "CVX",
+      "sector": "Energy",
       "cik": "0000093410",
       "company_name": "Chevron Corp",
-      "extracted_at": "2025-12-07T18:26:32.532158Z",
+      "extracted_at": "2025-12-07T18:37:00.163719Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0178,
@@ -1124,9 +1159,10 @@
     },
     "DE": {
       "ticker": "DE",
+      "sector": "Industrials",
       "cik": "0000315189",
       "company_name": "DEERE & CO",
-      "extracted_at": "2025-12-07T18:26:32.928018Z",
+      "extracted_at": "2025-12-07T18:37:00.708344Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.1557,
@@ -1159,9 +1195,10 @@
     },
     "DHR": {
       "ticker": "DHR",
+      "sector": "Health Care",
       "cik": "0000313616",
       "company_name": "DANAHER CORPORATION",
-      "extracted_at": "2025-12-07T18:26:33.298600Z",
+      "extracted_at": "2025-12-07T18:37:01.242924Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0006,
@@ -1194,9 +1231,10 @@
     },
     "DIS": {
       "ticker": "DIS",
+      "sector": "Communication Services",
       "cik": "0001744489",
       "company_name": "WALT DISNEY CO/",
-      "extracted_at": "2025-12-07T18:26:33.529953Z",
+      "extracted_at": "2025-12-07T18:37:01.501911Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0335,
@@ -1229,9 +1267,10 @@
     },
     "DUK": {
       "ticker": "DUK",
+      "sector": "Utilities",
       "cik": "0001326160",
       "company_name": "DUKE ENERGY CORPORATION",
-      "extracted_at": "2025-12-07T18:26:33.834852Z",
+      "extracted_at": "2025-12-07T18:37:01.935543Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.048,
@@ -1264,9 +1303,10 @@
     },
     "EMR": {
       "ticker": "EMR",
+      "sector": "Industrials",
       "cik": "0000032604",
       "company_name": "EMERSON ELECTRIC CO.",
-      "extracted_at": "2025-12-07T18:26:34.270102Z",
+      "extracted_at": "2025-12-07T18:37:02.590145Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.03,
@@ -1299,9 +1339,10 @@
     },
     "FDX": {
       "ticker": "FDX",
+      "sector": "Industrials",
       "cik": "0001048911",
       "company_name": "FedEx Corporation",
-      "extracted_at": "2025-12-07T18:26:35.066194Z",
+      "extracted_at": "2025-12-07T18:37:02.990512Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0027,
@@ -1334,9 +1375,10 @@
     },
     "GD": {
       "ticker": "GD",
+      "sector": "Industrials",
       "cik": "0000040533",
       "company_name": "GENERAL DYNAMICS CORPORATION",
-      "extracted_at": "2025-12-07T18:26:35.335140Z",
+      "extracted_at": "2025-12-07T18:37:03.664859Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1288,
@@ -1369,9 +1411,10 @@
     },
     "GE": {
       "ticker": "GE",
+      "sector": "Industrials",
       "cik": "0000040545",
       "company_name": "GENERAL ELECTRIC COMPANY",
-      "extracted_at": "2025-12-07T18:26:35.635747Z",
+      "extracted_at": "2025-12-07T18:37:04.449585Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0949,
@@ -1404,9 +1447,10 @@
     },
     "GILD": {
       "ticker": "GILD",
+      "sector": "Health Care",
       "cik": "0000882095",
       "company_name": "GILEAD SCIENCES, INC.",
-      "extracted_at": "2025-12-07T18:26:35.967738Z",
+      "extracted_at": "2025-12-07T18:37:04.901912Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0604,
@@ -1439,9 +1483,10 @@
     },
     "GM": {
       "ticker": "GM",
+      "sector": "Consumer Discretionary",
       "cik": "0001467858",
       "company_name": "GENERAL MOTORS COMPANY",
-      "extracted_at": "2025-12-07T18:26:36.295408Z",
+      "extracted_at": "2025-12-07T18:37:05.293997Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0885,
@@ -1474,9 +1519,10 @@
     },
     "GOOGL": {
       "ticker": "GOOGL",
+      "sector": "Communication Services",
       "cik": "0001652044",
       "company_name": "Alphabet Inc.",
-      "extracted_at": "2025-12-07T18:26:36.543441Z",
+      "extracted_at": "2025-12-07T18:37:05.702067Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1387,
@@ -1509,9 +1555,10 @@
     },
     "GS": {
       "ticker": "GS",
+      "sector": "Financials",
       "cik": "0000886982",
       "company_name": "The Goldman Sachs Group, Inc.",
-      "extracted_at": "2025-12-07T18:26:37.308926Z",
+      "extracted_at": "2025-12-07T18:37:06.657951Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1569,
@@ -1544,9 +1591,10 @@
     },
     "HD": {
       "ticker": "HD",
+      "sector": "Consumer Discretionary",
       "cik": "0000354950",
       "company_name": "HOME DEPOT,\u00a0INC.",
-      "extracted_at": "2025-12-07T18:26:37.814895Z",
+      "extracted_at": "2025-12-07T18:37:06.927386Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0448,
@@ -1579,9 +1627,10 @@
     },
     "HON": {
       "ticker": "HON",
+      "sector": "Industrials",
       "cik": "0000773840",
       "company_name": "Honeywell International Inc",
-      "extracted_at": "2025-12-07T18:26:38.145422Z",
+      "extracted_at": "2025-12-07T18:37:07.322292Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0501,
@@ -1614,9 +1663,10 @@
     },
     "IBM": {
       "ticker": "IBM",
+      "sector": "Information Technology",
       "cik": "0000051143",
       "company_name": "INTERNATIONAL BUSINESS MACHINES CORPORATION",
-      "extracted_at": "2025-12-07T18:26:38.738408Z",
+      "extracted_at": "2025-12-07T18:37:07.838990Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0144,
@@ -1649,9 +1699,10 @@
     },
     "INTC": {
       "ticker": "INTC",
+      "sector": "Information Technology",
       "cik": "0000050863",
       "company_name": "INTEL CORPORATION",
-      "extracted_at": "2025-12-07T18:26:39.048281Z",
+      "extracted_at": "2025-12-07T18:37:08.509886Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0208,
@@ -1684,9 +1735,10 @@
     },
     "INTU": {
       "ticker": "INTU",
+      "sector": "Information Technology",
       "cik": "0000896878",
       "company_name": "INTUIT INC.",
-      "extracted_at": "2025-12-07T18:26:39.309879Z",
+      "extracted_at": "2025-12-07T18:37:08.863756Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.1563,
@@ -1719,9 +1771,10 @@
     },
     "ISRG": {
       "ticker": "ISRG",
+      "sector": "Health Care",
       "cik": "0001035267",
       "company_name": "Intuitive Surgical, Inc.",
-      "extracted_at": "2025-12-07T18:26:39.549407Z",
+      "extracted_at": "2025-12-07T18:37:09.740147Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1724,
@@ -1754,9 +1807,10 @@
     },
     "JNJ": {
       "ticker": "JNJ",
+      "sector": "Health Care",
       "cik": "0000200406",
       "company_name": "Johnson & Johnson",
-      "extracted_at": "2025-12-07T18:26:39.851082Z",
+      "extracted_at": "2025-12-07T18:37:10.074686Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.043,
@@ -1787,9 +1841,10 @@
     },
     "JPM": {
       "ticker": "JPM",
+      "sector": "Financials",
       "cik": "0000019617",
       "company_name": "JPMorgan Chase & Co",
-      "extracted_at": "2025-12-07T18:26:40.320609Z",
+      "extracted_at": "2025-12-07T18:37:10.521758Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.123,
@@ -1822,9 +1877,10 @@
     },
     "KO": {
       "ticker": "KO",
+      "sector": "Consumer Staples",
       "cik": "0000021344",
       "company_name": "COCA COLA CO",
-      "extracted_at": "2025-12-07T18:26:40.716703Z",
+      "extracted_at": "2025-12-07T18:37:10.990039Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0286,
@@ -1857,9 +1913,10 @@
     },
     "LIN": {
       "ticker": "LIN",
+      "sector": "Materials",
       "cik": "0001707925",
       "company_name": "Linde plc",
-      "extracted_at": "2025-12-07T18:26:40.908489Z",
+      "extracted_at": "2025-12-07T18:37:11.319524Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0046,
@@ -1892,9 +1949,10 @@
     },
     "LLY": {
       "ticker": "LLY",
+      "sector": "Health Care",
       "cik": "0000059478",
       "company_name": "ELI LILLY AND COMPANY",
-      "extracted_at": "2025-12-07T18:26:41.145211Z",
+      "extracted_at": "2025-12-07T18:37:11.640192Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.32,
@@ -1927,9 +1985,10 @@
     },
     "LMT": {
       "ticker": "LMT",
+      "sector": "Industrials",
       "cik": "0000936468",
       "company_name": "LOCKHEED MARTIN CORPORATION",
-      "extracted_at": "2025-12-07T18:26:41.456778Z",
+      "extracted_at": "2025-12-07T18:37:12.094746Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0514,
@@ -1962,9 +2021,10 @@
     },
     "LOW": {
       "ticker": "LOW",
+      "sector": "Consumer Discretionary",
       "cik": "0000060667",
       "company_name": "LOWE\u2019S COMPANIES,\u00a0INC.",
-      "extracted_at": "2025-12-07T18:26:41.820969Z",
+      "extracted_at": "2025-12-07T18:37:12.656134Z",
       "growth": {
         "revenue_yoy": {
           "2025": -0.0313,
@@ -1997,9 +2057,10 @@
     },
     "MA": {
       "ticker": "MA",
+      "sector": "Financials",
       "cik": "0001141391",
       "company_name": "Mastercard Incorporated",
-      "extracted_at": "2025-12-07T18:26:42.138569Z",
+      "extracted_at": "2025-12-07T18:37:12.988127Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1223,
@@ -2032,9 +2093,10 @@
     },
     "MCD": {
       "ticker": "MCD",
+      "sector": "Consumer Discretionary",
       "cik": "0000063908",
       "company_name": "McDONALD\u2019S CORPORATION",
-      "extracted_at": "2025-12-07T18:26:42.415126Z",
+      "extracted_at": "2025-12-07T18:37:13.573970Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0167,
@@ -2067,9 +2129,10 @@
     },
     "MDLZ": {
       "ticker": "MDLZ",
+      "sector": "Consumer Staples",
       "cik": "0001103982",
       "company_name": "Mondelez International, Inc.",
-      "extracted_at": "2025-12-07T18:26:42.697996Z",
+      "extracted_at": "2025-12-07T18:37:14.042824Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0118,
@@ -2102,9 +2165,10 @@
     },
     "MDT": {
       "ticker": "MDT",
+      "sector": "Health Care",
       "cik": "0001613103",
       "company_name": "Medtronic plc",
-      "extracted_at": "2025-12-07T18:26:42.990704Z",
+      "extracted_at": "2025-12-07T18:37:14.494638Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0362,
@@ -2137,9 +2201,10 @@
     },
     "MET": {
       "ticker": "MET",
+      "sector": "Financials",
       "cik": "0001099219",
       "company_name": "MetLife, Inc.",
-      "extracted_at": "2025-12-07T18:26:43.569831Z",
+      "extracted_at": "2025-12-07T18:37:15.067545Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0072,
@@ -2172,9 +2237,10 @@
     },
     "META": {
       "ticker": "META",
+      "sector": "Communication Services",
       "cik": "0001326801",
       "company_name": "Meta Platforms, Inc.",
-      "extracted_at": "2025-12-07T18:26:43.804316Z",
+      "extracted_at": "2025-12-07T18:37:15.514598Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.2194,
@@ -2207,9 +2273,10 @@
     },
     "MMM": {
       "ticker": "MMM",
+      "sector": "Industrials",
       "cik": "0000066740",
       "company_name": "3M COMPANY",
-      "extracted_at": "2025-12-07T18:26:44.167668Z",
+      "extracted_at": "2025-12-07T18:37:15.995075Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0014,
@@ -2242,9 +2309,10 @@
     },
     "MO": {
       "ticker": "MO",
+      "sector": "Consumer Staples",
       "cik": "0000764180",
       "company_name": "Altria Group, Inc.",
-      "extracted_at": "2025-12-07T18:26:44.589359Z",
+      "extracted_at": "2025-12-07T18:37:16.406009Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.019,
@@ -2277,9 +2345,10 @@
     },
     "MRK": {
       "ticker": "MRK",
+      "sector": "Health Care",
       "cik": "0000310158",
       "company_name": "Merck\u00a0& Co., Inc.",
-      "extracted_at": "2025-12-07T18:26:44.937076Z",
+      "extracted_at": "2025-12-07T18:37:16.927495Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0674,
@@ -2312,9 +2381,10 @@
     },
     "MS": {
       "ticker": "MS",
+      "sector": "Financials",
       "cik": "0000895421",
       "company_name": "MORGAN STANLEY",
-      "extracted_at": "2025-12-07T18:26:45.367411Z",
+      "extracted_at": "2025-12-07T18:37:17.418701Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1407,
@@ -2347,9 +2417,10 @@
     },
     "MSFT": {
       "ticker": "MSFT",
+      "sector": "Information Technology",
       "cik": "0000789019",
       "company_name": "MICROSOFT CORPORATION",
-      "extracted_at": "2025-12-07T18:26:46.155269Z",
+      "extracted_at": "2025-12-07T18:37:17.955422Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.1493,
@@ -2382,9 +2453,10 @@
     },
     "NEE": {
       "ticker": "NEE",
+      "sector": "Utilities",
       "cik": "0000753308",
       "company_name": "NEXTERA ENERGY, INC.",
-      "extracted_at": "2025-12-07T18:26:46.641272Z",
+      "extracted_at": "2025-12-07T18:37:18.382319Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0524,
@@ -2417,9 +2489,10 @@
     },
     "NFLX": {
       "ticker": "NFLX",
+      "sector": "Communication Services",
       "cik": "0001065280",
       "company_name": "Netflix, Inc.",
-      "extracted_at": "2025-12-07T18:26:46.961882Z",
+      "extracted_at": "2025-12-07T18:37:18.718558Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1565,
@@ -2452,9 +2525,10 @@
     },
     "NKE": {
       "ticker": "NKE",
+      "sector": "Consumer Discretionary",
       "cik": "0000320187",
       "company_name": "NIKE, Inc.",
-      "extracted_at": "2025-12-07T18:26:47.222167Z",
+      "extracted_at": "2025-12-07T18:37:19.317246Z",
       "growth": {
         "revenue_yoy": {
           "2025": -0.0984,
@@ -2487,9 +2561,10 @@
     },
     "NOW": {
       "ticker": "NOW",
+      "sector": "Information Technology",
       "cik": "0001373715",
       "company_name": "SERVICENOW, INC.",
-      "extracted_at": "2025-12-07T18:26:47.505920Z",
+      "extracted_at": "2025-12-07T18:37:19.742032Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.2244,
@@ -2522,9 +2597,10 @@
     },
     "NVDA": {
       "ticker": "NVDA",
+      "sector": "Information Technology",
       "cik": "0001045810",
       "company_name": "NVIDIA CORP",
-      "extracted_at": "2025-12-07T18:26:47.875833Z",
+      "extracted_at": "2025-12-07T18:37:20.135813Z",
       "growth": {
         "revenue_yoy": {
           "2025": 1.142,
@@ -2557,9 +2633,10 @@
     },
     "ORCL": {
       "ticker": "ORCL",
+      "sector": "Information Technology",
       "cik": "0001341439",
       "company_name": "Oracle Corporation",
-      "extracted_at": "2025-12-07T18:26:48.168993Z",
+      "extracted_at": "2025-12-07T18:37:20.527402Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0838,
@@ -2592,9 +2669,10 @@
     },
     "PEP": {
       "ticker": "PEP",
+      "sector": "Consumer Staples",
       "cik": "0000077476",
       "company_name": "PepsiCo, Inc.",
-      "extracted_at": "2025-12-07T18:26:48.462908Z",
+      "extracted_at": "2025-12-07T18:37:20.916604Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0042,
@@ -2627,9 +2705,10 @@
     },
     "PFE": {
       "ticker": "PFE",
+      "sector": "Health Care",
       "cik": "0000078003",
       "company_name": "PFIZER INC",
-      "extracted_at": "2025-12-07T18:26:48.883510Z",
+      "extracted_at": "2025-12-07T18:37:21.484965Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0684,
@@ -2662,9 +2741,10 @@
     },
     "PG": {
       "ticker": "PG",
+      "sector": "Consumer Staples",
       "cik": "0000080424",
       "company_name": "PROCTER & GAMBLE CO",
-      "extracted_at": "2025-12-07T18:26:49.545059Z",
+      "extracted_at": "2025-12-07T18:37:22.291483Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0029,
@@ -2697,9 +2777,10 @@
     },
     "PLTR": {
       "ticker": "PLTR",
+      "sector": "Information Technology",
       "cik": "0001321655",
       "company_name": "Palantir Technologies Inc.",
-      "extracted_at": "2025-12-07T18:26:49.747900Z",
+      "extracted_at": "2025-12-07T18:37:22.504682Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.2879,
@@ -2732,9 +2813,10 @@
     },
     "PM": {
       "ticker": "PM",
+      "sector": "Consumer Staples",
       "cik": "0001413329",
       "company_name": "Philip Morris International Inc.",
-      "extracted_at": "2025-12-07T18:26:50.015838Z",
+      "extracted_at": "2025-12-07T18:37:22.953221Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0769,
@@ -2767,9 +2849,10 @@
     },
     "PYPL": {
       "ticker": "PYPL",
+      "sector": "Financials",
       "cik": "0001633917",
       "company_name": "PayPal Holdings, Inc.",
-      "extracted_at": "2025-12-07T18:26:50.221076Z",
+      "extracted_at": "2025-12-07T18:37:23.281138Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0681,
@@ -2802,9 +2885,10 @@
     },
     "QCOM": {
       "ticker": "QCOM",
+      "sector": "Information Technology",
       "cik": "0000804328",
       "company_name": "QUALCOMM INC/DE",
-      "extracted_at": "2025-12-07T18:26:50.486843Z",
+      "extracted_at": "2025-12-07T18:37:23.745373Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.1366,
@@ -2837,9 +2921,10 @@
     },
     "RTX": {
       "ticker": "RTX",
+      "sector": "Industrials",
       "cik": "0000101829",
       "company_name": "RTX CORPORATION",
-      "extracted_at": "2025-12-07T18:26:50.803931Z",
+      "extracted_at": "2025-12-07T18:37:24.133470Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1715,
@@ -2872,9 +2957,10 @@
     },
     "SBUX": {
       "ticker": "SBUX",
+      "sector": "Consumer Discretionary",
       "cik": "0000829224",
       "company_name": "Starbucks Corporation",
-      "extracted_at": "2025-12-07T18:26:51.355149Z",
+      "extracted_at": "2025-12-07T18:37:24.871330Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0279,
@@ -2907,9 +2993,10 @@
     },
     "SCHW": {
       "ticker": "SCHW",
+      "sector": "Financials",
       "cik": "0000316709",
       "company_name": "SCHWAB CHARLES CORP",
-      "extracted_at": "2025-12-07T18:26:51.635668Z",
+      "extracted_at": "2025-12-07T18:37:25.270362Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0408,
@@ -2942,9 +3029,10 @@
     },
     "SO": {
       "ticker": "SO",
+      "sector": "Utilities",
       "cik": "0000092122",
       "company_name": "The Southern Company",
-      "extracted_at": "2025-12-07T18:26:52.072968Z",
+      "extracted_at": "2025-12-07T18:37:25.763019Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0583,
@@ -2977,9 +3065,10 @@
     },
     "SPG": {
       "ticker": "SPG",
+      "sector": "Real Estate",
       "cik": "0001063761",
       "company_name": "SIMON PROPERTY GROUP,\u00a0INC.",
-      "extracted_at": "2025-12-07T18:26:52.366140Z",
+      "extracted_at": "2025-12-07T18:37:26.282210Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0539,
@@ -3012,9 +3101,10 @@
     },
     "T": {
       "ticker": "T",
+      "sector": "Communication Services",
       "cik": "0000732717",
       "company_name": "AT&T INC.",
-      "extracted_at": "2025-12-07T18:26:53.003028Z",
+      "extracted_at": "2025-12-07T18:37:27.031415Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0008,
@@ -3047,9 +3137,10 @@
     },
     "TGT": {
       "ticker": "TGT",
+      "sector": "Consumer Discretionary",
       "cik": "0000027419",
       "company_name": "TARGET CORPORATION",
-      "extracted_at": "2025-12-07T18:26:53.325631Z",
+      "extracted_at": "2025-12-07T18:37:27.540195Z",
       "growth": {
         "revenue_yoy": {
           "2025": -0.0079,
@@ -3082,9 +3173,10 @@
     },
     "TMO": {
       "ticker": "TMO",
+      "sector": "Health Care",
       "cik": "0000097745",
       "company_name": "THERMO FISHER SCIENTIFIC INC.",
-      "extracted_at": "2025-12-07T18:26:53.771569Z",
+      "extracted_at": "2025-12-07T18:37:27.855161Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0005,
@@ -3117,9 +3209,10 @@
     },
     "TMUS": {
       "ticker": "TMUS",
+      "sector": "Communication Services",
       "cik": "0001283699",
       "company_name": "T-MOBILE US, INC.",
-      "extracted_at": "2025-12-07T18:26:54.080485Z",
+      "extracted_at": "2025-12-07T18:37:28.263907Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0362,
@@ -3152,9 +3245,10 @@
     },
     "TSLA": {
       "ticker": "TSLA",
+      "sector": "Consumer Discretionary",
       "cik": "0001318605",
       "company_name": "Tesla, Inc.",
-      "extracted_at": "2025-12-07T18:26:54.325142Z",
+      "extracted_at": "2025-12-07T18:37:28.565463Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0095,
@@ -3187,9 +3281,10 @@
     },
     "TXN": {
       "ticker": "TXN",
+      "sector": "Information Technology",
       "cik": "0000097476",
       "company_name": "TEXAS INSTRUMENTS INCORPORATED",
-      "extracted_at": "2025-12-07T18:26:55.073070Z",
+      "extracted_at": "2025-12-07T18:37:29.420073Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.1072,
@@ -3222,9 +3317,10 @@
     },
     "UBER": {
       "ticker": "UBER",
+      "sector": "Consumer Discretionary",
       "cik": "0001543151",
       "company_name": "UBER TECHNOLOGIES, INC.",
-      "extracted_at": "2025-12-07T18:26:55.267469Z",
+      "extracted_at": "2025-12-07T18:37:29.677288Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.1796,
@@ -3257,9 +3353,10 @@
     },
     "UNH": {
       "ticker": "UNH",
+      "sector": "Health Care",
       "cik": "0000731766",
       "company_name": "UnitedHealth Group Incorporated",
-      "extracted_at": "2025-12-07T18:26:55.585769Z",
+      "extracted_at": "2025-12-07T18:37:30.078926Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0771,
@@ -3292,9 +3389,10 @@
     },
     "UNP": {
       "ticker": "UNP",
+      "sector": "Industrials",
       "cik": "0000100885",
       "company_name": "UNION PACIFIC CORP",
-      "extracted_at": "2025-12-07T18:26:55.887201Z",
+      "extracted_at": "2025-12-07T18:37:30.551969Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0054,
@@ -3327,9 +3425,10 @@
     },
     "UPS": {
       "ticker": "UPS",
+      "sector": "Industrials",
       "cik": "0001090727",
       "company_name": "United Parcel Service, Inc.",
-      "extracted_at": "2025-12-07T18:26:56.253622Z",
+      "extracted_at": "2025-12-07T18:37:30.909779Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0012,
@@ -3362,9 +3461,10 @@
     },
     "USB": {
       "ticker": "USB",
+      "sector": "Financials",
       "cik": "0000036104",
       "company_name": "US BANCORP \\DE\\",
-      "extracted_at": "2025-12-07T18:26:56.850858Z",
+      "extracted_at": "2025-12-07T18:37:31.324068Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0245,
@@ -3397,9 +3497,10 @@
     },
     "V": {
       "ticker": "V",
+      "sector": "Financials",
       "cik": "0001403161",
       "company_name": "VISA INC.",
-      "extracted_at": "2025-12-07T18:26:57.462249Z",
+      "extracted_at": "2025-12-07T18:37:32.132852Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.1134,
@@ -3434,9 +3535,10 @@
     },
     "VZ": {
       "ticker": "VZ",
+      "sector": "Communication Services",
       "cik": "0000732712",
       "company_name": "Verizon Communications Inc.",
-      "extracted_at": "2025-12-07T18:26:58.595046Z",
+      "extracted_at": "2025-12-07T18:37:33.487348Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0061,
@@ -3469,9 +3571,10 @@
     },
     "WFC": {
       "ticker": "WFC",
+      "sector": "Financials",
       "cik": "0000072971",
       "company_name": "WELLS FARGO & COMPANY/MN",
-      "extracted_at": "2025-12-07T18:26:59.085296Z",
+      "extracted_at": "2025-12-07T18:37:33.949940Z",
       "growth": {
         "revenue_yoy": {
           "2024": -0.0036,
@@ -3504,9 +3607,10 @@
     },
     "WMT": {
       "ticker": "WMT",
+      "sector": "Consumer Staples",
       "cik": "0000104169",
       "company_name": "Walmart Inc.",
-      "extracted_at": "2025-12-07T18:26:59.319467Z",
+      "extracted_at": "2025-12-07T18:37:34.394941Z",
       "growth": {
         "revenue_yoy": {
           "2025": 0.0496,
@@ -3539,9 +3643,10 @@
     },
     "XOM": {
       "ticker": "XOM",
+      "sector": "Energy",
       "cik": "0000034088",
       "company_name": "Exxon Mobil Corporation",
-      "extracted_at": "2025-12-07T18:26:59.591191Z",
+      "extracted_at": "2025-12-07T18:37:34.751315Z",
       "growth": {
         "revenue_yoy": {
           "2024": 0.0145,
