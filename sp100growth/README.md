@@ -24,6 +24,16 @@ S&P 100 company growth metrics extracted from SEC EDGAR filings.
     "AAPL": {
       "ticker": "AAPL",
       "company_name": "Apple Inc.",
+      "annual_values": {
+        "2024": {"revenue": 391035000000, "eps": 6.08},
+        "2023": {"revenue": 383285000000, "eps": 6.13},
+        "2022": {"revenue": 394328000000, "eps": 6.11}
+      },
+      "quarterly_values": {
+        "2024-Q3": {"revenue": 94930000000, "eps": 1.40},
+        "2024-Q2": {"revenue": 85777000000, "eps": 1.53},
+        "2024-Q1": {"revenue": 90753000000, "eps": 1.53}
+      },
       "growth": {
         "revenue_yoy": {"2024": -0.028, "2023": 0.078},
         "eps_yoy": {"2024": -0.003, "2023": 0.041},
@@ -45,6 +55,12 @@ S&P 100 company growth metrics extracted from SEC EDGAR filings.
 
 | Metric | Description |
 |--------|-------------|
+| `annual_values` | Actual annual revenue and EPS by year |
+| `annual_values[year].revenue` | Annual revenue (USD) |
+| `annual_values[year].eps` | Annual diluted EPS (USD per share) |
+| `quarterly_values` | Actual quarterly revenue and EPS by quarter |
+| `quarterly_values[qtr].revenue` | Quarterly revenue (USD) |
+| `quarterly_values[qtr].eps` | Quarterly diluted EPS (USD per share) |
 | `revenue_yoy` | Year-over-year revenue growth (decimal) |
 | `eps_yoy` | Year-over-year EPS growth (decimal) |
 | `ttm.revenue` | Trailing 12 months revenue (USD) |
