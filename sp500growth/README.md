@@ -1,0 +1,118 @@
+# SP500 Growth Data
+
+S&P 500 company growth metrics extracted from SEC EDGAR filings.
+
+## Files
+
+| File | Description | Update Frequency |
+|------|-------------|------------------|
+| `sp500growth.json` | Growth metrics for all S&P 500 companies | Nightly (11:15pm ET) |
+
+## Data Format
+
+```json
+{
+  "_README": { ... },
+  "metadata": {
+    "generated_at": "2025-12-08T04:15:00Z",
+    "data_source": "SEC EDGAR + Finnhub",
+    "ticker_count": 500,
+    "successful_extractions": 490,
+    "universe": "S&P 500"
+  },
+  "companies": {
+    "AAPL": {
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "annual_values": {
+        "2024": {"revenue": 391035000000, "eps": 6.08},
+        "2023": {"revenue": 383285000000, "eps": 6.13},
+        "2022": {"revenue": 394328000000, "eps": 6.11}
+      },
+      "quarterly_values": {
+        "2024-Q3": {"revenue": 94930000000, "eps": 1.40},
+        "2024-Q2": {"revenue": 85777000000, "eps": 1.53},
+        "2024-Q1": {"revenue": 90753000000, "eps": 1.53}
+      },
+      "growth": {
+        "revenue_yoy": {"2024": -0.028, "2023": 0.078},
+        "eps_yoy": {"2024": -0.003, "2023": 0.041},
+        "ttm": {
+          "revenue": 383285000000,
+          "eps_diluted": 6.11,
+          "revenue_yoy": 0.02,
+          "eps_yoy": 0.05
+        },
+        "revenue_cagr_3yr": 0.024,
+        "eps_cagr_3yr": 0.019
+      }
+    }
+  }
+}
+```
+
+## Metrics
+
+| Metric | Description |
+|--------|-------------|
+| `annual_values` | Actual annual revenue and EPS by year |
+| `annual_values[year].revenue` | Annual revenue (USD) |
+| `annual_values[year].eps` | Annual diluted EPS (USD per share) |
+| `quarterly_values` | Actual quarterly revenue and EPS by quarter |
+| `quarterly_values[qtr].revenue` | Quarterly revenue (USD) |
+| `quarterly_values[qtr].eps` | Quarterly diluted EPS (USD per share) |
+| `revenue_yoy` | Year-over-year revenue growth (decimal) |
+| `eps_yoy` | Year-over-year EPS growth (decimal) |
+| `ttm.revenue` | Trailing 12 months revenue (USD) |
+| `ttm.eps_diluted` | Trailing 12 months diluted EPS |
+| `ttm.revenue_yoy` | TTM revenue growth vs prior TTM |
+| `ttm.eps_yoy` | TTM EPS growth vs prior TTM |
+| `revenue_cagr_3yr` | 3-year revenue CAGR |
+| `eps_cagr_3yr` | 3-year EPS CAGR |
+| `revenue_cagr_5yr` | 5-year revenue CAGR |
+| `eps_cagr_5yr` | 5-year EPS CAGR |
+
+## Data Sources
+
+- **Primary**: SEC EDGAR (10-K and 10-Q filings)
+- **Annual Fallbacks**: yfinance, Alpha Vantage, Finnhub
+- **Quarterly Fallback**: Finnhub API
+
+## Comparison with SP100 Growth
+
+Both sp100growth.json and sp500growth.json are generated from the same unified collector (`spgrowth/fetch_sp_growth.py`). The S&P 500 file contains all 500 companies, while the S&P 100 file is a filtered subset containing only the 100 largest companies.
+
+- **sp100growth.json**: ~100 companies (mega-cap focused)
+- **sp500growth.json**: ~500 companies (full large-cap coverage)
+
+## Usage
+
+```javascript
+// Fetch from R2 CDN
+const url = 'https://r2.deanfi.com/sp500growth/sp500growth.json';
+const response = await fetch(url);
+const data = await response.json();
+
+// Get Apple's growth metrics
+console.log(data.companies.AAPL.growth);
+
+// Filter companies with >10% revenue growth
+const highGrowth = Object.values(data.companies).filter(
+  c => c.growth.ttm?.revenue_yoy > 0.10
+);
+
+// Group by sector (using sector field from company data)
+const bySector = {};
+for (const company of Object.values(data.companies)) {
+  const sector = company.sector || 'Unknown';
+  if (!bySector[sector]) bySector[sector] = [];
+  bySector[sector].push(company);
+}
+```
+
+## Notes
+
+- All growth rates are decimals (multiply by 100 for percentage)
+- Null values indicate insufficient data
+- The S&P 500 includes companies from all 11 GICS sectors
+- Revenue/EPS figures are in USD (not scaled)

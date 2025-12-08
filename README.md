@@ -25,6 +25,7 @@ Automated market data collection updated by the [deanfi-collectors](https://gith
 | **Earnings Calendar** | [`earnings-calendar/earnings_calendar.json`](earnings-calendar/earnings_calendar.json) | Nightly (11pm ET) | See metadata |
 | **Earnings Surprises** | [`earnings-surprises/earnings_surprises.json`](earnings-surprises/earnings_surprises.json) | Nightly (11pm ET) | See metadata |
 | **SP100 Growth** | [`sp100growth/sp100growth.json`](sp100growth/sp100growth.json) | Nightly (11:15pm ET) | See metadata |
+| **SP500 Growth** | [`sp500growth/sp500growth.json`](sp500growth/sp500growth.json) | Nightly (11:15pm ET) | See metadata |
 | **Implied Volatility** | [`implied-volatility/`](implied-volatility/) | Every 15 min (market hours) | See metadata |
 | **Economy Indicators** | [`economy-breadth/`](economy-breadth/) | Twice daily (8am & 12pm ET) | See metadata |
 

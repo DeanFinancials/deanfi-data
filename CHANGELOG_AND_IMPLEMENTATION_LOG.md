@@ -6,6 +6,30 @@ This document tracks all implementations, changes, and updates to the deanfi-dat
 
 ---
 
+## [2025-12-08] - SP500 Growth Data Added
+
+### Added
+
+#### New Dataset: sp500growth/
+- **sp500growth.json**: Growth metrics for all S&P 500 companies (~500 tickers)
+- **README.md**: Documentation for the new dataset
+
+### Background
+The deanfi-collectors repository now includes a unified S&P growth collector that generates both sp100growth.json and sp500growth.json from a single run. This eliminates duplicate API calls since S&P 100 companies are already included in the S&P 500.
+
+### Data Format
+The sp500growth.json uses the same format as sp100growth.json:
+- `_README`: Self-documenting schema
+- `metadata`: Generation timestamp, ticker counts, universe name
+- `companies`: Growth metrics keyed by ticker symbol
+
+### Access
+```
+https://r2.deanfi.com/sp500growth/sp500growth.json
+```
+
+---
+
 ## [2025-11-26] - R2 Domain Migration
 
 ### Changed
