@@ -3,7 +3,7 @@
     "description": "Implied volatility snapshot for major U.S. index ETFs",
     "data_source": "yfinance (Yahoo Finance) - Options data",
     "update_frequency": "Real-time (run script to update)",
-    "last_updated": "2025-12-08T21:47:45.082029",
+    "last_updated": "2025-12-08T21:55:54.532545",
     "num_symbols": 4,
     "symbols": [
       "SPY",
@@ -53,16 +53,16 @@
     "SPY": {
       "symbol": "SPY",
       "current_price": 683.63,
-      "timestamp": "2025-12-08T21:47:44.290274",
+      "timestamp": "2025-12-08T21:55:53.637396",
       "expiration_date": "2025-12-15",
       "days_to_expiration": 7,
       "atm_call": {
         "strike": 684.0,
-        "implied_volatility": 0.127816,
+        "implied_volatility": 0.12806,
         "last_price": 4.94,
-        "bid": 4.95,
-        "ask": 4.98,
-        "mid_price": 4.965,
+        "bid": 4.96,
+        "ask": 4.99,
+        "mid_price": 4.975,
         "moneyness": 1.0005,
         "pct_from_atm": 0.05,
         "classification": "ATM",
@@ -75,45 +75,45 @@
         "strike": 684.0,
         "implied_volatility": 0.118417,
         "last_price": 5.01,
-        "bid": 4.94,
+        "bid": 4.95,
         "ask": 4.97,
-        "mid_price": 4.955,
+        "mid_price": 4.96,
         "moneyness": 1.0005,
         "pct_from_atm": 0.05,
         "classification": "ATM",
         "volume": 1314,
         "open_interest": 248,
-        "bid_ask_spread": 0.03,
-        "spread_pct": 0.61
+        "bid_ask_spread": 0.02,
+        "spread_pct": 0.4
       },
-      "average_iv": 0.123117,
+      "average_iv": 0.123239,
       "index": "S&P 500",
       "name": "SPDR S&P 500 ETF Trust",
       "description": "Largest 500 U.S. companies by market cap",
-      "average_iv_formatted": "12.31%",
+      "average_iv_formatted": "12.32%",
       "iv_level": "Low",
       "historical_reference": {
         "historical_avg": 0.17,
         "historical_avg_formatted": "17%",
         "typical_low": 0.12,
         "typical_high": 0.25,
-        "current_vs_average": -0.0469,
-        "current_vs_average_pct": "-27.58%"
+        "current_vs_average": -0.0468,
+        "current_vs_average_pct": "-27.51%"
       }
     },
     "QQQ": {
       "symbol": "QQQ",
       "current_price": 624.28,
-      "timestamp": "2025-12-08T21:47:44.519321",
+      "timestamp": "2025-12-08T21:55:53.863597",
       "expiration_date": "2025-12-15",
       "days_to_expiration": 7,
       "atm_call": {
         "strike": 624.0,
-        "implied_volatility": 0.170296,
+        "implied_volatility": 0.170602,
         "last_price": 6.4,
-        "bid": 6.37,
-        "ask": 6.42,
-        "mid_price": 6.395,
+        "bid": 6.38,
+        "ask": 6.43,
+        "mid_price": 6.405,
         "moneyness": 0.9996,
         "pct_from_atm": -0.04,
         "classification": "ATM",
@@ -124,18 +124,18 @@
       },
       "atm_put": {
         "strike": 624.0,
-        "implied_volatility": 0.166024,
+        "implied_volatility": 0.165719,
         "last_price": 5.98,
-        "bid": 5.98,
-        "ask": 5.98,
-        "mid_price": 5.98,
+        "bid": 5.92,
+        "ask": 5.97,
+        "mid_price": 5.945,
         "moneyness": 0.9996,
         "pct_from_atm": -0.04,
         "classification": "ATM",
         "volume": 908,
         "open_interest": 297,
-        "bid_ask_spread": null,
-        "spread_pct": null
+        "bid_ask_spread": 0.05,
+        "spread_pct": 0.84
       },
       "average_iv": 0.16816,
       "index": "Nasdaq-100",
@@ -155,7 +155,7 @@
     "IWM": {
       "symbol": "IWM",
       "current_price": 250.87,
-      "timestamp": "2025-12-08T21:47:44.728505",
+      "timestamp": "2025-12-08T21:55:54.070768",
       "expiration_date": "2025-12-15",
       "days_to_expiration": 7,
       "atm_call": {
@@ -206,23 +206,23 @@
     "DIA": {
       "symbol": "DIA",
       "current_price": 478.15,
-      "timestamp": "2025-12-08T21:47:45.081827",
+      "timestamp": "2025-12-08T21:55:54.532349",
       "expiration_date": "2025-12-19",
       "days_to_expiration": 11,
       "atm_call": {
         "strike": 478.0,
-        "implied_volatility": 0.132272,
+        "implied_volatility": 0.133737,
         "last_price": 4.6,
-        "bid": 4.5,
-        "ask": 4.65,
-        "mid_price": 4.575,
+        "bid": 4.55,
+        "ask": 4.7,
+        "mid_price": 4.625,
         "moneyness": 0.9997,
         "pct_from_atm": -0.03,
         "classification": "ATM",
         "volume": 47,
         "open_interest": 86,
         "bid_ask_spread": 0.15,
-        "spread_pct": 3.28
+        "spread_pct": 3.24
       },
       "atm_put": {
         "strike": 478.0,
@@ -239,19 +239,19 @@
         "bid_ask_spread": 0.15,
         "spread_pct": 3.28
       },
-      "average_iv": 0.134469,
+      "average_iv": 0.135202,
       "index": "Dow Jones",
       "name": "SPDR Dow Jones Industrial Average ETF",
       "description": "30 large U.S. blue-chip companies",
-      "average_iv_formatted": "13.45%",
+      "average_iv_formatted": "13.52%",
       "iv_level": "Low",
       "historical_reference": {
         "historical_avg": 0.16,
         "historical_avg_formatted": "16%",
         "typical_low": 0.11,
         "typical_high": 0.23,
-        "current_vs_average": -0.0255,
-        "current_vs_average_pct": "-15.96%"
+        "current_vs_average": -0.0248,
+        "current_vs_average_pct": "-15.50%"
       }
     }
   }
