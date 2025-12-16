@@ -2,10 +2,11 @@ name: Combine Daily Snapshots
 
 on:
   schedule:
-    # Every weekday at 4:38pm ET (21:38 UTC)
-    # Runs 3 minutes after the last daily market data workflow completes
+    # Every weekday at 5:15pm ET (22:15 UTC)
+    # Runs ~20 minutes after the last market data workflow completes (~21:55 UTC)
+    # This ensures all market data updates are captured before combining
     # Note: Adjust for daylight saving time if needed (EDT vs EST)
-    - cron: '38 21 * * 1-5'
+    - cron: '15 22 * * 1-5'
   workflow_dispatch:  # Allow manual trigger
 
 env:
