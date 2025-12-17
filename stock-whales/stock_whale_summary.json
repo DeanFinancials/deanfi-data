@@ -1,0 +1,646 @@
+{
+  "_README": {
+    "title": "S&P 500 Stock Whale Trades",
+    "description": "Large stock trades detected over 5 trading days for S&P 500 constituents",
+    "purpose": "Identify institutional-sized stock trades for sentiment analysis, particularly dark pool activity",
+    "data_source": "Alpaca Markets Stock Trades API",
+    "methodology": {
+      "lookback_days": 5,
+      "lookback_type": "Trading days (excludes weekends and NYSE holidays)",
+      "threshold_approach": "Dynamic - starts at 5K shares/$1M minimum, steps up until <= 10 trades per ticker",
+      "threshold_logic": "Trade qualifies if shares >= threshold OR value >= threshold (OR logic)",
+      "direction_inference": "Lee-Ready algorithm - compares trade price to bid/ask spread",
+      "dark_pool_indicator": "Exchange code 'D' = FINRA ADF / Off-Exchange (institutional)",
+      "max_trades_per_ticker": 20
+    },
+    "field_descriptions": {
+      "ticker": "Stock ticker symbol",
+      "shares": "Number of shares in the trade",
+      "value": "Dollar value of the trade (price \u00d7 shares)",
+      "is_dark_pool": "True if trade executed on dark pool (Exchange D)",
+      "exchange": "Exchange code where trade occurred",
+      "tape": "Tape indicator (A=NYSE, B=NYSE Arca/regional, C=NASDAQ)",
+      "direction": "Inferred trade direction (BUY/SELL/NEUTRAL)",
+      "direction_confidence": "Confidence percentage (0-95%) of direction inference",
+      "tier": "Size classification (notable/large/whale/mega_whale)",
+      "effective_threshold": "The dynamic threshold applied to this ticker"
+    },
+    "direction_interpretation": {
+      "BUY": "Trade executed at/above ask - aggressive buyer lifted offer",
+      "SELL": "Trade executed at/below bid - aggressive seller hit bid",
+      "NEUTRAL": "Trade at midpoint - direction unclear",
+      "buy_sell_ratio": "Ratio > 1 = bullish bias, < 1 = bearish bias"
+    },
+    "dark_pool_context": "Dark pool trades (Exchange D) execute off-exchange to minimize market impact.\nThese are typically institutional block trades where large players don't want\nto reveal their positioning to the market. High dark pool activity often\nindicates significant institutional interest or repositioning.\n",
+    "tier_descriptions": {
+      "notable": "Notable institutional activity ($1M-$2.5M)",
+      "large": "Large block trade ($2.5M-$5M)",
+      "whale": "Whale-sized institutional trade ($5M-$10M)",
+      "mega_whale": "Mega whale - major institutional positioning ($10M+)"
+    },
+    "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
+  },
+  "metadata": {
+    "collection_timestamp": "2025-12-17T22:02:13.974486",
+    "lookback_start": "2025-12-11T00:00:00",
+    "lookback_end": "2025-12-17T21:48:16.380650",
+    "trading_days": 5,
+    "tickers_scanned": 503,
+    "tickers_with_whales": 503,
+    "tickers_skipped": 0,
+    "total_raw_trades_scanned": 5030000,
+    "total_whale_trades": 3329,
+    "minimum_share_threshold": 5000,
+    "minimum_value_threshold": 1000000
+  },
+  "overall_sentiment": {
+    "direction": "BEARISH",
+    "high_confidence_direction": "BEARISH",
+    "buy_value": 71503304080.77983,
+    "sell_value": 122463651296.31554,
+    "net_value": -50960347215.535706,
+    "buy_sell_ratio": 0.58,
+    "buy_count": 1314,
+    "sell_count": 1979,
+    "total_whale_trades": 3329,
+    "hc_buy_count": 1310,
+    "hc_sell_count": 1969,
+    "hc_buy_value": 71442770821.51984,
+    "hc_sell_value": 122252043915.27553,
+    "hc_net_value": -50809273093.75569
+  },
+  "dark_pool_sentiment": {
+    "description": "Dark pool trades (Exchange D) - typically institutional block trades",
+    "direction": "BEARISH",
+    "high_confidence_direction": "BEARISH",
+    "trade_count": 1897,
+    "total_value": 18109371530.819912,
+    "pct_of_whale_volume": 9.3,
+    "buy_value": 5906915043.519803,
+    "sell_value": 12118457557.6301,
+    "net_value": -6211542514.110297,
+    "buy_sell_ratio": 0.49,
+    "hc_buy_value": 5905896093.519803,
+    "hc_sell_value": 12116340475.420101,
+    "hc_net_value": -6210444381.900298
+  },
+  "lit_exchange_sentiment": {
+    "description": "Lit exchange trades (public exchanges)",
+    "direction": "BEARISH",
+    "high_confidence_direction": "BEARISH",
+    "trade_count": 1432,
+    "total_value": 176704080628.6255,
+    "pct_of_whale_volume": 90.7,
+    "buy_value": 65596389037.259995,
+    "sell_value": 110345193738.68524,
+    "net_value": -44748804701.42525,
+    "buy_sell_ratio": 0.59
+  },
+  "top_bullish_trades": {
+    "description": "Top 10 tickers with largest BUY activity (one per ticker)",
+    "trades": [
+      {
+        "ticker": "META",
+        "value": 1994667109.5,
+        "shares": 3071081,
+        "price": 649.5,
+        "timestamp": "2025-12-17T21:00:00.269297381Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Communication Services",
+        "total_trades": 8,
+        "dark_pool_count": 6,
+        "dark_pool_value": 501101590.5,
+        "total_ticker_value": 4490435809.5
+      },
+      {
+        "ticker": "LLY",
+        "value": 707205598.23,
+        "shares": 678837,
+        "price": 1041.79,
+        "timestamp": "2025-12-17T21:10:00.0015524Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Health Care",
+        "total_trades": 10,
+        "dark_pool_count": 7,
+        "dark_pool_value": 159473046.04,
+        "total_ticker_value": 2281089840.73
+      },
+      {
+        "ticker": "JPM",
+        "value": 665885673.86,
+        "shares": 2114057,
+        "price": 314.98,
+        "timestamp": "2025-12-17T21:10:00.001613167Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Financials",
+        "total_trades": 7,
+        "dark_pool_count": 4,
+        "dark_pool_value": 78277569.68,
+        "total_ticker_value": 2075934591.26
+      },
+      {
+        "ticker": "V",
+        "value": 647038934.08,
+        "shares": 1878688,
+        "price": 344.41,
+        "timestamp": "2025-12-17T21:10:00.002085286Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Financials",
+        "total_trades": 9,
+        "dark_pool_count": 6,
+        "dark_pool_value": 130673631.32999998,
+        "total_ticker_value": 2071790433.57
+      },
+      {
+        "ticker": "MA",
+        "value": 548977501.98,
+        "shares": 970834,
+        "price": 565.47,
+        "timestamp": "2025-12-17T21:10:00.002176246Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Financials",
+        "total_trades": 8,
+        "dark_pool_count": 5,
+        "dark_pool_value": 201268868.04,
+        "total_ticker_value": 1848201373.98
+      },
+      {
+        "ticker": "BRK-B",
+        "value": 522764606.52,
+        "shares": 1036676,
+        "price": 504.27,
+        "timestamp": "2025-12-17T21:10:00.00147381Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Financials",
+        "total_trades": 6,
+        "dark_pool_count": 3,
+        "dark_pool_value": 40838810.22,
+        "total_ticker_value": 1609132629.78
+      },
+      {
+        "ticker": "JNJ",
+        "value": 442968230.79,
+        "shares": 2106063,
+        "price": 210.33,
+        "timestamp": "2025-12-17T21:10:00.001243057Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Health Care",
+        "total_trades": 6,
+        "dark_pool_count": 3,
+        "dark_pool_value": 89185598.91000001,
+        "total_ticker_value": 1418090291.2800002
+      },
+      {
+        "ticker": "NFLX",
+        "value": 432517670.16,
+        "shares": 4562904,
+        "price": 94.79,
+        "timestamp": "2025-12-17T21:00:00.353314217Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Communication Services",
+        "total_trades": 4,
+        "dark_pool_count": 2,
+        "dark_pool_value": 75850389.26,
+        "total_ticker_value": 940885729.58
+      },
+      {
+        "ticker": "FISV",
+        "value": 409394958.53999996,
+        "shares": 5991438,
+        "price": 68.33,
+        "timestamp": "2025-12-17T21:00:01.169483679Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Financials",
+        "total_trades": 9,
+        "dark_pool_count": 7,
+        "dark_pool_value": 7887927.210000001,
+        "total_ticker_value": 826677844.2900001
+      },
+      {
+        "ticker": "PEP",
+        "value": 374242789.76000005,
+        "shares": 2493622,
+        "price": 150.08,
+        "timestamp": "2025-12-17T21:00:00.493260872Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Consumer Staples",
+        "total_trades": 10,
+        "dark_pool_count": 8,
+        "dark_pool_value": 163479592.64000005,
+        "total_ticker_value": 911965172.1600001
+      }
+    ]
+  },
+  "top_bearish_trades": {
+    "description": "Top 10 tickers with largest SELL activity (one per ticker)",
+    "trades": [
+      {
+        "ticker": "AAPL",
+        "value": 3744127891.5199995,
+        "shares": 13773278,
+        "price": 271.84,
+        "timestamp": "2025-12-17T21:00:00.190576882Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Information Technology",
+        "total_trades": 6,
+        "dark_pool_count": 4,
+        "dark_pool_value": 640621949.76,
+        "total_ticker_value": 8128877732.799999
+      },
+      {
+        "ticker": "MSFT",
+        "value": 3056758961.28,
+        "shares": 6420144,
+        "price": 476.12,
+        "timestamp": "2025-12-17T21:00:00.466526651Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 89,
+        "sector": "Information Technology",
+        "total_trades": 10,
+        "dark_pool_count": 8,
+        "dark_pool_value": 555825344.72,
+        "total_ticker_value": 6669343267.280002
+      },
+      {
+        "ticker": "AMZN",
+        "value": 2753747633.84,
+        "shares": 12445192,
+        "price": 221.27,
+        "timestamp": "2025-12-17T21:00:00.790608579Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Consumer Discretionary",
+        "total_trades": 9,
+        "dark_pool_count": 7,
+        "dark_pool_value": 358038093.35,
+        "total_ticker_value": 5865533361.030001
+      },
+      {
+        "ticker": "AVGO",
+        "value": 2310111106.2084002,
+        "shares": 6940326,
+        "price": 332.8534,
+        "timestamp": "2025-12-17T21:21:04.914943428Z",
+        "is_dark_pool": true,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Information Technology",
+        "total_trades": 7,
+        "dark_pool_count": 5,
+        "dark_pool_value": 2463625121.6684003,
+        "total_ticker_value": 6473863473.4684
+      },
+      {
+        "ticker": "GOOGL",
+        "value": 1835541965.7600002,
+        "shares": 6186108,
+        "price": 296.72,
+        "timestamp": "2025-12-17T21:00:00.766266384Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Communication Services",
+        "total_trades": 9,
+        "dark_pool_count": 7,
+        "dark_pool_value": 380623514.4,
+        "total_ticker_value": 4051707445.9200006
+      },
+      {
+        "ticker": "GOOG",
+        "value": 1259199477.06,
+        "shares": 4224651,
+        "price": 298.06,
+        "timestamp": "2025-12-17T21:00:00.722218412Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Unknown",
+        "total_trades": 6,
+        "dark_pool_count": 4,
+        "dark_pool_value": 580849193.96,
+        "total_ticker_value": 3099248148.08
+      },
+      {
+        "ticker": "ORCL",
+        "value": 652442978.52,
+        "shares": 3655962,
+        "price": 178.46,
+        "timestamp": "2025-12-17T21:10:00.00174891Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Information Technology",
+        "total_trades": 10,
+        "dark_pool_count": 7,
+        "dark_pool_value": 122553300.42,
+        "total_ticker_value": 2079882235.9799998
+      },
+      {
+        "ticker": "PLTR",
+        "value": 630950466.6899999,
+        "shares": 3558861,
+        "price": 177.29,
+        "timestamp": "2025-12-17T21:00:00.088051399Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Information Technology",
+        "total_trades": 9,
+        "dark_pool_count": 6,
+        "dark_pool_value": 90237064.2,
+        "total_ticker_value": 1983088464.2699997
+      },
+      {
+        "ticker": "AMD",
+        "value": 627531651.12,
+        "shares": 3167592,
+        "price": 198.11,
+        "timestamp": "2025-12-17T21:00:01.145797675Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Information Technology",
+        "total_trades": 9,
+        "dark_pool_count": 7,
+        "dark_pool_value": 54483419.76,
+        "total_ticker_value": 1309546722.0
+      },
+      {
+        "ticker": "GS",
+        "value": 563955238.69,
+        "shares": 646493,
+        "price": 872.33,
+        "timestamp": "2025-12-17T21:10:00.004261872Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Financials",
+        "total_trades": 8,
+        "dark_pool_count": 5,
+        "dark_pool_value": 89289954.14000002,
+        "total_ticker_value": 1781155670.2100003
+      }
+    ]
+  },
+  "tier_breakdown": {
+    "mega_whale": {
+      "count": 1689,
+      "value": 191092317299.6516,
+      "dark_pool_count": 323
+    },
+    "notable": {
+      "count": 1119,
+      "value": 1255171850.2638993,
+      "dark_pool_count": 1062
+    },
+    "whale": {
+      "count": 182,
+      "value": 1269359628.139999,
+      "dark_pool_count": 174
+    },
+    "large": {
+      "count": 339,
+      "value": 1196603381.3900006,
+      "dark_pool_count": 338
+    }
+  },
+  "exchange_breakdown": {
+    "N": {
+      "count": 1058,
+      "value": 101009805534.96037,
+      "name": "NYSE",
+      "is_dark_pool": false
+    },
+    "Q": {
+      "count": 326,
+      "value": 72211992066.99007,
+      "name": "NASDAQ",
+      "is_dark_pool": false
+    },
+    "D": {
+      "count": 1897,
+      "value": 18109371530.819912,
+      "name": "Dark Pool (FINRA ADF)",
+      "is_dark_pool": true
+    },
+    "P": {
+      "count": 35,
+      "value": 3365133482.7,
+      "name": "NYSE Arca",
+      "is_dark_pool": false
+    },
+    "Z": {
+      "count": 3,
+      "value": 96575722.92,
+      "name": "Cboe BZX",
+      "is_dark_pool": false
+    },
+    "M": {
+      "count": 3,
+      "value": 13489950.0,
+      "name": "CHX",
+      "is_dark_pool": false
+    },
+    "T": {
+      "count": 3,
+      "value": 2749012.6799999997,
+      "name": "T",
+      "is_dark_pool": false
+    },
+    "Y": {
+      "count": 1,
+      "value": 1929585.0,
+      "name": "Cboe BYX",
+      "is_dark_pool": false
+    },
+    "V": {
+      "count": 2,
+      "value": 1845669.125,
+      "name": "IEX",
+      "is_dark_pool": false
+    },
+    "A": {
+      "count": 1,
+      "value": 559604.25,
+      "name": "NYSE American",
+      "is_dark_pool": false
+    }
+  },
+  "sector_sentiment": {
+    "Information Technology": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 2698060173.950001,
+      "sell_value": 47047111429.60646,
+      "net_value": -44349051255.65646,
+      "buy_sell_ratio": 0.06,
+      "buy_count": 47,
+      "sell_count": 381,
+      "trade_count": 428,
+      "ticker_count": 65
+    },
+    "Financials": {
+      "sentiment": "BULLISH",
+      "high_confidence_sentiment": "BULLISH",
+      "buy_value": 19002887861.86499,
+      "sell_value": 11303058918.573597,
+      "net_value": 7699828943.291393,
+      "buy_sell_ratio": 1.68,
+      "buy_count": 249,
+      "sell_count": 202,
+      "trade_count": 460,
+      "ticker_count": 73
+    },
+    "Industrials": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 8905899682.244999,
+      "sell_value": 12312046980.304487,
+      "net_value": -3406147298.0594883,
+      "buy_sell_ratio": 0.72,
+      "buy_count": 192,
+      "sell_count": 324,
+      "trade_count": 523,
+      "ticker_count": 84
+    },
+    "Consumer Discretionary": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 6597861697.890002,
+      "sell_value": 13400795704.265,
+      "net_value": -6802934006.374997,
+      "buy_sell_ratio": 0.49,
+      "buy_count": 142,
+      "sell_count": 211,
+      "trade_count": 353,
+      "ticker_count": 52
+    },
+    "Health Care": {
+      "sentiment": "BULLISH",
+      "high_confidence_sentiment": "BULLISH",
+      "buy_value": 10479796978.159996,
+      "sell_value": 9216436283.257805,
+      "net_value": 1263360694.9021912,
+      "buy_sell_ratio": 1.14,
+      "buy_count": 155,
+      "sell_count": 208,
+      "trade_count": 373,
+      "ticker_count": 58
+    },
+    "Communication Services": {
+      "sentiment": "BULLISH",
+      "high_confidence_sentiment": "BULLISH",
+      "buy_value": 7466109165.600001,
+      "sell_value": 7317727926.540001,
+      "net_value": 148381239.06000042,
+      "buy_sell_ratio": 1.02,
+      "buy_count": 55,
+      "sell_count": 79,
+      "trade_count": 134,
+      "ticker_count": 19
+    },
+    "Consumer Staples": {
+      "sentiment": "BULLISH",
+      "high_confidence_sentiment": "BULLISH",
+      "buy_value": 6667751460.825002,
+      "sell_value": 2460273349.33,
+      "net_value": 4207478111.495002,
+      "buy_sell_ratio": 2.71,
+      "buy_count": 144,
+      "sell_count": 101,
+      "trade_count": 245,
+      "ticker_count": 35
+    },
+    "Utilities": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 3263015629.010001,
+      "sell_value": 3807051939.6600003,
+      "net_value": -544036310.6499991,
+      "buy_sell_ratio": 0.86,
+      "buy_count": 114,
+      "sell_count": 110,
+      "trade_count": 224,
+      "ticker_count": 31
+    },
+    "Energy": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 86169086.41,
+      "sell_value": 6820208967.771994,
+      "net_value": -6734039881.361994,
+      "buy_sell_ratio": 0.01,
+      "buy_count": 4,
+      "sell_count": 149,
+      "trade_count": 153,
+      "ticker_count": 23
+    },
+    "Real Estate": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 2956487580.6768003,
+      "sell_value": 3298456815.915801,
+      "net_value": -341969235.2390008,
+      "buy_sell_ratio": 0.9,
+      "buy_count": 116,
+      "sell_count": 111,
+      "trade_count": 237,
+      "ticker_count": 32
+    },
+    "Materials": {
+      "sentiment": "BULLISH",
+      "high_confidence_sentiment": "BULLISH",
+      "buy_value": 3379264764.148001,
+      "sell_value": 1835715168.5300002,
+      "net_value": 1543549595.618001,
+      "buy_sell_ratio": 1.84,
+      "buy_count": 96,
+      "sell_count": 71,
+      "trade_count": 167,
+      "ticker_count": 25
+    },
+    "Unknown": {
+      "sentiment": "BEARISH",
+      "high_confidence_sentiment": "BEARISH",
+      "buy_value": 0,
+      "sell_value": 3644767812.5600004,
+      "net_value": -3644767812.5600004,
+      "buy_sell_ratio": 0.0,
+      "buy_count": 0,
+      "sell_count": 32,
+      "trade_count": 32,
+      "ticker_count": 6
+    }
+  },
+  "top_sectors": [
+    "Information Technology",
+    "Financials",
+    "Industrials",
+    "Consumer Discretionary",
+    "Health Care"
+  ]
+}
