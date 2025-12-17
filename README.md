@@ -28,6 +28,8 @@ Automated market data collection updated by the [deanfi-collectors](https://gith
 | **SP500 Growth** | [`sp500growth/sp500growth.json`](sp500growth/sp500growth.json) | Nightly (11:15pm ET) | See metadata |
 | **Implied Volatility** | [`implied-volatility/`](implied-volatility/) | Every 15 min (market hours) | See metadata |
 | **Economy Indicators** | [`economy-breadth/`](economy-breadth/) | Twice daily (8am & 12pm ET) | See metadata |
+| **Options Whales** | [`options-whales/`](options-whales/) | Twice daily (12pm & 9pm ET) | See metadata |
+| **Stock Whales** | [`stock-whales/`](stock-whales/) | Twice daily (12pm & 9pm ET) | See metadata |
 
 ## 🚀 Quick Start
 
