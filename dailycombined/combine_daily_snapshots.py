@@ -9,6 +9,7 @@ Daily Snapshot Sources:
 - advance-decline/daily_breadth.json - Market breadth indicators
 - major-indexes/*.json (snapshot versions) - Major market indices
 - meanreversion/*_snapshot.json - Mean reversion metrics
+- supportresistence/support_resistence.json - Pivot points + SMAs (support/resistence)
 - implied-volatility/*_snapshot.json - Implied volatility data
 - daily-news/*.json - Market news
 - economy-breadth/*.json - Economic indicators
@@ -134,6 +135,18 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     if mean_reversion_data:
         combined['data']['mean_reversion'] = mean_reversion_data
+
+    # ==================== SUPPORT / RESISTENCE (PIVOTS + SMAS) ====================
+    print("\n📐 Loading support/resistence levels...")
+    support_resistence = load_json_file(data_dir / 'supportresistence' / 'support_resistence.json')
+    if support_resistence:
+        combined['data']['support_resistence'] = support_resistence.get('data', {})
+        combined['metadata']['data_sources'].append({
+            'category': 'support_resistence',
+            'source': 'supportresistence/support_resistence.json',
+            'last_updated': support_resistence.get('metadata', {}).get('generated_at', 'N/A')
+        })
+        print("   ✓ Support/resistence loaded")
     
     # ==================== IMPLIED VOLATILITY ====================
     print("\n📉 Loading implied volatility snapshots...")

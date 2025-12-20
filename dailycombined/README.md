@@ -74,6 +74,14 @@ Updated weekly on Sundays:
 - **Earnings Calendar:** Upcoming earnings announcements
 - **Earnings Surprises:** Recent earnings beats/misses
 
+### 8. Support / Resistence (`support_resistence`)
+**Source:** `supportresistence/support_resistence.json`
+
+Daily support/resistence reference levels for major index ETFs:
+- Traditional pivots: `P, R1, R2, S1, S2`
+- Fibonacci pivots: `FP, FR1, FR2, FS1, FS2`
+- Trend references: `SMA20, SMA50, SMA200`
+
 ## File Structure
 
 ```json

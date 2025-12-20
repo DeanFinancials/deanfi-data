@@ -6,6 +6,14 @@ This document tracks all implementations, changes, and updates to the deanfi-dat
 
 ---
 
+## [2025-12-20] - Include Support / Resistence in Combined Snapshot
+
+### Changed
+- Updated `dailycombined/combine_daily_snapshots.py` to include `supportresistence/support_resistence.json` in `dailycombined/market_snapshot.json` under `data.support_resistence`.
+- Updated documentation:
+  - `dailycombined/README.md`
+  - `README.md`
+
 ## [2025-12-08] - SP500 Growth Data Added
 
 ### Added

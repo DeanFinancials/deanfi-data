@@ -30,6 +30,7 @@ Automated market data collection updated by the [deanfi-collectors](https://gith
 | **Economy Indicators** | [`economy-breadth/`](economy-breadth/) | Twice daily (8am & 12pm ET) | See metadata |
 | **Options Whales** | [`options-whales/`](options-whales/) | Twice daily (12pm & 9pm ET) | See metadata |
 | **Stock Whales** | [`stock-whales/`](stock-whales/) | Twice daily (12pm & 9pm ET) | See metadata |
+| **Support / Resistence** | [`supportresistence/support_resistence.json`](supportresistence/support_resistence.json) | Daily (weekdays) | See metadata |
 
 ## 🚀 Quick Start
 
@@ -48,6 +49,7 @@ console.log(snapshot.data.market_breadth);    // S&P 500 breadth
 console.log(snapshot.data.major_indexes);     // All index prices
 console.log(snapshot.data.news);              // Latest news
 console.log(snapshot.data.economy);           // Economic indicators
+console.log(snapshot.data.support_resistence); // Pivot points + SMAs (support/resistence)
 ```
 
 **Includes:** Market breadth, major indexes, mean reversion, implied volatility, news, economy data, and weekly earnings data. Updated daily at 4:38pm ET.
