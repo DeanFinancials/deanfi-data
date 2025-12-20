@@ -1,0 +1,202 @@
+{
+  "_README": {
+    "title": "Support / Resistence (Pivots + SMAs)",
+    "description": "Daily support/resistance levels and moving averages for major index ETFs.",
+    "purpose": "Standardizes pivot-based support/resistance levels and long/medium/short trend reference levels (SMAs) for use in daily market commentary and dashboards.",
+    "metrics_explained": {
+      "traditional_pivots": {
+        "description": "Floor-trader (traditional) pivot levels derived from the prior session's High/Low/Close.",
+        "formula": "P = (H + L + C)/3; R1 = 2P - L; S1 = 2P - H; R2 = P + (H - L); S2 = P - (H - L)",
+        "interpretation": "Commonly used as potential intraday support/resistance zones. A sustained move above R1 can suggest bullish momentum; below S1 can suggest bearish momentum."
+      },
+      "fibonacci_pivots": {
+        "description": "Fibonacci pivot levels derived from the prior session's range (H-L) around the pivot point.",
+        "formula": "FP = (H + L + C)/3; FR1 = FP + 0.382*(H-L); FR2 = FP + 0.618*(H-L); FS1 = FP - 0.382*(H-L); FS2 = FP - 0.618*(H-L)",
+        "interpretation": "Alternative support/resistance levels that scale by Fibonacci ratios. Often used when traders prefer fib-derived zones over equal-range levels."
+      },
+      "sma20": {
+        "description": "20-day simple moving average of daily closes.",
+        "formula": "SMA20 = average(last 20 closes)",
+        "interpretation": "Short-term trend proxy. Price above often signals near-term strength."
+      },
+      "sma50": {
+        "description": "50-day simple moving average of daily closes.",
+        "formula": "SMA50 = average(last 50 closes)",
+        "interpretation": "Medium-term trend proxy; commonly watched for pullbacks and trend health."
+      },
+      "sma200": {
+        "description": "200-day simple moving average of daily closes.",
+        "formula": "SMA200 = average(last 200 closes)",
+        "interpretation": "Long-term trend proxy; widely used as a bull/bear regime reference."
+      }
+    },
+    "trading_applications": {
+      "support_resistance": "Use pivot levels as reference zones for potential reactions; combine with trend (SMAs) and volatility context rather than treating any single level as a guarantee."
+    },
+    "notes": {
+      "reference_bar": "All calculations are based on the most recent completed 1Day bar returned by Alpaca.",
+      "rounding": "All price levels are rounded for display; raw computations use full precision.",
+      "naming": "Traditional pivots are P/R*/S*. Fibonacci pivots are FP/FR*/FS*."
+    }
+  },
+  "metadata": {
+    "generated_at": "2025-12-20T17:10:57.644906+00:00",
+    "data_source": "Alpaca Market Data API",
+    "endpoint": "/v2/stocks/bars",
+    "feed": "iex",
+    "adjustment": "all",
+    "timeframe": "1Day",
+    "tickers": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA"
+    ],
+    "tickers_count": 4,
+    "symbols_with_data": 4,
+    "lookback_days": 420,
+    "errors": {}
+  },
+  "data": {
+    "SPY": {
+      "reference_bar": {
+        "timeframe": "1Day",
+        "t": "2025-12-19T05:00:00+00:00",
+        "date": "2025-12-19",
+        "h": 681.09,
+        "l": 676.48,
+        "c": 680.52
+      },
+      "traditional_pivots": {
+        "P": 679.36,
+        "R1": 682.25,
+        "R2": 683.98,
+        "S1": 677.63,
+        "S2": 674.75
+      },
+      "fibonacci_pivots": {
+        "FP": 679.36,
+        "FR1": 681.12,
+        "FR2": 682.21,
+        "FS1": 677.6,
+        "FS2": 676.51
+      },
+      "sma": {
+        "SMA20": 677.86,
+        "SMA50": 673.15,
+        "SMA200": 618.89
+      },
+      "inputs": {
+        "bars_used": 288,
+        "closes_used": 288,
+        "feed": "iex",
+        "adjustment": "all"
+      }
+    },
+    "QQQ": {
+      "reference_bar": {
+        "timeframe": "1Day",
+        "t": "2025-12-19T05:00:00+00:00",
+        "date": "2025-12-19",
+        "h": 617.56,
+        "l": 611.87,
+        "c": 617.13
+      },
+      "traditional_pivots": {
+        "P": 615.52,
+        "R1": 619.17,
+        "R2": 621.21,
+        "S1": 613.48,
+        "S2": 609.83
+      },
+      "fibonacci_pivots": {
+        "FP": 615.52,
+        "FR1": 617.69,
+        "FR2": 619.04,
+        "FS1": 613.35,
+        "FS2": 612.0
+      },
+      "sma": {
+        "SMA20": 615.73,
+        "SMA50": 613.66,
+        "SMA200": 552.16
+      },
+      "inputs": {
+        "bars_used": 288,
+        "closes_used": 288,
+        "feed": "iex",
+        "adjustment": "all"
+      }
+    },
+    "IWM": {
+      "reference_bar": {
+        "timeframe": "1Day",
+        "t": "2025-12-19T05:00:00+00:00",
+        "date": "2025-12-19",
+        "h": 251.38,
+        "l": 249.09,
+        "c": 250.68
+      },
+      "traditional_pivots": {
+        "P": 250.38,
+        "R1": 251.67,
+        "R2": 252.67,
+        "S1": 249.39,
+        "S2": 248.1
+      },
+      "fibonacci_pivots": {
+        "FP": 250.38,
+        "FR1": 251.25,
+        "FR2": 251.79,
+        "FS1": 249.51,
+        "FS2": 248.97
+      },
+      "sma": {
+        "SMA20": 248.17,
+        "SMA50": 244.55,
+        "SMA200": 221.68
+      },
+      "inputs": {
+        "bars_used": 288,
+        "closes_used": 288,
+        "feed": "iex",
+        "adjustment": "all"
+      }
+    },
+    "DIA": {
+      "reference_bar": {
+        "timeframe": "1Day",
+        "t": "2025-12-19T05:00:00+00:00",
+        "date": "2025-12-19",
+        "h": 482.7,
+        "l": 480.48,
+        "c": 481.07
+      },
+      "traditional_pivots": {
+        "P": 481.41,
+        "R1": 482.35,
+        "R2": 483.64,
+        "S1": 480.13,
+        "S2": 479.19
+      },
+      "fibonacci_pivots": {
+        "FP": 481.41,
+        "FR1": 482.26,
+        "FR2": 482.79,
+        "FS1": 480.57,
+        "FS2": 480.04
+      },
+      "sma": {
+        "SMA20": 476.74,
+        "SMA50": 471.12,
+        "SMA200": 439.77
+      },
+      "inputs": {
+        "bars_used": 288,
+        "closes_used": 288,
+        "feed": "iex",
+        "adjustment": "all"
+      }
+    }
+  }
+}
