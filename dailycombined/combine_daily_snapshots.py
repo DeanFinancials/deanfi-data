@@ -22,6 +22,39 @@ from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 
 
+def is_empty_value(value: Any) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, (list, tuple, set)):
+        return len(value) == 0
+    if isinstance(value, dict):
+        return len(value) == 0
+    return False
+
+
+def set_block_status(
+    combined: Dict[str, Any],
+    block: str,
+    *,
+    status: str,
+    reason: Optional[str] = None,
+    source: Optional[str] = None,
+    last_updated: Optional[str] = None,
+    record_count: Optional[int] = None,
+) -> None:
+    blocks = combined.setdefault('metadata', {}).setdefault('blocks', {})
+    payload: Dict[str, Any] = {'status': status}
+    if reason:
+        payload['reason'] = reason
+    if source:
+        payload['source'] = source
+    if last_updated:
+        payload['last_updated'] = last_updated
+    if record_count is not None:
+        payload['record_count'] = record_count
+    blocks[block] = payload
+
+
 def load_json_file(file_path: Path) -> Optional[Dict[str, Any]]:
     """
     Load a JSON file and return its contents.
@@ -44,6 +77,127 @@ def load_json_file(file_path: Path) -> Optional[Dict[str, Any]]:
         return None
 
 
+def pick_first_present(payload: Dict[str, Any], keys: list[str], default: Any) -> Any:
+    for key in keys:
+        if key in payload and not is_empty_value(payload.get(key)):
+            return payload.get(key)
+    return default
+
+
+def derive_previous_market_date(data_dir: Path, market_date: str) -> Optional[str]:
+    """Derive the previous trading date from existing historical datasets.
+
+    This avoids adding calendar dependencies while still providing a stable,
+    writer-friendly `previous_market_date` field in the combined snapshot.
+    """
+    if not market_date or not isinstance(market_date, str):
+        return None
+
+    candidate_files = [
+        data_dir / 'advance-decline' / 'ma_percentage_historical.json',
+        data_dir / 'advance-decline' / 'highs_lows_historical.json',
+        data_dir / 'advance-decline' / 'ad_line_historical.json',
+    ]
+
+    for file_path in candidate_files:
+        payload = load_json_file(file_path)
+        if not payload:
+            continue
+        series = payload.get('data')
+        if not isinstance(series, list) or not series:
+            continue
+
+        dates: list[str] = []
+        for row in series:
+            if not isinstance(row, dict):
+                continue
+            value = row.get('date')
+            if isinstance(value, str) and value:
+                dates.append(value)
+
+        if not dates:
+            continue
+
+        unique_dates = sorted(set(dates))
+        prev_dates = [d for d in unique_dates if d < market_date]
+        if prev_dates:
+            return prev_dates[-1]
+
+    return None
+
+
+def get_last_trading_dates_from_us_major_history(
+    data_dir: Path,
+    market_date: str,
+    *,
+    count: int,
+) -> list[str]:
+    """Return up to `count` trading dates ending at `market_date`.
+
+    Uses `major-indexes/us_major_indices_historical.json` (the most reliable
+    canonical trading-day series we have locally) and the ^GSPC date series.
+    """
+    if count <= 0:
+        return []
+    if not market_date or not isinstance(market_date, str):
+        return []
+
+    history = load_json_file(data_dir / 'major-indexes' / 'us_major_indices_historical.json')
+    if not history:
+        return []
+    indices = history.get('indices')
+    if not isinstance(indices, dict):
+        return []
+    gspc = indices.get('^GSPC')
+    if not isinstance(gspc, dict):
+        return []
+    series = gspc.get('data')
+    if not isinstance(series, list) or not series:
+        return []
+
+    dates = [row.get('date') for row in series if isinstance(row, dict) and isinstance(row.get('date'), str)]
+    dates = sorted(set(dates))
+    if not dates:
+        return []
+
+    # Find exact match; otherwise pick the last date <= market_date.
+    if market_date in dates:
+        end_idx = dates.index(market_date)
+    else:
+        earlier = [d for d in dates if d <= market_date]
+        if not earlier:
+            return []
+        end_idx = dates.index(earlier[-1])
+
+    start_idx = max(0, end_idx - (count - 1))
+    return dates[start_idx : end_idx + 1]
+
+
+def build_close_return_lookup(history: Dict[str, Any], symbol: str) -> Dict[str, Dict[str, Any]]:
+    indices = history.get('indices') if isinstance(history, dict) else None
+    if not isinstance(indices, dict):
+        return {}
+    item = indices.get(symbol)
+    if not isinstance(item, dict):
+        return {}
+    series = item.get('data')
+    if not isinstance(series, list):
+        return {}
+
+    lookup: Dict[str, Dict[str, Any]] = {}
+    for row in series:
+        if not isinstance(row, dict):
+            continue
+        date = row.get('date')
+        if not isinstance(date, str) or not date:
+            continue
+        lookup[date] = {
+            'close': row.get('close'),
+            'daily_return_percent': row.get('daily_return_percent'),
+        }
+    return lookup
+
+
 def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     """
     Combine all daily snapshot data into a single structure.
@@ -54,20 +208,26 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     Returns:
         Dictionary with combined snapshot data
     """
+    session_market_date: Optional[str] = None
     combined = {
         'metadata': {
             'generated_at': datetime.now(timezone.utc).isoformat(),
             'description': 'Combined daily market snapshot from all data collectors',
             'data_sources': [],
-            'update_schedule': 'Updated after market close (approximately 4:38pm ET on weekdays)'
+            'update_schedule': 'Updated after market close (approximately 4:38pm ET on weekdays)',
+            'blocks': {}
         },
         'data': {}
     }
+
+    # Stable session metadata (additive / non-breaking)
+    combined['metadata']['timezone'] = 'America/New_York'
     
     # ==================== MARKET BREADTH ====================
     print("\n📊 Loading market breadth data...")
     daily_breadth = load_json_file(data_dir / 'advance-decline' / 'daily_breadth.json')
     if daily_breadth:
+        session_market_date = daily_breadth.get('data', {}).get('date') or session_market_date
         combined['data']['market_breadth'] = {
             'date': daily_breadth['data']['date'],
             'advances_declines': daily_breadth['data']['advances_declines'],
@@ -80,7 +240,22 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
             'source': 'advance-decline/daily_breadth.json',
             'last_updated': daily_breadth['metadata']['generated_at']
         })
+        set_block_status(
+            combined,
+            'market_breadth',
+            status='ok' if not is_empty_value(combined['data'].get('market_breadth')) else 'empty',
+            source='advance-decline/daily_breadth.json',
+            last_updated=daily_breadth.get('metadata', {}).get('generated_at'),
+        )
         print("   ✓ Market breadth loaded")
+    else:
+        set_block_status(
+            combined,
+            'market_breadth',
+            status='missing',
+            reason='File missing or failed to load',
+            source='advance-decline/daily_breadth.json',
+        )
     
     # ==================== MAJOR INDEXES (Snapshot Versions) ====================
     print("\n📈 Loading major index snapshots...")
@@ -98,7 +273,11 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     for key, filename in index_files.items():
         index_data = load_json_file(data_dir / 'major-indexes' / filename)
         if index_data:
-            indexes_data[key] = index_data.get('data', {})
+            # Support multiple upstream shapes:
+            # - most major-indexes snapshots use `indices`
+            # - sector snapshot uses `sectors`
+            # - legacy/other datasets may use `data`
+            indexes_data[key] = pick_first_present(index_data, ['data', 'indices', 'sectors'], {})
             combined['metadata']['data_sources'].append({
                 'category': f'indexes_{key}',
                 'source': f'major-indexes/{filename}',
@@ -108,6 +287,22 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     if indexes_data:
         combined['data']['major_indexes'] = indexes_data
+        set_block_status(
+            combined,
+            'major_indexes',
+            status='ok' if any(not is_empty_value(v) for v in indexes_data.values()) else 'empty',
+            reason=None,
+            source='major-indexes/*.json',
+            record_count=len(indexes_data),
+        )
+    else:
+        set_block_status(
+            combined,
+            'major_indexes',
+            status='missing',
+            reason='No major-indexes snapshot files loaded',
+            source='major-indexes/*.json',
+        )
     
     # ==================== MEAN REVERSION ====================
     print("\n🎯 Loading mean reversion snapshots...")
@@ -135,6 +330,21 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     if mean_reversion_data:
         combined['data']['mean_reversion'] = mean_reversion_data
+        set_block_status(
+            combined,
+            'mean_reversion',
+            status='ok' if not is_empty_value(mean_reversion_data) else 'empty',
+            source='meanreversion/*_snapshot.json',
+            record_count=len(mean_reversion_data),
+        )
+    else:
+        set_block_status(
+            combined,
+            'mean_reversion',
+            status='missing',
+            reason='No mean reversion snapshots loaded',
+            source='meanreversion/*_snapshot.json',
+        )
 
     # ==================== SUPPORT / RESISTENCE (PIVOTS + SMAS) ====================
     print("\n📐 Loading support/resistence levels...")
@@ -146,7 +356,22 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
             'source': 'supportresistence/support_resistence.json',
             'last_updated': support_resistence.get('metadata', {}).get('generated_at', 'N/A')
         })
+        set_block_status(
+            combined,
+            'support_resistence',
+            status='ok' if not is_empty_value(combined['data'].get('support_resistence')) else 'empty',
+            source='supportresistence/support_resistence.json',
+            last_updated=support_resistence.get('metadata', {}).get('generated_at'),
+        )
         print("   ✓ Support/resistence loaded")
+    else:
+        set_block_status(
+            combined,
+            'support_resistence',
+            status='missing',
+            reason='File missing or failed to load',
+            source='supportresistence/support_resistence.json',
+        )
     
     # ==================== IMPLIED VOLATILITY ====================
     print("\n📉 Loading implied volatility snapshots...")
@@ -184,6 +409,21 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     if iv_data:
         combined['data']['implied_volatility'] = iv_data
+        set_block_status(
+            combined,
+            'implied_volatility',
+            status='ok' if not is_empty_value(iv_data) else 'empty',
+            source='implied-volatility/*_snapshot.json',
+            record_count=len(iv_data),
+        )
+    else:
+        set_block_status(
+            combined,
+            'implied_volatility',
+            status='missing',
+            reason='No implied volatility snapshots loaded',
+            source='implied-volatility/*_snapshot.json',
+        )
     
     # ==================== DAILY NEWS ====================
     print("\n📰 Loading daily news...")
@@ -191,26 +431,125 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     top_news = load_json_file(data_dir / 'daily-news' / 'top_news.json')
     if top_news:
-        news_data['top_news'] = top_news.get('data', [])
+        raw_top_news = top_news.get('data', [])
+        if is_empty_value(raw_top_news):
+            raw_top_news = top_news.get('articles', [])
+
+        news_data['top_news'] = raw_top_news
         combined['metadata']['data_sources'].append({
             'category': 'news_top',
             'source': 'daily-news/top_news.json',
             'last_updated': top_news['metadata']['generated_at']
         })
+        set_block_status(
+            combined,
+            'news_top',
+            status='ok' if not is_empty_value(raw_top_news) else 'empty',
+            source='daily-news/top_news.json',
+            last_updated=top_news.get('metadata', {}).get('generated_at'),
+            record_count=len(raw_top_news) if isinstance(raw_top_news, list) else None,
+        )
         print("   ✓ Top news loaded")
+    else:
+        set_block_status(
+            combined,
+            'news_top',
+            status='missing',
+            reason='File missing or failed to load',
+            source='daily-news/top_news.json',
+        )
     
     sector_news = load_json_file(data_dir / 'daily-news' / 'sector_news.json')
     if sector_news:
-        news_data['sector_news'] = sector_news.get('data', {})
+        raw_sector_news = sector_news.get('data', {})
+        if is_empty_value(raw_sector_news):
+            raw_sector_news = sector_news.get('sectors', {})
+
+        news_data['sector_news'] = raw_sector_news
         combined['metadata']['data_sources'].append({
             'category': 'news_sectors',
             'source': 'daily-news/sector_news.json',
             'last_updated': sector_news['metadata']['generated_at']
         })
+        set_block_status(
+            combined,
+            'news_sectors',
+            status='ok' if not is_empty_value(raw_sector_news) else 'empty',
+            source='daily-news/sector_news.json',
+            last_updated=sector_news.get('metadata', {}).get('generated_at'),
+            record_count=len(raw_sector_news) if isinstance(raw_sector_news, dict) else None,
+        )
         print("   ✓ Sector news loaded")
+    else:
+        set_block_status(
+            combined,
+            'news_sectors',
+            status='missing',
+            reason='File missing or failed to load',
+            source='daily-news/sector_news.json',
+        )
+
+    # Add a writer-friendly normalized view (additive; keep raw blocks above)
+    if top_news or sector_news:
+        normalized: Dict[str, Any] = {}
+
+        def normalize_article(article: Dict[str, Any]) -> Dict[str, Any]:
+            return {
+                'title': article.get('title') or article.get('headline'),
+                'summary': article.get('summary'),
+                'source': article.get('source'),
+                'url': article.get('url'),
+                'published_at': article.get('published_at') or article.get('datetime'),
+                'timestamp': article.get('timestamp'),
+                'category': article.get('category'),
+                'id': article.get('id'),
+                'ticker': article.get('ticker'),
+            }
+
+        raw_top = news_data.get('top_news') or []
+        if isinstance(raw_top, list):
+            normalized['top_news'] = [normalize_article(a) for a in raw_top if isinstance(a, dict)]
+
+        raw_sectors = news_data.get('sector_news') or {}
+        if isinstance(raw_sectors, dict):
+            normalized_sectors: Dict[str, Any] = {}
+            for sector_etf, sector_payload in raw_sectors.items():
+                if not isinstance(sector_payload, dict):
+                    continue
+                articles = sector_payload.get('articles', [])
+                normalized_sectors[sector_etf] = {
+                    'sector_name': sector_payload.get('sector_name'),
+                    'articles': [
+                        {
+                            **normalize_article(a),
+                            'sector_etf': sector_etf,
+                            'sector_name': sector_payload.get('sector_name'),
+                        }
+                        for a in articles
+                        if isinstance(a, dict)
+                    ],
+                }
+            normalized['sector_news'] = normalized_sectors
+
+        if normalized:
+            news_data['normalized'] = normalized
     
     if news_data:
         combined['data']['news'] = news_data
+        set_block_status(
+            combined,
+            'news',
+            status='ok' if not is_empty_value(news_data) else 'empty',
+            source='daily-news/*.json',
+        )
+    else:
+        set_block_status(
+            combined,
+            'news',
+            status='missing',
+            reason='No news blocks loaded',
+            source='daily-news/*.json',
+        )
     
     # ==================== ECONOMY INDICATORS ====================
     print("\n💰 Loading economy indicators...")
@@ -258,6 +597,21 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     if economy_data:
         combined['data']['economy'] = economy_data
+        set_block_status(
+            combined,
+            'economy',
+            status='ok' if not is_empty_value(economy_data) else 'empty',
+            source='economy-breadth/*.json',
+            record_count=len(economy_data),
+        )
+    else:
+        set_block_status(
+            combined,
+            'economy',
+            status='missing',
+            reason='No economy indicators loaded',
+            source='economy-breadth/*.json',
+        )
     
     # ==================== WEEKLY DATA (if available) ====================
     print("\n📅 Loading weekly data (if available)...")
@@ -285,6 +639,224 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     if weekly_data:
         combined['data']['weekly'] = weekly_data
+        set_block_status(
+            combined,
+            'weekly',
+            status='ok' if not is_empty_value(weekly_data) else 'empty',
+            source='earnings-calendar/*.json, earnings-surprises/*.json',
+            record_count=len(weekly_data),
+        )
+    else:
+        set_block_status(
+            combined,
+            'weekly',
+            status='missing',
+            reason='No weekly datasets loaded',
+            source='earnings-calendar/*.json, earnings-surprises/*.json',
+        )
+
+    # Finalize session date fields (writer-friendly + backward compatible)
+    # Prefer the date sourced from a daily dataset.
+    if session_market_date:
+        combined['metadata']['market_date'] = session_market_date
+        combined['metadata']['date'] = session_market_date
+
+        previous_market_date = derive_previous_market_date(data_dir, session_market_date)
+        if previous_market_date:
+            combined['metadata']['previous_market_date'] = previous_market_date
+
+    # ==================== WRITER-READY (Derived; Additive) ====================
+    # These blocks are derived from raw blocks above, designed to support
+    # repeatable Market Pulse tables without forcing downstream consumers to
+    # interpret many source-specific shapes.
+    writer_ready: Dict[str, Any] = {}
+
+    major_indexes = combined.get('data', {}).get('major_indexes', {})
+    us_major = major_indexes.get('us_major') if isinstance(major_indexes, dict) else None
+    us_sectors = major_indexes.get('us_sectors') if isinstance(major_indexes, dict) else None
+    implied_vol = combined.get('data', {}).get('implied_volatility', {})
+    iv_major = implied_vol.get('major_indices') if isinstance(implied_vol, dict) else None
+    iv_vix = implied_vol.get('vix_options') if isinstance(implied_vol, dict) else None
+    support_res = combined.get('data', {}).get('support_resistence', {})
+
+    # Pre-load US major historical series (used for 3-day tables)
+    us_major_history = load_json_file(data_dir / 'major-indexes' / 'us_major_indices_historical.json') or {}
+    last_3_dates: list[str] = []
+    if session_market_date:
+        last_3_dates = get_last_trading_dates_from_us_major_history(data_dir, session_market_date, count=3)
+
+    # 0) Breadth table
+    breadth = combined.get('data', {}).get('market_breadth')
+    if isinstance(breadth, dict) and not is_empty_value(breadth):
+        ad = breadth.get('advances_declines', {}) if isinstance(breadth.get('advances_declines'), dict) else {}
+        volm = breadth.get('volume_metrics', {}) if isinstance(breadth.get('volume_metrics'), dict) else {}
+        hl = breadth.get('new_highs_lows', {}) if isinstance(breadth.get('new_highs_lows'), dict) else {}
+        ma = breadth.get('moving_averages', {}) if isinstance(breadth.get('moving_averages'), dict) else {}
+
+        writer_ready['breadth_table'] = {
+            'market_date': breadth.get('date') or combined.get('metadata', {}).get('market_date'),
+            'advances': ad.get('advances'),
+            'declines': ad.get('declines'),
+            'unchanged': ad.get('unchanged'),
+            'advance_decline_ratio': ad.get('advance_decline_ratio'),
+            'advancing_volume_pct': volm.get('advancing_volume_pct'),
+            'stocks_near_52w_high': hl.get('stocks_near_52w_high'),
+            'stocks_near_52w_low': hl.get('stocks_near_52w_low'),
+            'high_low_ratio': hl.get('high_low_ratio'),
+            'above_20_day_ma_pct': (ma.get('above_20_day_ma') or {}).get('percentage') if isinstance(ma.get('above_20_day_ma'), dict) else None,
+            'above_50_day_ma_pct': (ma.get('above_50_day_ma') or {}).get('percentage') if isinstance(ma.get('above_50_day_ma'), dict) else None,
+            'above_200_day_ma_pct': (ma.get('above_200_day_ma') or {}).get('percentage') if isinstance(ma.get('above_200_day_ma'), dict) else None,
+        }
+
+    # 1) Major index performance table
+    if isinstance(us_major, dict) and not is_empty_value(us_major):
+        major_symbols = ['^GSPC', '^DJI', '^IXIC', '^RUT']
+        rows = []
+        for symbol in major_symbols:
+            item = us_major.get(symbol)
+            if not isinstance(item, dict):
+                continue
+            rows.append({
+                'symbol': symbol,
+                'name': item.get('name'),
+                'close': item.get('current_price'),
+                'change': item.get('daily_change'),
+                'change_percent': item.get('daily_change_percent'),
+            })
+        if rows:
+            writer_ready['major_indexes_table'] = rows
+
+    # 2) Sector leaders / laggards (by 1-day %)
+    if isinstance(us_sectors, dict) and not is_empty_value(us_sectors):
+        sector_rows = []
+        for symbol, item in us_sectors.items():
+            if not isinstance(item, dict):
+                continue
+            sector_rows.append({
+                'symbol': symbol,
+                'sector_name': item.get('sector_name'),
+                'close': item.get('current_price'),
+                'change_percent': item.get('daily_change_percent'),
+            })
+        sector_rows = [r for r in sector_rows if isinstance(r.get('change_percent'), (int, float))]
+        sector_rows.sort(key=lambda r: r['change_percent'], reverse=True)
+        if sector_rows:
+            writer_ready['sector_leaders'] = sector_rows[:5]
+            writer_ready['sector_laggards'] = list(reversed(sector_rows[-5:]))
+
+    # 3) Volatility summary
+    vol: Dict[str, Any] = {}
+    if isinstance(iv_vix, dict):
+        # vix_options snapshot shapes may vary; attempt common keys
+        vix_item = iv_vix.get('^VIX') if isinstance(iv_vix.get('^VIX'), dict) else None
+        if not vix_item:
+            vix_item = iv_vix.get('VIX') if isinstance(iv_vix.get('VIX'), dict) else None
+        if vix_item:
+            vol['vix'] = {
+                'symbol': vix_item.get('symbol') or '^VIX',
+                'close': vix_item.get('current_price') or vix_item.get('close') or vix_item.get('last'),
+                'change': vix_item.get('daily_change'),
+                'change_percent': vix_item.get('daily_change_percent'),
+            }
+    if isinstance(iv_major, dict) and not is_empty_value(iv_major):
+        iv_rows = []
+        for symbol in ['SPY', 'QQQ', 'IWM', 'DIA']:
+            item = iv_major.get(symbol)
+            if not isinstance(item, dict):
+                continue
+            iv_rows.append({
+                'symbol': symbol,
+                'average_iv': item.get('average_iv'),
+                'average_iv_formatted': item.get('average_iv_formatted'),
+                'iv_level': item.get('iv_level'),
+            })
+        if iv_rows:
+            vol['major_index_iv'] = iv_rows
+    if vol:
+        writer_ready['volatility_summary'] = vol
+
+    # 4) Technical levels (SPY by default)
+    if isinstance(support_res, dict) and isinstance(support_res.get('SPY'), dict):
+        spy_levels = support_res.get('SPY', {})
+        writer_ready['technical_levels'] = {
+            'SPY': {
+                'reference_date': spy_levels.get('reference_bar', {}).get('date'),
+                'traditional_pivots': spy_levels.get('traditional_pivots'),
+                'fibonacci_pivots': spy_levels.get('fibonacci_pivots'),
+                'sma': spy_levels.get('sma'),
+            }
+        }
+
+    # 5) 3-day major index table (close + daily return %)
+    if last_3_dates and isinstance(us_major_history, dict) and not is_empty_value(us_major_history):
+        table_rows = []
+        for symbol in ['^GSPC', '^DJI', '^IXIC', '^RUT']:
+            lookup = build_close_return_lookup(us_major_history, symbol)
+            if not lookup:
+                continue
+            # Prefer name from live snapshot when available
+            name = None
+            if isinstance(us_major, dict) and isinstance(us_major.get(symbol), dict):
+                name = us_major.get(symbol, {}).get('name')
+            if not name:
+                indices = us_major_history.get('indices') if isinstance(us_major_history.get('indices'), dict) else None
+                if isinstance(indices, dict) and isinstance(indices.get(symbol), dict):
+                    name = indices.get(symbol, {}).get('name')
+
+            values = []
+            for d in last_3_dates:
+                v = lookup.get(d)
+                values.append({
+                    'date': d,
+                    'close': (v or {}).get('close'),
+                    'daily_return_percent': (v or {}).get('daily_return_percent'),
+                })
+            table_rows.append({'symbol': symbol, 'name': name, 'values': values})
+
+        if table_rows:
+            writer_ready['index_table_3day'] = {
+                'dates': last_3_dates,
+                'rows': table_rows,
+                'source': 'major-indexes/us_major_indices_historical.json',
+            }
+
+    # 6) 3-day VIX table (close + daily return %)
+    if last_3_dates and isinstance(us_major_history, dict) and not is_empty_value(us_major_history):
+        vix_lookup = build_close_return_lookup(us_major_history, '^VIX')
+        if vix_lookup:
+            vix_values = []
+            for d in last_3_dates:
+                v = vix_lookup.get(d)
+                vix_values.append({
+                    'date': d,
+                    'close': (v or {}).get('close'),
+                    'daily_return_percent': (v or {}).get('daily_return_percent'),
+                })
+            writer_ready['vix_table'] = {
+                'dates': last_3_dates,
+                'symbol': '^VIX',
+                'name': 'CBOE Volatility Index',
+                'values': vix_values,
+                'source': 'major-indexes/us_major_indices_historical.json',
+            }
+
+    if writer_ready:
+        combined['data']['writer_ready'] = writer_ready
+        set_block_status(
+            combined,
+            'writer_ready',
+            status='ok',
+            reason='Derived from raw blocks in this snapshot',
+            source='dailycombined/combine_daily_snapshots.py',
+        )
+    else:
+        set_block_status(
+            combined,
+            'writer_ready',
+            status='empty',
+            reason='Insufficient inputs to derive writer-ready tables',
+            source='dailycombined/combine_daily_snapshots.py',
+        )
     
     # Add summary statistics
     combined['metadata']['total_sources'] = len(combined['metadata']['data_sources'])

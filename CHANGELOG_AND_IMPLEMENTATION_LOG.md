@@ -14,6 +14,57 @@ This document tracks all implementations, changes, and updates to the deanfi-dat
   - `dailycombined/README.md`
   - `README.md`
 
+## [2025-12-23] - Combined Snapshot Adds Session Date + Timezone
+
+### Changed
+- Updated `dailycombined/combine_daily_snapshots.py` to include stable session metadata fields:
+  - `metadata.market_date` (authoritative `YYYY-MM-DD`)
+  - `metadata.timezone` (`America/New_York`)
+  - `metadata.date` (backward-compatible alias of `market_date`)
+
+### Rationale
+This makes the combined snapshot self-describing for downstream consumers (website/LLM workflows) and prevents ambiguity when individual sub-blocks have their own internal date fields.
+
+---
+
+## [2025-12-23] - Combined Snapshot Adds Block Status + Normalized News
+
+### Changed
+- Updated `dailycombined/combine_daily_snapshots.py` to add:
+  - `metadata.blocks` with per-block `status` (and optional `reason`, `source`, `last_updated`, `record_count`)
+  - A writer-friendly additive view `data.news.normalized` while preserving raw `data.news.top_news` and `data.news.sector_news`
+- Fixed combined snapshot news ingestion to support upstream file shapes:
+  - `daily-news/top_news.json` uses `articles` (not `data`)
+  - `daily-news/sector_news.json` uses `sectors` (not `data`)
+
+### Rationale
+This prevents silent empty-news blocks in the combined snapshot and provides a stable, consistent structure for downstream consumers without breaking existing keys.
+
+---
+
+## [2025-12-23] - Combined Snapshot Fixes Major Index Ingestion + Adds Writer-Ready Blocks
+
+### Changed
+- Updated `dailycombined/combine_daily_snapshots.py` to correctly ingest major index snapshot shapes:
+  - Uses `indices` for most `major-indexes/*.json` snapshots
+  - Uses `sectors` for `major-indexes/us_sector_indices.json`
+  - Falls back to `data` when present
+- Added an additive derived block `data.writer_ready` for Market Pulse authoring:
+ - Added an additive derived block `data.writer_ready` for Market Pulse authoring:
+  - `writer_ready.breadth_table` (core breadth metrics used in Market Pulse tables)
+  - `writer_ready.index_table_3day` (3-session table for S&P 500, Dow, Nasdaq, Russell)
+  - `writer_ready.vix_table` (3-session VIX close + daily return % table)
+  - `writer_ready.major_indexes_table` (S&P 500, Dow, Nasdaq, Russell)
+  - `writer_ready.sector_leaders` / `writer_ready.sector_laggards` (top/bottom 5 by 1-day %)
+  - `writer_ready.volatility_summary` (VIX + major index ETF IV)
+  - `writer_ready.technical_levels` (SPY pivots + SMAs)
+
+### Added
+- `metadata.previous_market_date` (best-effort) derived from existing historical breadth datasets to support deterministic “vs prior session” tables.
+
+### Rationale
+Downstream consumers (website + Market Pulse workflow) should not have to reverse-engineer multiple upstream JSON shapes. The `writer_ready` section makes daily snapshot writing repeatable while keeping raw blocks as the source of truth.
+
 ## [2025-12-08] - SP500 Growth Data Added
 
 ### Added

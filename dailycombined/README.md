@@ -58,6 +58,9 @@ Latest market news:
 - **Top News:** Top 25 general market news stories
 - **Sector News:** News organized by GICS sector
 
+**Writer-friendly (additive):** the combined snapshot also includes `data.news.normalized` with consistent fields:
+- `title`, `summary`, `source`, `url`, `published_at`, plus optional `ticker`
+
 ### 6. Economy (`economy`)
 **Sources:** `economy-breadth/*.json`
 
@@ -87,9 +90,20 @@ Daily support/resistence reference levels for major index ETFs:
 ```json
 {
   "metadata": {
+    "market_date": "2025-11-25",
+    "date": "2025-11-25",
+    "previous_market_date": "2025-11-22",
+    "timezone": "America/New_York",
     "generated_at": "2025-11-25T21:38:00.000000+00:00",
     "description": "Combined daily market snapshot from all data collectors",
     "update_schedule": "Updated after market close (approximately 4:38pm ET on weekdays)",
+    "blocks": {
+      "market_breadth": { "status": "ok" },
+      "major_indexes": { "status": "ok" },
+      "news_top": { "status": "ok" },
+      "news_sectors": { "status": "ok" },
+      "writer_ready": { "status": "ok" }
+    },
     "total_sources": 20,
     "categories_included": ["market_breadth", "major_indexes", ...],
     "data_sources": [
@@ -122,7 +136,28 @@ Daily support/resistence reference levels for major index ETFs:
     },
     "news": {
       "top_news": [ ... ],
-      "sector_news": { ... }
+      "sector_news": { ... },
+      "normalized": {
+        "top_news": [
+          {
+            "title": "...",
+            "summary": "...",
+            "source": "...",
+            "url": "...",
+            "published_at": "...",
+            "timestamp": 0,
+            "category": "...",
+            "id": 0,
+            "ticker": "AAPL"
+          }
+        ],
+        "sector_news": {
+          "XLK": {
+            "sector_name": "Information Technology",
+            "articles": [ ... ]
+          }
+        }
+      }
     },
     "economy": {
       "growth_output": { ... },
@@ -133,6 +168,69 @@ Daily support/resistence reference levels for major index ETFs:
     "weekly": {
       "earnings_calendar": { ... },
       "earnings_surprises": { ... }
+    },
+    "writer_ready": {
+      "breadth_table": {
+        "market_date": "YYYY-MM-DD",
+        "advances": 0,
+        "declines": 0,
+        "unchanged": 0,
+        "advance_decline_ratio": 0,
+        "advancing_volume_pct": 0,
+        "stocks_near_52w_high": 0,
+        "stocks_near_52w_low": 0,
+        "high_low_ratio": 0,
+        "above_20_day_ma_pct": 0,
+        "above_50_day_ma_pct": 0,
+        "above_200_day_ma_pct": 0
+      },
+      "index_table_3day": {
+        "dates": ["YYYY-MM-DD", "YYYY-MM-DD", "YYYY-MM-DD"],
+        "rows": [
+          {
+            "symbol": "^GSPC",
+            "name": "S&P 500",
+            "values": [
+              { "date": "YYYY-MM-DD", "close": 0, "daily_return_percent": 0 },
+              { "date": "YYYY-MM-DD", "close": 0, "daily_return_percent": 0 },
+              { "date": "YYYY-MM-DD", "close": 0, "daily_return_percent": 0 }
+            ]
+          }
+        ],
+        "source": "major-indexes/us_major_indices_historical.json"
+      },
+      "vix_table": {
+        "dates": ["YYYY-MM-DD", "YYYY-MM-DD", "YYYY-MM-DD"],
+        "symbol": "^VIX",
+        "name": "CBOE Volatility Index",
+        "values": [
+          { "date": "YYYY-MM-DD", "close": 0, "daily_return_percent": 0 }
+        ],
+        "source": "major-indexes/us_major_indices_historical.json"
+      },
+      "major_indexes_table": [
+        { "symbol": "^GSPC", "name": "S&P 500", "close": 0, "change": 0, "change_percent": 0 }
+      ],
+      "sector_leaders": [
+        { "symbol": "XLK", "sector_name": "Technology", "close": 0, "change_percent": 0 }
+      ],
+      "sector_laggards": [
+        { "symbol": "XLU", "sector_name": "Utilities", "close": 0, "change_percent": 0 }
+      ],
+      "volatility_summary": {
+        "vix": { "symbol": "^VIX", "close": 0, "change": 0, "change_percent": 0 },
+        "major_index_iv": [
+          { "symbol": "SPY", "average_iv": 0, "average_iv_formatted": "0%", "iv_level": "Normal" }
+        ]
+      },
+      "technical_levels": {
+        "SPY": {
+          "reference_date": "YYYY-MM-DD",
+          "traditional_pivots": { "P": 0, "R1": 0, "R2": 0, "S1": 0, "S2": 0 },
+          "fibonacci_pivots": { "FP": 0, "FR1": 0, "FR2": 0, "FS1": 0, "FS2": 0 },
+          "sma": { "SMA20": 0, "SMA50": 0, "SMA200": 0 }
+        }
+      }
     }
   }
 }
@@ -150,7 +248,7 @@ const snapshot = await response.json();
 
 // Access specific data
 console.log('Market Breadth:', snapshot.data.market_breadth);
-console.log('S&P 500:', snapshot.data.major_indexes.us_major.SPY);
+console.log('S&P 500:', snapshot.data.major_indexes.us_major['^GSPC']);
 console.log('Top News:', snapshot.data.news.top_news);
 ```
 
@@ -197,9 +295,9 @@ print(f"S&P 500 Price: ${sp500['price']}")
 
 ## File Size
 
-Typical file size: **~150-250 KB** (uncompressed JSON)
+Typical file size: **~800 KB–1.4 MB** (uncompressed JSON)
 
-With gzip compression (automatic with most CDNs): **~30-50 KB**
+With gzip compression (automatic with most CDNs): typically **~150–350 KB**
 
 ## Automation
 

@@ -69,7 +69,7 @@ const response = await fetch(url);
 const data = await response.json();
 
 console.log(data.metadata); // Check last update time
-console.log(data.data);     // Array of news articles
+console.log(data.articles); // Array of news articles
 ```
 
 **Benefits:**
@@ -89,7 +89,7 @@ const response = await fetch(url);
 const data = await response.json();
 
 console.log(data.metadata); // Check last update time
-console.log(data.data);     // Array of news articles
+console.log(data.articles); // Array of news articles
 ```
 
 ### Python Example
@@ -157,7 +157,7 @@ All datasets follow a consistent structure:
     "total_articles": 100,
     "lookback_days": 7
   },
-  "data": [
+  "articles": [
     {
       "category": "company news",
       "datetime": 1700236800,
