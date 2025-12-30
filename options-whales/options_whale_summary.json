@@ -53,33 +53,33 @@
     "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
   },
   "metadata": {
-    "generated_at": "2025-12-30T03:39:37Z",
+    "generated_at": "2025-12-30T17:51:04Z",
     "lookback_start": "2025-12-23",
     "lookback_end": "2025-12-30",
     "trading_days": 5,
     "data_source": "Alpaca Markets Options API",
     "tickers_scanned": 501,
-    "tickers_with_whales": 109,
-    "total_whale_trades": 275,
-    "sweeps_detected": 4
+    "tickers_with_whales": 116,
+    "total_whale_trades": 297,
+    "sweeps_detected": 5
   },
   "overall_sentiment": {
     "direction": "BULLISH",
-    "call_premium_total": 58706665.0,
-    "put_premium_total": 26047752.0,
-    "call_put_ratio": 2.25,
-    "call_count": 189,
-    "put_count": 86,
-    "total_whale_trades": 275,
-    "net_premium": 32658913.0
+    "call_premium_total": 67051009.0,
+    "put_premium_total": 32068817.0,
+    "call_put_ratio": 2.09,
+    "call_count": 206,
+    "put_count": 91,
+    "total_whale_trades": 297,
+    "net_premium": 34982192.0
   },
   "big_whale_sentiment": {
     "description": "Trades with premium >= $250K",
     "direction": "BULLISH",
-    "call_premium": 42477349.0,
-    "put_premium": 17918165.0,
-    "call_put_ratio": 2.37,
-    "trade_count": 114
+    "call_premium": 50601217.0,
+    "put_premium": 24680923.0,
+    "call_put_ratio": 2.05,
+    "trade_count": 139
   },
   "top_bullish_trades": {
     "description": "Top 10 tickers with largest call trades (one per ticker, bullish bets)",
@@ -109,10 +109,10 @@
         "contracts": 3000,
         "tier": "HEADLINE WHALE",
         "sector": "Information Technology",
-        "total_trades": 5,
+        "total_trades": 7,
         "additional_above_threshold": 0,
         "threshold_comparison": 1548750.0,
-        "total_ticker_premium": 4134480.0
+        "total_ticker_premium": 4960480.0
       },
       {
         "ticker": "TSLA",
@@ -156,8 +156,23 @@
         "sector": "Financials",
         "total_trades": 6,
         "additional_above_threshold": 0,
-        "threshold_comparison": 1074808.0,
+        "threshold_comparison": 1076100.0,
         "total_ticker_premium": 2505182.0
+      },
+      {
+        "ticker": "TFC",
+        "contract": "TFC260220C00050000",
+        "strike": 50.0,
+        "expiration": "2026-02-20",
+        "dte": 51,
+        "premium": 1076100.0,
+        "contracts": 5100,
+        "tier": "STRONG WHALE",
+        "sector": "Financials",
+        "total_trades": 1,
+        "additional_above_threshold": 0,
+        "threshold_comparison": 1074808.0,
+        "total_ticker_premium": 1076100.0
       },
       {
         "ticker": "AAPL",
@@ -169,10 +184,10 @@
         "contracts": 7903,
         "tier": "STRONG WHALE",
         "sector": "Information Technology",
-        "total_trades": 7,
+        "total_trades": 9,
         "additional_above_threshold": 0,
         "threshold_comparison": 855000.0,
-        "total_ticker_premium": 2636498.0
+        "total_ticker_premium": 3472548.0
       },
       {
         "ticker": "SMCI",
@@ -199,40 +214,25 @@
         "contracts": 1150,
         "tier": "WHALE",
         "sector": "Financials",
-        "total_trades": 3,
+        "total_trades": 9,
         "additional_above_threshold": 0,
-        "threshold_comparison": 728160.0,
-        "total_ticker_premium": 1890000.0
+        "threshold_comparison": 735724.0,
+        "total_ticker_premium": 3789545.0
       },
       {
-        "ticker": "COST",
-        "contract": "COST260109C00890000",
-        "strike": 890.0,
-        "expiration": "2026-01-09",
-        "dte": 9,
-        "premium": 728160.0,
-        "contracts": 984,
+        "ticker": "INTC",
+        "contract": "INTC260220C00040000",
+        "strike": 40.0,
+        "expiration": "2026-02-20",
+        "dte": 51,
+        "premium": 735724.0,
+        "contracts": 2908,
         "tier": "WHALE",
-        "sector": "Consumer Staples",
-        "total_trades": 4,
-        "additional_above_threshold": 0,
-        "threshold_comparison": 670202.0,
-        "total_ticker_premium": 1483215.0
-      },
-      {
-        "ticker": "HOOD",
-        "contract": "HOOD260102C00123000",
-        "strike": 123.0,
-        "expiration": "2026-01-02",
-        "dte": 2,
-        "premium": 670202.0,
-        "contracts": 4498,
-        "tier": "WHALE",
-        "sector": "Financials",
+        "sector": "Information Technology",
         "total_trades": 5,
         "additional_above_threshold": 4,
         "threshold_comparison": 100000,
-        "total_ticker_premium": 2192002.0
+        "total_ticker_premium": 2206240.0
       }
     ]
   },
@@ -279,10 +279,25 @@
         "contracts": 8396,
         "tier": "STRONG WHALE",
         "sector": "Consumer Discretionary",
-        "total_trades": 8,
+        "total_trades": 4,
         "additional_above_threshold": 0,
+        "threshold_comparison": 1164800.0,
+        "total_ticker_premium": 2428920.0
+      },
+      {
+        "ticker": "TKO",
+        "contract": "TKO260417P00210000",
+        "strike": 210.0,
+        "expiration": "2026-04-17",
+        "dte": 107,
+        "premium": 1164800.0,
+        "contracts": 1040,
+        "tier": "STRONG WHALE",
+        "sector": "Consumer Discretionary",
+        "total_trades": 3,
+        "additional_above_threshold": 2,
         "threshold_comparison": 957190.0,
-        "total_ticker_premium": 2982721.0
+        "total_ticker_premium": 3267140.0
       },
       {
         "ticker": "PYPL",
@@ -296,8 +311,53 @@
         "sector": "Financials",
         "total_trades": 1,
         "additional_above_threshold": 0,
-        "threshold_comparison": 761616.0,
+        "threshold_comparison": 925474.0,
         "total_ticker_premium": 957190.0
+      },
+      {
+        "ticker": "AVGO",
+        "contract": "AVGO260109P00342500",
+        "strike": 342.5,
+        "expiration": "2026-01-09",
+        "dte": 9,
+        "premium": 925474.0,
+        "contracts": 1829,
+        "tier": "WHALE",
+        "sector": "Information Technology",
+        "total_trades": 2,
+        "additional_above_threshold": 0,
+        "threshold_comparison": 855000.0,
+        "total_ticker_premium": 1177876.0
+      },
+      {
+        "ticker": "MOH",
+        "contract": "MOH270115P00170000",
+        "strike": 170.0,
+        "expiration": "2027-01-15",
+        "dte": 380,
+        "premium": 855000.0,
+        "contracts": 250,
+        "tier": "WHALE",
+        "sector": "Health Care",
+        "total_trades": 2,
+        "additional_above_threshold": 0,
+        "threshold_comparison": 771150.0,
+        "total_ticker_premium": 1197000.0
+      },
+      {
+        "ticker": "NVDA",
+        "contract": "NVDA260109P00180000",
+        "strike": 180.0,
+        "expiration": "2026-01-09",
+        "dte": 9,
+        "premium": 771150.0,
+        "contracts": 4850,
+        "tier": "WHALE",
+        "sector": "Information Technology",
+        "total_trades": 3,
+        "additional_above_threshold": 0,
+        "threshold_comparison": 761616.0,
+        "total_ticker_premium": 1077515.0
       },
       {
         "ticker": "AMGN",
@@ -324,89 +384,29 @@
         "contracts": 7500,
         "tier": "WHALE",
         "sector": "Information Technology",
-        "total_trades": 4,
-        "additional_above_threshold": 0,
-        "threshold_comparison": 739680.0,
-        "total_ticker_premium": 1549366.0
-      },
-      {
-        "ticker": "LRCX",
-        "contract": "LRCX260102P00172500",
-        "strike": 172.5,
-        "expiration": "2026-01-02",
-        "dte": 2,
-        "premium": 739680.0,
-        "contracts": 2760,
-        "tier": "WHALE",
-        "sector": "Information Technology",
         "total_trades": 2,
-        "additional_above_threshold": 0,
-        "threshold_comparison": 679140.0,
-        "total_ticker_premium": 1098480.0
-      },
-      {
-        "ticker": "STX",
-        "contract": "STX260116P00260000",
-        "strike": 260.0,
-        "expiration": "2026-01-16",
-        "dte": 16,
-        "premium": 679140.0,
-        "contracts": 882,
-        "tier": "WHALE",
-        "sector": "Information Technology",
-        "total_trades": 2,
-        "additional_above_threshold": 0,
-        "threshold_comparison": 675000.0,
-        "total_ticker_premium": 829080.0
-      },
-      {
-        "ticker": "CSCO",
-        "contract": "CSCO260220P00067500",
-        "strike": 67.5,
-        "expiration": "2026-02-20",
-        "dte": 51,
-        "premium": 675000.0,
-        "contracts": 12500,
-        "tier": "WHALE",
-        "sector": "Information Technology",
-        "total_trades": 1,
-        "additional_above_threshold": 0,
-        "threshold_comparison": 630000.0,
-        "total_ticker_premium": 675000.0
-      },
-      {
-        "ticker": "YUM",
-        "contract": "YUM260618P00150000",
-        "strike": 150.0,
-        "expiration": "2026-06-18",
-        "dte": 169,
-        "premium": 630000.0,
-        "contracts": 1000,
-        "tier": "WHALE",
-        "sector": "Consumer Discretionary",
-        "total_trades": 1,
-        "additional_above_threshold": 0,
+        "additional_above_threshold": 1,
         "threshold_comparison": 100000,
-        "total_ticker_premium": 630000.0
+        "total_ticker_premium": 1167500.0
       }
     ]
   },
   "tier_breakdown": {
     "strong_whale": {
-      "count": 8,
-      "premium": 10898407.0
+      "count": 11,
+      "premium": 14279307.0
     },
     "whale": {
-      "count": 30,
-      "premium": 19155547.0
+      "count": 39,
+      "premium": 25937465.0
     },
     "unusual": {
-      "count": 74,
-      "premium": 23476560.0
+      "count": 87,
+      "premium": 28200368.0
     },
     "notable": {
-      "count": 161,
-      "premium": 24358903.0
+      "count": 158,
+      "premium": 23837686.0
     },
     "headline": {
       "count": 2,
@@ -416,135 +416,135 @@
   "expiration_breakdown": {
     "8_30_days": {
       "count": 163,
-      "premium": 50256711.0,
-      "contracts": 277555
+      "premium": 55081243.0,
+      "contracts": 302884
     },
     "90_plus": {
-      "count": 18,
-      "premium": 4022133.0,
-      "contracts": 5000
+      "count": 33,
+      "premium": 10110189.0,
+      "contracts": 15855
     },
     "31_90_days": {
-      "count": 44,
-      "premium": 16549816.0,
-      "contracts": 172455
+      "count": 51,
+      "premium": 20474156.0,
+      "contracts": 192471
     },
     "1_2_days": {
       "count": 50,
-      "premium": 13925757.0,
-      "contracts": 153227
+      "premium": 13454238.0,
+      "contracts": 143667
     }
   },
   "sector_sentiment": {
     "Information Technology": {
       "sentiment": "BULLISH",
-      "call_premium": 23549917.0,
-      "put_premium": 8597517.0,
-      "call_put_ratio": 2.74,
-      "call_count": 65,
-      "put_count": 30,
-      "trade_count": 95,
-      "ticker_count": 24,
-      "net_premium": 14952400.0
+      "call_premium": 28828824.0,
+      "put_premium": 10614705.0,
+      "call_put_ratio": 2.72,
+      "call_count": 73,
+      "put_count": 33,
+      "trade_count": 106,
+      "ticker_count": 27,
+      "net_premium": 18214119.0
     },
     "Consumer Discretionary": {
       "sentiment": "BULLISH",
-      "call_premium": 9633554.0,
-      "put_premium": 4550101.0,
-      "call_put_ratio": 2.12,
-      "call_count": 24,
-      "put_count": 14,
-      "trade_count": 38,
-      "ticker_count": 15,
-      "net_premium": 5083453.0
+      "call_premium": 9475750.0,
+      "put_premium": 6733060.0,
+      "call_put_ratio": 1.41,
+      "call_count": 23,
+      "put_count": 10,
+      "trade_count": 33,
+      "ticker_count": 13,
+      "net_premium": 2742690.0
     },
     "Financials": {
       "sentiment": "BULLISH",
-      "call_premium": 8390638.0,
+      "call_premium": 11881089.0,
       "put_premium": 4185559.0,
-      "call_put_ratio": 2.0,
-      "call_count": 24,
+      "call_put_ratio": 2.84,
+      "call_count": 35,
       "put_count": 7,
-      "trade_count": 31,
-      "ticker_count": 14,
-      "net_premium": 4205079.0
+      "trade_count": 42,
+      "ticker_count": 17,
+      "net_premium": 7695530.0
     },
     "Health Care": {
       "sentiment": "BULLISH",
-      "call_premium": 4392424.0,
-      "put_premium": 2987618.0,
-      "call_put_ratio": 1.47,
-      "call_count": 21,
-      "put_count": 13,
-      "trade_count": 34,
-      "ticker_count": 15,
-      "net_premium": 1404806.0
+      "call_premium": 4680549.0,
+      "put_premium": 4489618.0,
+      "call_put_ratio": 1.04,
+      "call_count": 23,
+      "put_count": 16,
+      "trade_count": 39,
+      "ticker_count": 16,
+      "net_premium": 190931.0
     },
     "Industrials": {
       "sentiment": "BULLISH",
-      "call_premium": 2882592.0,
-      "put_premium": 2194133.0,
-      "call_put_ratio": 1.31,
-      "call_count": 12,
-      "put_count": 6,
+      "call_premium": 2405568.0,
+      "put_premium": 2302133.0,
+      "call_put_ratio": 1.04,
+      "call_count": 11,
+      "put_count": 7,
       "trade_count": 18,
-      "ticker_count": 10,
-      "net_premium": 688459.0
-    },
-    "Unknown": {
-      "sentiment": "BULLISH",
-      "call_premium": 3183813.0,
-      "put_premium": 934000.0,
-      "call_put_ratio": 3.41,
-      "call_count": 10,
-      "put_count": 2,
-      "trade_count": 12,
-      "ticker_count": 2,
-      "net_premium": 2249813.0
-    },
-    "Communication Services": {
-      "sentiment": "BULLISH",
-      "call_premium": 2117928.0,
-      "put_premium": 818865.0,
-      "call_put_ratio": 2.59,
-      "call_count": 10,
-      "put_count": 6,
-      "trade_count": 16,
-      "ticker_count": 7,
-      "net_premium": 1299063.0
+      "ticker_count": 11,
+      "net_premium": 103435.0
     },
     "Consumer Staples": {
       "sentiment": "BULLISH",
-      "call_premium": 2482161.0,
+      "call_premium": 3556476.0,
       "put_premium": 396807.0,
-      "call_put_ratio": 6.26,
-      "call_count": 10,
+      "call_put_ratio": 8.96,
+      "call_count": 12,
       "put_count": 3,
-      "trade_count": 13,
-      "ticker_count": 10,
-      "net_premium": 2085354.0
+      "trade_count": 15,
+      "ticker_count": 9,
+      "net_premium": 3159669.0
     },
     "Energy": {
       "sentiment": "BULLISH",
-      "call_premium": 1227828.0,
-      "put_premium": 1102002.0,
-      "call_put_ratio": 1.11,
-      "call_count": 7,
-      "put_count": 3,
-      "trade_count": 10,
-      "ticker_count": 7,
-      "net_premium": 125826.0
+      "call_premium": 1525518.0,
+      "put_premium": 1482312.0,
+      "call_put_ratio": 1.03,
+      "call_count": 9,
+      "put_count": 5,
+      "trade_count": 14,
+      "ticker_count": 9,
+      "net_premium": 43206.0
     },
-    "Materials": {
+    "Communication Services": {
       "sentiment": "BULLISH",
-      "call_premium": 738310.0,
-      "put_premium": 135750.0,
-      "call_put_ratio": 5.44,
+      "call_premium": 1906678.0,
+      "put_premium": 818865.0,
+      "call_put_ratio": 2.33,
+      "call_count": 9,
+      "put_count": 6,
+      "trade_count": 15,
+      "ticker_count": 6,
+      "net_premium": 1087813.0
+    },
+    "Unknown": {
+      "sentiment": "BULLISH",
+      "call_premium": 1965067.0,
+      "put_premium": 616000.0,
+      "call_put_ratio": 3.19,
       "call_count": 5,
       "put_count": 1,
       "trade_count": 6,
-      "ticker_count": 3,
-      "net_premium": 602560.0
+      "ticker_count": 2,
+      "net_premium": 1349067.0
+    },
+    "Materials": {
+      "sentiment": "BULLISH",
+      "call_premium": 717990.0,
+      "put_premium": 284358.0,
+      "call_put_ratio": 2.52,
+      "call_count": 5,
+      "put_count": 2,
+      "trade_count": 7,
+      "ticker_count": 4,
+      "net_premium": 433632.0
     },
     "Real Estate": {
       "sentiment": "BEARISH",
@@ -577,11 +577,11 @@
     "Industrials"
   ],
   "sweeps_summary": {
-    "total_count": 4,
-    "total_premium": 5807278.0,
+    "total_count": 5,
+    "total_premium": 8877643.0,
     "bullish_count": 3,
-    "bullish_premium": 5129173.0,
-    "bearish_count": 1,
-    "bearish_premium": 678105.0
+    "bullish_premium": 4932398.0,
+    "bearish_count": 2,
+    "bearish_premium": 3945245.0
   }
 }
