@@ -53,33 +53,33 @@
     "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
   },
   "metadata": {
-    "generated_at": "2026-01-01T03:48:19Z",
+    "generated_at": "2026-01-01T17:48:03Z",
     "lookback_start": "2025-12-24",
     "lookback_end": "2026-01-01",
     "trading_days": 5,
     "data_source": "Alpaca Markets Options API",
-    "tickers_scanned": 502,
-    "tickers_with_whales": 113,
-    "total_whale_trades": 302,
+    "tickers_scanned": 499,
+    "tickers_with_whales": 114,
+    "total_whale_trades": 307,
     "sweeps_detected": 5
   },
   "overall_sentiment": {
     "direction": "BULLISH",
-    "call_premium_total": 66451925.0,
+    "call_premium_total": 66455049.0,
     "put_premium_total": 26683055.0,
     "call_put_ratio": 2.49,
-    "call_count": 224,
+    "call_count": 229,
     "put_count": 78,
-    "total_whale_trades": 302,
-    "net_premium": 39768870.0
+    "total_whale_trades": 307,
+    "net_premium": 39771994.0
   },
   "big_whale_sentiment": {
     "description": "Trades with premium >= $250K",
     "direction": "BULLISH",
-    "call_premium": 48590635.0,
+    "call_premium": 48194253.0,
     "put_premium": 20195850.0,
-    "call_put_ratio": 2.41,
-    "trade_count": 139
+    "call_put_ratio": 2.39,
+    "trade_count": 141
   },
   "top_bullish_trades": {
     "description": "Top 10 tickers with largest call trades (one per ticker, bullish bets)",
@@ -98,25 +98,42 @@
         "sub_industry": "Semiconductors",
         "total_trades": 9,
         "additional_above_threshold": 0,
-        "threshold_comparison": 1548750.0,
+        "threshold_comparison": 1463268.0,
         "total_ticker_premium": 5509280.0
       },
       {
         "ticker": "TSLA",
-        "contract": "TSLA260109C00500000",
-        "strike": 500.0,
+        "contract": "TSLA260109C00472500",
+        "strike": 472.5,
         "expiration": "2026-01-09",
         "dte": 7,
-        "premium": 1548750.0,
-        "contracts": 1475,
+        "premium": 1463268.0,
+        "contracts": 1999,
         "tier": "STRONG WHALE",
         "sector": "Consumer Discretionary",
         "industry": "Automobiles",
         "sub_industry": "Automobile Manufacturers",
-        "total_trades": 6,
-        "additional_above_threshold": 2,
+        "total_trades": 9,
+        "additional_above_threshold": 0,
+        "threshold_comparison": 1355550.0,
+        "total_ticker_premium": 5384557.0
+      },
+      {
+        "ticker": "AMZN",
+        "contract": "AMZN260116C00240000",
+        "strike": 240.0,
+        "expiration": "2026-01-16",
+        "dte": 14,
+        "premium": 1355550.0,
+        "contracts": 6455,
+        "tier": "STRONG WHALE",
+        "sector": "Consumer Discretionary",
+        "industry": "Broadline Retail",
+        "sub_industry": "Broadline Retail",
+        "total_trades": 4,
+        "additional_above_threshold": 0,
         "threshold_comparison": 1126340.0,
-        "total_ticker_premium": 6272049.0
+        "total_ticker_premium": 2091650.0
       },
       {
         "ticker": "AMD",
@@ -130,10 +147,10 @@
         "sector": "Information Technology",
         "industry": "Semiconductors & Semiconductor Equipment",
         "sub_industry": "Semiconductors",
-        "total_trades": 8,
+        "total_trades": 6,
         "additional_above_threshold": 0,
         "threshold_comparison": 1076100.0,
-        "total_ticker_premium": 3734377.0
+        "total_ticker_premium": 2869937.0
       },
       {
         "ticker": "TFC",
@@ -234,25 +251,8 @@
         "sub_industry": "Oil & Gas Exploration & Production",
         "total_trades": 1,
         "additional_above_threshold": 0,
-        "threshold_comparison": 636000.0,
-        "total_ticker_premium": 660625.0
-      },
-      {
-        "ticker": "TXN",
-        "contract": "TXN260116C00177500",
-        "strike": 177.5,
-        "expiration": "2026-01-16",
-        "dte": 14,
-        "premium": 636000.0,
-        "contracts": 2000,
-        "tier": "WHALE",
-        "sector": "Information Technology",
-        "industry": "Semiconductors & Semiconductor Equipment",
-        "sub_industry": "Semiconductors",
-        "total_trades": 2,
-        "additional_above_threshold": 1,
         "threshold_comparison": 100000,
-        "total_ticker_premium": 837958.0
+        "total_ticker_premium": 660625.0
       }
     ]
   },
@@ -434,19 +434,19 @@
   "tier_breakdown": {
     "whale": {
       "count": 33,
-      "premium": 20780438.0
+      "premium": 20910089.0
     },
     "notable": {
-      "count": 163,
-      "premium": 24348495.0
+      "count": 166,
+      "premium": 24748001.0
     },
     "unusual": {
-      "count": 95,
-      "premium": 31996024.0
+      "count": 98,
+      "premium": 33084273.0
     },
     "strong_whale": {
-      "count": 10,
-      "premium": 12935023.0
+      "count": 9,
+      "premium": 11320741.0
     },
     "headline": {
       "count": 1,
@@ -455,9 +455,9 @@
   },
   "expiration_breakdown": {
     "8_30_days": {
-      "count": 124,
-      "premium": 39413482.0,
-      "contracts": 207325
+      "count": 127,
+      "premium": 41023572.0,
+      "contracts": 214162
     },
     "90_plus": {
       "count": 31,
@@ -470,27 +470,27 @@
       "contracts": 128125
     },
     "0dte": {
-      "count": 31,
-      "premium": 7435663.0,
-      "contracts": 98812
+      "count": 32,
+      "premium": 7580629.0,
+      "contracts": 100771
     },
     "3_7_days": {
-      "count": 76,
-      "premium": 28275150.0,
-      "contracts": 160763
+      "count": 77,
+      "premium": 26523218.0,
+      "contracts": 154768
     }
   },
   "sector_sentiment": {
     "Information Technology": {
       "sentiment": "BULLISH",
-      "call_premium": 32891056.0,
+      "call_premium": 32185016.0,
       "put_premium": 10827441.0,
-      "call_put_ratio": 3.04,
-      "call_count": 104,
+      "call_put_ratio": 2.97,
+      "call_count": 103,
       "put_count": 36,
-      "trade_count": 140,
+      "trade_count": 139,
       "ticker_count": 30,
-      "net_premium": 22063615.0
+      "net_premium": 21357575.0
     },
     "Financials": {
       "sentiment": "BULLISH",
@@ -505,14 +505,14 @@
     },
     "Consumer Discretionary": {
       "sentiment": "BULLISH",
-      "call_premium": 8472850.0,
+      "call_premium": 9037048.0,
       "put_premium": 2771596.0,
-      "call_put_ratio": 3.06,
-      "call_count": 16,
+      "call_put_ratio": 3.26,
+      "call_count": 21,
       "put_count": 5,
-      "trade_count": 21,
+      "trade_count": 26,
       "ticker_count": 10,
-      "net_premium": 5701254.0
+      "net_premium": 6265452.0
     },
     "Health Care": {
       "sentiment": "BULLISH",
@@ -538,14 +538,14 @@
     },
     "Communication Services": {
       "sentiment": "BEARISH",
-      "call_premium": 1669758.0,
+      "call_premium": 1814724.0,
       "put_premium": 2516620.0,
-      "call_put_ratio": 1.51,
-      "call_count": 7,
+      "call_put_ratio": 1.39,
+      "call_count": 8,
       "put_count": 5,
-      "trade_count": 12,
-      "ticker_count": 5,
-      "net_premium": -846862.0
+      "trade_count": 13,
+      "ticker_count": 6,
+      "net_premium": -701896.0
     },
     "Consumer Staples": {
       "sentiment": "BULLISH",
