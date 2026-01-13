@@ -53,23 +53,23 @@
     "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
   },
   "metadata": {
-    "generated_at": "2026-01-13T03:39:39Z",
+    "generated_at": "2026-01-13T17:57:16Z",
     "lookback_start": "2026-01-07",
     "lookback_end": "2026-01-13",
     "trading_days": 5,
     "data_source": "Alpaca Markets Options API",
     "tickers_scanned": 500,
-    "tickers_with_whales": 192,
-    "total_whale_trades": 594,
-    "sweeps_detected": 12
+    "tickers_with_whales": 200,
+    "total_whale_trades": 627,
+    "sweeps_detected": 14
   },
   "sweeps_summary": {
-    "total_count": 12,
-    "total_premium": 29911449.0,
-    "bullish_count": 7,
-    "bullish_premium": 17680565.0,
-    "bearish_count": 5,
-    "bearish_premium": 12230884.0,
+    "total_count": 14,
+    "total_premium": 35890675.0,
+    "bullish_count": 8,
+    "bullish_premium": 15284581.0,
+    "bearish_count": 6,
+    "bearish_premium": 20606094.0,
     "top_sweeps": [
       {
         "underlying": "TKO",
@@ -80,6 +80,31 @@
         "strikes": [
           170.0,
           190.0
+        ]
+      },
+      {
+        "underlying": "PWR",
+        "legs": 4,
+        "total_premium": 5395000.0,
+        "total_contracts": 6500,
+        "sentiment": "BEARISH",
+        "strikes": [
+          410.0,
+          430.0,
+          450.0,
+          460.0
+        ]
+      },
+      {
+        "underlying": "JBL",
+        "legs": 3,
+        "total_premium": 4969300.0,
+        "total_contracts": 12400,
+        "sentiment": "BEARISH",
+        "strikes": [
+          210.0,
+          230.0,
+          250.0
         ]
       },
       {
@@ -104,37 +129,14 @@
         ]
       },
       {
-        "underlying": "INTC",
+        "underlying": "DAL",
         "legs": 3,
-        "total_premium": 4025000.0,
-        "total_contracts": 11000,
+        "total_premium": 2081200.0,
+        "total_contracts": 13200,
         "sentiment": "BULLISH",
         "strikes": [
-          45.0,
-          46.0,
-          48.0
-        ]
-      },
-      {
-        "underlying": "MU",
-        "legs": 4,
-        "total_premium": 2429100,
-        "total_contracts": 2699,
-        "sentiment": "BEARISH",
-        "strikes": [
-          340.0
-        ]
-      },
-      {
-        "underlying": "TER",
-        "legs": 3,
-        "total_premium": 1956530.0,
-        "total_contracts": 3370,
-        "sentiment": "BULLISH",
-        "strikes": [
-          230.0,
-          240.0,
-          260.0
+          70.0,
+          80.0
         ]
       },
       {
@@ -147,6 +149,16 @@
           250.0,
           255.0,
           265.0
+        ]
+      },
+      {
+        "underlying": "NVDA",
+        "legs": 4,
+        "total_premium": 1110144.0,
+        "total_contracts": 9912,
+        "sentiment": "BULLISH",
+        "strikes": [
+          194.0
         ]
       },
       {
@@ -171,17 +183,6 @@
           14.0,
           15.0
         ]
-      },
-      {
-        "underlying": "GLW",
-        "legs": 4,
-        "total_premium": 504810.0,
-        "total_contracts": 7110,
-        "sentiment": "BEARISH",
-        "strikes": [
-          78.0,
-          82.5
-        ]
       }
     ]
   },
@@ -189,10 +190,10 @@
     "A": {
       "sentiment": "BULLISH",
       "call_premium": 8256500.0,
-      "put_premium": 126000.0,
-      "call_put_ratio": 65.53,
-      "trade_count": 4,
-      "stock_price": 148.05,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 3,
+      "stock_price": 146.07,
       "sector": "Health Care",
       "industry": "Life Sciences Tools & Services",
       "sub_industry": "Life Sciences Tools & Services",
@@ -231,27 +232,16 @@
           "contracts": 116,
           "tier": "NOTABLE",
           "timestamp": "2026-01-07T19:15:58.632102011Z"
-        },
-        {
-          "contract": "A260116P00145000",
-          "type": "PUT",
-          "strike": 145.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 126000.0,
-          "contracts": 700,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T16:57:36.276317953Z"
         }
       ]
     },
     "AAPL": {
       "sentiment": "BULLISH",
-      "call_premium": 455587.0,
+      "call_premium": 482387.0,
       "put_premium": 103020.0,
-      "call_put_ratio": 4.42,
+      "call_put_ratio": 4.68,
       "trade_count": 4,
-      "stock_price": 260.12,
+      "stock_price": 261.035,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
@@ -275,10 +265,10 @@
           "strike": 265.0,
           "expiration": "2026-01-30",
           "dte": 16,
-          "premium": 126430.0,
-          "contracts": 269,
+          "premium": 141000.0,
+          "contracts": 300,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-09T19:58:33.430593969Z"
+          "timestamp": "2026-01-13T15:32:33.115302504Z"
         },
         {
           "contract": "AAPL260130C00265000",
@@ -286,10 +276,10 @@
           "strike": 265.0,
           "expiration": "2026-01-30",
           "dte": 16,
-          "premium": 114200.0,
-          "contracts": 200,
+          "premium": 126430.0,
+          "contracts": 269,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-07T19:14:05.390392722Z"
+          "timestamp": "2026-01-09T19:58:33.430593969Z"
         },
         {
           "contract": "AAPL260130P00255000",
@@ -310,7 +300,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 138.49,
+      "stock_price": 138.34,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Hotels, Resorts & Cruise Lines",
@@ -330,13 +320,50 @@
         }
       ]
     },
+    "ADBE": {
+      "sentiment": "BULLISH",
+      "call_premium": 226800.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 313.11,
+      "sector": "Information Technology",
+      "industry": "Software",
+      "sub_industry": "Application Software",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "ADBE260130C00320000",
+          "type": "CALL",
+          "strike": 320.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 123400.0,
+          "contracts": 50,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T17:24:48.881579491Z"
+        },
+        {
+          "contract": "ADBE260130C00325000",
+          "type": "CALL",
+          "strike": 325.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 103400.0,
+          "contracts": 50,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T17:24:48.881579491Z"
+        }
+      ]
+    },
     "ADI": {
       "sentiment": "BEARISH",
       "call_premium": 0,
       "put_premium": 104400.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 293.83,
+      "stock_price": 298.09,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -362,7 +389,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 74.085,
+      "stock_price": 72.92,
       "sector": "Financials",
       "industry": "Insurance",
       "sub_industry": "Property & Casualty Insurance",
@@ -385,10 +412,10 @@
     "AKAM": {
       "sentiment": "BULLISH",
       "call_premium": 1126500.0,
-      "put_premium": 239079.99999999997,
-      "call_put_ratio": 4.71,
-      "trade_count": 4,
-      "stock_price": 91.23,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 3,
+      "stock_price": 89.21,
       "sector": "Information Technology",
       "industry": "IT Services",
       "sub_industry": "Internet Services & Infrastructure",
@@ -427,17 +454,6 @@
           "contracts": 300,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-12T18:41:17.880828027Z"
-        },
-        {
-          "contract": "AKAM260220P00090000",
-          "type": "PUT",
-          "strike": 90.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 239079.99999999997,
-          "contracts": 556,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T16:21:56.115456354Z"
         }
       ]
     },
@@ -447,7 +463,7 @@
       "put_premium": 232000.0,
       "call_put_ratio": 1.78,
       "trade_count": 3,
-      "stock_price": 307.355,
+      "stock_price": 307.575,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductor Materials & Equipment",
@@ -491,11 +507,11 @@
     },
     "AMD": {
       "sentiment": "BULLISH",
-      "call_premium": 1027800.0,
-      "put_premium": 103000.0,
-      "call_put_ratio": 9.98,
-      "trade_count": 8,
-      "stock_price": 207.44,
+      "call_premium": 658745.0,
+      "put_premium": 365136.0,
+      "call_put_ratio": 1.8,
+      "trade_count": 7,
+      "stock_price": 221.075,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -503,37 +519,37 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "AMD260123C00217500",
-          "type": "CALL",
-          "strike": 217.5,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 201782.0,
-          "contracts": 406,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T18:19:05.004370026Z"
-        },
-        {
-          "contract": "AMD260123C00215000",
-          "type": "CALL",
-          "strike": 215.0,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 167040.0,
-          "contracts": 384,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T18:12:38.319934161Z"
-        },
-        {
-          "contract": "AMD260130C00210000",
-          "type": "CALL",
+          "contract": "AMD260130P00210000",
+          "type": "PUT",
           "strike": 210.0,
           "expiration": "2026-01-30",
           "dte": 16,
-          "premium": 166400.0,
-          "contracts": 160,
+          "premium": 218000.0,
+          "contracts": 200,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-07T16:04:37.03940141Z"
+          "timestamp": "2026-01-08T14:45:03.07530978Z"
+        },
+        {
+          "contract": "AMD260130C00230000",
+          "type": "CALL",
+          "strike": 230.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 152400,
+          "contracts": 254,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:41:44.492322376Z"
+        },
+        {
+          "contract": "AMD260123P00215000",
+          "type": "PUT",
+          "strike": 215.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 147136.0,
+          "contracts": 121,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T15:57:16.795958438Z"
         },
         {
           "contract": "AMD260130C00230000",
@@ -547,26 +563,26 @@
           "timestamp": "2026-01-09T15:53:11.570376523Z"
         },
         {
-          "contract": "AMD260123C00220000",
+          "contract": "AMD260130C00230000",
           "type": "CALL",
-          "strike": 220.0,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 128000.0,
-          "contracts": 500,
+          "strike": 230.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 138195.0,
+          "contracts": 249,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-12T15:40:03.721405629Z"
+          "timestamp": "2026-01-13T14:41:12.044842217Z"
         },
         {
-          "contract": "AMD260123C00220000",
+          "contract": "AMD260123C00225000",
           "type": "CALL",
-          "strike": 220.0,
+          "strike": 225.0,
           "expiration": "2026-01-23",
           "dte": 9,
-          "premium": 118428.0,
-          "contracts": 426,
+          "premium": 122000.0,
+          "contracts": 200,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-12T16:32:43.668926315Z"
+          "timestamp": "2026-01-13T16:59:00.054483699Z"
         },
         {
           "contract": "AMD260130C00250000",
@@ -578,27 +594,16 @@
           "contracts": 900,
           "tier": "NOTABLE",
           "timestamp": "2026-01-07T17:22:52.048365533Z"
-        },
-        {
-          "contract": "AMD260116P00190000",
-          "type": "PUT",
-          "strike": 190.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 103000.0,
-          "contracts": 1000,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T15:38:11.435707739Z"
         }
       ]
     },
     "AMGN": {
       "sentiment": "BULLISH",
-      "call_premium": 459500.0,
+      "call_premium": 684712.0,
       "put_premium": 278502.0,
-      "call_put_ratio": 1.65,
-      "trade_count": 3,
-      "stock_price": 325.61,
+      "call_put_ratio": 2.46,
+      "trade_count": 4,
+      "stock_price": 323.785,
       "sector": "Health Care",
       "industry": "Biotechnology",
       "sub_industry": "Biotechnology",
@@ -628,6 +633,17 @@
           "timestamp": "2026-01-08T15:26:48.223516666Z"
         },
         {
+          "contract": "AMGN260116C00327500",
+          "type": "CALL",
+          "strike": 327.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 225212.0,
+          "contracts": 142,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T16:35:59.095974973Z"
+        },
+        {
           "contract": "AMGN260116C00335000",
           "type": "CALL",
           "strike": 335.0,
@@ -646,7 +662,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 7,
-      "stock_price": 246.44,
+      "stock_price": 244.1,
       "sector": "Consumer Discretionary",
       "industry": "Broadline Retail",
       "sub_industry": "Broadline Retail",
@@ -738,7 +754,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 71.025,
+      "stock_price": 70.23,
       "sector": "Industrials",
       "industry": "Building Products",
       "sub_industry": "Building Products",
@@ -764,7 +780,7 @@
       "put_premium": 1316250.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 267.1,
+      "stock_price": 265.18,
       "sector": "Materials",
       "industry": "Chemicals",
       "sub_industry": "Industrial Gases",
@@ -801,7 +817,7 @@
       "put_premium": 299795.99999999994,
       "call_put_ratio": 2.01,
       "trade_count": 2,
-      "stock_price": 145.09,
+      "stock_price": 147.125,
       "sector": "Information Technology",
       "industry": "Electronic Equipment, Instruments & Components",
       "sub_industry": "Electronic Components",
@@ -834,16 +850,16 @@
     },
     "APP": {
       "sentiment": "BEARISH",
-      "call_premium": 100000,
-      "put_premium": 1414140.0,
-      "call_put_ratio": 14.14,
-      "trade_count": 9,
-      "stock_price": 658.675,
+      "call_premium": 0,
+      "put_premium": 551800.0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 672.52,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Application Software",
       "ticker_size": "mid",
-      "effective_threshold": 100000,
+      "effective_threshold": 250000,
       "trades": [
         {
           "contract": "APP260116P00625000",
@@ -866,89 +882,6 @@
           "contracts": 155,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-09T14:41:52.631781163Z"
-        },
-        {
-          "contract": "APP260116P00622500",
-          "type": "PUT",
-          "strike": 622.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 210080.00000000003,
-          "contracts": 101,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T15:58:31.07814869Z"
-        },
-        {
-          "contract": "APP260116P00615000",
-          "type": "PUT",
-          "strike": 615.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 178769.99999999997,
-          "contracts": 101,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T15:58:31.07814869Z"
-        },
-        {
-          "contract": "APP260116P00600000",
-          "type": "PUT",
-          "strike": 600.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 120959.99999999999,
-          "contracts": 192,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T15:11:41.229573794Z",
-          "is_sweep": true,
-          "sweep_id": "APP-sweep-1"
-        },
-        {
-          "contract": "APP260116P00600000",
-          "type": "PUT",
-          "strike": 600.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 120330.0,
-          "contracts": 191,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T15:11:41.22955933Z",
-          "is_sweep": true,
-          "sweep_id": "APP-sweep-1"
-        },
-        {
-          "contract": "APP260116P00600000",
-          "type": "PUT",
-          "strike": 600.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 119700.0,
-          "contracts": 190,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T15:11:41.475641016Z",
-          "is_sweep": true,
-          "sweep_id": "APP-sweep-1"
-        },
-        {
-          "contract": "APP260116P00645000",
-          "type": "PUT",
-          "strike": 645.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 112500.0,
-          "contracts": 60,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:22:31.306628709Z"
-        },
-        {
-          "contract": "APP260116C00690000",
-          "type": "CALL",
-          "strike": 690.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 100000,
-          "contracts": 200,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:02:50.184810085Z"
         }
       ]
     },
@@ -958,7 +891,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 86.84,
+      "stock_price": 88.28,
       "sector": "Consumer Discretionary",
       "industry": "Automobile Components",
       "sub_industry": "Automotive Parts & Equipment",
@@ -984,7 +917,7 @@
       "put_premium": 1075624.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 352.35,
+      "stock_price": 358.81,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -1032,7 +965,7 @@
       "put_premium": 839450.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 632.35,
+      "stock_price": 647.475,
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "sub_industry": "Aerospace & Defense",
@@ -1069,7 +1002,7 @@
       "put_premium": 103880.0,
       "call_put_ratio": 9.5,
       "trade_count": 6,
-      "stock_price": 359.51,
+      "stock_price": 357.79,
       "sector": "Financials",
       "industry": "Consumer Finance",
       "sub_industry": "Consumer Finance",
@@ -1145,12 +1078,12 @@
       ]
     },
     "AZO": {
-      "sentiment": "BEARISH",
+      "sentiment": "BULLISH",
       "call_premium": 150000,
-      "put_premium": 220775.0,
-      "call_put_ratio": 1.47,
-      "trade_count": 3,
-      "stock_price": 3523.6,
+      "put_premium": 101000,
+      "call_put_ratio": 1.49,
+      "trade_count": 2,
+      "stock_price": 3476.14,
       "sector": "Consumer Discretionary",
       "industry": "Specialty Retail",
       "sub_industry": "Automotive Retail",
@@ -1167,17 +1100,6 @@
           "contracts": 100,
           "tier": "NOTABLE",
           "timestamp": "2026-01-09T20:53:22.191502692Z"
-        },
-        {
-          "contract": "AZO260116P03450000",
-          "type": "PUT",
-          "strike": 3450.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 119775.0,
-          "contracts": 25,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:31:20.366700322Z"
         },
         {
           "contract": "AZO260320P03350000",
@@ -1198,7 +1120,7 @@
       "put_premium": 325000.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 239.785,
+      "stock_price": 247.02,
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "sub_industry": "Aerospace & Defense",
@@ -1231,17 +1153,28 @@
     },
     "BAC": {
       "sentiment": "BEARISH",
-      "call_premium": 616470.0,
-      "put_premium": 675214.0,
-      "call_put_ratio": 1.1,
-      "trade_count": 7,
-      "stock_price": 55.17,
+      "call_premium": 788470.0,
+      "put_premium": 943214.0,
+      "call_put_ratio": 1.2,
+      "trade_count": 9,
+      "stock_price": 54.595,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "BAC260116P00054000",
+          "type": "PUT",
+          "strike": 54.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 268000.0,
+          "contracts": 4000,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T15:13:06.833559904Z"
+        },
         {
           "contract": "BAC260116P00053000",
           "type": "PUT",
@@ -1274,6 +1207,17 @@
           "contracts": 1700,
           "tier": "NOTABLE",
           "timestamp": "2026-01-09T20:45:57.282396591Z"
+        },
+        {
+          "contract": "BAC260116C00056000",
+          "type": "CALL",
+          "strike": 56.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 172000.0,
+          "contracts": 4000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:13:06.833559904Z"
         },
         {
           "contract": "BAC260123P00052500",
@@ -1327,7 +1271,7 @@
       "put_premium": 493524.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 20.16,
+      "stock_price": 19.52,
       "sector": "Health Care",
       "industry": "Health Care Equipment & Supplies",
       "sub_industry": "Health Care Equipment",
@@ -1353,7 +1297,7 @@
       "put_premium": 471000.0,
       "call_put_ratio": 3.67,
       "trade_count": 3,
-      "stock_price": 67.17,
+      "stock_price": 67.285,
       "sector": "Consumer Discretionary",
       "industry": "Specialty Retail",
       "sub_industry": "Computer & Electronics Retail",
@@ -1395,13 +1339,50 @@
         }
       ]
     },
+    "BKNG": {
+      "sentiment": "BULLISH",
+      "call_premium": 240000,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 5322.975,
+      "sector": "Consumer Discretionary",
+      "industry": "Hotels, Restaurants & Leisure",
+      "sub_industry": "Hotels, Resorts & Cruise Lines",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "BKNG260116C05425000",
+          "type": "CALL",
+          "strike": 5425.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 136000,
+          "contracts": 17,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-08T20:53:10.066937358Z"
+        },
+        {
+          "contract": "BKNG260116C05425000",
+          "type": "CALL",
+          "strike": 5425.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 104000,
+          "contracts": 13,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-08T20:53:10.066937358Z"
+        }
+      ]
+    },
     "BLDR": {
       "sentiment": "BULLISH",
       "call_premium": 290000.0,
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 124.06,
+      "stock_price": 124.845,
       "sector": "Industrials",
       "industry": "Building Products",
       "sub_industry": "Building Products",
@@ -1424,27 +1405,16 @@
     "BLK": {
       "sentiment": "BEARISH",
       "call_premium": 0,
-      "put_premium": 311900.0,
+      "put_premium": 144500.0,
       "call_put_ratio": null,
-      "trade_count": 2,
-      "stock_price": 1089.39,
+      "trade_count": 1,
+      "stock_price": 1076.15,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Asset Management & Custody Banks",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "BLK260116P01077500",
-          "type": "PUT",
-          "strike": 1077.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 167400,
-          "contracts": 93,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T16:16:08.076514437Z"
-        },
         {
           "contract": "BLK260116P01065000",
           "type": "PUT",
@@ -1464,7 +1434,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 55.78,
+      "stock_price": 56.345,
       "sector": "Health Care",
       "industry": "Pharmaceuticals",
       "sub_industry": "Pharmaceuticals",
@@ -1496,12 +1466,12 @@
       ]
     },
     "BRK-B": {
-      "sentiment": "BEARISH",
-      "call_premium": 187362.0,
-      "put_premium": 518100.0,
-      "call_put_ratio": 2.77,
-      "trade_count": 3,
-      "stock_price": 498.71,
+      "sentiment": "BULLISH",
+      "call_premium": 624540.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 494.82,
       "sector": "Financials",
       "industry": "Financial Services",
       "sub_industry": "Multi-Sector Holdings",
@@ -1509,15 +1479,15 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "BRKB260123P00492500",
-          "type": "PUT",
-          "strike": 492.5,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 392700.0,
-          "contracts": 935,
+          "contract": "BRKB260116C00500000",
+          "type": "CALL",
+          "strike": 500.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 437178.0,
+          "contracts": 1487,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-07T18:58:53.467845802Z"
+          "timestamp": "2026-01-09T20:15:57.077426301Z"
         },
         {
           "contract": "BRKB260116C00505000",
@@ -1529,17 +1499,6 @@
           "contracts": 1487,
           "tier": "NOTABLE",
           "timestamp": "2026-01-09T20:15:57.077431368Z"
-        },
-        {
-          "contract": "BRKB260123P00492500",
-          "type": "PUT",
-          "strike": 492.5,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 125400.0,
-          "contracts": 300,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T19:26:47.373952936Z"
         }
       ]
     },
@@ -1549,7 +1508,7 @@
       "put_premium": 482560.00000000006,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 95.68,
+      "stock_price": 93.67,
       "sector": "Health Care",
       "industry": "Health Care Equipment & Supplies",
       "sub_industry": "Health Care Equipment",
@@ -1575,7 +1534,7 @@
       "put_premium": 321500.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 156.575,
+      "stock_price": 154.73,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Asset Management & Custody Banks",
@@ -1595,13 +1554,39 @@
         }
       ]
     },
+    "BXP": {
+      "sentiment": "BEARISH",
+      "call_premium": 0,
+      "put_premium": 100750.0,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 66.205,
+      "sector": "Real Estate",
+      "industry": "Office REITs",
+      "sub_industry": "Office REITs",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "BXP260220P00065000",
+          "type": "PUT",
+          "strike": 65.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 100750.0,
+          "contracts": 650,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:38:40.272070311Z"
+        }
+      ]
+    },
     "C": {
       "sentiment": "BULLISH",
-      "call_premium": 1293000.0,
-      "put_premium": 440600.0,
-      "call_put_ratio": 2.93,
-      "trade_count": 7,
-      "stock_price": 117.68,
+      "call_premium": 1643000.0,
+      "put_premium": 110000.0,
+      "call_put_ratio": 14.94,
+      "trade_count": 6,
+      "stock_price": 116.895,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
@@ -1620,15 +1605,15 @@
           "timestamp": "2026-01-09T18:00:55.838601625Z"
         },
         {
-          "contract": "C260116P00116000",
-          "type": "PUT",
-          "strike": 116.0,
+          "contract": "C260116C00120000",
+          "type": "CALL",
+          "strike": 120.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 198360.0,
-          "contracts": 2280,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T16:12:06.27836452Z"
+          "premium": 350000.0,
+          "contracts": 2500,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:32:37.271162039Z"
         },
         {
           "contract": "C260116C00120000",
@@ -1640,17 +1625,6 @@
           "contracts": 1000,
           "tier": "NOTABLE",
           "timestamp": "2026-01-12T15:00:07.100662169Z"
-        },
-        {
-          "contract": "C260116P00116000",
-          "type": "PUT",
-          "strike": 116.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 132240.0,
-          "contracts": 1520,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T16:12:06.27836452Z"
         },
         {
           "contract": "C260116C00120000",
@@ -1687,39 +1661,13 @@
         }
       ]
     },
-    "CAH": {
-      "sentiment": "BULLISH",
-      "call_premium": 168000.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 202.46,
-      "sector": "Health Care",
-      "industry": "Health Care Providers & Services",
-      "sub_industry": "Health Care Distributors",
-      "ticker_size": "mid",
-      "effective_threshold": 100000,
-      "trades": [
-        {
-          "contract": "CAH260116C00205000",
-          "type": "CALL",
-          "strike": 205.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 168000.0,
-          "contracts": 700,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T19:30:29.00469116Z"
-        }
-      ]
-    },
     "CARR": {
       "sentiment": "BULLISH",
       "call_premium": 181000,
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 55.365,
+      "stock_price": 55.16,
       "sector": "Industrials",
       "industry": "Building Products",
       "sub_industry": "Building Products",
@@ -1741,11 +1689,11 @@
     },
     "CAT": {
       "sentiment": "BEARISH",
-      "call_premium": 135000.0,
+      "call_premium": 126150.0,
       "put_premium": 235600.0,
-      "call_put_ratio": 1.75,
+      "call_put_ratio": 1.87,
       "trade_count": 3,
-      "stock_price": 629.68,
+      "stock_price": 638.73,
       "sector": "Industrials",
       "industry": "Machinery",
       "sub_industry": "Construction Machinery & Heavy Transportation Equipment",
@@ -1753,15 +1701,15 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "CAT260123C00645000",
+          "contract": "CAT260123C00647500",
           "type": "CALL",
-          "strike": 645.0,
+          "strike": 647.5,
           "expiration": "2026-01-23",
           "dte": 9,
-          "premium": 135000.0,
-          "contracts": 200,
+          "premium": 126150.0,
+          "contracts": 145,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-12T20:49:36.851003081Z"
+          "timestamp": "2026-01-13T17:08:08.062634058Z"
         },
         {
           "contract": "CAT260116P00620000",
@@ -1788,12 +1736,12 @@
       ]
     },
     "CCL": {
-      "sentiment": "BEARISH",
-      "call_premium": 411194.0,
-      "put_premium": 640000.0,
-      "call_put_ratio": 1.56,
+      "sentiment": "BULLISH",
+      "call_premium": 901194.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
       "trade_count": 4,
-      "stock_price": 31.59,
+      "stock_price": 30.465,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Hotels, Resorts & Cruise Lines",
@@ -1801,15 +1749,15 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "CCL260220P00031000",
-          "type": "PUT",
-          "strike": 31.0,
+          "contract": "CCL260220C00032000",
+          "type": "CALL",
+          "strike": 32.0,
           "expiration": "2026-02-20",
           "dte": 37,
-          "premium": 640000.0,
-          "contracts": 5000,
-          "tier": "WHALE",
-          "timestamp": "2026-01-12T20:07:30.374353618Z"
+          "premium": 490000,
+          "contracts": 4900,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:10:08.744771112Z"
         },
         {
           "contract": "CCL260220C00034000",
@@ -1852,7 +1800,7 @@
       "put_premium": 1240836.0,
       "call_put_ratio": 2.82,
       "trade_count": 6,
-      "stock_price": 335.82,
+      "stock_price": 335.36,
       "sector": "Utilities",
       "industry": "Electric Utilities",
       "sub_industry": "Electric Utilities",
@@ -1935,11 +1883,11 @@
     },
     "CMCSA": {
       "sentiment": "BEARISH",
-      "call_premium": 741918.0,
+      "call_premium": 877187.0,
       "put_premium": 1801965.0,
-      "call_put_ratio": 2.43,
-      "trade_count": 5,
-      "stock_price": 29.07,
+      "call_put_ratio": 2.05,
+      "trade_count": 6,
+      "stock_price": 28.695,
       "sector": "Communication Services",
       "industry": "Media",
       "sub_industry": "Cable & Satellite",
@@ -1991,6 +1939,17 @@
           "timestamp": "2026-01-12T15:01:09.419638276Z"
         },
         {
+          "contract": "CMCSA260320C00030000",
+          "type": "CALL",
+          "strike": 30.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 135269.0,
+          "contracts": 1241,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T17:07:52.839323146Z"
+        },
+        {
           "contract": "CMCSA260130C00030000",
           "type": "CALL",
           "strike": 30.0,
@@ -2009,7 +1968,7 @@
       "put_premium": 202719.99999999997,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 562.29,
+      "stock_price": 566.83,
       "sector": "Industrials",
       "industry": "Machinery",
       "sub_industry": "Construction Machinery & Heavy Transportation Equipment",
@@ -2035,7 +1994,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 46.39,
+      "stock_price": 46.41,
       "sector": "Health Care",
       "industry": "Health Care Providers & Services",
       "sub_industry": "Managed Health Care",
@@ -2072,7 +2031,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 10,
-      "stock_price": 233.225,
+      "stock_price": 233.36,
       "sector": "Financials",
       "industry": "Consumer Finance",
       "sub_industry": "Consumer Finance",
@@ -2201,82 +2160,38 @@
     },
     "COIN": {
       "sentiment": "BULLISH",
-      "call_premium": 4711027.0,
+      "call_premium": 771129.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 6,
-      "stock_price": 242.93,
+      "trade_count": 2,
+      "stock_price": 248.52,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Financial Exchanges & Data",
       "ticker_size": "mid",
-      "effective_threshold": 500000,
+      "effective_threshold": 250000,
       "trades": [
         {
-          "contract": "COIN260116C00247500",
+          "contract": "COIN260116C00260000",
           "type": "CALL",
-          "strike": 247.5,
+          "strike": 260.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 1266000.0,
+          "premium": 480000.0,
           "contracts": 3000,
-          "tier": "STRONG WHALE",
+          "tier": "UNUSUAL",
           "timestamp": "2026-01-09T20:56:22.597294589Z"
         },
         {
-          "contract": "COIN260116C00247500",
+          "contract": "COIN260116C00260000",
           "type": "CALL",
-          "strike": 247.5,
+          "strike": 260.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 726907.0000000001,
+          "premium": 291129.0,
           "contracts": 1831,
-          "tier": "WHALE",
+          "tier": "UNUSUAL",
           "timestamp": "2026-01-09T20:34:23.47389934Z"
-        },
-        {
-          "contract": "COIN260116C00252500",
-          "type": "CALL",
-          "strike": 252.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 679875.0,
-          "contracts": 1225,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T20:54:58.747551688Z"
-        },
-        {
-          "contract": "COIN260116C00252500",
-          "type": "CALL",
-          "strike": 252.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 679875.0,
-          "contracts": 1225,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T20:54:58.74754594Z"
-        },
-        {
-          "contract": "COIN260116C00252500",
-          "type": "CALL",
-          "strike": 252.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 679185.0,
-          "contracts": 1215,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T20:43:56.687222176Z"
-        },
-        {
-          "contract": "COIN260116C00252500",
-          "type": "CALL",
-          "strike": 252.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 679185.0,
-          "contracts": 1215,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T20:43:56.68721716Z"
         }
       ]
     },
@@ -2286,7 +2201,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 342.18,
+      "stock_price": 345.79,
       "sector": "Health Care",
       "industry": "Health Care Providers & Services",
       "sub_industry": "Health Care Distributors",
@@ -2312,7 +2227,7 @@
       "put_premium": 167400.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 39.92,
+      "stock_price": 39.715,
       "sector": "Industrials",
       "industry": "Commercial Services & Supplies",
       "sub_industry": "Diversified Support Services",
@@ -2334,11 +2249,11 @@
     },
     "CRH": {
       "sentiment": "BULLISH",
-      "call_premium": 587000.0,
+      "call_premium": 1624000.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 3,
-      "stock_price": 131.41,
+      "trade_count": 7,
+      "stock_price": 126.22,
       "sector": "Materials",
       "industry": "Construction Materials",
       "sub_industry": "Construction Materials",
@@ -2355,6 +2270,50 @@
           "contracts": 1000,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-12T15:49:31.742336872Z"
+        },
+        {
+          "contract": "CRH260220C00130000",
+          "type": "CALL",
+          "strike": 130.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 349200.0,
+          "contracts": 600,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-12T17:58:43.059200068Z"
+        },
+        {
+          "contract": "CRH260220C00130000",
+          "type": "CALL",
+          "strike": 130.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 240000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T17:29:57.28932924Z"
+        },
+        {
+          "contract": "CRH260116C00130000",
+          "type": "CALL",
+          "strike": 130.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 239000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T15:49:31.741625366Z"
+        },
+        {
+          "contract": "CRH260220C00130000",
+          "type": "CALL",
+          "strike": 130.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 208800.0,
+          "contracts": 360,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T14:45:24.874972011Z"
         },
         {
           "contract": "CRH260116C00133000",
@@ -2382,11 +2341,11 @@
     },
     "CRM": {
       "sentiment": "BULLISH",
-      "call_premium": 143994.0,
-      "put_premium": 103526.0,
-      "call_put_ratio": 1.39,
+      "call_premium": 260994.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 259.35,
+      "stock_price": 244.675,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Application Software",
@@ -2405,15 +2364,15 @@
           "timestamp": "2026-01-09T15:49:12.551569825Z"
         },
         {
-          "contract": "CRM260116P00245000",
-          "type": "PUT",
-          "strike": 245.0,
+          "contract": "CRM260116C00255000",
+          "type": "CALL",
+          "strike": 255.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 103526.0,
-          "contracts": 2798,
+          "premium": 117000.0,
+          "contracts": 100,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-07T15:57:28.014970614Z"
+          "timestamp": "2026-01-07T15:07:32.991688278Z"
         }
       ]
     },
@@ -2423,7 +2382,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 466.98,
+      "stock_price": 469.305,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Systems Software",
@@ -2443,39 +2402,13 @@
         }
       ]
     },
-    "CSCO": {
-      "sentiment": "BULLISH",
-      "call_premium": 105000.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 73.995,
-      "sector": "Information Technology",
-      "industry": "Communications Equipment",
-      "sub_industry": "Communications Equipment",
-      "ticker_size": "mid",
-      "effective_threshold": 100000,
-      "trades": [
-        {
-          "contract": "CSCO260116C00075000",
-          "type": "CALL",
-          "strike": 75.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 105000.0,
-          "contracts": 2500,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T19:28:43.084046202Z"
-        }
-      ]
-    },
     "CSGP": {
       "sentiment": "BULLISH",
       "call_premium": 3106050.0,
       "put_premium": 430430.0,
       "call_put_ratio": 7.22,
       "trade_count": 4,
-      "stock_price": 59.31,
+      "stock_price": 58.99,
       "sector": "Real Estate",
       "industry": "Real Estate Management & Development",
       "sub_industry": "Real Estate Services",
@@ -2534,7 +2467,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 35.22,
+      "stock_price": 35.425,
       "sector": "Industrials",
       "industry": "Ground Transportation",
       "sub_industry": "Rail Transportation",
@@ -2560,7 +2493,7 @@
       "put_premium": 322500.0,
       "call_put_ratio": 1.09,
       "trade_count": 2,
-      "stock_price": 85.25,
+      "stock_price": 84.825,
       "sector": "Information Technology",
       "industry": "IT Services",
       "sub_industry": "IT Consulting & Other Services",
@@ -2597,7 +2530,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 5,
-      "stock_price": 464.4,
+      "stock_price": 458.735,
       "sector": "Consumer Discretionary",
       "industry": "Specialty Retail",
       "sub_industry": "Automotive Retail",
@@ -2663,11 +2596,11 @@
     },
     "CVS": {
       "sentiment": "BULLISH",
-      "call_premium": 362500.0,
-      "put_premium": 163710.0,
-      "call_put_ratio": 2.21,
-      "trade_count": 2,
-      "stock_price": 80.34,
+      "call_premium": 575000.0,
+      "put_premium": 418710.0,
+      "call_put_ratio": 1.37,
+      "trade_count": 4,
+      "stock_price": 80.49,
       "sector": "Health Care",
       "industry": "Health Care Providers & Services",
       "sub_industry": "Health Care Services",
@@ -2686,6 +2619,28 @@
           "timestamp": "2026-01-07T17:01:17.726536916Z"
         },
         {
+          "contract": "CVS260123P00079000",
+          "type": "PUT",
+          "strike": 79.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 255000.0,
+          "contracts": 2500,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T15:32:48.481851059Z"
+        },
+        {
+          "contract": "CVS260123C00082000",
+          "type": "CALL",
+          "strike": 82.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 212500.0,
+          "contracts": 2500,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:32:48.481906145Z"
+        },
+        {
           "contract": "CVS260220P00075000",
           "type": "PUT",
           "strike": 75.0,
@@ -2698,19 +2653,58 @@
         }
       ]
     },
-    "DAL": {
+    "D": {
       "sentiment": "BEARISH",
-      "call_premium": 535700.0,
+      "call_premium": 0,
+      "put_premium": 170000.0,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 58.83,
+      "sector": "Utilities",
+      "industry": "Multi-Utilities",
+      "sub_industry": "Multi-Utilities",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "D260220P00057500",
+          "type": "PUT",
+          "strike": 57.5,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 170000.0,
+          "contracts": 2000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:51:10.114994931Z"
+        }
+      ]
+    },
+    "DAL": {
+      "sentiment": "BULLISH",
+      "call_premium": 2967300.0,
       "put_premium": 1645765.0,
-      "call_put_ratio": 3.07,
-      "trade_count": 5,
-      "stock_price": 71,
+      "call_put_ratio": 1.8,
+      "trade_count": 10,
+      "stock_price": 69.04,
       "sector": "Industrials",
       "industry": "Passenger Airlines",
       "sub_industry": "Passenger Airlines",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "DAL260116C00070000",
+          "type": "CALL",
+          "strike": 70.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 1716000.0,
+          "contracts": 4400,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-09T20:03:55.539406827Z",
+          "is_sweep": true,
+          "sweep_id": "DAL-sweep-1"
+        },
         {
           "contract": "DAL260220P00067500",
           "type": "PUT",
@@ -2734,6 +2728,32 @@
           "timestamp": "2026-01-12T15:02:08.517302843Z"
         },
         {
+          "contract": "DAL260116C00070000",
+          "type": "CALL",
+          "strike": 70.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 246600.0,
+          "contracts": 900,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T16:17:33.663049948Z",
+          "is_sweep": true,
+          "sweep_id": "DAL-sweep-1"
+        },
+        {
+          "contract": "DAL260116C00070000",
+          "type": "CALL",
+          "strike": 70.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 234000.0,
+          "contracts": 600,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T20:04:57.093066831Z",
+          "is_sweep": true,
+          "sweep_id": "DAL-sweep-1"
+        },
+        {
           "contract": "DAL260116C00080000",
           "type": "CALL",
           "strike": 80.0,
@@ -2742,7 +2762,9 @@
           "premium": 184800.0,
           "contracts": 4400,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:03:55.539406827Z"
+          "timestamp": "2026-01-09T20:03:55.539406827Z",
+          "is_sweep": true,
+          "sweep_id": "DAL-sweep-1"
         },
         {
           "contract": "DAL260116C00080000",
@@ -2753,7 +2775,9 @@
           "premium": 180400.0,
           "contracts": 4400,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:03:55.539406827Z"
+          "timestamp": "2026-01-09T20:03:55.539406827Z",
+          "is_sweep": true,
+          "sweep_id": "DAL-sweep-1"
         },
         {
           "contract": "DAL260116C00075000",
@@ -2765,6 +2789,30 @@
           "contracts": 1100,
           "tier": "NOTABLE",
           "timestamp": "2026-01-07T16:13:51.917300208Z"
+        },
+        {
+          "contract": "DAL260116C00070000",
+          "type": "CALL",
+          "strike": 70.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 120000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:32:20.945852803Z",
+          "is_sweep": true,
+          "sweep_id": "DAL-sweep-1"
+        },
+        {
+          "contract": "DAL260123C00072000",
+          "type": "CALL",
+          "strike": 72.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 115000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:32:59.177189724Z"
         }
       ]
     },
@@ -2774,7 +2822,7 @@
       "put_premium": 479640.0,
       "call_put_ratio": 2.08,
       "trade_count": 4,
-      "stock_price": 214.89,
+      "stock_price": 214.49,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Restaurants",
@@ -2827,40 +2875,29 @@
         }
       ]
     },
-    "DDOG": {
+    "DECK": {
       "sentiment": "BEARISH",
       "call_premium": 0,
-      "put_premium": 1018140.0,
+      "put_premium": 110000.0,
       "call_put_ratio": null,
-      "trade_count": 2,
-      "stock_price": 126.58,
-      "sector": "Information Technology",
-      "industry": "Software",
-      "sub_industry": "Application Software",
+      "trade_count": 1,
+      "stock_price": 101.51,
+      "sector": "Consumer Discretionary",
+      "industry": "Textiles, Apparel & Luxury Goods",
+      "sub_industry": "Footwear",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "DDOG260123P00124000",
+          "contract": "DECK260130P00100000",
           "type": "PUT",
-          "strike": 124.0,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 587940.0,
-          "contracts": 2868,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T16:59:39.650438402Z"
-        },
-        {
-          "contract": "DDOG260116P00125000",
-          "type": "PUT",
-          "strike": 125.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 430200.0,
-          "contracts": 2868,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-09T16:59:39.575142118Z"
+          "strike": 100.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 110000.0,
+          "contracts": 200,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:38:17.688386178Z"
         }
       ]
     },
@@ -2870,7 +2907,7 @@
       "put_premium": 432202.0,
       "call_put_ratio": null,
       "trade_count": 4,
-      "stock_price": 120.48,
+      "stock_price": 119.96,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
@@ -2929,7 +2966,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 159.67,
+      "stock_price": 160.5,
       "sector": "Consumer Discretionary",
       "industry": "Household Durables",
       "sub_industry": "Homebuilding",
@@ -2960,13 +2997,39 @@
         }
       ]
     },
+    "DHR": {
+      "sentiment": "BULLISH",
+      "call_premium": 101270.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 229.685,
+      "sector": "Health Care",
+      "industry": "Life Sciences Tools & Services",
+      "sub_industry": "Life Sciences Tools & Services",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "DHR260116C00240000",
+          "type": "CALL",
+          "strike": 240.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 101270.0,
+          "contracts": 494,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T17:28:11.472936047Z"
+        }
+      ]
+    },
     "DIS": {
       "sentiment": "BULLISH",
       "call_premium": 581600.0,
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 112.83,
+      "stock_price": 111.955,
       "sector": "Communication Services",
       "industry": "Entertainment",
       "sub_industry": "Movies & Entertainment",
@@ -3003,7 +3066,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 26.49,
+      "stock_price": 26.615,
       "sector": "Materials",
       "industry": "Chemicals",
       "sub_industry": "Commodity Chemicals",
@@ -3040,7 +3103,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 415.91,
+      "stock_price": 409.84,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Restaurants",
@@ -3060,13 +3123,50 @@
         }
       ]
     },
+    "DVA": {
+      "sentiment": "BULLISH",
+      "call_premium": 889992.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 106.1,
+      "sector": "Health Care",
+      "industry": "Health Care Providers & Services",
+      "sub_industry": "Health Care Services",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "DVA260220C00115000",
+          "type": "CALL",
+          "strike": 115.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 650136.0,
+          "contracts": 2104,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T16:05:53.406467065Z"
+        },
+        {
+          "contract": "DVA260220C00125000",
+          "type": "CALL",
+          "strike": 125.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 239856.0,
+          "contracts": 2104,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:05:53.406472053Z"
+        }
+      ]
+    },
     "DXCM": {
       "sentiment": "BEARISH",
       "call_premium": 0,
       "put_premium": 117500.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 70.98,
+      "stock_price": 69.58,
       "sector": "Health Care",
       "industry": "Health Care Equipment & Supplies",
       "sub_industry": "Health Care Equipment",
@@ -3089,27 +3189,16 @@
     "EQT": {
       "sentiment": "BEARISH",
       "call_premium": 0,
-      "put_premium": 2686200.0,
+      "put_premium": 1370400.0,
       "call_put_ratio": null,
-      "trade_count": 3,
-      "stock_price": 52.14,
+      "trade_count": 2,
+      "stock_price": 51.165,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Oil & Gas Exploration & Production",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "EQT260123P00051000",
-          "type": "PUT",
-          "strike": 51.0,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 1315800.0,
-          "contracts": 12900,
-          "tier": "STRONG WHALE",
-          "timestamp": "2026-01-12T17:19:20.729837699Z"
-        },
         {
           "contract": "EQT260220P00047500",
           "type": "PUT",
@@ -3140,7 +3229,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 4,
-      "stock_price": 102.84,
+      "stock_price": 102.53,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Oil & Gas Exploration & Production",
@@ -3199,7 +3288,7 @@
       "put_premium": 3346786.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 58.71,
+      "stock_price": 59.09,
       "sector": "Materials",
       "industry": "Metals & Mining",
       "sub_industry": "Copper",
@@ -3247,7 +3336,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 1630.43,
+      "stock_price": 1618.595,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Application Software",
@@ -3273,7 +3362,7 @@
       "put_premium": 3038050.0,
       "call_put_ratio": 1.29,
       "trade_count": 5,
-      "stock_price": 68.18,
+      "stock_price": 66.22,
       "sector": "Financials",
       "industry": "Financial Services",
       "sub_industry": "Transaction & Payment Processing Services",
@@ -3349,7 +3438,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 5,
-      "stock_price": 48.53,
+      "stock_price": 48.265,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
@@ -3419,7 +3508,7 @@
       "put_premium": 160355.00000000003,
       "call_put_ratio": 1.13,
       "trade_count": 2,
-      "stock_price": 1035.77,
+      "stock_price": 1073.755,
       "sector": "Industrials",
       "industry": "Construction & Engineering",
       "sub_industry": "Construction & Engineering",
@@ -3456,7 +3545,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 237.74,
+      "stock_price": 242.43,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -3482,7 +3571,7 @@
       "put_premium": 836600.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 324.165,
+      "stock_price": 326.68,
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "sub_industry": "Aerospace & Defense",
@@ -3524,13 +3613,50 @@
         }
       ]
     },
-    "GEV": {
+    "GEHC": {
       "sentiment": "BULLISH",
-      "call_premium": 416500.0,
-      "put_premium": 332445.0,
-      "call_put_ratio": 1.25,
-      "trade_count": 4,
-      "stock_price": 639.875,
+      "call_premium": 253700.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 85.4,
+      "sector": "Health Care",
+      "industry": "Health Care Equipment & Supplies",
+      "sub_industry": "Health Care Equipment",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "GEHC260116C00087500",
+          "type": "CALL",
+          "strike": 87.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 142400.0,
+          "contracts": 800,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-08T15:22:54.39378692Z"
+        },
+        {
+          "contract": "GEHC260116C00087500",
+          "type": "CALL",
+          "strike": 87.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 111300.0,
+          "contracts": 742,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T20:32:01.920329987Z"
+        }
+      ]
+    },
+    "GEV": {
+      "sentiment": "BEARISH",
+      "call_premium": 0,
+      "put_premium": 552445.0,
+      "call_put_ratio": null,
+      "trade_count": 3,
+      "stock_price": 650.455,
       "sector": "Industrials",
       "industry": "Electrical Equipment",
       "sub_industry": "Heavy Electrical Equipment",
@@ -3538,26 +3664,15 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "GEV260123C00647500",
-          "type": "CALL",
-          "strike": 647.5,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 214000.0,
-          "contracts": 100,
+          "contract": "GEV260116P00637500",
+          "type": "PUT",
+          "strike": 637.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 220000,
+          "contracts": 200,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-08T15:03:04.420595182Z"
-        },
-        {
-          "contract": "GEV260123C00647500",
-          "type": "CALL",
-          "strike": 647.5,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 202500.0,
-          "contracts": 100,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T14:57:41.348549495Z"
+          "timestamp": "2026-01-12T19:49:37.446732545Z"
         },
         {
           "contract": "GEV260116P00620000",
@@ -3589,7 +3704,7 @@
       "put_premium": 1076310.0,
       "call_put_ratio": 6.73,
       "trade_count": 7,
-      "stock_price": 87.87,
+      "stock_price": 90.19,
       "sector": "Information Technology",
       "industry": "Electronic Equipment, Instruments & Components",
       "sub_industry": "Electronic Components",
@@ -3689,7 +3804,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 82.895,
+      "stock_price": 83.49,
       "sector": "Consumer Discretionary",
       "industry": "Automobiles",
       "sub_industry": "Automobile Manufacturers",
@@ -3722,17 +3837,28 @@
     },
     "GOOGL": {
       "sentiment": "BULLISH",
-      "call_premium": 1066910.0,
-      "put_premium": 472800.0,
-      "call_put_ratio": 2.26,
-      "trade_count": 10,
-      "stock_price": 332.41,
+      "call_premium": 845012.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 3,
+      "stock_price": 338.93,
       "sector": "Communication Services",
       "industry": "Interactive Media & Services",
       "sub_industry": "Interactive Media & Services",
       "ticker_size": "mid",
-      "effective_threshold": 100000,
+      "effective_threshold": 250000,
       "trades": [
+        {
+          "contract": "GOOGL260130C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 328500.0,
+          "contracts": 500,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T17:00:39.448454165Z"
+        },
         {
           "contract": "GOOGL260123C00345000",
           "type": "CALL",
@@ -3745,113 +3871,25 @@
           "timestamp": "2026-01-12T17:39:33.015971885Z"
         },
         {
-          "contract": "GOOGL260123C00345000",
+          "contract": "GOOGL260123C00350000",
           "type": "CALL",
-          "strike": 345.0,
+          "strike": 350.0,
           "expiration": "2026-01-23",
           "dte": 9,
-          "premium": 226800.0,
-          "contracts": 1400,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T17:42:12.227453954Z"
-        },
-        {
-          "contract": "GOOGL260123P00327500",
-          "type": "PUT",
-          "strike": 327.5,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 180000,
-          "contracts": 200,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T14:42:55.440230472Z"
-        },
-        {
-          "contract": "GOOGL260116P00312500",
-          "type": "PUT",
-          "strike": 312.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 177800.0,
-          "contracts": 700,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T17:03:00.679969836Z"
-        },
-        {
-          "contract": "GOOGL260130C00340000",
-          "type": "CALL",
-          "strike": 340.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 130526.0,
-          "contracts": 374,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:49:03.512385198Z"
-        },
-        {
-          "contract": "GOOGL260130C00340000",
-          "type": "CALL",
-          "strike": 340.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 130526.0,
-          "contracts": 374,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:49:03.512385198Z"
-        },
-        {
-          "contract": "GOOGL260116P00322500",
-          "type": "PUT",
-          "strike": 322.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 115000.0,
-          "contracts": 250,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T15:09:24.182658123Z"
-        },
-        {
-          "contract": "GOOGL260123C00340000",
-          "type": "CALL",
-          "strike": 340.0,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 107748.0,
-          "contracts": 369,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T20:04:44.788139498Z"
-        },
-        {
-          "contract": "GOOGL260130C00340000",
-          "type": "CALL",
-          "strike": 340.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 107485.00000000001,
-          "contracts": 259,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:54:32.470626503Z"
-        },
-        {
-          "contract": "GOOGL260130C00340000",
-          "type": "CALL",
-          "strike": 340.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 104625.0,
-          "contracts": 225,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T17:17:21.627969373Z"
+          "premium": 257312.00000000003,
+          "contracts": 946,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T17:26:35.66063338Z"
         }
       ]
     },
     "GS": {
       "sentiment": "BULLISH",
       "call_premium": 2235500.0,
-      "put_premium": 1238515.0,
-      "call_put_ratio": 1.8,
-      "trade_count": 9,
-      "stock_price": 949.31,
+      "put_premium": 1090784.0,
+      "call_put_ratio": 2.05,
+      "trade_count": 8,
+      "stock_price": 940.625,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Investment Banking & Brokerage",
@@ -3942,17 +3980,6 @@
           "sweep_id": "GS-sweep-1"
         },
         {
-          "contract": "GS260116P00935000",
-          "type": "PUT",
-          "strike": 935.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 147731.0,
-          "contracts": 97,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T18:54:28.318971816Z"
-        },
-        {
           "contract": "GS260116C00960000",
           "type": "CALL",
           "strike": 960.0,
@@ -3971,7 +3998,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 1031.365,
+      "stock_price": 1030.51,
       "sector": "Industrials",
       "industry": "Trading Companies & Distributors",
       "sub_industry": "Trading Companies & Distributors",
@@ -3992,12 +4019,12 @@
       ]
     },
     "HCA": {
-      "sentiment": "BULLISH",
-      "call_premium": 477360.00000000006,
-      "put_premium": 0,
+      "sentiment": "BEARISH",
+      "call_premium": 0,
+      "put_premium": 259379.99999999997,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 474.33,
+      "stock_price": 477.055,
       "sector": "Health Care",
       "industry": "Health Care Providers & Services",
       "sub_industry": "Health Care Facilities",
@@ -4005,15 +4032,15 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "HCA260220C00480000",
-          "type": "CALL",
-          "strike": 480.0,
+          "contract": "HCA260220P00450000",
+          "type": "PUT",
+          "strike": 450.0,
           "expiration": "2026-02-20",
           "dte": 37,
-          "premium": 477360.00000000006,
-          "contracts": 216,
+          "premium": 259379.99999999997,
+          "contracts": 198,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-08T15:08:28.320441443Z"
+          "timestamp": "2026-01-13T14:45:55.571513856Z"
         }
       ]
     },
@@ -4023,7 +4050,7 @@
       "put_premium": 127465.00000000001,
       "call_put_ratio": 2.58,
       "trade_count": 3,
-      "stock_price": 374.945,
+      "stock_price": 376.155,
       "sector": "Consumer Discretionary",
       "industry": "Specialty Retail",
       "sub_industry": "Home Improvement Retail",
@@ -4067,17 +4094,39 @@
     },
     "HII": {
       "sentiment": "BULLISH",
-      "call_premium": 465000.0,
+      "call_premium": 1945200.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 398.235,
+      "trade_count": 3,
+      "stock_price": 411.545,
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "sub_industry": "Aerospace & Defense",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "HII260320C00450000",
+          "type": "CALL",
+          "strike": 450.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 880200.0,
+          "contracts": 600,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T17:20:46.639451863Z"
+        },
+        {
+          "contract": "HII260220C00450000",
+          "type": "CALL",
+          "strike": 450.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 600000,
+          "contracts": 600,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T17:20:46.639451863Z"
+        },
         {
           "contract": "HII260618C00430000",
           "type": "CALL",
@@ -4093,11 +4142,11 @@
     },
     "HOOD": {
       "sentiment": "BEARISH",
-      "call_premium": 688070.0,
-      "put_premium": 924962.0,
-      "call_put_ratio": 1.34,
+      "call_premium": 273150.0,
+      "put_premium": 1294448.0,
+      "call_put_ratio": 4.74,
       "trade_count": 7,
-      "stock_price": 117.535,
+      "stock_price": 117.945,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Investment Banking & Brokerage",
@@ -4116,17 +4165,6 @@
           "timestamp": "2026-01-12T16:10:27.957634918Z"
         },
         {
-          "contract": "HOOD260116C00121000",
-          "type": "CALL",
-          "strike": 121.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 340810.0,
-          "contracts": 1730,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-08T17:22:53.510480803Z"
-        },
-        {
           "contract": "HOOD260116P00116000",
           "type": "PUT",
           "strike": 116.0,
@@ -4136,6 +4174,17 @@
           "contracts": 1000,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-09T20:49:16.670371501Z"
+        },
+        {
+          "contract": "HOOD260116P00106000",
+          "type": "PUT",
+          "strike": 106.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 255600.0,
+          "contracts": 3600,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-09T15:55:00.068634137Z"
         },
         {
           "contract": "HOOD260116P00112000",
@@ -4149,15 +4198,26 @@
           "timestamp": "2026-01-09T16:07:54.853504062Z"
         },
         {
-          "contract": "HOOD260116C00127000",
+          "contract": "HOOD260123C00120000",
           "type": "CALL",
-          "strike": 127.0,
+          "strike": 120.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 159750.0,
+          "contracts": 450,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:01:59.414508322Z"
+        },
+        {
+          "contract": "HOOD260116P00113000",
+          "type": "PUT",
+          "strike": 113.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 128020.0,
-          "contracts": 1730,
+          "premium": 113885.99999999999,
+          "contracts": 999,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-08T17:22:53.510480803Z"
+          "timestamp": "2026-01-13T14:56:20.982742281Z"
         },
         {
           "contract": "HOOD260116C00121000",
@@ -4169,43 +4229,6 @@
           "contracts": 700,
           "tier": "NOTABLE",
           "timestamp": "2026-01-12T18:20:59.804494351Z"
-        },
-        {
-          "contract": "HOOD260116C00121000",
-          "type": "CALL",
-          "strike": 121.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 105840.00000000001,
-          "contracts": 294,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T16:48:39.513167661Z"
-        }
-      ]
-    },
-    "HPE": {
-      "sentiment": "BULLISH",
-      "call_premium": 228000.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 22.09,
-      "sector": "Information Technology",
-      "industry": "Technology Hardware, Storage & Peripherals",
-      "sub_industry": "Technology Hardware, Storage & Peripherals",
-      "ticker_size": "mid",
-      "effective_threshold": 100000,
-      "trades": [
-        {
-          "contract": "HPE260130C00022500",
-          "type": "CALL",
-          "strike": 22.5,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 228000.0,
-          "contracts": 4000,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T16:55:05.832347901Z"
         }
       ]
     },
@@ -4215,7 +4238,7 @@
       "put_premium": 932000.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 21.15,
+      "stock_price": 20.975,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
@@ -4263,7 +4286,7 @@
       "put_premium": 406377.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 312.16,
+      "stock_price": 307.75,
       "sector": "Information Technology",
       "industry": "IT Services",
       "sub_industry": "IT Consulting & Other Services",
@@ -4300,7 +4323,7 @@
       "put_premium": 126720.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 166.27,
+      "stock_price": 164,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Financial Exchanges & Data",
@@ -4326,7 +4349,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 106.3,
+      "stock_price": 106.265,
       "sector": "Health Care",
       "industry": "Biotechnology",
       "sub_industry": "Biotechnology",
@@ -4358,144 +4381,121 @@
       ]
     },
     "INTC": {
-      "sentiment": "BULLISH",
-      "call_premium": 8696910.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 9,
-      "stock_price": 44.05,
+      "sentiment": "BEARISH",
+      "call_premium": 129000.0,
+      "put_premium": 942051.0,
+      "call_put_ratio": 7.3,
+      "trade_count": 7,
+      "stock_price": 47.59,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
       "ticker_size": "mid",
-      "effective_threshold": 500000,
+      "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "INTC260220C00045000",
-          "type": "CALL",
-          "strike": 45.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 1680000.0,
-          "contracts": 4000,
-          "tier": "STRONG WHALE",
-          "timestamp": "2026-01-09T18:55:13.945805342Z",
-          "is_sweep": true,
-          "sweep_id": "INTC-sweep-1"
+          "contract": "INTC260123P00042000",
+          "type": "PUT",
+          "strike": 42.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 384451.0,
+          "contracts": 3593,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-12T16:01:24.913386929Z"
         },
         {
-          "contract": "INTC260220C00047000",
-          "type": "CALL",
+          "contract": "INTC260130P00047000",
+          "type": "PUT",
           "strike": 47.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 1272114.0,
-          "contracts": 4874,
-          "tier": "STRONG WHALE",
-          "timestamp": "2026-01-12T19:01:11.294230776Z"
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 133750.0,
+          "contracts": 250,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T18:35:03.615401875Z"
         },
         {
-          "contract": "INTC260220C00048000",
+          "contract": "INTC260123C00050000",
           "type": "CALL",
-          "strike": 48.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 1220000.0,
-          "contracts": 4000,
-          "tier": "STRONG WHALE",
-          "timestamp": "2026-01-09T18:55:13.945805342Z",
-          "is_sweep": true,
-          "sweep_id": "INTC-sweep-1"
+          "strike": 50.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 129000.0,
+          "contracts": 750,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:45:04.588160723Z"
         },
         {
-          "contract": "INTC260220C00046000",
-          "type": "CALL",
-          "strike": 46.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 1125000.0,
-          "contracts": 3000,
-          "tier": "STRONG WHALE",
-          "timestamp": "2026-01-09T18:55:13.945805342Z",
-          "is_sweep": true,
-          "sweep_id": "INTC-sweep-1"
-        },
-        {
-          "contract": "INTC260220C00055000",
-          "type": "CALL",
-          "strike": 55.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 994296.0000000001,
-          "contracts": 9748,
-          "tier": "WHALE",
-          "timestamp": "2026-01-12T19:01:11.29451647Z"
-        },
-        {
-          "contract": "INTC260220C00045000",
-          "type": "CALL",
+          "contract": "INTC260206P00045000",
+          "type": "PUT",
           "strike": 45.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 714025.0,
-          "contracts": 2197,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T15:20:35.013134674Z",
-          "is_sweep": true,
-          "sweep_id": "INTC-sweep-1"
+          "expiration": "2026-02-06",
+          "dte": 23,
+          "premium": 111000.0,
+          "contracts": 300,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T14:53:51.815280055Z"
         },
         {
-          "contract": "INTC260220C00048000",
-          "type": "CALL",
-          "strike": 48.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 620789.0,
-          "contracts": 2809,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T16:21:20.23160713Z",
-          "is_sweep": true,
-          "sweep_id": "INTC-sweep-1"
-        },
-        {
-          "contract": "INTC260220C00047000",
-          "type": "CALL",
+          "contract": "INTC260206P00047000",
+          "type": "PUT",
           "strike": 47.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 544000.0,
-          "contracts": 2000,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T17:04:54.064222629Z"
+          "expiration": "2026-02-06",
+          "dte": 23,
+          "premium": 105850.0,
+          "contracts": 290,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:56:51.973100038Z"
         },
         {
-          "contract": "INTC260220C00045000",
-          "type": "CALL",
-          "strike": 45.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 526686.0,
-          "contracts": 2141,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T20:31:48.325388252Z",
-          "is_sweep": true,
-          "sweep_id": "INTC-sweep-1"
+          "contract": "INTC260123P00042000",
+          "type": "PUT",
+          "strike": 42.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 104000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T15:13:53.751048861Z"
+        },
+        {
+          "contract": "INTC260123P00042000",
+          "type": "PUT",
+          "strike": 42.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 103000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T15:23:20.343954525Z"
         }
       ]
     },
     "INTU": {
       "sentiment": "BULLISH",
-      "call_premium": 1341350.0,
+      "call_premium": 3312710.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 5,
-      "stock_price": 635.49,
+      "trade_count": 6,
+      "stock_price": 616.36,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Application Software",
       "ticker_size": "mid",
-      "effective_threshold": 100000,
+      "effective_threshold": 250000,
       "trades": [
+        {
+          "contract": "INTU260116C00640000",
+          "type": "CALL",
+          "strike": 640.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 1035179.9999999999,
+          "contracts": 639,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-08T16:16:47.67445403Z"
+        },
         {
           "contract": "INTU260116C00650000",
           "type": "CALL",
@@ -4508,48 +4508,48 @@
           "timestamp": "2026-01-08T16:16:47.67445403Z"
         },
         {
-          "contract": "INTU260123C00650000",
+          "contract": "INTU260123C00625000",
           "type": "CALL",
-          "strike": 650.0,
+          "strike": 625.0,
           "expiration": "2026-01-23",
           "dte": 9,
-          "premium": 246140.0,
-          "contracts": 397,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T20:54:41.211526816Z"
+          "premium": 578880.0,
+          "contracts": 288,
+          "tier": "WHALE",
+          "timestamp": "2026-01-12T16:35:01.553389527Z"
         },
         {
-          "contract": "INTU260116C00650000",
+          "contract": "INTU260123C00635000",
           "type": "CALL",
-          "strike": 650.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 179200.0,
-          "contracts": 160,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T20:43:52.423309273Z"
+          "strike": 635.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 465000.0,
+          "contracts": 375,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-12T19:20:44.889810187Z"
         },
         {
-          "contract": "INTU260116C00655000",
+          "contract": "INTU260123C00625000",
           "type": "CALL",
-          "strike": 655.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 133950.0,
-          "contracts": 141,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T16:50:59.658926068Z"
+          "strike": 625.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 297000.0,
+          "contracts": 300,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:02:39.147154191Z"
         },
         {
-          "contract": "INTU260116C00655000",
+          "contract": "INTU260116C00640000",
           "type": "CALL",
-          "strike": 655.0,
+          "strike": 640.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 117500.0,
-          "contracts": 100,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T18:29:04.365026004Z"
+          "premium": 272089.99999999994,
+          "contracts": 161,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-08T15:38:20.173439528Z"
         }
       ]
     },
@@ -4559,7 +4559,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 26.64,
+      "stock_price": 26.045,
       "sector": "Real Estate",
       "industry": "Residential REITs",
       "sub_industry": "Single-Family Residential REITs",
@@ -4596,7 +4596,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 42.34,
+      "stock_price": 42.435,
       "sector": "Materials",
       "industry": "Containers & Packaging",
       "sub_industry": "Paper & Plastic Packaging Products & Materials",
@@ -4644,7 +4644,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 86.075,
+      "stock_price": 85.785,
       "sector": "Industrials",
       "industry": "Machinery",
       "sub_industry": "Industrial Machinery & Supplies & Components",
@@ -4670,7 +4670,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 572.85,
+      "stock_price": 561.29,
       "sector": "Health Care",
       "industry": "Health Care Equipment & Supplies",
       "sub_industry": "Health Care Equipment",
@@ -4696,7 +4696,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 28.75,
+      "stock_price": 28.48,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Asset Management & Custody Banks",
@@ -4727,13 +4727,67 @@
         }
       ]
     },
+    "JBL": {
+      "sentiment": "BEARISH",
+      "call_premium": 2123500.0,
+      "put_premium": 2845800.0,
+      "call_put_ratio": 1.34,
+      "trade_count": 3,
+      "stock_price": 240,
+      "sector": "Information Technology",
+      "industry": "Electronic Equipment, Instruments & Components",
+      "sub_industry": "Electronic Manufacturing Services",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "JBL260220C00250000",
+          "type": "CALL",
+          "strike": 250.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 2123500.0,
+          "contracts": 3100,
+          "tier": "HEADLINE WHALE",
+          "timestamp": "2026-01-13T16:23:30.126542975Z",
+          "is_sweep": true,
+          "sweep_id": "JBL-sweep-1"
+        },
+        {
+          "contract": "JBL260220P00230000",
+          "type": "PUT",
+          "strike": 230.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 1922000.0,
+          "contracts": 3100,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:23:30.126542975Z",
+          "is_sweep": true,
+          "sweep_id": "JBL-sweep-1"
+        },
+        {
+          "contract": "JBL260220P00210000",
+          "type": "PUT",
+          "strike": 210.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 923800.0,
+          "contracts": 6200,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T16:23:30.126542975Z",
+          "is_sweep": true,
+          "sweep_id": "JBL-sweep-1"
+        }
+      ]
+    },
     "JCI": {
       "sentiment": "BULLISH",
       "call_premium": 405000.00000000006,
       "put_premium": 350000.0,
       "call_put_ratio": 1.16,
       "trade_count": 3,
-      "stock_price": 111.37,
+      "stock_price": 111.8,
       "sector": "Industrials",
       "industry": "Building Products",
       "sub_industry": "Building Products",
@@ -4777,11 +4831,11 @@
     },
     "JNJ": {
       "sentiment": "BEARISH",
-      "call_premium": 140000.0,
-      "put_premium": 1692279.0,
-      "call_put_ratio": 12.09,
+      "call_premium": 0,
+      "put_premium": 1892690.0,
+      "call_put_ratio": null,
       "trade_count": 6,
-      "stock_price": 209.76,
+      "stock_price": 213.16,
       "sector": "Health Care",
       "industry": "Pharmaceuticals",
       "sub_industry": "Pharmaceuticals",
@@ -4822,6 +4876,17 @@
           "timestamp": "2026-01-09T17:05:33.707476084Z"
         },
         {
+          "contract": "JNJ260116P00207500",
+          "type": "PUT",
+          "strike": 207.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 200411.0,
+          "contracts": 1873,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:42:18.391733958Z"
+        },
+        {
           "contract": "JNJ260116P00202500",
           "type": "PUT",
           "strike": 202.5,
@@ -4831,17 +4896,6 @@
           "contracts": 2000,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T15:27:13.912931947Z"
-        },
-        {
-          "contract": "JNJ260116C00215000",
-          "type": "CALL",
-          "strike": 215.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 140000.0,
-          "contracts": 2000,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T15:27:13.914315324Z"
         },
         {
           "contract": "JNJ260116P00205000",
@@ -4858,11 +4912,11 @@
     },
     "JPM": {
       "sentiment": "BULLISH",
-      "call_premium": 909145.0,
-      "put_premium": 141750.0,
-      "call_put_ratio": 6.41,
-      "trade_count": 7,
-      "stock_price": 324.335,
+      "call_premium": 607915.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 3,
+      "stock_price": 313.21,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
@@ -4881,59 +4935,15 @@
           "timestamp": "2026-01-09T16:43:52.13778009Z"
         },
         {
-          "contract": "JPM260116C00330000",
+          "contract": "JPM260116C00317500",
           "type": "CALL",
-          "strike": 330.0,
+          "strike": 317.5,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 149340.0,
-          "contracts": 228,
+          "premium": 240000,
+          "contracts": 150,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:07:36.614503576Z"
-        },
-        {
-          "contract": "JPM260116P00315000",
-          "type": "PUT",
-          "strike": 315.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 141750.0,
-          "contracts": 450,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T18:22:32.05442598Z"
-        },
-        {
-          "contract": "JPM260116C00335000",
-          "type": "CALL",
-          "strike": 335.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 139500.0,
-          "contracts": 300,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T15:56:08.662494956Z"
-        },
-        {
-          "contract": "JPM260116C00330000",
-          "type": "CALL",
-          "strike": 330.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 126900.0,
-          "contracts": 180,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T15:54:40.369525655Z"
-        },
-        {
-          "contract": "JPM260116C00330000",
-          "type": "CALL",
-          "strike": 330.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 125489.99999999999,
-          "contracts": 178,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T15:55:09.608559873Z"
+          "timestamp": "2026-01-09T17:22:40.38199002Z"
         },
         {
           "contract": "JPM260123C00335000",
@@ -4954,7 +4964,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 23.38,
+      "stock_price": 23.535,
       "sector": "Consumer Staples",
       "industry": "Food Products",
       "sub_industry": "Packaged Foods & Meats",
@@ -4976,11 +4986,11 @@
     },
     "KLAC": {
       "sentiment": "BEARISH",
-      "call_premium": 0,
+      "call_premium": 315000,
       "put_premium": 3055542.0,
-      "call_put_ratio": null,
-      "trade_count": 7,
-      "stock_price": 1428.95,
+      "call_put_ratio": 9.7,
+      "trade_count": 8,
+      "stock_price": 1448.07,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductor Materials & Equipment",
@@ -4997,6 +5007,17 @@
           "contracts": 285,
           "tier": "HEADLINE WHALE",
           "timestamp": "2026-01-12T18:53:53.502902845Z"
+        },
+        {
+          "contract": "KLAC260220C01470000",
+          "type": "CALL",
+          "strike": 1470.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 315000,
+          "contracts": 35,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T14:44:23.300983834Z"
         },
         {
           "contract": "KLAC260220P01390000",
@@ -5072,7 +5093,7 @@
       "put_premium": 294224.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 26.925,
+      "stock_price": 27.18,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Oil & Gas Storage & Transportation",
@@ -5098,7 +5119,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 70.47,
+      "stock_price": 70.485,
       "sector": "Consumer Staples",
       "industry": "Beverages",
       "sub_industry": "Soft Drinks & Non-alcoholic Beverages",
@@ -5135,7 +5156,7 @@
       "put_premium": 129000.0,
       "call_put_ratio": 1.39,
       "trade_count": 2,
-      "stock_price": 61.11,
+      "stock_price": 61.205,
       "sector": "Consumer Staples",
       "industry": "Consumer Staples Distribution & Retail",
       "sub_industry": "Food Retail",
@@ -5172,7 +5193,7 @@
       "put_premium": 510000.0,
       "call_put_ratio": 1.24,
       "trade_count": 4,
-      "stock_price": 16.99,
+      "stock_price": 16.975,
       "sector": "Consumer Staples",
       "industry": "Personal Care Products",
       "sub_industry": "Personal Care Products",
@@ -5227,11 +5248,11 @@
     },
     "LEN": {
       "sentiment": "BULLISH",
-      "call_premium": 1677300.0,
+      "call_premium": 1466300.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 3,
-      "stock_price": 120.94,
+      "trade_count": 2,
+      "stock_price": 121.925,
       "sector": "Consumer Discretionary",
       "industry": "Household Durables",
       "sub_industry": "Homebuilding",
@@ -5259,27 +5280,16 @@
           "contracts": 4300,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-12T20:17:22.634308946Z"
-        },
-        {
-          "contract": "LEN260123C00123000",
-          "type": "CALL",
-          "strike": 123.0,
-          "expiration": "2026-01-23",
-          "dte": 9,
-          "premium": 211000.0,
-          "contracts": 1000,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T20:12:50.890630592Z"
         }
       ]
     },
     "LLY": {
-      "sentiment": "BEARISH",
+      "sentiment": "BULLISH",
       "call_premium": 561400.0,
-      "put_premium": 589529.0,
-      "call_put_ratio": 1.05,
-      "trade_count": 4,
-      "stock_price": 1081.015,
+      "put_premium": 333529.0,
+      "call_put_ratio": 1.68,
+      "trade_count": 3,
+      "stock_price": 1078.99,
       "sector": "Health Care",
       "industry": "Pharmaceuticals",
       "sub_industry": "Pharmaceuticals",
@@ -5318,43 +5328,6 @@
           "contracts": 200,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-08T20:29:49.153564084Z"
-        },
-        {
-          "contract": "LLY260116P01070000",
-          "type": "PUT",
-          "strike": 1070.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 256000.0,
-          "contracts": 200,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T19:54:01.969525144Z"
-        }
-      ]
-    },
-    "LOW": {
-      "sentiment": "BULLISH",
-      "call_premium": 133650.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 270.87,
-      "sector": "Consumer Discretionary",
-      "industry": "Specialty Retail",
-      "sub_industry": "Home Improvement Retail",
-      "ticker_size": "mid",
-      "effective_threshold": 100000,
-      "trades": [
-        {
-          "contract": "LOW260206C00275000",
-          "type": "CALL",
-          "strike": 275.0,
-          "expiration": "2026-02-06",
-          "dte": 23,
-          "premium": 133650.0,
-          "contracts": 297,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T19:01:57.205659607Z"
         }
       ]
     },
@@ -5364,7 +5337,7 @@
       "put_premium": 2088512.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 220.46,
+      "stock_price": 218.13,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductor Materials & Equipment",
@@ -5407,12 +5380,12 @@
       ]
     },
     "LULU": {
-      "sentiment": "BULLISH",
+      "sentiment": "BEARISH",
       "call_premium": 400800.0,
-      "put_premium": 201356.0,
-      "call_put_ratio": 1.99,
-      "trade_count": 3,
-      "stock_price": 209.11,
+      "put_premium": 458416.0,
+      "call_put_ratio": 1.14,
+      "trade_count": 5,
+      "stock_price": 212.58,
       "sector": "Consumer Discretionary",
       "industry": "Textiles, Apparel & Luxury Goods",
       "sub_industry": "Apparel, Accessories & Luxury Goods",
@@ -5442,6 +5415,28 @@
           "timestamp": "2026-01-09T17:49:23.659933251Z"
         },
         {
+          "contract": "LULU260116P00210000",
+          "type": "PUT",
+          "strike": 210.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 147060.0,
+          "contracts": 258,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T20:50:00.03952839Z"
+        },
+        {
+          "contract": "LULU260123P00207500",
+          "type": "PUT",
+          "strike": 207.5,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 110000.0,
+          "contracts": 200,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T17:15:25.720094383Z"
+        },
+        {
           "contract": "LULU260116C00220000",
           "type": "CALL",
           "strike": 220.0,
@@ -5460,7 +5455,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 43.85,
+      "stock_price": 43.72,
       "sector": "Industrials",
       "industry": "Passenger Airlines",
       "sub_industry": "Passenger Airlines",
@@ -5497,7 +5492,7 @@
       "put_premium": 130680.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 59.875,
+      "stock_price": 60.05,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Casinos & Gaming",
@@ -5517,13 +5512,50 @@
         }
       ]
     },
+    "LYB": {
+      "sentiment": "BULLISH",
+      "call_premium": 2520320.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 48.635,
+      "sector": "Materials",
+      "industry": "Chemicals",
+      "sub_industry": "Commodity Chemicals",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "LYB260320C00050000",
+          "type": "CALL",
+          "strike": 50.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 1374362.0,
+          "contracts": 3938,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:32:11.633801059Z"
+        },
+        {
+          "contract": "LYB260220C00050000",
+          "type": "CALL",
+          "strike": 50.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 1145958.0,
+          "contracts": 3938,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:32:11.633470284Z"
+        }
+      ]
+    },
     "MA": {
       "sentiment": "BULLISH",
       "call_premium": 442699.0,
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 566.53,
+      "stock_price": 540.86,
       "sector": "Financials",
       "industry": "Financial Services",
       "sub_industry": "Transaction & Payment Processing Services",
@@ -5571,7 +5603,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 323.49,
+      "stock_price": 321.13,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Hotels, Resorts & Cruise Lines",
@@ -5597,7 +5629,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 306.7,
+      "stock_price": 306.46,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Restaurants",
@@ -5623,7 +5655,7 @@
       "put_premium": 108625.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 73.37,
+      "stock_price": 74.505,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -5645,17 +5677,28 @@
     },
     "MCO": {
       "sentiment": "BULLISH",
-      "call_premium": 265320.0,
+      "call_premium": 934650.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 535.25,
+      "trade_count": 2,
+      "stock_price": 528.4,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Financial Exchanges & Data",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "MCO260220C00540000",
+          "type": "CALL",
+          "strike": 540.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 669330.0,
+          "contracts": 603,
+          "tier": "WHALE",
+          "timestamp": "2026-01-12T19:37:38.1004697Z"
+        },
         {
           "contract": "MCO260220C00560000",
           "type": "CALL",
@@ -5672,10 +5715,10 @@
     "META": {
       "sentiment": "BEARISH",
       "call_premium": 0,
-      "put_premium": 492402.0,
+      "put_premium": 371450.0,
       "call_put_ratio": null,
-      "trade_count": 4,
-      "stock_price": 643.09,
+      "trade_count": 3,
+      "stock_price": 628.57,
       "sector": "Communication Services",
       "industry": "Interactive Media & Services",
       "sub_industry": "Interactive Media & Services",
@@ -5694,15 +5737,15 @@
           "timestamp": "2026-01-08T15:39:29.875571399Z"
         },
         {
-          "contract": "META260116P00632500",
+          "contract": "META260116P00620000",
           "type": "PUT",
-          "strike": 632.5,
+          "strike": 620.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 138500.0,
-          "contracts": 500,
+          "premium": 119350.0,
+          "contracts": 350,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:54:50.565016577Z"
+          "timestamp": "2026-01-13T17:06:04.895663781Z"
         },
         {
           "contract": "META260116P00620000",
@@ -5714,44 +5757,22 @@
           "contracts": 400,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T14:30:11.577320366Z"
-        },
-        {
-          "contract": "META260116P00630000",
-          "type": "PUT",
-          "strike": 630.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 101802.0,
-          "contracts": 141,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T15:00:02.151458222Z"
         }
       ]
     },
     "MMM": {
-      "sentiment": "BULLISH",
-      "call_premium": 516000.0,
+      "sentiment": "BEARISH",
+      "call_premium": 0,
       "put_premium": 256725.0,
-      "call_put_ratio": 2.01,
-      "trade_count": 2,
-      "stock_price": 167.985,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 168.94,
       "sector": "Industrials",
       "industry": "Industrial Conglomerates",
       "sub_industry": "Industrial Conglomerates",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "MMM260220C00170000",
-          "type": "CALL",
-          "strike": 170.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 516000.0,
-          "contracts": 1200,
-          "tier": "WHALE",
-          "timestamp": "2026-01-07T15:02:55.485433312Z"
-        },
         {
           "contract": "MMM260220P00155000",
           "type": "PUT",
@@ -5771,7 +5792,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 77.49,
+      "stock_price": 78.41,
       "sector": "Consumer Staples",
       "industry": "Beverages",
       "sub_industry": "Soft Drinks & Non-alcoholic Beverages",
@@ -5791,39 +5812,13 @@
         }
       ]
     },
-    "MO": {
-      "sentiment": "BULLISH",
-      "call_premium": 363000.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 58.52,
-      "sector": "Consumer Staples",
-      "industry": "Tobacco",
-      "sub_industry": "Tobacco",
-      "ticker_size": "mid",
-      "effective_threshold": 100000,
-      "trades": [
-        {
-          "contract": "MO260320C00060000",
-          "type": "CALL",
-          "strike": 60.0,
-          "expiration": "2026-03-20",
-          "dte": 65,
-          "premium": 363000.0,
-          "contracts": 3000,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T15:24:21.570540672Z"
-        }
-      ]
-    },
     "MOH": {
       "sentiment": "BULLISH",
       "call_premium": 471200.0,
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 181.81,
+      "stock_price": 180.855,
       "sector": "Health Care",
       "industry": "Health Care Providers & Services",
       "sub_industry": "Managed Health Care",
@@ -5871,7 +5866,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 25.73,
+      "stock_price": 26.295,
       "sector": "Materials",
       "industry": "Chemicals",
       "sub_industry": "Fertilizers & Agricultural Chemicals",
@@ -5893,17 +5888,39 @@
     },
     "MPC": {
       "sentiment": "BULLISH",
-      "call_premium": 435127.0,
+      "call_premium": 930067.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 3,
-      "stock_price": 175.53,
+      "trade_count": 5,
+      "stock_price": 177.27,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Oil & Gas Refining & Marketing",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "MPC260220C00185000",
+          "type": "CALL",
+          "strike": 185.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 254940.0,
+          "contracts": 607,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T17:00:05.853561778Z"
+        },
+        {
+          "contract": "MPC260116C00180000",
+          "type": "CALL",
+          "strike": 180.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 240000.0,
+          "contracts": 1600,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:53:15.936899666Z"
+        },
         {
           "contract": "MPC260116C00180000",
           "type": "CALL",
@@ -5945,7 +5962,7 @@
       "put_premium": 213210.0,
       "call_put_ratio": 1.92,
       "trade_count": 3,
-      "stock_price": 967.31,
+      "stock_price": 986.18,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -5993,7 +6010,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 109.2,
+      "stock_price": 108.15,
       "sector": "Health Care",
       "industry": "Pharmaceuticals",
       "sub_industry": "Pharmaceuticals",
@@ -6037,49 +6054,104 @@
     },
     "MRNA": {
       "sentiment": "BULLISH",
-      "call_premium": 1695280.0,
+      "call_premium": 1583451.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 3,
-      "stock_price": 33.85,
+      "trade_count": 8,
+      "stock_price": 38.51,
       "sector": "Health Care",
       "industry": "Biotechnology",
       "sub_industry": "Biotechnology",
       "ticker_size": "mid",
-      "effective_threshold": 500000,
+      "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "MRNA260116C00035000",
+          "contract": "MRNA260116C00040000",
           "type": "CALL",
-          "strike": 35.0,
+          "strike": 40.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 582900.0,
-          "contracts": 4350,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T19:36:35.499350216Z"
-        },
-        {
-          "contract": "MRNA260116C00038000",
-          "type": "CALL",
-          "strike": 38.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 560000.0000000001,
+          "premium": 315000.0,
           "contracts": 5000,
-          "tier": "WHALE",
+          "tier": "UNUSUAL",
           "timestamp": "2026-01-07T15:43:20.83589773Z"
         },
         {
-          "contract": "MRNA260116C00037000",
+          "contract": "MRNA260116C00040000",
           "type": "CALL",
-          "strike": 37.0,
+          "strike": 40.0,
           "expiration": "2026-01-16",
           "dte": 2,
-          "premium": 552379.9999999999,
-          "contracts": 7780,
-          "tier": "WHALE",
+          "premium": 314278.0,
+          "contracts": 5069,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:44:23.255297877Z"
+        },
+        {
+          "contract": "MRNA260116C00039000",
+          "type": "CALL",
+          "strike": 39.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 204754.0,
+          "contracts": 2497,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T15:36:38.946455228Z"
+        },
+        {
+          "contract": "MRNA260116C00039000",
+          "type": "CALL",
+          "strike": 39.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 204754.0,
+          "contracts": 2497,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T15:36:38.946450103Z"
+        },
+        {
+          "contract": "MRNA260116C00040000",
+          "type": "CALL",
+          "strike": 40.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 189000.00000000003,
+          "contracts": 3500,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T17:18:46.785237133Z"
+        },
+        {
+          "contract": "MRNA260116C00040000",
+          "type": "CALL",
+          "strike": 40.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 132877.0,
+          "contracts": 1493,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T20:14:30.690172256Z"
+        },
+        {
+          "contract": "MRNA260116C00040000",
+          "type": "CALL",
+          "strike": 40.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 116700.0,
+          "contracts": 3890,
+          "tier": "NOTABLE",
           "timestamp": "2026-01-09T15:19:07.705529148Z"
+        },
+        {
+          "contract": "MRNA260116C00040000",
+          "type": "CALL",
+          "strike": 40.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 106088.00000000001,
+          "contracts": 1192,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T20:14:30.690172256Z"
         }
       ]
     },
@@ -6089,7 +6161,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 186.57,
+      "stock_price": 183.15,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Investment Banking & Brokerage",
@@ -6109,13 +6181,39 @@
         }
       ]
     },
+    "MSFT": {
+      "sentiment": "BULLISH",
+      "call_premium": 307200.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 468.92,
+      "sector": "Information Technology",
+      "industry": "Software",
+      "sub_industry": "Systems Software",
+      "ticker_size": "mid",
+      "effective_threshold": 250000,
+      "trades": [
+        {
+          "contract": "MSFT260130C00475000",
+          "type": "CALL",
+          "strike": 475.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 307200.0,
+          "contracts": 150,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-07T20:26:18.42243616Z"
+        }
+      ]
+    },
     "MU": {
-      "sentiment": "BEARISH",
-      "call_premium": 1979100.0,
-      "put_premium": 3375035.0,
-      "call_put_ratio": 1.71,
-      "trade_count": 10,
-      "stock_price": 345.89,
+      "sentiment": "BULLISH",
+      "call_premium": 2250600.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 4,
+      "stock_price": 337.85,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -6132,32 +6230,6 @@
           "contracts": 600,
           "tier": "WHALE",
           "timestamp": "2026-01-09T20:08:13.835992244Z"
-        },
-        {
-          "contract": "MU260116P00340000",
-          "type": "PUT",
-          "strike": 340.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 720000,
-          "contracts": 800,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T19:22:10.519269046Z",
-          "is_sweep": true,
-          "sweep_id": "MU-sweep-1"
-        },
-        {
-          "contract": "MU260116P00340000",
-          "type": "PUT",
-          "strike": 340.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 719100,
-          "contracts": 799,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T19:22:10.550378543Z",
-          "is_sweep": true,
-          "sweep_id": "MU-sweep-1"
         },
         {
           "contract": "MU260123C00375000",
@@ -6182,105 +6254,31 @@
           "timestamp": "2026-01-09T20:08:13.835992244Z"
         },
         {
-          "contract": "MU260116P00340000",
-          "type": "PUT",
-          "strike": 340.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 540000,
-          "contracts": 600,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T19:22:10.548003121Z",
-          "is_sweep": true,
-          "sweep_id": "MU-sweep-1"
-        },
-        {
-          "contract": "MU260116P00340000",
-          "type": "PUT",
-          "strike": 340.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 450000,
-          "contracts": 500,
+          "contract": "MU260123C00350000",
+          "type": "CALL",
+          "strike": 350.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 271500.0,
+          "contracts": 300,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-09T19:22:10.519607614Z",
-          "is_sweep": true,
-          "sweep_id": "MU-sweep-1"
-        },
-        {
-          "contract": "MU260116P00340000",
-          "type": "PUT",
-          "strike": 340.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 330600.0,
-          "contracts": 290,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-09T15:51:31.635427694Z",
-          "is_sweep": true,
-          "sweep_id": "MU-sweep-1"
-        },
-        {
-          "contract": "MU260116P00320000",
-          "type": "PUT",
-          "strike": 320.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 313440.0,
-          "contracts": 653,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-07T16:24:35.023873718Z"
-        },
-        {
-          "contract": "MU260116P00340000",
-          "type": "PUT",
-          "strike": 340.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 301895.0,
-          "contracts": 499,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T16:16:27.270006085Z",
-          "is_sweep": true,
-          "sweep_id": "MU-sweep-1"
+          "timestamp": "2026-01-13T15:56:46.43147695Z"
         }
       ]
     },
     "NCLH": {
-      "sentiment": "BEARISH",
-      "call_premium": 310000.0,
-      "put_premium": 1075000.0,
-      "call_put_ratio": 3.47,
+      "sentiment": "BULLISH",
+      "call_premium": 420565.0,
+      "put_premium": 158199.99999999997,
+      "call_put_ratio": 2.66,
       "trade_count": 3,
-      "stock_price": 24.33,
+      "stock_price": 23.815,
       "sector": "Consumer Discretionary",
       "industry": "Hotels, Restaurants & Leisure",
       "sub_industry": "Hotels, Resorts & Cruise Lines",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "NCLH260220P00024000",
-          "type": "PUT",
-          "strike": 24.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 564999.9999999999,
-          "contracts": 5000,
-          "tier": "WHALE",
-          "timestamp": "2026-01-12T19:09:15.1120138Z"
-        },
-        {
-          "contract": "NCLH260220P00024000",
-          "type": "PUT",
-          "strike": 24.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 510000.0,
-          "contracts": 5000,
-          "tier": "WHALE",
-          "timestamp": "2026-01-08T19:33:22.508755846Z"
-        },
         {
           "contract": "NCLH260220C00026000",
           "type": "CALL",
@@ -6291,6 +6289,28 @@
           "contracts": 5000,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-12T16:55:02.701005971Z"
+        },
+        {
+          "contract": "NCLH260618P00020000",
+          "type": "PUT",
+          "strike": 20.0,
+          "expiration": "2026-06-18",
+          "dte": 155,
+          "premium": 158199.99999999997,
+          "contracts": 1400,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:06:55.934801867Z"
+        },
+        {
+          "contract": "NCLH260618C00027000",
+          "type": "CALL",
+          "strike": 27.0,
+          "expiration": "2026-06-18",
+          "dte": 155,
+          "premium": 110564.99999999999,
+          "contracts": 585,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:49:42.700973141Z"
         }
       ]
     },
@@ -6300,7 +6320,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 81.115,
+      "stock_price": 81.14,
       "sector": "Utilities",
       "industry": "Electric Utilities",
       "sub_industry": "Electric Utilities",
@@ -6326,7 +6346,7 @@
       "put_premium": 304695.0,
       "call_put_ratio": 2.18,
       "trade_count": 3,
-      "stock_price": 112.93,
+      "stock_price": 113.99,
       "sector": "Materials",
       "industry": "Metals & Mining",
       "sub_industry": "Gold",
@@ -6370,11 +6390,11 @@
     },
     "NFLX": {
       "sentiment": "BULLISH",
-      "call_premium": 174600.0,
+      "call_premium": 284600.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 89.42,
+      "trade_count": 2,
+      "stock_price": 89.78,
       "sector": "Communication Services",
       "industry": "Entertainment",
       "sub_industry": "Movies & Entertainment",
@@ -6391,22 +6411,44 @@
           "contracts": 1800,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T15:10:23.810817268Z"
+        },
+        {
+          "contract": "NFLX260116C00092000",
+          "type": "CALL",
+          "strike": 92.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 110000.0,
+          "contracts": 2000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:50:18.823403663Z"
         }
       ]
     },
     "NKE": {
-      "sentiment": "BEARISH",
-      "call_premium": 108900.0,
+      "sentiment": "BULLISH",
+      "call_premium": 1217507.0,
       "put_premium": 260000.0,
-      "call_put_ratio": 2.39,
-      "trade_count": 2,
-      "stock_price": 65.62,
+      "call_put_ratio": 4.68,
+      "trade_count": 3,
+      "stock_price": 66.38,
       "sector": "Consumer Discretionary",
       "industry": "Textiles, Apparel & Luxury Goods",
       "sub_industry": "Footwear",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "NKE260116C00068000",
+          "type": "CALL",
+          "strike": 68.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 1108607.0,
+          "contracts": 14033,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T15:44:26.210938399Z"
+        },
         {
           "contract": "NKE260116P00062000",
           "type": "PUT",
@@ -6437,7 +6479,7 @@
       "put_premium": 919430.0,
       "call_put_ratio": 1.9,
       "trade_count": 4,
-      "stock_price": 629.435,
+      "stock_price": 626.305,
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "sub_industry": "Aerospace & Defense",
@@ -6496,7 +6538,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 6,
-      "stock_price": 166,
+      "stock_price": 168.68,
       "sector": "Materials",
       "industry": "Metals & Mining",
       "sub_industry": "Steel",
@@ -6573,16 +6615,16 @@
     },
     "NVDA": {
       "sentiment": "BULLISH",
-      "call_premium": 2276720.0,
+      "call_premium": 2826840.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 4,
-      "stock_price": 184.82,
+      "trade_count": 7,
+      "stock_price": 185.92,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
       "ticker_size": "mid",
-      "effective_threshold": 250000,
+      "effective_threshold": 100000,
       "trades": [
         {
           "contract": "NVDA260116C00194000",
@@ -6593,7 +6635,9 @@
           "premium": 1270120.0,
           "contracts": 11240,
           "tier": "STRONG WHALE",
-          "timestamp": "2026-01-08T15:09:22.811182556Z"
+          "timestamp": "2026-01-08T15:09:22.811182556Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
         },
         {
           "contract": "NVDA260116C00194000",
@@ -6604,7 +6648,9 @@
           "premium": 393120.0,
           "contracts": 3510,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-08T15:28:22.879338154Z"
+          "timestamp": "2026-01-08T15:28:22.879338154Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
         },
         {
           "contract": "NVDA260116C00194000",
@@ -6615,7 +6661,9 @@
           "premium": 345576.0,
           "contracts": 4114,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-08T20:44:18.964001145Z"
+          "timestamp": "2026-01-08T20:44:18.964001145Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
         },
         {
           "contract": "NVDA260116C00194000",
@@ -6626,7 +6674,48 @@
           "premium": 267904.00000000006,
           "contracts": 2392,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-08T15:28:22.879328106Z"
+          "timestamp": "2026-01-08T15:28:22.879328106Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
+        },
+        {
+          "contract": "NVDA260116C00194000",
+          "type": "CALL",
+          "strike": 194.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 225120.00000000003,
+          "contracts": 2010,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-08T15:28:22.879323069Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
+        },
+        {
+          "contract": "NVDA260116C00194000",
+          "type": "CALL",
+          "strike": 194.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 224000.0,
+          "contracts": 2000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-08T15:28:22.879308056Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
+        },
+        {
+          "contract": "NVDA260116C00194000",
+          "type": "CALL",
+          "strike": 194.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 101000.0,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-08T15:01:40.827742698Z",
+          "is_sweep": true,
+          "sweep_id": "NVDA-sweep-1"
         }
       ]
     },
@@ -6636,7 +6725,7 @@
       "put_premium": 227225.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 238.26,
+      "stock_price": 240.08,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -6662,7 +6751,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 58.73,
+      "stock_price": 60.265,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -6684,16 +6773,16 @@
     },
     "ORCL": {
       "sentiment": "BULLISH",
-      "call_premium": 1000000,
-      "put_premium": 655500.0,
-      "call_put_ratio": 1.53,
-      "trade_count": 2,
-      "stock_price": 204.52,
+      "call_premium": 2059404.0,
+      "put_premium": 1524565.0,
+      "call_put_ratio": 1.35,
+      "trade_count": 8,
+      "stock_price": 201.46,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Systems Software",
       "ticker_size": "mid",
-      "effective_threshold": 500000,
+      "effective_threshold": 250000,
       "trades": [
         {
           "contract": "ORCL260206C00220000",
@@ -6716,16 +6805,82 @@
           "contracts": 1500,
           "tier": "WHALE",
           "timestamp": "2026-01-08T15:20:24.522466126Z"
+        },
+        {
+          "contract": "ORCL260213C00225000",
+          "type": "CALL",
+          "strike": 225.0,
+          "expiration": "2026-02-13",
+          "dte": 30,
+          "premium": 359640.0,
+          "contracts": 972,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-12T16:00:20.445019546Z"
+        },
+        {
+          "contract": "ORCL260213C00220000",
+          "type": "CALL",
+          "strike": 220.0,
+          "expiration": "2026-02-13",
+          "dte": 30,
+          "premium": 357864.00000000006,
+          "contracts": 888,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-12T15:03:29.6673913Z"
+        },
+        {
+          "contract": "ORCL260206C00230000",
+          "type": "CALL",
+          "strike": 230.0,
+          "expiration": "2026-02-06",
+          "dte": 23,
+          "premium": 341900.0,
+          "contracts": 1300,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-12T19:58:53.680645041Z"
+        },
+        {
+          "contract": "ORCL260206P00195000",
+          "type": "PUT",
+          "strike": 195.0,
+          "expiration": "2026-02-06",
+          "dte": 23,
+          "premium": 327660.0,
+          "contracts": 430,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-09T20:25:17.696382765Z"
+        },
+        {
+          "contract": "ORCL260116P00187500",
+          "type": "PUT",
+          "strike": 187.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 270725.0,
+          "contracts": 595,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-08T20:05:23.086148478Z"
+        },
+        {
+          "contract": "ORCL260123P00190000",
+          "type": "PUT",
+          "strike": 190.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 270680.0,
+          "contracts": 404,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-08T18:12:15.106726169Z"
         }
       ]
     },
     "OXY": {
-      "sentiment": "BULLISH",
-      "call_premium": 630048.0,
-      "put_premium": 210000.0,
-      "call_put_ratio": 3.0,
-      "trade_count": 4,
-      "stock_price": 42.715,
+      "sentiment": "BEARISH",
+      "call_premium": 459506.0,
+      "put_premium": 543900.0,
+      "call_put_ratio": 1.18,
+      "trade_count": 6,
+      "stock_price": 43.54,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Integrated Oil & Gas",
@@ -6733,15 +6888,15 @@
       "effective_threshold": 100000,
       "trades": [
         {
-          "contract": "OXY260116C00043500",
-          "type": "CALL",
-          "strike": 43.5,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 340032.0,
-          "contracts": 7392,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-09T20:21:03.13208176Z"
+          "contract": "OXY260130P00042500",
+          "type": "PUT",
+          "strike": 42.5,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 214200.0,
+          "contracts": 2100,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T20:24:58.331201862Z"
         },
         {
           "contract": "OXY260320P00040000",
@@ -6766,6 +6921,17 @@
           "timestamp": "2026-01-09T20:21:03.132091852Z"
         },
         {
+          "contract": "OXY260320C00045000",
+          "type": "CALL",
+          "strike": 45.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 169490.0,
+          "contracts": 997,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T17:15:06.355446855Z"
+        },
+        {
           "contract": "OXY260320C00050000",
           "type": "CALL",
           "strike": 50.0,
@@ -6775,16 +6941,86 @@
           "contracts": 2000,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T20:14:58.857666477Z"
+        },
+        {
+          "contract": "OXY260116P00042500",
+          "type": "PUT",
+          "strike": 42.5,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 119700.0,
+          "contracts": 2100,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T20:24:58.331201862Z"
+        }
+      ]
+    },
+    "PANW": {
+      "sentiment": "BULLISH",
+      "call_premium": 501071.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 4,
+      "stock_price": 192.39,
+      "sector": "Information Technology",
+      "industry": "Software",
+      "sub_industry": "Systems Software",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "PANW260130C00200000",
+          "type": "CALL",
+          "strike": 200.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 177954.0,
+          "contracts": 798,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:00:21.377250971Z"
+        },
+        {
+          "contract": "PANW260130C00200000",
+          "type": "CALL",
+          "strike": 200.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 112275.0,
+          "contracts": 499,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:47:04.469531044Z"
+        },
+        {
+          "contract": "PANW260130C00200000",
+          "type": "CALL",
+          "strike": 200.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 108782.00000000001,
+          "contracts": 499,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:44:54.425454255Z"
+        },
+        {
+          "contract": "PANW260130C00200000",
+          "type": "CALL",
+          "strike": 200.0,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 102060.0,
+          "contracts": 486,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T15:07:50.527102055Z"
         }
       ]
     },
     "PFE": {
       "sentiment": "BULLISH",
       "call_premium": 815400.0,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 2,
-      "stock_price": 25.25,
+      "put_premium": 576000.0,
+      "call_put_ratio": 1.42,
+      "trade_count": 3,
+      "stock_price": 25.045,
       "sector": "Health Care",
       "industry": "Pharmaceuticals",
       "sub_industry": "Pharmaceuticals",
@@ -6801,6 +7037,17 @@
           "contracts": 30200,
           "tier": "WHALE",
           "timestamp": "2026-01-08T15:18:28.844082202Z"
+        },
+        {
+          "contract": "PFE260220P00023000",
+          "type": "PUT",
+          "strike": 23.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 576000.0,
+          "contracts": 32000,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T14:50:49.853477353Z"
         },
         {
           "contract": "PFE260320C00029000",
@@ -6821,7 +7068,7 @@
       "put_premium": 195000,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 928.05,
+      "stock_price": 936.28,
       "sector": "Industrials",
       "industry": "Machinery",
       "sub_industry": "Industrial Machinery & Supplies & Components",
@@ -6847,7 +7094,7 @@
       "put_premium": 208750.0,
       "call_put_ratio": 1.22,
       "trade_count": 3,
-      "stock_price": 129.04,
+      "stock_price": 128.28,
       "sector": "Real Estate",
       "industry": "Industrial REITs",
       "sub_industry": "Industrial REITs",
@@ -6895,7 +7142,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 8,
-      "stock_price": 179.41,
+      "stock_price": 178.93,
       "sector": "Information Technology",
       "industry": "Software",
       "sub_industry": "Application Software",
@@ -7010,7 +7257,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 215.76,
+      "stock_price": 213.91,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
@@ -7036,7 +7283,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 258.395,
+      "stock_price": 258.89,
       "sector": "Consumer Discretionary",
       "industry": "Distributors",
       "sub_industry": "Distributors",
@@ -7062,7 +7309,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 117.76,
+      "stock_price": 116.96,
       "sector": "Financials",
       "industry": "Insurance",
       "sub_industry": "Life & Health Insurance",
@@ -7099,7 +7346,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 4,
-      "stock_price": 12.155,
+      "stock_price": 12.135,
       "sector": "Communication Services",
       "industry": "Media",
       "sub_industry": "Broadcasting",
@@ -7161,18 +7408,96 @@
       ]
     },
     "PWR": {
-      "sentiment": "BULLISH",
-      "call_premium": 225324.00000000003,
-      "put_premium": 0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 432.57,
+      "sentiment": "BEARISH",
+      "call_premium": 2518324.0,
+      "put_premium": 3903000.0,
+      "call_put_ratio": 1.55,
+      "trade_count": 9,
+      "stock_price": 441.055,
       "sector": "Industrials",
       "industry": "Construction & Engineering",
       "sub_industry": "Construction & Engineering",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "PWR260220P00410000",
+          "type": "PUT",
+          "strike": 410.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 1716000.0,
+          "contracts": 2600,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:09:01.577854807Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
+        {
+          "contract": "PWR260220P00430000",
+          "type": "PUT",
+          "strike": 430.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 1638000.0,
+          "contracts": 1300,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:09:01.577854807Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
+        {
+          "contract": "PWR260220C00460000",
+          "type": "CALL",
+          "strike": 460.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 1495000.0,
+          "contracts": 1300,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:09:01.577854807Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
+        {
+          "contract": "PWR260116C00450000",
+          "type": "CALL",
+          "strike": 450.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 546000.0,
+          "contracts": 1300,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T16:09:01.577854807Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
+        {
+          "contract": "PWR260220P00430000",
+          "type": "PUT",
+          "strike": 430.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 254000.0,
+          "contracts": 200,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:12:26.037999464Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
+        {
+          "contract": "PWR260220C00460000",
+          "type": "CALL",
+          "strike": 460.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 252000.0,
+          "contracts": 200,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:12:26.037999464Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
         {
           "contract": "PWR260220C00450000",
           "type": "CALL",
@@ -7183,22 +7508,59 @@
           "contracts": 198,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T16:50:40.115404696Z"
+        },
+        {
+          "contract": "PWR260220P00410000",
+          "type": "PUT",
+          "strike": 410.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 147600.0,
+          "contracts": 200,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:12:26.037999464Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
+        },
+        {
+          "contract": "PWR260220P00410000",
+          "type": "PUT",
+          "strike": 410.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 147400.0,
+          "contracts": 200,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:12:26.037999464Z",
+          "is_sweep": true,
+          "sweep_id": "PWR-sweep-1"
         }
       ]
     },
     "PYPL": {
       "sentiment": "BULLISH",
-      "call_premium": 531255.0,
+      "call_premium": 2319644.0,
       "put_premium": 436560.00000000006,
-      "call_put_ratio": 1.22,
-      "trade_count": 4,
-      "stock_price": 57.28,
+      "call_put_ratio": 5.31,
+      "trade_count": 7,
+      "stock_price": 56.59,
       "sector": "Financials",
       "industry": "Financial Services",
       "sub_industry": "Transaction & Payment Processing Services",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "PYPL260320C00060000",
+          "type": "CALL",
+          "strike": 60.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 1410000.0,
+          "contracts": 5640,
+          "tier": "STRONG WHALE",
+          "timestamp": "2026-01-13T16:48:53.137253123Z"
+        },
         {
           "contract": "PYPL260206P00049000",
           "type": "PUT",
@@ -7209,6 +7571,17 @@
           "contracts": 12840,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-07T18:22:02.707575127Z"
+        },
+        {
+          "contract": "PYPL260320C00060000",
+          "type": "CALL",
+          "strike": 60.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 202184.0,
+          "contracts": 796,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:06:39.381108201Z"
         },
         {
           "contract": "PYPL260206C00059000",
@@ -7233,6 +7606,17 @@
           "timestamp": "2026-01-12T14:34:23.549128026Z"
         },
         {
+          "contract": "PYPL260320C00060000",
+          "type": "CALL",
+          "strike": 60.0,
+          "expiration": "2026-03-20",
+          "dte": 65,
+          "premium": 176205.0,
+          "contracts": 691,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:06:39.381633566Z"
+        },
+        {
           "contract": "PYPL260130C00060000",
           "type": "CALL",
           "strike": 60.0,
@@ -7251,7 +7635,7 @@
       "put_premium": 253750.0,
       "call_put_ratio": 1.49,
       "trade_count": 2,
-      "stock_price": 169.275,
+      "stock_price": 166.29,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -7282,39 +7666,13 @@
         }
       ]
     },
-    "REGN": {
-      "sentiment": "BEARISH",
-      "call_premium": 0,
-      "put_premium": 135400.0,
-      "call_put_ratio": null,
-      "trade_count": 1,
-      "stock_price": 767.68,
-      "sector": "Health Care",
-      "industry": "Biotechnology",
-      "sub_industry": "Biotechnology",
-      "ticker_size": "mid",
-      "effective_threshold": 100000,
-      "trades": [
-        {
-          "contract": "REGN260116P00760000",
-          "type": "PUT",
-          "strike": 760.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 135400.0,
-          "contracts": 200,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T18:49:07.850902576Z"
-        }
-      ]
-    },
     "RMD": {
       "sentiment": "BEARISH",
       "call_premium": 0,
       "put_premium": 253750.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 257.77,
+      "stock_price": 255.885,
       "sector": "Health Care",
       "industry": "Health Care Equipment & Supplies",
       "sub_industry": "Health Care Equipment",
@@ -7351,7 +7709,7 @@
       "put_premium": 578630.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 414.2,
+      "stock_price": 415.605,
       "sector": "Industrials",
       "industry": "Electrical Equipment",
       "sub_industry": "Electrical Components & Equipment",
@@ -7390,6 +7748,32 @@
           "contracts": 303,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T15:40:50.221651894Z"
+        }
+      ]
+    },
+    "RVTY": {
+      "sentiment": "BEARISH",
+      "call_premium": 0,
+      "put_premium": 100000,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 106.9,
+      "sector": "Health Care",
+      "industry": "Life Sciences Tools & Services",
+      "sub_industry": "Life Sciences Tools & Services",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "RVTY260116P00105000",
+          "type": "PUT",
+          "strike": 105.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 100000,
+          "contracts": 200,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T17:18:42.924856407Z"
         }
       ]
     },
@@ -7447,7 +7831,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 101.895,
+      "stock_price": 100.63,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Investment Banking & Brokerage",
@@ -7495,7 +7879,7 @@
       "put_premium": 498405.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 357.64,
+      "stock_price": 356.51,
       "sector": "Materials",
       "industry": "Chemicals",
       "sub_industry": "Specialty Chemicals",
@@ -7543,7 +7927,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 10,
-      "stock_price": 30.12,
+      "stock_price": 28.4,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
@@ -7665,27 +8049,16 @@
     "SNDK": {
       "sentiment": "BEARISH",
       "call_premium": 363000.0,
-      "put_premium": 1656930.0,
-      "call_put_ratio": 4.56,
-      "trade_count": 4,
-      "stock_price": 389.19,
+      "put_premium": 1036830.0,
+      "call_put_ratio": 2.86,
+      "trade_count": 3,
+      "stock_price": 388.355,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
       "ticker_size": "mid",
       "effective_threshold": 250000,
       "trades": [
-        {
-          "contract": "SNDK260116P00385000",
-          "type": "PUT",
-          "strike": 385.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 620100.0,
-          "contracts": 265,
-          "tier": "WHALE",
-          "timestamp": "2026-01-09T20:37:54.583090465Z"
-        },
         {
           "contract": "SNDK260116P00340000",
           "type": "PUT",
@@ -7727,7 +8100,7 @@
       "put_premium": 135000,
       "call_put_ratio": 9.86,
       "trade_count": 10,
-      "stock_price": 169.34,
+      "stock_price": 170.645,
       "sector": "Materials",
       "industry": "Metals & Mining",
       "sub_industry": "Steel",
@@ -7852,7 +8225,7 @@
       "put_premium": 970000.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 133.095,
+      "stock_price": 132.315,
       "sector": "Financials",
       "industry": "Capital Markets",
       "sub_industry": "Asset Management & Custody Banks",
@@ -7889,7 +8262,7 @@
       "put_premium": 1140490.0,
       "call_put_ratio": null,
       "trade_count": 7,
-      "stock_price": 321.595,
+      "stock_price": 328.43,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
@@ -7981,7 +8354,7 @@
       "put_premium": 261214.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 58.83,
+      "stock_price": 58.53,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -8012,13 +8385,50 @@
         }
       ]
     },
+    "SYF": {
+      "sentiment": "BULLISH",
+      "call_premium": 890950.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 2,
+      "stock_price": 79.07,
+      "sector": "Financials",
+      "industry": "Consumer Finance",
+      "sub_industry": "Consumer Finance",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "SYF260220C00085000",
+          "type": "CALL",
+          "strike": 85.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 540750.0,
+          "contracts": 3090,
+          "tier": "WHALE",
+          "timestamp": "2026-01-13T16:16:58.542285599Z"
+        },
+        {
+          "contract": "SYF260220C00085000",
+          "type": "CALL",
+          "strike": 85.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 350200.0,
+          "contracts": 2060,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:16:58.542500644Z"
+        }
+      ]
+    },
     "T": {
       "sentiment": "BULLISH",
       "call_premium": 174800.0,
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 23.73,
+      "stock_price": 23.31,
       "sector": "Communication Services",
       "industry": "Diversified Telecommunication Services",
       "sub_industry": "Integrated Telecommunication Services",
@@ -8044,7 +8454,7 @@
       "put_premium": 303312.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 1385.11,
+      "stock_price": 1378.48,
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
       "sub_industry": "Aerospace & Defense",
@@ -8077,30 +8487,17 @@
     },
     "TER": {
       "sentiment": "BULLISH",
-      "call_premium": 1956530.0,
+      "call_premium": 736370.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 3,
-      "stock_price": 224.28,
+      "trade_count": 2,
+      "stock_price": 228.71,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductor Materials & Equipment",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "TER260130C00230000",
-          "type": "CALL",
-          "strike": 230.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 1220160.0,
-          "contracts": 992,
-          "tier": "STRONG WHALE",
-          "timestamp": "2026-01-12T19:46:16.552087452Z",
-          "is_sweep": true,
-          "sweep_id": "TER-sweep-1"
-        },
         {
           "contract": "TER260130C00260000",
           "type": "CALL",
@@ -8110,9 +8507,7 @@
           "premium": 396800,
           "contracts": 992,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T19:46:16.552087452Z",
-          "is_sweep": true,
-          "sweep_id": "TER-sweep-1"
+          "timestamp": "2026-01-12T19:46:16.552087452Z"
         },
         {
           "contract": "TER260123C00240000",
@@ -8123,19 +8518,17 @@
           "premium": 339570.0,
           "contracts": 1386,
           "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T19:46:16.5520889Z",
-          "is_sweep": true,
-          "sweep_id": "TER-sweep-1"
+          "timestamp": "2026-01-12T19:46:16.5520889Z"
         }
       ]
     },
     "TGT": {
       "sentiment": "BULLISH",
-      "call_premium": 466375.0,
+      "call_premium": 333000.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 2,
-      "stock_price": 106.15,
+      "trade_count": 1,
+      "stock_price": 108.59,
       "sector": "Consumer Staples",
       "industry": "Consumer Staples Distribution & Retail",
       "sub_industry": "Consumer Staples Merchandise Retail",
@@ -8152,17 +8545,6 @@
           "contracts": 1800,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-08T19:40:08.882678039Z"
-        },
-        {
-          "contract": "TGT260116C00108000",
-          "type": "CALL",
-          "strike": 108.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 133375.0,
-          "contracts": 485,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T18:48:40.736108749Z"
         }
       ]
     },
@@ -8172,7 +8554,7 @@
       "put_premium": 7845200.0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 199.09,
+      "stock_price": 206.28,
       "sector": "Communication Services",
       "industry": "Entertainment",
       "sub_industry": "Movies & Entertainment",
@@ -8226,7 +8608,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 615.46,
+      "stock_price": 602.77,
       "sector": "Health Care",
       "industry": "Life Sciences Tools & Services",
       "sub_industry": "Life Sciences Tools & Services",
@@ -8263,7 +8645,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 197.43,
+      "stock_price": 190.82,
       "sector": "Communication Services",
       "industry": "Wireless Telecommunication Services",
       "sub_industry": "Wireless Telecommunication Services",
@@ -8285,11 +8667,11 @@
     },
     "TSLA": {
       "sentiment": "BULLISH",
-      "call_premium": 801151.0,
-      "put_premium": 122500.0,
-      "call_put_ratio": 6.54,
-      "trade_count": 6,
-      "stock_price": 448.6,
+      "call_premium": 1752626.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 10,
+      "stock_price": 447.46,
       "sector": "Consumer Discretionary",
       "industry": "Automobiles",
       "sub_industry": "Automobile Manufacturers",
@@ -8302,10 +8684,32 @@
           "strike": 455.0,
           "expiration": "2026-01-23",
           "dte": 9,
+          "premium": 418500.0,
+          "contracts": 450,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:29:44.582073473Z"
+        },
+        {
+          "contract": "TSLA260123C00455000",
+          "type": "CALL",
+          "strike": 455.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
           "premium": 308525.0,
           "contracts": 301,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-12T20:03:05.541840021Z"
+        },
+        {
+          "contract": "TSLA260123C00452500",
+          "type": "CALL",
+          "strike": 452.5,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 189550.0,
+          "contracts": 170,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:36:20.536447608Z"
         },
         {
           "contract": "TSLA260123C00455000",
@@ -8319,15 +8723,15 @@
           "timestamp": "2026-01-12T16:53:02.727167Z"
         },
         {
-          "contract": "TSLA260116P00435000",
-          "type": "PUT",
-          "strike": 435.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 122500.0,
-          "contracts": 500,
+          "contract": "TSLA260123C00455000",
+          "type": "CALL",
+          "strike": 455.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 139425.0,
+          "contracts": 143,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-12T18:07:23.253337874Z"
+          "timestamp": "2026-01-13T16:47:45.217208278Z"
         },
         {
           "contract": "TSLA260123C00457500",
@@ -8352,6 +8756,17 @@
           "timestamp": "2026-01-08T17:29:14.115040228Z"
         },
         {
+          "contract": "TSLA260123C00452500",
+          "type": "CALL",
+          "strike": 452.5,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 104000,
+          "contracts": 80,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T17:14:36.497214992Z"
+        },
+        {
           "contract": "TSLA260123C00457500",
           "type": "CALL",
           "strike": 457.5,
@@ -8361,16 +8776,27 @@
           "contracts": 230,
           "tier": "NOTABLE",
           "timestamp": "2026-01-09T14:31:30.768833732Z"
+        },
+        {
+          "contract": "TSLA260123C00452500",
+          "type": "CALL",
+          "strike": 452.5,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 100000,
+          "contracts": 100,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:27:12.239087115Z"
         }
       ]
     },
     "TT": {
-      "sentiment": "BULLISH",
+      "sentiment": "BEARISH",
       "call_premium": 185500.0,
-      "put_premium": 170000,
-      "call_put_ratio": 1.09,
-      "trade_count": 2,
-      "stock_price": 385.37,
+      "put_premium": 284000.0,
+      "call_put_ratio": 1.53,
+      "trade_count": 3,
+      "stock_price": 387.98,
       "sector": "Industrials",
       "industry": "Building Products",
       "sub_industry": "Building Products",
@@ -8398,6 +8824,17 @@
           "contracts": 100,
           "tier": "NOTABLE",
           "timestamp": "2026-01-09T19:26:24.897536303Z"
+        },
+        {
+          "contract": "TT260220P00350000",
+          "type": "PUT",
+          "strike": 350.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 114000.0,
+          "contracts": 300,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T16:14:40.54513119Z"
         }
       ]
     },
@@ -8407,24 +8844,13 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 36.885,
+      "stock_price": 36.47,
       "sector": "Communication Services",
       "industry": "Media",
       "sub_industry": "Advertising",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "TTD260220C00037500",
-          "type": "CALL",
-          "strike": 37.5,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 110000.0,
-          "contracts": 250,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-07T15:38:11.760659284Z"
-        },
         {
           "contract": "TTD260220C00042500",
           "type": "CALL",
@@ -8435,6 +8861,17 @@
           "contracts": 500,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T15:39:46.306395338Z"
+        },
+        {
+          "contract": "TTD260220C00037500",
+          "type": "CALL",
+          "strike": 37.5,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 110000.0,
+          "contracts": 250,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-07T15:38:11.760659284Z"
         }
       ]
     },
@@ -8444,7 +8881,7 @@
       "put_premium": 378385.00000000006,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 248.94,
+      "stock_price": 246.46,
       "sector": "Communication Services",
       "industry": "Entertainment",
       "sub_industry": "Interactive Home Entertainment",
@@ -8470,7 +8907,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 3,
-      "stock_price": 189.055,
+      "stock_price": 188.42,
       "sector": "Information Technology",
       "industry": "Semiconductors & Semiconductor Equipment",
       "sub_industry": "Semiconductors",
@@ -8513,29 +8950,18 @@
       ]
     },
     "UAL": {
-      "sentiment": "BEARISH",
+      "sentiment": "BULLISH",
       "call_premium": 128742.0,
-      "put_premium": 155000.0,
-      "call_put_ratio": 1.2,
-      "trade_count": 2,
-      "stock_price": 115.31,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 1,
+      "stock_price": 114.64,
       "sector": "Industrials",
       "industry": "Passenger Airlines",
       "sub_industry": "Passenger Airlines",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "UAL260116P00114000",
-          "type": "PUT",
-          "strike": 114.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 155000.0,
-          "contracts": 500,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-08T20:58:54.276477864Z"
-        },
         {
           "contract": "UAL260116C00120000",
           "type": "CALL",
@@ -8551,11 +8977,11 @@
     },
     "UBER": {
       "sentiment": "BULLISH",
-      "call_premium": 3796709.0,
+      "call_premium": 4205509.0,
       "put_premium": 344080.0,
-      "call_put_ratio": 11.03,
-      "trade_count": 6,
-      "stock_price": 84.66,
+      "call_put_ratio": 12.22,
+      "trade_count": 8,
+      "stock_price": 85.565,
       "sector": "Industrials",
       "industry": "Ground Transportation",
       "sub_industry": "Passenger Ground Transportation",
@@ -8607,6 +9033,28 @@
           "timestamp": "2026-01-09T15:09:16.284755474Z"
         },
         {
+          "contract": "UBER260220C00090000",
+          "type": "CALL",
+          "strike": 90.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 267764.00000000006,
+          "contracts": 1022,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T14:44:02.475590398Z"
+        },
+        {
+          "contract": "UBER260220C00095000",
+          "type": "CALL",
+          "strike": 95.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 141036.0,
+          "contracts": 1022,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-13T14:44:02.475590398Z"
+        },
+        {
           "contract": "UBER260123C00091000",
           "type": "CALL",
           "strike": 91.0,
@@ -8632,11 +9080,11 @@
     },
     "UNH": {
       "sentiment": "BULLISH",
-      "call_premium": 953570.0,
+      "call_premium": 1080870.0,
       "put_premium": 334170.0,
-      "call_put_ratio": 2.85,
-      "trade_count": 8,
-      "stock_price": 340.55,
+      "call_put_ratio": 3.23,
+      "trade_count": 9,
+      "stock_price": 334.94,
       "sector": "Health Care",
       "industry": "Health Care Providers & Services",
       "sub_industry": "Managed Health Care",
@@ -8710,6 +9158,17 @@
           "timestamp": "2026-01-12T19:42:41.95583757Z"
         },
         {
+          "contract": "UNH260123C00340000",
+          "type": "CALL",
+          "strike": 340.0,
+          "expiration": "2026-01-23",
+          "dte": 9,
+          "premium": 127300.0,
+          "contracts": 190,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T18:09:02.842518696Z"
+        },
+        {
           "contract": "UNH260130P00320000",
           "type": "PUT",
           "strike": 320.0,
@@ -8739,7 +9198,7 @@
       "put_premium": 195000.0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 229.51,
+      "stock_price": 228.25,
       "sector": "Industrials",
       "industry": "Ground Transportation",
       "sub_industry": "Rail Transportation",
@@ -8760,40 +9219,18 @@
       ]
     },
     "UPS": {
-      "sentiment": "BEARISH",
+      "sentiment": "BULLISH",
       "call_premium": 531888.0,
-      "put_premium": 1007672.0,
-      "call_put_ratio": 1.89,
-      "trade_count": 7,
-      "stock_price": 108.04,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 3,
+      "stock_price": 106.8,
       "sector": "Industrials",
       "industry": "Air Freight & Logistics",
       "sub_industry": "Air Freight & Logistics",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "UPS260206P00106000",
-          "type": "PUT",
-          "strike": 106.0,
-          "expiration": "2026-02-06",
-          "dte": 23,
-          "premium": 344372.0,
-          "contracts": 1004,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T15:22:06.838114226Z"
-        },
-        {
-          "contract": "UPS260130P00106000",
-          "type": "PUT",
-          "strike": 106.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 326300.0,
-          "contracts": 1004,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-12T15:22:06.838114226Z"
-        },
         {
           "contract": "UPS260220C00110000",
           "type": "CALL",
@@ -8804,28 +9241,6 @@
           "contracts": 725,
           "tier": "NOTABLE",
           "timestamp": "2026-01-08T20:42:45.417313362Z"
-        },
-        {
-          "contract": "UPS260206P00106000",
-          "type": "PUT",
-          "strike": 106.0,
-          "expiration": "2026-02-06",
-          "dte": 23,
-          "premium": 171500.0,
-          "contracts": 500,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:33:27.37423472Z"
-        },
-        {
-          "contract": "UPS260130P00106000",
-          "type": "PUT",
-          "strike": 106.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 165500.0,
-          "contracts": 500,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:33:27.37423472Z"
         },
         {
           "contract": "UPS260130C00111000",
@@ -8854,10 +9269,10 @@
     "USB": {
       "sentiment": "BEARISH",
       "call_premium": 0,
-      "put_premium": 459417.99999999994,
+      "put_premium": 251589.99999999997,
       "call_put_ratio": null,
-      "trade_count": 2,
-      "stock_price": 54.38,
+      "trade_count": 1,
+      "stock_price": 53.965,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
@@ -8874,17 +9289,121 @@
           "contracts": 1810,
           "tier": "UNUSUAL",
           "timestamp": "2026-01-07T17:22:25.035026529Z"
+        }
+      ]
+    },
+    "V": {
+      "sentiment": "BULLISH",
+      "call_premium": 1370834.0,
+      "put_premium": 0,
+      "call_put_ratio": null,
+      "trade_count": 8,
+      "stock_price": 328.9,
+      "sector": "Financials",
+      "industry": "Financial Services",
+      "sub_industry": "Transaction & Payment Processing Services",
+      "ticker_size": "mid",
+      "effective_threshold": 100000,
+      "trades": [
+        {
+          "contract": "V260130C00342500",
+          "type": "CALL",
+          "strike": 342.5,
+          "expiration": "2026-01-30",
+          "dte": 16,
+          "premium": 273078.0,
+          "contracts": 778,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-13T16:25:19.456947436Z"
         },
         {
-          "contract": "USB260618P00047500",
-          "type": "PUT",
-          "strike": 47.5,
-          "expiration": "2026-06-18",
-          "dte": 155,
-          "premium": 207827.99999999997,
-          "contracts": 1506,
+          "contract": "V260116C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 270282.0,
+          "contracts": 321,
+          "tier": "UNUSUAL",
+          "timestamp": "2026-01-09T15:29:02.716367868Z",
+          "is_sweep": true,
+          "sweep_id": "V-sweep-1"
+        },
+        {
+          "contract": "V260116C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 168840.0,
+          "contracts": 201,
           "tier": "NOTABLE",
-          "timestamp": "2026-01-12T15:25:51.245211634Z"
+          "timestamp": "2026-01-09T15:32:39.631242139Z",
+          "is_sweep": true,
+          "sweep_id": "V-sweep-1"
+        },
+        {
+          "contract": "V260116C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 162200.0,
+          "contracts": 200,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T15:26:05.899401007Z",
+          "is_sweep": true,
+          "sweep_id": "V-sweep-1"
+        },
+        {
+          "contract": "V260116C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 155400.0,
+          "contracts": 185,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T15:31:17.681632236Z",
+          "is_sweep": true,
+          "sweep_id": "V-sweep-1"
+        },
+        {
+          "contract": "V260116C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 127641.00000000001,
+          "contracts": 157,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T15:26:22.785493781Z",
+          "is_sweep": true,
+          "sweep_id": "V-sweep-1"
+        },
+        {
+          "contract": "V260116C00340000",
+          "type": "CALL",
+          "strike": 340.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 109032.0,
+          "contracts": 168,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T20:24:00.61934797Z"
+        },
+        {
+          "contract": "V260116C00345000",
+          "type": "CALL",
+          "strike": 345.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 104360.99999999999,
+          "contracts": 129,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T15:25:53.861396114Z",
+          "is_sweep": true,
+          "sweep_id": "V-sweep-1"
         }
       ]
     },
@@ -8894,7 +9413,7 @@
       "put_premium": 199800.00000000003,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 179.58,
+      "stock_price": 183.705,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Oil & Gas Refining & Marketing",
@@ -8920,7 +9439,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 309.62,
+      "stock_price": 307.87,
       "sector": "Materials",
       "industry": "Construction Materials",
       "sub_industry": "Construction Materials",
@@ -8946,7 +9465,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 224.87,
+      "stock_price": 221.08,
       "sector": "Industrials",
       "industry": "Professional Services",
       "sub_industry": "Research & Consulting Services",
@@ -8972,7 +9491,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 460.42,
+      "stock_price": 456.555,
       "sector": "Health Care",
       "industry": "Biotechnology",
       "sub_industry": "Biotechnology",
@@ -8994,28 +9513,17 @@
     },
     "VST": {
       "sentiment": "BULLISH",
-      "call_premium": 401064.0,
+      "call_premium": 163020.0,
       "put_premium": 127500.0,
-      "call_put_ratio": 3.15,
-      "trade_count": 3,
-      "stock_price": 172.56,
+      "call_put_ratio": 1.28,
+      "trade_count": 2,
+      "stock_price": 173.91,
       "sector": "Utilities",
       "industry": "Independent Power & Renewable Electricity Producers",
       "sub_industry": "Independent Power Producers & Energy Traders",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "VST260116C00175000",
-          "type": "CALL",
-          "strike": 175.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 238044.0,
-          "contracts": 498,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T14:42:34.573398745Z"
-        },
         {
           "contract": "VST260130C00185000",
           "type": "CALL",
@@ -9042,17 +9550,39 @@
     },
     "VZ": {
       "sentiment": "BULLISH",
-      "call_premium": 466398.0,
+      "call_premium": 3431378.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 2,
-      "stock_price": 39.84,
+      "trade_count": 4,
+      "stock_price": 39.115,
       "sector": "Communication Services",
       "industry": "Diversified Telecommunication Services",
       "sub_industry": "Integrated Telecommunication Services",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "VZ260116C00040000",
+          "type": "CALL",
+          "strike": 40.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 2254980.0,
+          "contracts": 38220,
+          "tier": "HEADLINE WHALE",
+          "timestamp": "2026-01-09T20:45:10.891417043Z"
+        },
+        {
+          "contract": "VZ260116C00040000",
+          "type": "CALL",
+          "strike": 40.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 710000.0,
+          "contracts": 10000,
+          "tier": "WHALE",
+          "timestamp": "2026-01-09T20:04:30.523060577Z"
+        },
         {
           "contract": "VZ260320C00043000",
           "type": "CALL",
@@ -9083,7 +9613,7 @@
       "put_premium": 167580.0,
       "call_put_ratio": 11.71,
       "trade_count": 10,
-      "stock_price": 28.42,
+      "stock_price": 28.345,
       "sector": "Communication Services",
       "industry": "Entertainment",
       "sub_industry": "Movies & Entertainment",
@@ -9204,28 +9734,17 @@
     },
     "WDC": {
       "sentiment": "BEARISH",
-      "call_premium": 385000.0,
+      "call_premium": 125000.0,
       "put_premium": 481260.0,
-      "call_put_ratio": 1.25,
-      "trade_count": 5,
-      "stock_price": 212.21,
+      "call_put_ratio": 3.85,
+      "trade_count": 4,
+      "stock_price": 214.625,
       "sector": "Information Technology",
       "industry": "Technology Hardware, Storage & Peripherals",
       "sub_industry": "Technology Hardware, Storage & Peripherals",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
-        {
-          "contract": "WDC260116C00215000",
-          "type": "CALL",
-          "strike": 215.0,
-          "expiration": "2026-01-16",
-          "dte": 2,
-          "premium": 260000.0,
-          "contracts": 4000,
-          "tier": "UNUSUAL",
-          "timestamp": "2026-01-08T18:14:45.741465699Z"
-        },
         {
           "contract": "WDC260116P00200000",
           "type": "PUT",
@@ -9278,7 +9797,7 @@
       "put_premium": 1016960.0,
       "call_put_ratio": 1.19,
       "trade_count": 8,
-      "stock_price": 94.985,
+      "stock_price": 94.13,
       "sector": "Financials",
       "industry": "Banks",
       "sub_industry": "Diversified Banks",
@@ -9376,12 +9895,12 @@
       ]
     },
     "WMT": {
-      "sentiment": "BULLISH",
-      "call_premium": 682034.0,
+      "sentiment": "BEARISH",
+      "call_premium": 179000.0,
       "put_premium": 656388.0,
-      "call_put_ratio": 1.04,
-      "trade_count": 10,
-      "stock_price": 117.98,
+      "call_put_ratio": 3.67,
+      "trade_count": 6,
+      "stock_price": 119.82,
       "sector": "Consumer Staples",
       "industry": "Consumer Staples Distribution & Retail",
       "sub_industry": "Consumer Staples Merchandise Retail",
@@ -9409,39 +9928,6 @@
           "contracts": 1000,
           "tier": "NOTABLE",
           "timestamp": "2026-01-12T15:56:55.829408983Z"
-        },
-        {
-          "contract": "WMT260220C00120000",
-          "type": "CALL",
-          "strike": 120.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 140015.0,
-          "contracts": 683,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T16:10:57.620327502Z"
-        },
-        {
-          "contract": "WMT260220C00120000",
-          "type": "CALL",
-          "strike": 120.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 139399.99999999997,
-          "contracts": 680,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-09T16:10:57.620006723Z"
-        },
-        {
-          "contract": "WMT260220C00120000",
-          "type": "CALL",
-          "strike": 120.0,
-          "expiration": "2026-02-20",
-          "dte": 37,
-          "premium": 122240.00000000001,
-          "contracts": 382,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T15:45:34.810859878Z"
         },
         {
           "contract": "WMT260123P00116000",
@@ -9486,17 +9972,6 @@
           "contracts": 500,
           "tier": "NOTABLE",
           "timestamp": "2026-01-07T18:59:28.954175991Z"
-        },
-        {
-          "contract": "WMT260130C00120000",
-          "type": "CALL",
-          "strike": 120.0,
-          "expiration": "2026-01-30",
-          "dte": 16,
-          "premium": 101379.0,
-          "contracts": 719,
-          "tier": "NOTABLE",
-          "timestamp": "2026-01-12T14:43:56.959742236Z"
         }
       ]
     },
@@ -9506,7 +9981,7 @@
       "put_premium": 735470.0,
       "call_put_ratio": null,
       "trade_count": 2,
-      "stock_price": 206.37,
+      "stock_price": 209.37,
       "sector": "Consumer Discretionary",
       "industry": "Specialty Retail",
       "sub_industry": "Homefurnishing Retail",
@@ -9540,16 +10015,27 @@
     "XOM": {
       "sentiment": "BEARISH",
       "call_premium": 140906.0,
-      "put_premium": 317940.0,
-      "call_put_ratio": 2.26,
-      "trade_count": 2,
-      "stock_price": 123.99,
+      "put_premium": 1265780.0,
+      "call_put_ratio": 8.98,
+      "trade_count": 4,
+      "stock_price": 126.36,
       "sector": "Energy",
       "industry": "Oil, Gas & Consumable Fuels",
       "sub_industry": "Integrated Oil & Gas",
       "ticker_size": "mid",
       "effective_threshold": 100000,
       "trades": [
+        {
+          "contract": "XOM260116P00125000",
+          "type": "PUT",
+          "strike": 125.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 847840.0,
+          "contracts": 1514,
+          "tier": "WHALE",
+          "timestamp": "2026-01-07T14:36:20.114128615Z"
+        },
         {
           "contract": "XOM260116P00120000",
           "type": "PUT",
@@ -9571,6 +10057,17 @@
           "contracts": 1499,
           "tier": "NOTABLE",
           "timestamp": "2026-01-12T15:42:24.723556316Z"
+        },
+        {
+          "contract": "XOM260116P00123000",
+          "type": "PUT",
+          "strike": 123.0,
+          "expiration": "2026-01-16",
+          "dte": 2,
+          "premium": 100000,
+          "contracts": 1000,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-09T20:17:54.099494802Z"
         }
       ]
     },
@@ -9580,7 +10077,7 @@
       "put_premium": 209440.0,
       "call_put_ratio": 1.55,
       "trade_count": 2,
-      "stock_price": 139.05,
+      "stock_price": 139.75,
       "sector": "Industrials",
       "industry": "Machinery",
       "sub_industry": "Industrial Machinery & Supplies & Components",
@@ -9613,11 +10110,11 @@
     },
     "XYZ": {
       "sentiment": "BULLISH",
-      "call_premium": 597960.0,
+      "call_premium": 709735.0,
       "put_premium": 0,
       "call_put_ratio": null,
-      "trade_count": 4,
-      "stock_price": 70.265,
+      "trade_count": 5,
+      "stock_price": 66.925,
       "sector": "Financials",
       "industry": "Financial Services",
       "sub_industry": "Transaction & Payment Processing Services",
@@ -9658,6 +10155,17 @@
           "timestamp": "2026-01-08T14:32:18.895098171Z"
         },
         {
+          "contract": "XYZ260220C00070000",
+          "type": "CALL",
+          "strike": 70.0,
+          "expiration": "2026-02-20",
+          "dte": 37,
+          "premium": 111775.0,
+          "contracts": 263,
+          "tier": "NOTABLE",
+          "timestamp": "2026-01-12T20:51:52.998998908Z"
+        },
+        {
           "contract": "XYZ260213C00075000",
           "type": "CALL",
           "strike": 75.0,
@@ -9676,7 +10184,7 @@
       "put_premium": 0,
       "call_put_ratio": null,
       "trade_count": 1,
-      "stock_price": 125.305,
+      "stock_price": 123.88,
       "sector": "Health Care",
       "industry": "Pharmaceuticals",
       "sub_industry": "Pharmaceuticals",
