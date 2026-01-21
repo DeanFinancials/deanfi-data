@@ -74,33 +74,33 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-01-21T14:21:54.085156+00:00",
+    "generated_at": "2026-01-21T15:27:00.438977+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
-    "IWM": {
-      "symbol": "IWM",
-      "name": "iShares Russell 2000 ETF",
-      "description": "Tracks Russell 2000 Index - Small-cap benchmark (2000 companies)",
-      "market_segment": "Small-Cap",
-      "tracks_index": "Russell 2000",
-      "date": "2026-01-20",
-      "current_price": 262.58,
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
+      "date": "2026-01-21",
+      "current_price": 682.58,
       "moving_averages": {
-        "ma_20": 255.81,
-        "ma_50": 248.74,
-        "ma_200": 226.89
+        "ma_20": 688.47,
+        "ma_50": 680.2,
+        "ma_200": 632.06
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": 7.06,
-          "spread_percent": 2.84,
-          "zscore": 0.87,
+          "spread": 8.27,
+          "spread_percent": 1.22,
+          "zscore": 0.21,
           "signal": "normal_range",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 50-day MA"
@@ -108,9 +108,101 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 28.92,
-          "spread_percent": 12.75,
-          "zscore": 1.32,
+          "spread": 56.42,
+          "spread_percent": 8.93,
+          "zscore": 0.8,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 48.15,
+          "spread_percent": 7.62,
+          "zscore": 0.84,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
+    "QQQ": {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "description": "Tracks Nasdaq-100 Index - Tech-heavy growth stocks",
+      "market_segment": "Tech/Growth",
+      "tracks_index": "Nasdaq-100",
+      "date": "2026-01-21",
+      "current_price": 613.61,
+      "moving_averages": {
+        "ma_20": 620.35,
+        "ma_50": 615.51,
+        "ma_200": 565.95
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": 4.84,
+          "spread_percent": 0.79,
+          "zscore": -0.08,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 54.41,
+          "spread_percent": 9.61,
+          "zscore": 0.54,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 49.57,
+          "spread_percent": 8.76,
+          "zscore": 0.69,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
+    "IWM": {
+      "symbol": "IWM",
+      "name": "iShares Russell 2000 ETF",
+      "description": "Tracks Russell 2000 Index - Small-cap benchmark (2000 companies)",
+      "market_segment": "Small-Cap",
+      "tracks_index": "Russell 2000",
+      "date": "2026-01-21",
+      "current_price": 265.68,
+      "moving_averages": {
+        "ma_20": 256.55,
+        "ma_50": 249.27,
+        "ma_200": 227.28
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": 7.28,
+          "spread_percent": 2.92,
+          "zscore": 0.9,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 29.28,
+          "spread_percent": 12.88,
+          "zscore": 1.33,
           "signal": "moderately_overbought",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 200-day MA"
@@ -118,8 +210,8 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 21.86,
-          "spread_percent": 9.63,
+          "spread": 21.99,
+          "spread_percent": 9.68,
           "zscore": 1.15,
           "signal": "moderately_overbought",
           "alignment": "bullish",
