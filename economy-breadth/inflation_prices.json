@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-22T09:34:16.104664-05:00",
+    "generated_at": "2026-01-22T12:37:22.383085-05:00",
     "data_source": "FRED API",
     "category": "Inflation & Prices",
     "indicators": [
@@ -106,7 +106,29 @@
       },
       "PCEPI": {
         "name": "Personal Consumption Expenditures Price Index",
-        "value": 127.63,
+        "value": 128.09,
+        "unit": "Index 2017=100",
+        "frequency": "Monthly",
+        "percentile": 99.58,
+        "grade": {
+          "grade": "D",
+          "label": "Poor",
+          "color": "destructive",
+          "points": 1
+        },
+        "trend": "increasing",
+        "is_favorable": false,
+        "changes": {
+          "1y": 2.77,
+          "5y": 21.69,
+          "10y": 31.33,
+          "20y": null
+        },
+        "interpretation": "lower_is_better"
+      },
+      "PCEPILFE": {
+        "name": "Core PCE Price Index",
+        "value": 127.42,
         "unit": "Index 2017=100",
         "frequency": "Monthly",
         "percentile": 99.58,
@@ -120,30 +142,8 @@
         "is_favorable": false,
         "changes": {
           "1y": 2.79,
-          "5y": 21.48,
-          "10y": 30.93,
-          "20y": null
-        },
-        "interpretation": "lower_is_better"
-      },
-      "PCEPILFE": {
-        "name": "Core PCE Price Index",
-        "value": 126.96,
-        "unit": "Index 2017=100",
-        "frequency": "Monthly",
-        "percentile": 99.58,
-        "grade": {
-          "grade": "D",
-          "label": "Poor",
-          "color": "destructive",
-          "points": 1
-        },
-        "trend": "increasing",
-        "is_favorable": false,
-        "changes": {
-          "1y": 2.83,
-          "5y": 20.44,
-          "10y": 30.62,
+          "5y": 20.66,
+          "10y": 30.91,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -1425,7 +1425,9 @@
           "2025-06-01",
           "2025-07-01",
           "2025-08-01",
-          "2025-09-01"
+          "2025-09-01",
+          "2025-10-01",
+          "2025-11-01"
         ],
         "values": [
           83.534,
@@ -1662,9 +1664,11 @@
           126.15,
           126.38,
           126.743,
-          126.957,
-          127.287,
-          127.626
+          126.96,
+          127.293,
+          127.625,
+          127.828,
+          128.093
         ]
       },
       "PCEPILFE": {
@@ -1905,7 +1909,9 @@
           "2025-06-01",
           "2025-07-01",
           "2025-08-01",
-          "2025-09-01"
+          "2025-09-01",
+          "2025-10-01",
+          "2025-11-01"
         ],
         "values": [
           83.145,
@@ -2142,9 +2148,11 @@
           125.502,
           125.79,
           126.121,
-          126.426,
-          126.707,
-          126.955
+          126.43,
+          126.714,
+          126.954,
+          127.218,
+          127.422
         ]
       },
       "PPIACO": {
