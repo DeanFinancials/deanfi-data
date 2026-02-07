@@ -65,6 +65,20 @@ This prevents silent empty-news blocks in the combined snapshot and provides a s
 ### Rationale
 Downstream consumers (website + Market Pulse workflow) should not have to reverse-engineer multiple upstream JSON shapes. The `writer_ready` section makes daily snapshot writing repeatable while keeping raw blocks as the source of truth.
 
+---
+
+## [2026-02-06] - Writer-Ready Adds 5-Session Lookbacks
+
+### Changed
+- Extended `dailycombined/market_snapshot.json` writer-ready output with additive 5-session lookbacks:
+  - `writer_ready.index_table_5day`
+  - `writer_ready.vix_table_5day`
+  - `writer_ready.spy_sma_table_5day`
+  - `writer_ready.breadth_lookback_5day` (best-effort from existing historical series + volume lookback)
+
+### Rationale
+Supports Friday / end-of-week Market Pulse writeups while keeping existing 3-session keys for backward compatibility.
+
 ## [2025-12-08] - SP500 Growth Data Added
 
 ### Added

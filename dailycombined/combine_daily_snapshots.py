@@ -198,6 +198,23 @@ def build_close_return_lookup(history: Dict[str, Any], symbol: str) -> Dict[str,
     return lookup
 
 
+def build_simple_date_lookup(series_payload: Optional[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """Build a date->row lookup for common deanfi-data historical series."""
+    if not isinstance(series_payload, dict):
+        return {}
+    data = series_payload.get('data')
+    if not isinstance(data, list):
+        return {}
+    out: Dict[str, Dict[str, Any]] = {}
+    for row in data:
+        if not isinstance(row, dict):
+            continue
+        date = row.get('date')
+        if isinstance(date, str) and date:
+            out[date] = row
+    return out
+
+
 def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     """
     Combine all daily snapshot data into a single structure.
@@ -679,11 +696,13 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     iv_vix = implied_vol.get('vix_options') if isinstance(implied_vol, dict) else None
     support_res = combined.get('data', {}).get('support_resistence', {})
 
-    # Pre-load US major historical series (used for 3-day tables)
+    # Pre-load US major historical series (used for lookback tables)
     us_major_history = load_json_file(data_dir / 'major-indexes' / 'us_major_indices_historical.json') or {}
     last_3_dates: list[str] = []
+    last_5_dates: list[str] = []
     if session_market_date:
         last_3_dates = get_last_trading_dates_from_us_major_history(data_dir, session_market_date, count=3)
+        last_5_dates = get_last_trading_dates_from_us_major_history(data_dir, session_market_date, count=5)
 
     # 0) Breadth table
     breadth = combined.get('data', {}).get('market_breadth')
@@ -820,6 +839,39 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
                 'source': 'major-indexes/us_major_indices_historical.json',
             }
 
+    # 5b) 5-day major index table (close + daily return %)
+    if last_5_dates and isinstance(us_major_history, dict) and not is_empty_value(us_major_history):
+        table_rows = []
+        for symbol in ['^GSPC', '^DJI', '^IXIC', '^RUT']:
+            lookup = build_close_return_lookup(us_major_history, symbol)
+            if not lookup:
+                continue
+
+            name = None
+            if isinstance(us_major, dict) and isinstance(us_major.get(symbol), dict):
+                name = us_major.get(symbol, {}).get('name')
+            if not name:
+                indices = us_major_history.get('indices') if isinstance(us_major_history.get('indices'), dict) else None
+                if isinstance(indices, dict) and isinstance(indices.get(symbol), dict):
+                    name = indices.get(symbol, {}).get('name')
+
+            values = []
+            for d in last_5_dates:
+                v = lookup.get(d)
+                values.append({
+                    'date': d,
+                    'close': (v or {}).get('close'),
+                    'daily_return_percent': (v or {}).get('daily_return_percent'),
+                })
+            table_rows.append({'symbol': symbol, 'name': name, 'values': values})
+
+        if table_rows:
+            writer_ready['index_table_5day'] = {
+                'dates': last_5_dates,
+                'rows': table_rows,
+                'source': 'major-indexes/us_major_indices_historical.json',
+            }
+
     # 6) 3-day VIX table (close + daily return %)
     if last_3_dates and isinstance(us_major_history, dict) and not is_empty_value(us_major_history):
         vix_lookup = build_close_return_lookup(us_major_history, '^VIX')
@@ -838,6 +890,109 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
                 'name': 'CBOE Volatility Index',
                 'values': vix_values,
                 'source': 'major-indexes/us_major_indices_historical.json',
+            }
+
+    # 6b) 5-day VIX table (close + daily return %)
+    if last_5_dates and isinstance(us_major_history, dict) and not is_empty_value(us_major_history):
+        vix_lookup = build_close_return_lookup(us_major_history, '^VIX')
+        if vix_lookup:
+            vix_values = []
+            for d in last_5_dates:
+                v = vix_lookup.get(d)
+                vix_values.append({
+                    'date': d,
+                    'close': (v or {}).get('close'),
+                    'daily_return_percent': (v or {}).get('daily_return_percent'),
+                })
+            writer_ready['vix_table_5day'] = {
+                'dates': last_5_dates,
+                'symbol': '^VIX',
+                'name': 'CBOE Volatility Index',
+                'values': vix_values,
+                'source': 'major-indexes/us_major_indices_historical.json',
+            }
+
+    # 7) 5-day SPY SMA table (20/50/200) from support/resistence history
+    if last_5_dates and isinstance(support_res, dict):
+        spy = support_res.get('SPY')
+        if isinstance(spy, dict):
+            history = ((spy.get('history') or {}).get('daily')) if isinstance(spy.get('history'), dict) else None
+            if isinstance(history, list) and history:
+                sma_lookup: Dict[str, Dict[str, Any]] = {}
+                for row in history:
+                    if not isinstance(row, dict):
+                        continue
+                    d = row.get('date')
+                    sma = row.get('sma')
+                    if isinstance(d, str) and isinstance(sma, dict):
+                        sma_lookup[d] = sma
+
+                values = []
+                for d in last_5_dates:
+                    sma = sma_lookup.get(d) or {}
+                    values.append({
+                        'date': d,
+                        'SMA20': sma.get('SMA20'),
+                        'SMA50': sma.get('SMA50'),
+                        'SMA200': sma.get('SMA200'),
+                    })
+
+                writer_ready['spy_sma_table_5day'] = {
+                    'dates': last_5_dates,
+                    'symbol': 'SPY',
+                    'name': 'SPDR S&P 500 ETF Trust',
+                    'values': values,
+                    'source': 'supportresistence/support_resistence.json',
+                }
+
+    # 8) 5-day breadth lookback (best-effort from historical series)
+    if last_5_dates:
+        ad_hist = load_json_file(data_dir / 'advance-decline' / 'ad_line_historical.json')
+        ma_hist = load_json_file(data_dir / 'advance-decline' / 'ma_percentage_historical.json')
+        hl_hist = load_json_file(data_dir / 'advance-decline' / 'highs_lows_historical.json')
+        vol_hist = load_json_file(data_dir / 'advance-decline' / 'volume_metrics_historical.json')
+
+        ad_lookup = build_simple_date_lookup(ad_hist)
+        ma_lookup = build_simple_date_lookup(ma_hist)
+        hl_lookup = build_simple_date_lookup(hl_hist)
+        vol_lookup = build_simple_date_lookup(vol_hist)
+
+        values = []
+        for d in last_5_dates:
+            ad_row = ad_lookup.get(d) or {}
+            ma_row = ma_lookup.get(d) or {}
+            hl_row = hl_lookup.get(d) or {}
+            vol_row = vol_lookup.get(d) or {}
+
+            advances = ad_row.get('advances')
+            declines = ad_row.get('declines')
+            ad_ratio = None
+            if isinstance(advances, (int, float)) and isinstance(declines, (int, float)) and declines:
+                ad_ratio = round(float(advances) / float(declines), 3)
+
+            values.append({
+                'date': d,
+                'advances': advances,
+                'declines': declines,
+                'advance_decline_ratio': ad_ratio,
+                'advancing_volume_pct': vol_row.get('advancing_volume_pct'),
+                'stocks_near_52w_high': ((hl_row.get('near_52w_high') or {}).get('count')) if isinstance(hl_row.get('near_52w_high'), dict) else None,
+                'stocks_near_52w_low': ((hl_row.get('near_52w_low') or {}).get('count')) if isinstance(hl_row.get('near_52w_low'), dict) else None,
+                'above_20_day_ma_pct': ((ma_row.get('ma_20') or {}).get('percentage_above')) if isinstance(ma_row.get('ma_20'), dict) else None,
+                'above_50_day_ma_pct': ((ma_row.get('ma_50') or {}).get('percentage_above')) if isinstance(ma_row.get('ma_50'), dict) else None,
+                'above_200_day_ma_pct': ((ma_row.get('ma_200') or {}).get('percentage_above')) if isinstance(ma_row.get('ma_200'), dict) else None,
+            })
+
+        if values:
+            writer_ready['breadth_lookback_5day'] = {
+                'dates': last_5_dates,
+                'values': values,
+                'sources': {
+                    'advances_declines': 'advance-decline/ad_line_historical.json',
+                    'moving_averages': 'advance-decline/ma_percentage_historical.json',
+                    'highs_lows': 'advance-decline/highs_lows_historical.json',
+                    'volume': 'advance-decline/volume_metrics_historical.json',
+                },
             }
 
     if writer_ready:
