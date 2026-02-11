@@ -74,59 +74,13 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-02-11T17:39:20.827317+00:00",
+    "generated_at": "2026-02-11T19:14:05.554685+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
-    "SPY": {
-      "symbol": "SPY",
-      "name": "SPDR S&P 500 ETF Trust",
-      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
-      "market_segment": "Large-Cap",
-      "tracks_index": "S&P 500",
-      "date": "2026-02-11",
-      "current_price": 693.09,
-      "moving_averages": {
-        "ma_20": 690.18,
-        "ma_50": 686.79,
-        "ma_200": 644.66
-      },
-      "ma_pairs": {
-        "short_term_vs_intermediate": {
-          "ma_short": 20,
-          "ma_long": 50,
-          "spread": 3.39,
-          "spread_percent": 0.49,
-          "zscore": -0.2,
-          "signal": "normal_range",
-          "alignment": "bullish",
-          "alignment_note": "20-day MA is above 50-day MA"
-        },
-        "short_term_vs_long_term": {
-          "ma_short": 20,
-          "ma_long": 200,
-          "spread": 45.52,
-          "spread_percent": 7.06,
-          "zscore": 0.39,
-          "signal": "normal_range",
-          "alignment": "bullish",
-          "alignment_note": "20-day MA is above 200-day MA"
-        },
-        "intermediate_vs_long_term": {
-          "ma_short": 50,
-          "ma_long": 200,
-          "spread": 42.13,
-          "spread_percent": 6.53,
-          "zscore": 0.57,
-          "signal": "normal_range",
-          "alignment": "bullish",
-          "alignment_note": "50-day MA is above 200-day MA"
-        }
-      }
-    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
@@ -134,19 +88,19 @@
       "market_segment": "Tech/Growth",
       "tracks_index": "Nasdaq-100",
       "date": "2026-02-11",
-      "current_price": 612.96,
+      "current_price": 614.12,
       "moving_averages": {
-        "ma_20": 618.27,
-        "ma_50": 619.05,
+        "ma_20": 618.33,
+        "ma_50": 619.07,
         "ma_200": 578.95
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": -0.78,
-          "spread_percent": -0.13,
-          "zscore": -0.46,
+          "spread": -0.74,
+          "spread_percent": -0.12,
+          "zscore": -0.45,
           "signal": "normal_range",
           "alignment": "bearish",
           "alignment_note": "20-day MA is below 50-day MA"
@@ -154,8 +108,8 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 39.32,
-          "spread_percent": 6.79,
+          "spread": 39.37,
+          "spread_percent": 6.8,
           "zscore": 0.05,
           "signal": "normal_range",
           "alignment": "bullish",
@@ -164,7 +118,7 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 40.1,
+          "spread": 40.12,
           "spread_percent": 6.93,
           "zscore": 0.32,
           "signal": "normal_range",
@@ -180,19 +134,19 @@
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
       "date": "2026-02-11",
-      "current_price": 264.11,
+      "current_price": 264.78,
       "moving_averages": {
-        "ma_20": 263.9,
-        "ma_50": 256.75,
-        "ma_200": 233.25
+        "ma_20": 263.93,
+        "ma_50": 256.76,
+        "ma_200": 233.26
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": 7.15,
+          "spread": 7.17,
           "spread_percent": 2.79,
-          "zscore": 0.76,
+          "zscore": 0.77,
           "signal": "normal_range",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 50-day MA"
@@ -200,9 +154,9 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 30.65,
-          "spread_percent": 13.14,
-          "zscore": 1.26,
+          "spread": 30.68,
+          "spread_percent": 13.15,
+          "zscore": 1.27,
           "signal": "moderately_overbought",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 200-day MA"
@@ -210,8 +164,8 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 23.49,
-          "spread_percent": 10.07,
+          "spread": 23.5,
+          "spread_percent": 10.08,
           "zscore": 1.18,
           "signal": "moderately_overbought",
           "alignment": "bullish",
