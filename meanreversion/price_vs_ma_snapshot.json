@@ -67,13 +67,48 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-02-12T21:58:05.380185+00:00",
+    "generated_at": "2026-02-13T14:08:09.753743+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Price distance from moving averages for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
+      "date": "2026-02-12",
+      "current_price": 681.27,
+      "moving_averages": {
+        "ma_20": 689.67,
+        "ma_50": 686.83,
+        "ma_200": 645.33
+      },
+      "metrics_by_ma": {
+        "ma_20": {
+          "distance": -8.4,
+          "distance_percent": -1.22,
+          "zscore": -0.89,
+          "signal": "normal_range"
+        },
+        "ma_50": {
+          "distance": -5.56,
+          "distance_percent": -0.81,
+          "zscore": -0.69,
+          "signal": "normal_range"
+        },
+        "ma_200": {
+          "distance": 35.94,
+          "distance_percent": 5.57,
+          "zscore": -0.05,
+          "signal": "normal_range"
+        }
+      },
+      "trend_alignment": "strong_bullish"
+    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
