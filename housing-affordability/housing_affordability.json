@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-02-17T12:58:29.405093-05:00",
+    "generated_at": "2026-02-18T09:47:43.147927-05:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,58 +122,58 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-02-22",
-    "data_end": "2026-02-17"
+    "data_start": "2006-02-23",
+    "data_end": "2026-02-18"
   },
   "current": {
-    "date": "2025-10-01",
+    "date": "2025-12-01",
     "overall_grade": {
-      "grade": "C",
-      "label": "Fair",
+      "grade": "B",
+      "label": "Good",
       "color": "warning",
-      "points": 2.4
+      "points": 2.5
     },
     "indicators": {
       "HOUST": {
         "name": "Housing Starts",
-        "value": 1246.0,
+        "value": 1404.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 54.43,
+        "percentile": 76.15,
         "grade": {
-          "grade": "B",
-          "label": "Good",
-          "color": "warning",
-          "points": 3
+          "grade": "A",
+          "label": "Very Good",
+          "color": "success",
+          "points": 4
         },
-        "trend": "decreasing",
-        "is_favorable": false,
+        "trend": "increasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -7.84,
-          "5y": -19.25,
-          "10y": 17.77,
+          "1y": -7.27,
+          "5y": -13.01,
+          "10y": 22.51,
           "20y": null
         },
         "interpretation": "higher_is_better"
       },
       "PERMIT": {
         "name": "Building Permits",
-        "value": 1411.0,
+        "value": 1448.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 66.67,
+        "percentile": 69.46,
         "grade": {
           "grade": "B",
           "label": "Good",
           "color": "warning",
           "points": 3
         },
-        "trend": "decreasing",
-        "is_favorable": false,
+        "trend": "increasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -1.19,
-          "5y": -12.52,
-          "10y": 21.64,
+          "1y": -2.16,
+          "5y": -17.35,
+          "10y": 19.57,
           "20y": null
         },
         "interpretation": "higher_is_better"
@@ -334,10 +334,10 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.27,
+        "value": 2.26,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 60.59,
+        "percentile": 58.95,
         "grade": {
           "grade": "C",
           "label": "Fair",
@@ -347,15 +347,15 @@
         "trend": "decreasing",
         "is_favorable": true,
         "changes": {
-          "1y": -6.97,
-          "5y": 6.57,
-          "10y": 58.74,
+          "1y": -8.13,
+          "5y": 7.11,
+          "10y": 66.18,
           "20y": null
         },
         "interpretation": "lower_is_better"
       }
     },
-    "summary": "Housing indicators are mixed with emerging affordability or activity concerns."
+    "summary": "Housing indicators are generally supportive though affordability should be monitored."
   },
   "history": {
     "series": {
@@ -597,7 +597,9 @@
           "2025-07-01",
           "2025-08-01",
           "2025-09-01",
-          "2025-10-01"
+          "2025-10-01",
+          "2025-11-01",
+          "2025-12-01"
         ],
         "values": [
           2119.0,
@@ -835,8 +837,10 @@
           1382.0,
           1420.0,
           1291.0,
-          1306.0,
-          1246.0
+          1328.0,
+          1272.0,
+          1322.0,
+          1404.0
         ]
       },
       "PERMIT": {
@@ -1077,7 +1081,9 @@
           "2025-07-01",
           "2025-08-01",
           "2025-09-01",
-          "2025-10-01"
+          "2025-10-01",
+          "2025-11-01",
+          "2025-12-01"
         ],
         "values": [
           2141.0,
@@ -1316,7 +1322,9 @@
           1362.0,
           1330.0,
           1415.0,
-          1411.0
+          1411.0,
+          1388.0,
+          1448.0
         ]
       },
       "HSN1F": {
@@ -4102,7 +4110,7 @@
           2.23,
           2.25,
           2.36,
-          2.27
+          2.26
         ]
       }
     }
