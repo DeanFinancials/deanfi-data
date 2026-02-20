@@ -14,28 +14,149 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-02-20T14:06:07Z",
+    "generated_at": "2026-02-20T14:56:07Z",
     "market_date": "2026-02-20",
-    "market_status": "pre",
+    "market_status": "during",
     "indices_count": 4,
     "data_source": "Yahoo Finance (yfinance)",
     "data_quality": {
       "status": "complete",
       "missing_days": 0,
       "completeness_percent": 100.0,
-      "last_update": "2026-02-20T14:06:07Z",
-      "market_hours": "pre"
+      "last_update": "2026-02-20T14:56:07Z",
+      "market_hours": "during"
     }
   },
-  "indices": {},
+  "indices": {
+    "^TNX": {
+      "name": "CBOE 10-Year Treasury Yield",
+      "symbol": "^TNX",
+      "maturity_years": 10,
+      "duration": "Intermediate",
+      "interpretation": "Benchmark for mortgage rates and corporate bonds",
+      "current_price": 4.07,
+      "daily_change": -0.0,
+      "daily_change_percent": -0.1,
+      "volume": null,
+      "day_high": 4.08,
+      "day_low": 4.06,
+      "day_open": 4.06,
+      "52_week_high": 4.6,
+      "52_week_low": 3.95,
+      "distance_from_52w_high_percent": -11.42,
+      "year_to_date_percent": -2.21,
+      "1_month_percent": -4.28,
+      "3_month_percent": -1.26,
+      "6_month_percent": -5.24,
+      "pivot_points": {
+        "pivot_point": 4.08,
+        "resistance_1": 4.1,
+        "resistance_2": 4.12,
+        "resistance_3": 4.14,
+        "support_1": 4.06,
+        "support_2": 4.04,
+        "support_3": 3.98
+      }
+    },
+    "^TYX": {
+      "name": "CBOE 30-Year Treasury Yield",
+      "symbol": "^TYX",
+      "maturity_years": 30,
+      "duration": "Long",
+      "interpretation": "Long-term rate expectations, most sensitive to inflation",
+      "current_price": 4.7,
+      "daily_change": -0.0,
+      "daily_change_percent": -0.04,
+      "volume": null,
+      "day_high": 4.71,
+      "day_low": 4.69,
+      "day_open": 4.69,
+      "52_week_high": 5.09,
+      "52_week_low": 4.39,
+      "distance_from_52w_high_percent": -7.62,
+      "year_to_date_percent": -2.85,
+      "1_month_percent": -3.47,
+      "3_month_percent": -0.86,
+      "6_month_percent": -4.12,
+      "pivot_points": {
+        "pivot_point": 4.71,
+        "resistance_1": 4.73,
+        "resistance_2": 4.75,
+        "resistance_3": 4.76,
+        "support_1": 4.69,
+        "support_2": 4.68,
+        "support_3": 4.63
+      }
+    },
+    "^FVX": {
+      "name": "CBOE 5-Year Treasury Yield",
+      "symbol": "^FVX",
+      "maturity_years": 5,
+      "duration": "Intermediate",
+      "interpretation": "Mid-term economic expectations",
+      "current_price": 3.65,
+      "daily_change": 0.0,
+      "daily_change_percent": 0.03,
+      "volume": null,
+      "day_high": 3.69,
+      "day_low": 3.63,
+      "day_open": 3.63,
+      "52_week_high": 4.34,
+      "52_week_low": 3.55,
+      "distance_from_52w_high_percent": -15.98,
+      "year_to_date_percent": -1.99,
+      "1_month_percent": -4.78,
+      "3_month_percent": -1.25,
+      "6_month_percent": -4.25,
+      "pivot_points": {
+        "pivot_point": 3.65,
+        "resistance_1": 3.67,
+        "resistance_2": 3.69,
+        "resistance_3": 3.71,
+        "support_1": 3.63,
+        "support_2": 3.61,
+        "support_3": 3.55
+      }
+    },
+    "^IRX": {
+      "name": "CBOE 13-Week Treasury Bill Yield",
+      "symbol": "^IRX",
+      "maturity_years": 0.25,
+      "duration": "Short",
+      "interpretation": "Risk-free rate, Fed policy indicator",
+      "current_price": 3.6,
+      "daily_change": 0.0,
+      "daily_change_percent": 0.0,
+      "volume": null,
+      "day_high": 3.6,
+      "day_low": 3.59,
+      "day_open": 3.59,
+      "52_week_high": 4.28,
+      "52_week_low": 3.51,
+      "distance_from_52w_high_percent": -16.1,
+      "year_to_date_percent": 1.35,
+      "1_month_percent": 0.2,
+      "3_month_percent": -4.69,
+      "6_month_percent": -12.64,
+      "pivot_points": {
+        "pivot_point": 3.6,
+        "resistance_1": 3.6,
+        "resistance_2": 3.6,
+        "resistance_3": 3.61,
+        "support_1": 3.59,
+        "support_2": 3.59,
+        "support_3": 3.58
+      }
+    }
+  },
   "yield_curve_analysis": {
-    "spread_10y_3m": null,
-    "curve_status": "normal",
+    "spread_10y_3m": 0.47,
+    "curve_status": "flat",
     "yields": {
-      "3_month": null,
-      "5_year": null,
-      "10_year": null,
-      "30_year": null
+      "3_month": 3.6,
+      "5_year": 3.65,
+      "10_year": 4.07,
+      "30_year": 4.7
     }
   }
 }
