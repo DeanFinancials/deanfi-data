@@ -74,13 +74,59 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-02T20:50:43.033742+00:00",
+    "generated_at": "2026-03-02T21:24:54.211183+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
+      "date": "2026-03-02",
+      "current_price": 686.34,
+      "moving_averages": {
+        "ma_20": 687.4,
+        "ma_50": 687.85,
+        "ma_200": 652.27
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": -0.45,
+          "spread_percent": -0.07,
+          "zscore": -0.47,
+          "signal": "normal_range",
+          "alignment": "bearish",
+          "alignment_note": "20-day MA is below 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 35.13,
+          "spread_percent": 5.39,
+          "zscore": 0.04,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 35.59,
+          "spread_percent": 5.46,
+          "zscore": 0.3,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
@@ -88,17 +134,17 @@
       "market_segment": "Tech/Growth",
       "tracks_index": "Nasdaq-100",
       "date": "2026-03-02",
-      "current_price": 608.41,
+      "current_price": 608.09,
       "moving_averages": {
-        "ma_20": 608.34,
-        "ma_50": 615.71,
+        "ma_20": 608.32,
+        "ma_50": 615.7,
         "ma_200": 586.19
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": -7.37,
+          "spread": -7.38,
           "spread_percent": -1.2,
           "zscore": -0.86,
           "signal": "normal_range",
@@ -108,7 +154,7 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 22.15,
+          "spread": 22.13,
           "spread_percent": 3.78,
           "zscore": -0.48,
           "signal": "normal_range",
@@ -134,7 +180,7 @@
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
       "date": "2026-03-02",
-      "current_price": 263.77,
+      "current_price": 263.82,
       "moving_averages": {
         "ma_20": 263.13,
         "ma_50": 259.84,
