@@ -5,7 +5,7 @@
     "purpose": "Track overall US market performance across different market capitalizations",
     "update_frequency": "Daily after market close (4:00 PM ET)",
     "data_source": "Yahoo Finance (yfinance)",
-    "last_updated": "2026-03-09T20:48:15Z",
+    "last_updated": "2026-03-09T21:20:00Z",
     "trading_days": "252 trading days per year",
     "indices_included": {
       "^GSPC": "S&P 500 - Large-cap benchmark (500 companies)",
@@ -47,16 +47,16 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-09T20:48:17Z",
+    "generated_at": "2026-03-09T21:20:04Z",
     "market_date": "2026-03-09",
     "market_status": "post",
     "indices_count": 6,
     "data_source": "Yahoo Finance (yfinance)",
     "data_quality": {
-      "status": "partial",
-      "missing_days": 1,
-      "completeness_percent": 83.3,
-      "last_update": "2026-03-09T20:48:17Z",
+      "status": "complete",
+      "missing_days": 0,
+      "completeness_percent": 100.0,
+      "last_update": "2026-03-09T21:20:04Z",
       "market_hours": "post"
     }
   },
@@ -70,7 +70,7 @@
       "current_price": 6795.99,
       "daily_change": 55.97,
       "daily_change_percent": 0.83,
-      "volume": 3684177000,
+      "volume": 3701318000,
       "day_high": 6810.44,
       "day_low": 6636.04,
       "day_open": 6699.8,
@@ -100,7 +100,7 @@
       "current_price": 47740.8,
       "daily_change": 239.25,
       "daily_change_percent": 0.5,
-      "volume": 558651550,
+      "volume": 560027941,
       "day_high": 47876.06,
       "day_low": 46615.52,
       "day_open": 47371.28,
@@ -130,7 +130,7 @@
       "current_price": 22695.94,
       "daily_change": 308.27,
       "daily_change_percent": 1.38,
-      "volume": 7865565000,
+      "volume": 7912860000,
       "day_high": 22741.03,
       "day_low": 22061.97,
       "day_open": 22184.05,
@@ -160,7 +160,7 @@
       "current_price": 24967.25,
       "daily_change": 324.23,
       "daily_change_percent": 1.32,
-      "volume": 1306607000,
+      "volume": 1314080000,
       "day_high": 25019.16,
       "day_low": 24289.22,
       "day_open": 24429.67,
@@ -210,14 +210,45 @@
         "support_2": 2496.41,
         "support_3": 2445.61
       }
+    },
+    "^VIX": {
+      "name": "CBOE Volatility Index",
+      "symbol": "^VIX",
+      "description": "Market fear gauge (VIX)",
+      "market_cap_segment": "N/A",
+      "constituent_count": 0,
+      "current_price": 25.5,
+      "daily_change": -3.99,
+      "daily_change_percent": -13.53,
+      "volume": null,
+      "day_high": 35.3,
+      "day_low": 24.76,
+      "day_open": 35.12,
+      "52_week_high": 52.33,
+      "52_week_low": 13.47,
+      "distance_from_52w_high_percent": -51.27,
+      "year_to_date_percent": 70.57,
+      "1_month_percent": 17.13,
+      "3_month_percent": 61.6,
+      "6_month_percent": 67.98,
+      "pivot_points": {
+        "pivot_point": 27.45,
+        "resistance_1": 31.97,
+        "resistance_2": 34.46,
+        "resistance_3": 38.98,
+        "support_1": 24.96,
+        "support_2": 20.44,
+        "support_3": 8.9
+      },
+      "special_notes": "Measures implied volatility, not price index"
     }
   },
   "market_summary": {
     "indices_up": 5,
-    "indices_down": 0,
-    "average_daily_return": 1.03,
+    "indices_down": 1,
+    "average_daily_return": -1.4,
     "median_daily_return": 1.12,
     "market_sentiment": "bullish",
-    "breadth_score": 100.0
+    "breadth_score": 83.3
   }
 }
