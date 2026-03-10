@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-09T13:52:53.916789-04:00",
+    "generated_at": "2026-03-10T10:52:05.670168-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,16 +122,16 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-03-14",
-    "data_end": "2026-03-09"
+    "data_start": "2006-03-15",
+    "data_end": "2026-03-10"
   },
   "current": {
     "date": "2025-12-01",
     "overall_grade": {
-      "grade": "C",
-      "label": "Fair",
+      "grade": "B",
+      "label": "Good",
       "color": "warning",
-      "points": 2.4
+      "points": 2.7
     },
     "indicators": {
       "HOUST": {
@@ -202,20 +202,20 @@
       },
       "EXHOSLUSM495S": {
         "name": "Existing Home Sales",
-        "value": 3910000.0,
+        "value": 4090000.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 0.0,
+        "percentile": 61.54,
         "grade": {
-          "grade": "D",
-          "label": "Poor",
-          "color": "destructive",
-          "points": 1
+          "grade": "B",
+          "label": "Good",
+          "color": "warning",
+          "points": 3
         },
-        "trend": "decreasing",
-        "is_favorable": false,
+        "trend": "increasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -4.4,
+          "1y": -1.45,
           "5y": null,
           "10y": null,
           "20y": null
@@ -334,28 +334,28 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.35,
+        "value": 2.34,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 76.2,
+        "percentile": 73.67,
         "grade": {
-          "grade": "D",
-          "label": "Poor",
-          "color": "destructive",
-          "points": 1
+          "grade": "C",
+          "label": "Fair",
+          "color": "warning",
+          "points": 2
         },
-        "trend": "increasing",
-        "is_favorable": false,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -0.42,
-          "5y": 9.81,
-          "10y": 72.79,
+          "1y": -0.43,
+          "5y": 8.33,
+          "10y": 75.94,
           "20y": null
         },
         "interpretation": "lower_is_better"
       }
     },
-    "summary": "Housing indicators are mixed with emerging affordability or activity concerns."
+    "summary": "Housing indicators are generally supportive though affordability should be monitored."
   },
   "history": {
     "series": {
@@ -1807,7 +1807,6 @@
       },
       "EXHOSLUSM495S": {
         "dates": [
-          "2025-01-01",
           "2025-02-01",
           "2025-03-01",
           "2025-04-01",
@@ -1819,10 +1818,10 @@
           "2025-10-01",
           "2025-11-01",
           "2025-12-01",
-          "2026-01-01"
+          "2026-01-01",
+          "2026-02-01"
         ],
         "values": [
-          4090000.0,
           4150000.0,
           4020000.0,
           4020000.0,
@@ -1834,7 +1833,8 @@
           4110000.0,
           4090000.0,
           4270000.0,
-          3910000.0
+          4020000.0,
+          4090000.0
         ]
       },
       "CSUSHPINSA": {
@@ -4108,7 +4108,7 @@
           2.25,
           2.36,
           2.25,
-          2.35
+          2.34
         ]
       }
     }
