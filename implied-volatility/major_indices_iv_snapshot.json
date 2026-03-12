@@ -3,7 +3,7 @@
     "description": "Implied volatility snapshot for major U.S. index ETFs",
     "data_source": "yfinance (Yahoo Finance) - Options data",
     "update_frequency": "Real-time (run script to update)",
-    "last_updated": "2026-03-12T17:42:46.878400-04:00",
+    "last_updated": "2026-03-12T18:04:57.488702-04:00",
     "num_symbols": 4,
     "symbols": [
       "SPY",
@@ -53,7 +53,7 @@
     "SPY": {
       "symbol": "SPY",
       "current_price": 666.06,
-      "timestamp": "2026-03-12T17:42:46.182469-04:00",
+      "timestamp": "2026-03-12T18:04:56.440223-04:00",
       "expiration_date": "2026-03-19",
       "days_to_expiration": 7,
       "atm_call": {
@@ -104,7 +104,7 @@
     "QQQ": {
       "symbol": "QQQ",
       "current_price": 597.26,
-      "timestamp": "2026-03-12T17:42:46.424395-04:00",
+      "timestamp": "2026-03-12T18:04:56.787031-04:00",
       "expiration_date": "2026-03-19",
       "days_to_expiration": 7,
       "atm_call": {
@@ -155,23 +155,23 @@
     "IWM": {
       "symbol": "IWM",
       "current_price": 247.41,
-      "timestamp": "2026-03-12T17:42:46.656494-04:00",
+      "timestamp": "2026-03-12T18:04:57.140815-04:00",
       "expiration_date": "2026-03-19",
       "days_to_expiration": 7,
       "atm_call": {
-        "strike": 247.0,
-        "implied_volatility": 0.342658,
-        "last_price": 5.15,
-        "bid": 5.1,
-        "ask": 5.21,
-        "mid_price": 5.155,
-        "moneyness": 0.9983,
-        "pct_from_atm": -0.17,
+        "strike": 248.0,
+        "implied_volatility": 0.337653,
+        "last_price": 4.44,
+        "bid": 4.55,
+        "ask": 4.65,
+        "mid_price": 4.6,
+        "moneyness": 1.0024,
+        "pct_from_atm": 0.24,
         "classification": "ATM",
-        "volume": 271,
-        "open_interest": 23,
-        "bid_ask_spread": 0.11,
-        "spread_pct": 2.13
+        "volume": 457,
+        "open_interest": 31,
+        "bid_ask_spread": 0.1,
+        "spread_pct": 2.17
       },
       "atm_put": {
         "strike": 247.0,
@@ -188,41 +188,41 @@
         "bid_ask_spread": 0.1,
         "spread_pct": 1.93
       },
-      "average_iv": 0.357428,
+      "average_iv": 0.354926,
       "index": "Russell 2000",
       "name": "iShares Russell 2000 ETF",
       "description": "Small-cap U.S. equities",
-      "average_iv_formatted": "35.74%",
+      "average_iv_formatted": "35.49%",
       "iv_level": "High",
       "historical_reference": {
         "historical_avg": 0.24,
         "historical_avg_formatted": "24%",
         "typical_low": 0.18,
         "typical_high": 0.32,
-        "current_vs_average": 0.1174,
-        "current_vs_average_pct": "48.93%"
+        "current_vs_average": 0.1149,
+        "current_vs_average_pct": "47.89%"
       }
     },
     "DIA": {
       "symbol": "DIA",
       "current_price": 467.48,
-      "timestamp": "2026-03-12T17:42:46.878159-04:00",
+      "timestamp": "2026-03-12T18:04:57.488436-04:00",
       "expiration_date": "2026-03-20",
       "days_to_expiration": 8,
       "atm_call": {
-        "strike": 467.0,
-        "implied_volatility": 0.253059,
-        "last_price": 7.35,
-        "bid": 7.35,
-        "ask": 7.65,
-        "mid_price": 7.5,
-        "moneyness": 0.999,
-        "pct_from_atm": -0.1,
+        "strike": 469.0,
+        "implied_volatility": 0.244942,
+        "last_price": 6.27,
+        "bid": 6.0,
+        "ask": 6.45,
+        "mid_price": 6.225,
+        "moneyness": 1.0033,
+        "pct_from_atm": 0.33,
         "classification": "ATM",
-        "volume": 35,
-        "open_interest": 11,
-        "bid_ask_spread": 0.3,
-        "spread_pct": 4.0
+        "volume": 260,
+        "open_interest": 47,
+        "bid_ask_spread": 0.45,
+        "spread_pct": 7.23
       },
       "atm_put": {
         "strike": 467.0,
@@ -239,19 +239,19 @@
         "bid_ask_spread": 0.45,
         "spread_pct": 6.41
       },
-      "average_iv": 0.254463,
+      "average_iv": 0.250404,
       "index": "Dow Jones",
       "name": "SPDR Dow Jones Industrial Average ETF",
       "description": "30 large U.S. blue-chip companies",
-      "average_iv_formatted": "25.45%",
+      "average_iv_formatted": "25.04%",
       "iv_level": "Elevated",
       "historical_reference": {
         "historical_avg": 0.16,
         "historical_avg_formatted": "16%",
         "typical_low": 0.11,
         "typical_high": 0.23,
-        "current_vs_average": 0.0945,
-        "current_vs_average_pct": "59.04%"
+        "current_vs_average": 0.0904,
+        "current_vs_average_pct": "56.50%"
       }
     }
   }
