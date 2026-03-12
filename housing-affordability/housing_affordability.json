@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-11T10:52:55.290377-04:00",
+    "generated_at": "2026-03-12T10:51:51.019617-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,24 +122,24 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-03-16",
-    "data_end": "2026-03-11"
+    "data_start": "2006-03-17",
+    "data_end": "2026-03-12"
   },
   "current": {
-    "date": "2025-12-01",
+    "date": "2026-01-01",
     "overall_grade": {
       "grade": "B",
       "label": "Good",
       "color": "warning",
-      "points": 2.7
+      "points": 2.6
     },
     "indicators": {
       "HOUST": {
         "name": "Housing Starts",
-        "value": 1404.0,
+        "value": 1487.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 76.47,
+        "percentile": 81.17,
         "grade": {
           "grade": "A",
           "label": "Very Good",
@@ -149,31 +149,31 @@
         "trend": "increasing",
         "is_favorable": true,
         "changes": {
-          "1y": -7.27,
-          "5y": -13.01,
-          "10y": 22.51,
+          "1y": 9.5,
+          "5y": -8.77,
+          "10y": 36.17,
           "20y": null
         },
         "interpretation": "higher_is_better"
       },
       "PERMIT": {
         "name": "Building Permits",
-        "value": 1448.0,
+        "value": 1376.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 69.75,
+        "percentile": 61.51,
         "grade": {
           "grade": "B",
           "label": "Good",
           "color": "warning",
           "points": 3
         },
-        "trend": "increasing",
-        "is_favorable": true,
+        "trend": "decreasing",
+        "is_favorable": false,
         "changes": {
-          "1y": -2.16,
-          "5y": -17.35,
-          "10y": 19.57,
+          "1y": -5.75,
+          "5y": -25.82,
+          "10y": 17.51,
           "20y": null
         },
         "interpretation": "higher_is_better"
@@ -249,7 +249,7 @@
         "value": 6.0,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 70.66,
+        "percentile": 70.73,
         "grade": {
           "grade": "C",
           "label": "Fair",
@@ -271,7 +271,7 @@
         "value": 5.43,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 71.33,
+        "percentile": 71.4,
         "grade": {
           "grade": "C",
           "label": "Fair",
@@ -334,22 +334,22 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.33,
+        "value": 2.36,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 71.55,
+        "percentile": 78.04,
         "grade": {
-          "grade": "C",
-          "label": "Fair",
-          "color": "warning",
-          "points": 2
+          "grade": "D",
+          "label": "Poor",
+          "color": "destructive",
+          "points": 1
         },
-        "trend": "decreasing",
-        "is_favorable": true,
+        "trend": "increasing",
+        "is_favorable": false,
         "changes": {
-          "1y": -0.43,
-          "5y": 7.87,
-          "10y": 89.43,
+          "1y": 0.85,
+          "5y": 8.76,
+          "10y": 95.04,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -598,7 +598,8 @@
           "2025-09-01",
           "2025-10-01",
           "2025-11-01",
-          "2025-12-01"
+          "2025-12-01",
+          "2026-01-01"
         ],
         "values": [
           1969.0,
@@ -837,8 +838,9 @@
           1291.0,
           1328.0,
           1272.0,
-          1322.0,
-          1404.0
+          1324.0,
+          1387.0,
+          1487.0
         ]
       },
       "PERMIT": {
@@ -1080,7 +1082,8 @@
           "2025-09-01",
           "2025-10-01",
           "2025-11-01",
-          "2025-12-01"
+          "2025-12-01",
+          "2026-01-01"
         ],
         "values": [
           2118.0,
@@ -1320,7 +1323,8 @@
           1415.0,
           1411.0,
           1388.0,
-          1448.0
+          1455.0,
+          1376.0
         ]
       },
       "HSN1F": {
@@ -2564,7 +2568,7 @@
           "2026-03-31"
         ],
         "values": [
-          6.336666666666666,
+          6.335,
           6.5075,
           6.5975,
           6.6819999999999995,
@@ -3052,7 +3056,7 @@
           "2026-03-31"
         ],
         "values": [
-          5.983333333333333,
+          5.984999999999999,
           6.154999999999999,
           6.205,
           6.306,
@@ -4108,7 +4112,7 @@
           2.25,
           2.36,
           2.25,
-          2.33
+          2.36
         ]
       }
     }
