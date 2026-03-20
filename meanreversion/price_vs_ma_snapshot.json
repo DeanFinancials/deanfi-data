@@ -67,13 +67,48 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-20T15:55:22.695072+00:00",
+    "generated_at": "2026-03-20T16:32:14.839383+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Price distance from moving averages for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
+      "date": "2026-03-20",
+      "current_price": 652.21,
+      "moving_averages": {
+        "ma_20": 675.85,
+        "ma_50": 683.96,
+        "ma_200": 658.32
+      },
+      "metrics_by_ma": {
+        "ma_20": {
+          "distance": -23.65,
+          "distance_percent": -3.5,
+          "zscore": -2.25,
+          "signal": "extremely_oversold"
+        },
+        "ma_50": {
+          "distance": -31.75,
+          "distance_percent": -4.64,
+          "zscore": -1.96,
+          "signal": "moderately_oversold"
+        },
+        "ma_200": {
+          "distance": -6.11,
+          "distance_percent": -0.93,
+          "zscore": -1.41,
+          "signal": "moderately_oversold"
+        }
+      },
+      "trend_alignment": "moderate_bearish"
+    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
@@ -81,29 +116,29 @@
       "market_segment": "Tech/Growth",
       "tracks_index": "Nasdaq-100",
       "date": "2026-03-20",
-      "current_price": 586.91,
+      "current_price": 585.72,
       "moving_averages": {
-        "ma_20": 603.21,
-        "ma_50": 611.05,
+        "ma_20": 603.15,
+        "ma_50": 611.02,
         "ma_200": 592.05
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -16.3,
-          "distance_percent": -2.7,
-          "zscore": -1.52,
+          "distance": -17.44,
+          "distance_percent": -2.89,
+          "zscore": -1.6,
           "signal": "moderately_oversold"
         },
         "ma_50": {
-          "distance": -24.13,
-          "distance_percent": -3.95,
-          "zscore": -1.42,
+          "distance": -25.3,
+          "distance_percent": -4.14,
+          "zscore": -1.47,
           "signal": "moderately_oversold"
         },
         "ma_200": {
-          "distance": -5.14,
-          "distance_percent": -0.87,
-          "zscore": -1.34,
+          "distance": -6.33,
+          "distance_percent": -1.07,
+          "zscore": -1.38,
           "signal": "moderately_oversold"
         }
       },
@@ -116,29 +151,29 @@
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
       "date": "2026-03-20",
-      "current_price": 244.39,
+      "current_price": 243.71,
       "moving_averages": {
-        "ma_20": 254.59,
-        "ma_50": 259.53,
-        "ma_200": 240.04
+        "ma_20": 254.56,
+        "ma_50": 259.52,
+        "ma_200": 240.03
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -10.2,
-          "distance_percent": -4.01,
-          "zscore": -1.91,
-          "signal": "moderately_oversold"
+          "distance": -10.85,
+          "distance_percent": -4.26,
+          "zscore": -2.01,
+          "signal": "extremely_oversold"
         },
         "ma_50": {
-          "distance": -15.14,
-          "distance_percent": -5.83,
-          "zscore": -1.89,
+          "distance": -15.81,
+          "distance_percent": -6.09,
+          "zscore": -1.96,
           "signal": "moderately_oversold"
         },
         "ma_200": {
-          "distance": 4.35,
-          "distance_percent": 1.81,
-          "zscore": -0.41,
+          "distance": 3.68,
+          "distance_percent": 1.53,
+          "zscore": -0.44,
           "signal": "normal_range"
         }
       },
