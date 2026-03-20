@@ -67,78 +67,43 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-19T22:02:42.908495+00:00",
+    "generated_at": "2026-03-20T14:06:54.781998+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Price distance from moving averages for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
-    "SPY": {
-      "symbol": "SPY",
-      "name": "SPDR S&P 500 ETF Trust",
-      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
-      "market_segment": "Large-Cap",
-      "tracks_index": "S&P 500",
-      "date": "2026-03-19",
-      "current_price": null,
-      "moving_averages": {
-        "ma_20": null,
-        "ma_50": null,
-        "ma_200": null
-      },
-      "metrics_by_ma": {
-        "ma_20": {
-          "distance": null,
-          "distance_percent": null,
-          "zscore": null,
-          "signal": "insufficient_data"
-        },
-        "ma_50": {
-          "distance": null,
-          "distance_percent": null,
-          "zscore": null,
-          "signal": "insufficient_data"
-        },
-        "ma_200": {
-          "distance": null,
-          "distance_percent": null,
-          "zscore": null,
-          "signal": "insufficient_data"
-        }
-      },
-      "trend_alignment": "insufficient_data"
-    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
       "description": "Tracks Nasdaq-100 Index - Tech-heavy growth stocks",
       "market_segment": "Tech/Growth",
       "tracks_index": "Nasdaq-100",
-      "date": "2026-03-19",
-      "current_price": 593.02,
+      "date": "2026-03-20",
+      "current_price": 587.18,
       "moving_averages": {
-        "ma_20": 604.31,
-        "ma_50": 611.79,
-        "ma_200": 591.74
+        "ma_20": 603.23,
+        "ma_50": 611.05,
+        "ma_200": 592.05
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -11.29,
-          "distance_percent": -1.87,
-          "zscore": -1.15,
+          "distance": -16.05,
+          "distance_percent": -2.66,
+          "zscore": -1.5,
           "signal": "moderately_oversold"
         },
         "ma_50": {
-          "distance": -18.77,
-          "distance_percent": -3.07,
-          "zscore": -1.19,
+          "distance": -23.87,
+          "distance_percent": -3.91,
+          "zscore": -1.41,
           "signal": "moderately_oversold"
         },
         "ma_200": {
-          "distance": 1.28,
-          "distance_percent": 0.22,
-          "zscore": -1.16,
+          "distance": -4.87,
+          "distance_percent": -0.82,
+          "zscore": -1.34,
           "signal": "moderately_oversold"
         }
       },
@@ -150,30 +115,30 @@
       "description": "Tracks Russell 2000 Index - Small-cap benchmark (2000 companies)",
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
-      "date": "2026-03-19",
-      "current_price": 247.63,
+      "date": "2026-03-20",
+      "current_price": 245.07,
       "moving_averages": {
-        "ma_20": 255.58,
-        "ma_50": 259.75,
-        "ma_200": 239.85
+        "ma_20": 254.62,
+        "ma_50": 259.55,
+        "ma_200": 240.04
       },
       "metrics_by_ma": {
         "ma_20": {
-          "distance": -7.95,
-          "distance_percent": -3.11,
-          "zscore": -1.56,
+          "distance": -9.56,
+          "distance_percent": -3.75,
+          "zscore": -1.81,
           "signal": "moderately_oversold"
         },
         "ma_50": {
-          "distance": -12.12,
-          "distance_percent": -4.66,
-          "zscore": -1.61,
+          "distance": -14.48,
+          "distance_percent": -5.58,
+          "zscore": -1.83,
           "signal": "moderately_oversold"
         },
         "ma_200": {
-          "distance": 7.78,
-          "distance_percent": 3.24,
-          "zscore": -0.22,
+          "distance": 5.02,
+          "distance_percent": 2.09,
+          "zscore": -0.37,
           "signal": "normal_range"
         }
       },

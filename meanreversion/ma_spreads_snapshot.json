@@ -74,79 +74,33 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-19T22:02:45.629790+00:00",
+    "generated_at": "2026-03-20T14:06:56.973128+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
-    "SPY": {
-      "symbol": "SPY",
-      "name": "SPDR S&P 500 ETF Trust",
-      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
-      "market_segment": "Large-Cap",
-      "tracks_index": "S&P 500",
-      "date": "2026-03-19",
-      "current_price": null,
-      "moving_averages": {
-        "ma_20": null,
-        "ma_50": null,
-        "ma_200": null
-      },
-      "ma_pairs": {
-        "short_term_vs_intermediate": {
-          "ma_short": 20,
-          "ma_long": 50,
-          "spread": null,
-          "spread_percent": null,
-          "zscore": null,
-          "signal": "insufficient_data",
-          "alignment": "insufficient_data",
-          "alignment_note": "Not enough data for calculation"
-        },
-        "short_term_vs_long_term": {
-          "ma_short": 20,
-          "ma_long": 200,
-          "spread": null,
-          "spread_percent": null,
-          "zscore": null,
-          "signal": "insufficient_data",
-          "alignment": "insufficient_data",
-          "alignment_note": "Not enough data for calculation"
-        },
-        "intermediate_vs_long_term": {
-          "ma_short": 50,
-          "ma_long": 200,
-          "spread": null,
-          "spread_percent": null,
-          "zscore": null,
-          "signal": "insufficient_data",
-          "alignment": "insufficient_data",
-          "alignment_note": "Not enough data for calculation"
-        }
-      }
-    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
       "description": "Tracks Nasdaq-100 Index - Tech-heavy growth stocks",
       "market_segment": "Tech/Growth",
       "tracks_index": "Nasdaq-100",
-      "date": "2026-03-19",
-      "current_price": 593.02,
+      "date": "2026-03-20",
+      "current_price": 587.08,
       "moving_averages": {
-        "ma_20": 604.31,
-        "ma_50": 611.79,
-        "ma_200": 591.74
+        "ma_20": 603.22,
+        "ma_50": 611.05,
+        "ma_200": 592.05
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": -7.48,
-          "spread_percent": -1.22,
-          "zscore": -0.85,
+          "spread": -7.83,
+          "spread_percent": -1.28,
+          "zscore": -0.88,
           "signal": "normal_range",
           "alignment": "bearish",
           "alignment_note": "20-day MA is below 50-day MA"
@@ -154,9 +108,9 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 12.57,
-          "spread_percent": 2.12,
-          "zscore": -0.76,
+          "spread": 11.17,
+          "spread_percent": 1.89,
+          "zscore": -0.81,
           "signal": "normal_range",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 200-day MA"
@@ -164,9 +118,9 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 20.04,
-          "spread_percent": 3.39,
-          "zscore": -0.43,
+          "spread": 19.0,
+          "spread_percent": 3.21,
+          "zscore": -0.47,
           "signal": "normal_range",
           "alignment": "bullish",
           "alignment_note": "50-day MA is above 200-day MA"
@@ -179,20 +133,20 @@
       "description": "Tracks Russell 2000 Index - Small-cap benchmark (2000 companies)",
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
-      "date": "2026-03-19",
-      "current_price": 247.63,
+      "date": "2026-03-20",
+      "current_price": 245.01,
       "moving_averages": {
-        "ma_20": 255.58,
-        "ma_50": 259.75,
-        "ma_200": 239.85
+        "ma_20": 254.62,
+        "ma_50": 259.55,
+        "ma_200": 240.04
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": -4.17,
-          "spread_percent": -1.6,
-          "zscore": -1.05,
+          "spread": -4.92,
+          "spread_percent": -1.9,
+          "zscore": -1.18,
           "signal": "moderately_oversold",
           "alignment": "bearish",
           "alignment_note": "20-day MA is below 50-day MA"
@@ -200,9 +154,9 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 15.73,
-          "spread_percent": 6.56,
-          "zscore": 0.3,
+          "spread": 14.58,
+          "spread_percent": 6.07,
+          "zscore": 0.23,
           "signal": "normal_range",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 200-day MA"
@@ -210,9 +164,9 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 19.9,
-          "spread_percent": 8.3,
-          "zscore": 0.79,
+          "spread": 19.5,
+          "spread_percent": 8.13,
+          "zscore": 0.76,
           "signal": "normal_range",
           "alignment": "bullish",
           "alignment_note": "50-day MA is above 200-day MA"
