@@ -74,13 +74,59 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-03-31T16:46:22.051733+00:00",
+    "generated_at": "2026-03-31T17:45:29.255411+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
+      "date": "2026-03-31",
+      "current_price": 646.64,
+      "moving_averages": {
+        "ma_20": 660.49,
+        "ma_50": 675.86,
+        "ma_200": 658.4
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": -15.37,
+          "spread_percent": -2.27,
+          "zscore": -1.65,
+          "signal": "moderately_oversold",
+          "alignment": "bearish",
+          "alignment_note": "20-day MA is below 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 2.09,
+          "spread_percent": 0.32,
+          "zscore": -1.12,
+          "signal": "moderately_oversold",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 17.46,
+          "spread_percent": 2.65,
+          "zscore": -0.45,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
@@ -88,17 +134,17 @@
       "market_segment": "Tech/Growth",
       "tracks_index": "Nasdaq-100",
       "date": "2026-03-31",
-      "current_price": 572.79,
+      "current_price": 573.98,
       "moving_averages": {
-        "ma_20": 591.23,
-        "ma_50": 603.57,
+        "ma_20": 591.29,
+        "ma_50": 603.59,
         "ma_200": 592.94
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": -12.34,
+          "spread": -12.3,
           "spread_percent": -2.04,
           "zscore": -1.23,
           "signal": "moderately_oversold",
@@ -108,8 +154,8 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": -1.7,
-          "spread_percent": -0.29,
+          "spread": -1.65,
+          "spread_percent": -0.28,
           "zscore": -1.23,
           "signal": "moderately_oversold",
           "alignment": "bearish",
@@ -118,8 +164,8 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 10.64,
-          "spread_percent": 1.79,
+          "spread": 10.65,
+          "spread_percent": 1.8,
           "zscore": -0.78,
           "signal": "normal_range",
           "alignment": "bullish",
@@ -134,9 +180,9 @@
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
       "date": "2026-03-31",
-      "current_price": 246.56,
+      "current_price": 246.41,
       "moving_averages": {
-        "ma_20": 248.94,
+        "ma_20": 248.93,
         "ma_50": 257.33,
         "ma_200": 241.31
       },
@@ -144,7 +190,7 @@
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": -8.39,
+          "spread": -8.4,
           "spread_percent": -3.26,
           "zscore": -1.8,
           "signal": "moderately_oversold",
@@ -154,7 +200,7 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 7.63,
+          "spread": 7.62,
           "spread_percent": 3.16,
           "zscore": -0.19,
           "signal": "normal_range",
