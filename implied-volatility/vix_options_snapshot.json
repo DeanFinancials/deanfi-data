@@ -3,7 +3,7 @@
     "description": "Implied volatility snapshot for VIX options (volatility of volatility)",
     "data_source": "yfinance (Yahoo Finance) - VIX options data",
     "update_frequency": "Real-time (run script to update)",
-    "last_updated": "2026-04-15T15:28:52.303676-04:00",
+    "last_updated": "2026-04-15T16:30:26.229010-04:00",
     "symbol": "^VIX",
     "important_note": "VIX options measure volatility OF volatility - different from equity options",
     "vix_background": {
@@ -38,58 +38,5 @@
       "crisis_indicator": "Extreme VIX option IV can signal market stress"
     }
   },
-  "data": {
-    "^VIX": {
-      "symbol": "^VIX",
-      "current_price": 17.88,
-      "timestamp": "2026-04-15T15:28:52.303425-04:00",
-      "expiration_date": "2026-04-22",
-      "days_to_expiration": 7,
-      "atm_call": {
-        "strike": 18.0,
-        "implied_volatility": 1.660158,
-        "last_price": 1.7,
-        "bid": 1.64,
-        "ask": 1.75,
-        "mid_price": 1.695,
-        "moneyness": 1.0067,
-        "pct_from_atm": 0.67,
-        "classification": "ATM",
-        "volume": 630,
-        "open_interest": 5053,
-        "bid_ask_spread": 0.11,
-        "spread_pct": 6.49
-      },
-      "atm_put": {
-        "strike": 18.0,
-        "implied_volatility": 0.328132,
-        "last_price": 0.39,
-        "bid": 0.37,
-        "ask": 0.41,
-        "mid_price": 0.39,
-        "moneyness": 1.0067,
-        "pct_from_atm": 0.67,
-        "classification": "ATM",
-        "volume": 307,
-        "open_interest": 4052,
-        "bid_ask_spread": 0.04,
-        "spread_pct": 10.26
-      },
-      "average_iv": 0.994145,
-      "name": "CBOE Volatility Index",
-      "description": "Market's expectation of 30-day S&P 500 volatility",
-      "note": "VIX options measure volatility of volatility - unique characteristics",
-      "average_iv_formatted": "99.41%",
-      "iv_level": "Low",
-      "historical_reference": {
-        "historical_avg": 0.21,
-        "historical_avg_formatted": "21%",
-        "typical_low": 0.12,
-        "typical_high": 0.3,
-        "current_vs_average": 0.7841,
-        "current_vs_average_pct": "373.40%",
-        "special_note": "VIX > 30 indicates high market uncertainty"
-      }
-    }
-  }
+  "data": {}
 }
