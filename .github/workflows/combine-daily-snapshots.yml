@@ -2,11 +2,7 @@ name: Combine Daily Snapshots
 
 on:
   schedule:
-    # Every weekday at 5:15pm ET (22:15 UTC)
-    # Runs ~20 minutes after the last market data workflow completes (~21:55 UTC)
-    # This ensures all market data updates are captured before combining
-    # Note: Adjust for daylight saving time if needed (EDT vs EST)
-    - cron: '15 22 * * 1-5'
+    - cron: '15 21,22 * * 1-5'  # 5:15pm ET year-round (21:15=EDT, 22:15=EST)
   workflow_dispatch:  # Allow manual trigger
 
 env:
@@ -17,7 +13,8 @@ env:
 jobs:
   combine-snapshots:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 10
+
     steps:
       - name: Checkout deanfi-data repo
         uses: actions/checkout@v4

@@ -11,7 +11,8 @@ on:
 jobs:
   sync-to-r2:
     runs-on: ubuntu-latest
-    
+    continue-on-error: false
+
     # Prevent concurrent syncs to avoid conflicts
     concurrency:
       group: r2-sync
@@ -104,3 +105,13 @@ jobs:
         if: steps.changes.outputs.file_count == 0
         run: |
           echo "ℹ️  No JSON files changed in this commit (or only cache/ files changed) - skipping R2 sync"
+
+      - name: Sync failure summary
+        if: failure()
+        run: |
+          echo "## ❌ R2 Sync Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The R2 sync failed. Data is in GitHub but **not** yet available on r2.deanfi.com." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Possible causes: expired Cloudflare API token, Wrangler version issue, R2 quota." >> $GITHUB_STEP_SUMMARY
+          echo "Check the 'Upload changed files to R2' step above for details." >> $GITHUB_STEP_SUMMARY

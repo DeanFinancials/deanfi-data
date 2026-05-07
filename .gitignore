@@ -1,6 +1,9 @@
 # This is a DATA repository - we WANT to commit JSON files!
 # Only ignore system and temporary files
 
+# Price cache (parquet files) — stored in actions/cache, not git
+cache/
+
 # Wrangler (Cloudflare Workers CLI)
 .wrangler/
 .dev.vars
