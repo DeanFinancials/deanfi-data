@@ -21,6 +21,8 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 
+import catalyst_integration
+
 
 def is_empty_value(value: Any) -> bool:
     if value is None:
@@ -334,8 +336,26 @@ def validate_market_pulse_core(core: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def build_market_pulse_input(combined: Dict[str, Any]) -> Dict[str, Any]:
-    """Build the stricter Market Pulse article-generation package."""
+def build_market_pulse_input(
+    combined: Dict[str, Any],
+    *,
+    catalysts: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Build the stricter Market Pulse article-generation package.
+
+    ``catalysts`` is the parsed ``daily-news/market_catalysts.json`` payload
+    (or ``None``). When absent, the Phase 1 placeholder block is preserved
+    so downstream callers can distinguish "no catalysts collected yet" from
+    "today produced zero catalysts."
+    """
+    catalyst_load_error: Optional[str] = None
+    if catalysts is None:
+        stashed = combined.get('data', {}).get('market_catalysts') if isinstance(combined.get('data'), dict) else None
+        if isinstance(stashed, dict):
+            if stashed.get('__load_error__'):
+                catalyst_load_error = str(stashed['__load_error__'])
+            elif stashed.get('ranked') is not None:
+                catalysts = stashed
     metadata = combined.get('metadata', {}) if isinstance(combined.get('metadata'), dict) else {}
     data = combined.get('data', {}) if isinstance(combined.get('data'), dict) else {}
     writer_ready = data.get('writer_ready') if isinstance(data.get('writer_ready'), dict) else {}
@@ -363,11 +383,60 @@ def build_market_pulse_input(combined: Dict[str, Any]) -> Dict[str, Any]:
         'five_session_spy_sma': writer_ready.get('spy_sma_table_5day') or {},
     }
     validation = validate_market_pulse_core(core)
+
+    market_date = metadata.get('market_date') or metadata.get('date')
+
+    if catalyst_load_error is not None:
+        # File exists but is corrupted — block publication. This must not
+        # masquerade as the phase_2_pending placeholder (which sets
+        # validation.is_valid=True and lets the writer run with no catalysts).
+        catalysts_block = {
+            'status': 'load_error',
+            'ranked': [],
+            'error': catalyst_load_error,
+            'source_file': 'daily-news/market_catalysts.json',
+        }
+        validation['blocking_failures'].append(
+            f'catalysts: market_catalysts.json present but unreadable ({catalyst_load_error})'
+        )
+        validation['is_valid'] = False
+    elif catalysts is None:
+        catalysts_block = {
+            'status': 'phase_2_pending',
+            'ranked': [],
+            'note': 'Catalyst collection and ranking are implemented in Phase 2; do not interpret an empty ranked list as no catalysts for the session.',
+        }
+    else:
+        catalysts = catalyst_integration.apply_market_context(
+            catalysts,
+            sector_leaders=core.get('sector_leaders'),
+            sector_laggards=core.get('sector_laggards'),
+        )
+        ranked = catalysts.get('ranked') or []
+        catalyst_meta = catalysts.get('metadata') or {}
+        completeness = catalyst_integration.validate_completeness(catalysts, market_date=market_date)
+        release_meta = catalyst_integration.required_official_release_today(market_date)
+        catalysts_block = {
+            'status': 'ready' if completeness['is_valid'] else 'incomplete',
+            'ranked': ranked,
+            'ranking_method': catalyst_meta.get('ranking_method', 'deterministic'),
+            'weekly_mode': bool(catalyst_meta.get('weekly_mode', False)),
+            'expected_min_catalysts': int(catalyst_meta.get('expected_min_catalysts') or 3),
+            'official_release_today': bool(release_meta.get('official_release_today')),
+            'official_release_kinds': list(release_meta.get('official_release_kinds') or []),
+            'completeness': completeness,
+            'source_file': 'daily-news/market_catalysts.json',
+        }
+        if not completeness['is_valid']:
+            for err in completeness['errors']:
+                validation['blocking_failures'].append(f'catalysts: {err}')
+            validation['is_valid'] = False
+
     pulse_input_status = 'ready' if validation['is_valid'] else 'partial'
 
     return {
         'metadata': {
-            'market_date': metadata.get('market_date') or metadata.get('date'),
+            'market_date': market_date,
             'previous_market_date': metadata.get('previous_market_date'),
             'generated_at': metadata.get('generated_at'),
             'timezone': metadata.get('timezone') or 'America/New_York',
@@ -375,17 +444,14 @@ def build_market_pulse_input(combined: Dict[str, Any]) -> Dict[str, Any]:
             'data_sources': metadata.get('data_sources') or [],
         },
         'core': core,
-        'catalysts': {
-            'status': 'phase_2_pending',
-            'ranked': [],
-            'note': 'Catalyst collection and ranking are implemented in Phase 2; do not interpret an empty ranked list as no catalysts for the session.',
-        },
+        'catalysts': catalysts_block,
         'optional_context': build_optional_context(combined),
         'validation': validation,
         'sources': {
             'snapshot': 'dailycombined/market_snapshot.json',
             'market_pulse_input': 'dailycombined/market_pulse_input.json',
             'schema': 'dailycombined/market_pulse_input.schema.json',
+            'catalysts': 'daily-news/market_catalysts.json',
             'r2_url': 'https://r2.deanfi.com/dailycombined/market_pulse_input.json',
         },
     }
@@ -1332,10 +1398,29 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
             source='dailycombined/combine_daily_snapshots.py',
         )
     
+    # Load market catalysts (Phase 2) if the collector has written them.
+    # A missing file -> None (legacy "Phase 2 not deployed" path is preserved).
+    # A malformed file -> CatalystLoadError stashed as a tombstone so
+    # build_market_pulse_input can convert it into a blocking validation
+    # failure rather than silently routing to the phase_2_pending placeholder.
+    market_catalysts = None
+    try:
+        market_catalysts = catalyst_integration.load_market_catalysts(data_dir)
+    except catalyst_integration.CatalystLoadError as exc:
+        print(f"WARNING: market_catalysts.json present but unreadable: {exc}")
+        combined['data']['market_catalysts'] = {'__load_error__': str(exc)}
+    if market_catalysts is not None:
+        combined['data']['market_catalysts'] = market_catalysts
+        combined['metadata']['data_sources'].append({
+            'category': 'market_catalysts',
+            'source': 'daily-news/market_catalysts.json',
+            'last_updated': (market_catalysts.get('metadata') or {}).get('generated_at'),
+        })
+
     # Add summary statistics
     combined['metadata']['total_sources'] = len(combined['metadata']['data_sources'])
     combined['metadata']['categories_included'] = list(combined['data'].keys())
-    
+
     return combined
 
 
