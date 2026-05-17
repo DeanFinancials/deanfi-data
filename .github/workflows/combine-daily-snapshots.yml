@@ -42,6 +42,14 @@ jobs:
             echo "❌ market_snapshot.json not found"
             exit 1
           fi
+          
+          if [ -f dailycombined/market_pulse_input.json ]; then
+            echo "✅ market_pulse_input.json created successfully"
+            ls -lh dailycombined/market_pulse_input.json
+          else
+            echo "❌ market_pulse_input.json not found"
+            exit 1
+          fi
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -51,7 +59,7 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler
       
-      - name: Upload to R2
+      - name: Upload market snapshot to R2
         run: |
           echo "📤 Uploading market_snapshot.json to R2 bucket: $R2_BUCKET_NAME"
           
@@ -72,12 +80,42 @@ jobs:
             exit 1
           fi
       
+      - name: Install Python validation dependencies
+        run: python -m pip install jsonschema
+      
+      - name: Validate Market Pulse input
+        run: python dailycombined/validate_market_pulse_input.py dailycombined/market_pulse_input.json
+      
+      - name: Upload Market Pulse input to R2
+        run: |
+          echo "📤 Uploading market_pulse_input.json to R2 bucket: $R2_BUCKET_NAME"
+          
+          if wrangler r2 object put "$R2_BUCKET_NAME/dailycombined/market_pulse_input.json" --file="dailycombined/market_pulse_input.json" --remote; then
+            echo "✅ Successfully uploaded to R2: dailycombined/market_pulse_input.json"
+            echo "🌐 Available at: https://r2.deanfi.com/dailycombined/market_pulse_input.json"
+            echo ""
+            echo "📊 File Info:"
+            ls -lh dailycombined/market_pulse_input.json
+          else
+            echo "❌ Failed to upload Market Pulse input to R2"
+            exit 1
+          fi
+      
       - name: Optional - Commit to repository
+        if: always()
         continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dailycombined/market_snapshot.json
+          if [ ! -f dailycombined/market_snapshot.json ]; then
+            echo "No market_snapshot.json to commit"
+            exit 0
+          fi
+          if [ -f dailycombined/market_pulse_input.json ]; then
+            git add dailycombined/market_snapshot.json dailycombined/market_pulse_input.json
+          else
+            git add dailycombined/market_snapshot.json
+          fi
           
           if git diff --staged --quiet; then
             echo "No changes to commit"

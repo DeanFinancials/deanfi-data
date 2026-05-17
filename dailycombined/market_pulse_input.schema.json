@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://deanfi.com/schemas/market_pulse_input.schema.json",
+  "title": "DeanFi Market Pulse Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "core",
+    "catalysts",
+    "optional_context",
+    "validation",
+    "sources"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "market_date",
+        "generated_at",
+        "timezone",
+        "pulse_input_status",
+        "data_sources"
+      ],
+      "properties": {
+        "market_date": { "type": ["string", "null"] },
+        "previous_market_date": { "type": ["string", "null"] },
+        "generated_at": { "type": "string" },
+        "timezone": { "type": "string" },
+        "pulse_input_status": {
+          "type": "string",
+          "enum": ["ready", "partial"]
+        },
+        "data_sources": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      }
+    },
+    "core": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "catalysts": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["ranked"],
+      "properties": {
+        "ranked": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      }
+    },
+    "optional_context": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["included", "omitted_stale", "omitted_empty", "omitted_low_relevance"]
+          },
+          "reason": { "type": "string" },
+          "source": { "type": "string" },
+          "record_count": { "type": "integer" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["is_valid", "blocking_failures"],
+      "properties": {
+        "is_valid": { "type": "boolean" },
+        "blocking_failures": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

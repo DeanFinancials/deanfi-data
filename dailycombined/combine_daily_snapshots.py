@@ -215,6 +215,199 @@ def build_simple_date_lookup(series_payload: Optional[Dict[str, Any]]) -> Dict[s
     return out
 
 
+def parse_iso_datetime(value: Any) -> Optional[datetime]:
+    if not isinstance(value, str) or not value:
+        return None
+    normalized = value.replace('Z', '+00:00')
+    try:
+        parsed = datetime.fromisoformat(normalized)
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed
+
+
+def is_stale_for_market_date(last_updated: Any, market_date: Optional[str]) -> bool:
+    if not market_date:
+        return False
+    parsed = parse_iso_datetime(last_updated)
+    if not parsed:
+        return False
+    return parsed.date().isoformat() < market_date
+
+
+def has_meaningful_fund_flow_signal(fund_flows: Dict[str, Any]) -> bool:
+    for payload in fund_flows.values():
+        if not isinstance(payload, dict):
+            continue
+        daily_rows = ((payload.get('data') or {}).get('daily')) if isinstance(payload.get('data'), dict) else None
+        if not isinstance(daily_rows, list):
+            continue
+        for row in daily_rows:
+            groups = row.get('groups') if isinstance(row, dict) else None
+            if not isinstance(groups, dict):
+                continue
+            for group in groups.values():
+                if not isinstance(group, dict):
+                    continue
+                if group.get('flow_nav') is not None or group.get('flow_close') is not None:
+                    return True
+    return False
+
+
+def get_whale_trade_count(payload: Dict[str, Any]) -> int:
+    metadata = payload.get('metadata') if isinstance(payload.get('metadata'), dict) else {}
+    value = metadata.get('total_whale_trades')
+    return int(value) if isinstance(value, int) else 0
+
+
+def build_optional_context(combined: Dict[str, Any]) -> Dict[str, Any]:
+    metadata = combined.get('metadata', {}) if isinstance(combined.get('metadata'), dict) else {}
+    blocks = metadata.get('blocks') if isinstance(metadata.get('blocks'), dict) else {}
+    data = combined.get('data', {}) if isinstance(combined.get('data'), dict) else {}
+
+    module_map = {
+        'economy': 'economy',
+        'earnings': 'weekly',
+        'fund_flows': 'fund_flows',
+        'options_whales': 'options_whales',
+        'stock_whales': 'stock_whales',
+    }
+
+    out: Dict[str, Any] = {}
+    for module_name, data_key in module_map.items():
+        block = blocks.get(data_key) if isinstance(blocks.get(data_key), dict) else {}
+        raw_status = block.get('status')
+        module_data = data.get(data_key)
+
+        if raw_status == 'ok' and not is_empty_value(module_data):
+            status = 'included'
+        elif raw_status == 'stale':
+            status = 'omitted_stale'
+        elif raw_status == 'low_relevance':
+            status = 'omitted_low_relevance'
+        else:
+            status = 'omitted_empty'
+
+        payload: Dict[str, Any] = {'status': status}
+        for key in ['reason', 'source', 'last_updated', 'record_count']:
+            if key in block:
+                payload[key] = block[key]
+        if status == 'included':
+            payload['data'] = module_data
+        out[module_name] = payload
+
+    return out
+
+
+REQUIRED_MARKET_PULSE_CORE_FIELDS = [
+    'major_index_closes',
+    'five_session_index_returns',
+    'breadth',
+    'five_session_breadth_lookback',
+    'moving_average_participation',
+    'sector_leaders',
+    'sector_laggards',
+    'vix',
+    'five_session_vix_lookback',
+    'major_etf_implied_volatility',
+    'spy_technical_levels',
+    'five_session_spy_sma',
+]
+
+
+def validate_market_pulse_core(core: Dict[str, Any]) -> Dict[str, Any]:
+    failures = []
+    field_status: Dict[str, str] = {}
+    for field in REQUIRED_MARKET_PULSE_CORE_FIELDS:
+        if is_empty_value(core.get(field)):
+            failures.append(f'missing core.{field}')
+            field_status[field] = 'missing'
+        else:
+            field_status[field] = 'present'
+
+    return {
+        'is_valid': not failures,
+        'blocking_failures': failures,
+        'core_fields': field_status,
+    }
+
+
+def build_market_pulse_input(combined: Dict[str, Any]) -> Dict[str, Any]:
+    """Build the stricter Market Pulse article-generation package."""
+    metadata = combined.get('metadata', {}) if isinstance(combined.get('metadata'), dict) else {}
+    data = combined.get('data', {}) if isinstance(combined.get('data'), dict) else {}
+    writer_ready = data.get('writer_ready') if isinstance(data.get('writer_ready'), dict) else {}
+    breadth = writer_ready.get('breadth_table') if isinstance(writer_ready.get('breadth_table'), dict) else {}
+    volatility = writer_ready.get('volatility_summary') if isinstance(writer_ready.get('volatility_summary'), dict) else {}
+    technical_levels = writer_ready.get('technical_levels') if isinstance(writer_ready.get('technical_levels'), dict) else {}
+    spy_levels = technical_levels.get('SPY') if isinstance(technical_levels.get('SPY'), dict) else {}
+
+    core = {
+        'major_index_closes': writer_ready.get('major_indexes_table') or [],
+        'five_session_index_returns': writer_ready.get('index_table_5day') or {},
+        'breadth': breadth,
+        'five_session_breadth_lookback': writer_ready.get('breadth_lookback_5day') or {},
+        'moving_average_participation': {
+            'above_20_day_ma_pct': breadth.get('above_20_day_ma_pct'),
+            'above_50_day_ma_pct': breadth.get('above_50_day_ma_pct'),
+            'above_200_day_ma_pct': breadth.get('above_200_day_ma_pct'),
+        },
+        'sector_leaders': writer_ready.get('sector_leaders') or [],
+        'sector_laggards': writer_ready.get('sector_laggards') or [],
+        'vix': volatility.get('vix') if isinstance(volatility.get('vix'), dict) else {},
+        'five_session_vix_lookback': writer_ready.get('vix_table_5day') or {},
+        'major_etf_implied_volatility': volatility.get('major_index_iv') or [],
+        'spy_technical_levels': spy_levels,
+        'five_session_spy_sma': writer_ready.get('spy_sma_table_5day') or {},
+    }
+    validation = validate_market_pulse_core(core)
+    pulse_input_status = 'ready' if validation['is_valid'] else 'partial'
+
+    return {
+        'metadata': {
+            'market_date': metadata.get('market_date') or metadata.get('date'),
+            'previous_market_date': metadata.get('previous_market_date'),
+            'generated_at': metadata.get('generated_at'),
+            'timezone': metadata.get('timezone') or 'America/New_York',
+            'pulse_input_status': pulse_input_status,
+            'data_sources': metadata.get('data_sources') or [],
+        },
+        'core': core,
+        'catalysts': {
+            'status': 'phase_2_pending',
+            'ranked': [],
+            'note': 'Catalyst collection and ranking are implemented in Phase 2; do not interpret an empty ranked list as no catalysts for the session.',
+        },
+        'optional_context': build_optional_context(combined),
+        'validation': validation,
+        'sources': {
+            'snapshot': 'dailycombined/market_snapshot.json',
+            'market_pulse_input': 'dailycombined/market_pulse_input.json',
+            'schema': 'dailycombined/market_pulse_input.schema.json',
+            'r2_url': 'https://r2.deanfi.com/dailycombined/market_pulse_input.json',
+        },
+    }
+
+
+def write_combined_outputs(combined: Dict[str, Any], output_dir: Path) -> Dict[str, Path]:
+    """Write the backward-compatible snapshot and the Market Pulse input."""
+    snapshot_file = output_dir / 'market_snapshot.json'
+    with open(snapshot_file, 'w') as f:
+        json.dump(combined, f, indent=2)
+
+    market_pulse_input = build_market_pulse_input(combined)
+    market_pulse_file = output_dir / 'market_pulse_input.json'
+    with open(market_pulse_file, 'w') as f:
+        json.dump(market_pulse_input, f, indent=2)
+
+    return {
+        'market_snapshot': snapshot_file,
+        'market_pulse_input': market_pulse_file,
+    }
+
+
 def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     """
     Combine all daily snapshot data into a single structure.
@@ -629,6 +822,132 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
             reason='No economy indicators loaded',
             source='economy-breadth/*.json',
         )
+
+    # ==================== OPTIONAL MARKET PULSE CONTEXT ====================
+    print("\n🧭 Loading optional Market Pulse context...")
+    market_month = session_market_date[:7] if session_market_date else datetime.now(timezone.utc).strftime('%Y-%m')
+
+    fund_flow_files = {
+        'asset_class': f'etf_fund_flows_agg_asset_class_{market_month}.json',
+        'category': f'etf_fund_flows_agg_category_{market_month}.json',
+        'subcategory': f'etf_fund_flows_agg_subcategory_{market_month}.json',
+    }
+    fund_flows: Dict[str, Any] = {}
+    fund_flow_last_updated: Optional[str] = None
+    for key, filename in fund_flow_files.items():
+        payload = load_json_file(data_dir / 'etf-fund-flows' / filename)
+        if not payload:
+            continue
+        fund_flows[key] = payload
+        last_updated = payload.get('metadata', {}).get('generated_at')
+        if isinstance(last_updated, str):
+            fund_flow_last_updated = last_updated
+        combined['metadata']['data_sources'].append({
+            'category': f'fund_flows_{key}',
+            'source': f'etf-fund-flows/{filename}',
+            'last_updated': last_updated or 'N/A',
+        })
+        print(f"   ✓ ETF fund flows loaded ({key})")
+
+    if fund_flows:
+        combined['data']['fund_flows'] = fund_flows
+        fund_flow_status = 'ok'
+        fund_flow_reason = None
+        if is_stale_for_market_date(fund_flow_last_updated, session_market_date):
+            fund_flow_status = 'stale'
+            fund_flow_reason = 'Fund flow data is older than the market date'
+        elif not has_meaningful_fund_flow_signal(fund_flows):
+            fund_flow_status = 'low_relevance'
+            fund_flow_reason = 'Fund flow files loaded but contain no measured flow values'
+        set_block_status(
+            combined,
+            'fund_flows',
+            status=fund_flow_status,
+            reason=fund_flow_reason,
+            source='etf-fund-flows/etf_fund_flows_agg_*_YYYY-MM.json',
+            last_updated=fund_flow_last_updated,
+            record_count=len(fund_flows),
+        )
+    else:
+        set_block_status(
+            combined,
+            'fund_flows',
+            status='missing',
+            reason='No ETF fund flow aggregate files loaded for market month',
+            source='etf-fund-flows/etf_fund_flows_agg_*_YYYY-MM.json',
+        )
+
+    options_whales = load_json_file(data_dir / 'options-whales' / 'options_whale_summary.json')
+    if options_whales:
+        combined['data']['options_whales'] = options_whales
+        options_last_updated = options_whales.get('metadata', {}).get('generated_at')
+        combined['metadata']['data_sources'].append({
+            'category': 'options_whales',
+            'source': 'options-whales/options_whale_summary.json',
+            'last_updated': options_last_updated or 'N/A',
+        })
+        options_status = 'ok'
+        options_reason = None
+        if is_stale_for_market_date(options_last_updated, session_market_date):
+            options_status = 'stale'
+            options_reason = 'Options whale summary is older than the market date'
+        elif get_whale_trade_count(options_whales) <= 0:
+            options_status = 'low_relevance'
+            options_reason = 'Options whale summary contains no whale trades'
+        set_block_status(
+            combined,
+            'options_whales',
+            status=options_status,
+            reason=options_reason,
+            source='options-whales/options_whale_summary.json',
+            last_updated=options_last_updated,
+            record_count=get_whale_trade_count(options_whales),
+        )
+        print("   ✓ Options whale summary loaded")
+    else:
+        set_block_status(
+            combined,
+            'options_whales',
+            status='missing',
+            reason='Options whale summary not loaded',
+            source='options-whales/options_whale_summary.json',
+        )
+
+    stock_whales = load_json_file(data_dir / 'stock-whales' / 'stock_whale_summary.json')
+    if stock_whales:
+        combined['data']['stock_whales'] = stock_whales
+        stock_last_updated = stock_whales.get('metadata', {}).get('generated_at') or stock_whales.get('metadata', {}).get('collection_timestamp')
+        combined['metadata']['data_sources'].append({
+            'category': 'stock_whales',
+            'source': 'stock-whales/stock_whale_summary.json',
+            'last_updated': stock_last_updated or 'N/A',
+        })
+        stock_status = 'ok'
+        stock_reason = None
+        if is_stale_for_market_date(stock_last_updated, session_market_date):
+            stock_status = 'stale'
+            stock_reason = 'Stock whale summary is older than the market date'
+        elif get_whale_trade_count(stock_whales) <= 0:
+            stock_status = 'low_relevance'
+            stock_reason = 'Stock whale summary contains no whale trades'
+        set_block_status(
+            combined,
+            'stock_whales',
+            status=stock_status,
+            reason=stock_reason,
+            source='stock-whales/stock_whale_summary.json',
+            last_updated=stock_last_updated,
+            record_count=get_whale_trade_count(stock_whales),
+        )
+        print("   ✓ Stock whale summary loaded")
+    else:
+        set_block_status(
+            combined,
+            'stock_whales',
+            status='missing',
+            reason='Stock whale summary not loaded',
+            source='stock-whales/stock_whale_summary.json',
+        )
     
     # ==================== WEEKLY DATA (if available) ====================
     print("\n📅 Loading weekly data (if available)...")
@@ -1036,15 +1355,16 @@ def main():
     # Combine all snapshots
     combined_data = combine_snapshots(data_dir)
     
-    # Save to JSON file
-    output_file = script_dir / 'market_snapshot.json'
-    with open(output_file, 'w') as f:
-        json.dump(combined_data, f, indent=2)
+    # Save output files
+    output_files = write_combined_outputs(combined_data, script_dir)
+    output_file = output_files['market_snapshot']
+    market_pulse_file = output_files['market_pulse_input']
     
     print("\n" + "=" * 80)
     print("✅ COMBINATION COMPLETE!")
     print("=" * 80)
     print(f"\n📁 Output: {output_file}")
+    print(f"📁 Market Pulse input: {market_pulse_file}")
     print(f"📊 Total sources: {combined_data['metadata']['total_sources']}")
     print(f"📂 Categories: {', '.join(combined_data['metadata']['categories_included'])}")
     print(f"🕐 Generated: {combined_data['metadata']['generated_at']}")
