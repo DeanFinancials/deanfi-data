@@ -284,11 +284,16 @@ def test_generated_market_pulse_input_conforms_to_schema():
 def test_combine_workflow_validates_and_uploads_market_pulse_input():
     workflow = (REPO_ROOT / ".github" / "workflows" / "combine-daily-snapshots.yml").read_text()
 
+    dependency_install = workflow.index("python -m pip install jsonschema openai")
+    combine_step = workflow.index("python combine_daily_snapshots.py")
     snapshot_upload = workflow.index("$R2_BUCKET_NAME/dailycombined/market_snapshot.json")
     pulse_validation = workflow.index("python dailycombined/validate_market_pulse_input.py dailycombined/market_pulse_input.json")
 
+    assert dependency_install < combine_step
     assert snapshot_upload < pulse_validation
-    assert "python -m pip install jsonschema" in workflow
+    assert 'OPENAI_API_KEY: "${{ secrets.OPENAI_API_KEY }}"' in workflow
+    assert 'MARKET_PULSE_RANKER_MODEL: "${{ vars.MARKET_PULSE_RANKER_MODEL }}"' in workflow
+    assert "python -m pip install jsonschema openai" in workflow
     assert "python dailycombined/validate_market_pulse_input.py dailycombined/market_pulse_input.json" in workflow
     assert "dailycombined/market_pulse_input.json" in workflow
     assert "$R2_BUCKET_NAME/dailycombined/market_pulse_input.json" in workflow

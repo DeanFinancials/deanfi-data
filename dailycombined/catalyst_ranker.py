@@ -152,4 +152,4 @@ class OpenAIRankerClient:  # pragma: no cover - thin runtime wrapper
 
 
 def default_model_id() -> str:
-    return os.getenv("MARKET_PULSE_RANKER_MODEL", "gpt-4o-mini")
+    return os.getenv("MARKET_PULSE_RANKER_MODEL", "gpt-5-nano")

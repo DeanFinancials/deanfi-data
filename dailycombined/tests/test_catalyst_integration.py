@@ -2,6 +2,7 @@
 
 import json
 import sys
+import types
 from pathlib import Path
 
 
@@ -155,6 +156,72 @@ def test_build_market_pulse_input_auto_reads_market_catalysts_via_combine_snapsh
 
     assert pulse["catalysts"]["status"] == "ready"
     assert [c["title"] for c in pulse["catalysts"]["ranked"]] == ["FOMC statement", "Bloomberg recap", "Tech leads"]
+
+
+def test_optional_ai_ranker_reorders_loaded_catalysts_when_configured(tmp_path, monkeypatch):
+    (tmp_path / "daily-news").mkdir()
+    (tmp_path / "daily-news" / "market_catalysts.json").write_text(json.dumps({
+        "metadata": {"market_date": "2026-05-15", "generated_at": "2026-05-15T21:05:00Z",
+                     "weekly_mode": False, "expected_min_catalysts": 3,
+                     "ranking_method": "deterministic"},
+        "ranked": [
+            _ranked_catalyst(title="FOMC statement", url="https://www.federalreserve.gov/a"),
+            _ranked_catalyst(source="Bloomberg", source_tier="premium",
+                             url="https://www.bloomberg.com/a", title="Bloomberg recap"),
+            _ranked_catalyst(source="CNBC", source_tier="premium",
+                             url="https://www.cnbc.com/b", title="Tech leads"),
+        ],
+    }))
+
+    class FakeRankerClient:
+        def __init__(self, _client):
+            pass
+
+        def rank(self, *, model, messages, response_format):
+            assert model == "gpt-5-nano"
+            assert "Major indexes" in messages[1]["content"] or "Daily market snapshot" in messages[1]["content"]
+            assert response_format["type"] == "json_schema"
+            return {
+                "ranked_urls": [
+                    "https://www.bloomberg.com/a",
+                    "https://www.federalreserve.gov/a",
+                    "https://www.cnbc.com/b",
+                ]
+            }
+
+    monkeypatch.setattr(combine_daily_snapshots.catalyst_ranker, "OpenAIRankerClient", FakeRankerClient)
+    monkeypatch.setitem(sys.modules, "openai", types.SimpleNamespace(OpenAI=lambda api_key: object()))
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    monkeypatch.setenv("MARKET_PULSE_RANKER_MODEL", "gpt-5-nano")
+
+    combined = combine_daily_snapshots.combine_snapshots(tmp_path)
+    pulse = combine_daily_snapshots.build_market_pulse_input(combined)
+
+    assert [c["title"] for c in pulse["catalysts"]["ranked"]][:2] == ["Bloomberg recap", "FOMC statement"]
+    assert pulse["catalysts"]["ranking_method"] == "ai"
+
+
+def test_optional_ai_ranker_preserves_deterministic_order_without_api_key(tmp_path, monkeypatch):
+    (tmp_path / "daily-news").mkdir()
+    (tmp_path / "daily-news" / "market_catalysts.json").write_text(json.dumps({
+        "metadata": {"market_date": "2026-05-15", "generated_at": "2026-05-15T21:05:00Z",
+                     "weekly_mode": False, "expected_min_catalysts": 3,
+                     "ranking_method": "deterministic"},
+        "ranked": [
+            _ranked_catalyst(title="FOMC statement", url="https://www.federalreserve.gov/a"),
+            _ranked_catalyst(source="Bloomberg", source_tier="premium",
+                             url="https://www.bloomberg.com/a", title="Bloomberg recap"),
+            _ranked_catalyst(source="CNBC", source_tier="premium",
+                             url="https://www.cnbc.com/b", title="Tech leads"),
+        ],
+    }))
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+
+    combined = combine_daily_snapshots.combine_snapshots(tmp_path)
+    pulse = combine_daily_snapshots.build_market_pulse_input(combined)
+
+    assert [c["title"] for c in pulse["catalysts"]["ranked"]] == ["FOMC statement", "Bloomberg recap", "Tech leads"]
+    assert pulse["catalysts"]["ranking_method"] == "deterministic"
 
 
 def test_apply_market_context_boosts_catalysts_mentioning_todays_leaders():

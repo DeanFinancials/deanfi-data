@@ -17,11 +17,13 @@ Daily Snapshot Sources:
 Output: market_snapshot.json - Combined snapshot with all daily data
 """
 import json
+import os
 from pathlib import Path
 from datetime import datetime, timezone
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Callable
 
 import catalyst_integration
+import catalyst_ranker
 
 
 def is_empty_value(value: Any) -> bool:
@@ -77,6 +79,82 @@ def load_json_file(file_path: Path) -> Optional[Dict[str, Any]]:
     except Exception as e:
         print(f"❌ Error loading {file_path}: {e}")
         return None
+
+
+def build_market_summary_for_ranker(combined: Dict[str, Any]) -> str:
+    """Build a compact market summary for optional catalyst re-ranking."""
+    data = combined.get('data', {}) if isinstance(combined.get('data'), dict) else {}
+    writer_ready = data.get('writer_ready') if isinstance(data.get('writer_ready'), dict) else {}
+    parts: list[str] = []
+
+    indexes = writer_ready.get('major_indexes_table') or []
+    if isinstance(indexes, list) and indexes:
+        index_bits = []
+        for row in indexes[:4]:
+            if not isinstance(row, dict):
+                continue
+            name = row.get('name') or row.get('symbol') or 'Index'
+            change = row.get('change_percent')
+            if isinstance(change, (int, float)):
+                index_bits.append(f"{name} {change:+.2f}%")
+        if index_bits:
+            parts.append("Major indexes: " + ", ".join(index_bits))
+
+    leaders = writer_ready.get('sector_leaders') or []
+    laggards = writer_ready.get('sector_laggards') or []
+    if isinstance(leaders, list) and leaders:
+        names = [str(row.get('sector_name') or row.get('sector') or row.get('name') or row.get('symbol')) for row in leaders[:3] if isinstance(row, dict)]
+        if names:
+            parts.append("Sector leaders: " + ", ".join(names))
+    if isinstance(laggards, list) and laggards:
+        names = [str(row.get('sector_name') or row.get('sector') or row.get('name') or row.get('symbol')) for row in laggards[:3] if isinstance(row, dict)]
+        if names:
+            parts.append("Sector laggards: " + ", ".join(names))
+
+    breadth = writer_ready.get('breadth_table') if isinstance(writer_ready.get('breadth_table'), dict) else {}
+    ad_ratio = breadth.get('advance_decline_ratio')
+    if isinstance(ad_ratio, (int, float)):
+        parts.append(f"Advance/decline ratio: {ad_ratio:.3f}")
+
+    volatility = writer_ready.get('volatility_summary') if isinstance(writer_ready.get('volatility_summary'), dict) else {}
+    vix = volatility.get('vix') if isinstance(volatility.get('vix'), dict) else {}
+    vix_close = vix.get('close')
+    if isinstance(vix_close, (int, float)):
+        parts.append(f"VIX close: {vix_close:.2f}")
+
+    return "; ".join(parts) or "Daily market snapshot available with writer-ready core data."
+
+
+def maybe_ai_rerank_market_catalysts(
+    market_catalysts: Dict[str, Any],
+    combined: Dict[str, Any],
+    *,
+    env: Optional[Dict[str, str]] = None,
+    client_factory: Optional[Callable[[], Any]] = None,
+) -> Dict[str, Any]:
+    """Optionally re-rank catalysts with OpenAI, preserving deterministic fallback."""
+    resolved_env = env or os.environ
+    if not resolved_env.get('OPENAI_API_KEY'):
+        return market_catalysts
+    if not (market_catalysts.get('ranked') or []):
+        return market_catalysts
+
+    model_id = resolved_env.get('MARKET_PULSE_RANKER_MODEL') or catalyst_ranker.default_model_id()
+    try:
+        if client_factory is None:
+            from openai import OpenAI  # type: ignore
+
+            client_factory = lambda: OpenAI(api_key=resolved_env.get('OPENAI_API_KEY'))
+        client = catalyst_ranker.OpenAIRankerClient(client_factory())
+        return catalyst_ranker.ai_rerank(
+            market_catalysts,
+            market_summary=build_market_summary_for_ranker(combined),
+            model_id=model_id,
+            client=client,
+        )
+    except Exception as exc:
+        print(f"WARNING: optional AI catalyst ranker unavailable; using deterministic order: {exc}")
+        return market_catalysts
 
 
 def pick_first_present(payload: Dict[str, Any], keys: list[str], default: Any) -> Any:
@@ -1410,6 +1488,12 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
         print(f"WARNING: market_catalysts.json present but unreadable: {exc}")
         combined['data']['market_catalysts'] = {'__load_error__': str(exc)}
     if market_catalysts is not None:
+        market_catalysts = catalyst_integration.apply_market_context(
+            market_catalysts,
+            sector_leaders=(combined.get('data', {}).get('writer_ready') or {}).get('sector_leaders'),
+            sector_laggards=(combined.get('data', {}).get('writer_ready') or {}).get('sector_laggards'),
+        )
+        market_catalysts = maybe_ai_rerank_market_catalysts(market_catalysts, combined)
         combined['data']['market_catalysts'] = market_catalysts
         combined['metadata']['data_sources'].append({
             'category': 'market_catalysts',

@@ -155,3 +155,9 @@ def test_ai_rerank_preserves_all_input_catalysts_appending_missing_at_end():
     titles = [c["title"] for c in out["ranked"]]
     assert titles[:2] == ["Bloomberg recap", "FOMC"]
     assert "CPI" in titles
+
+
+def test_default_model_id_uses_gpt_5_nano(monkeypatch):
+    monkeypatch.delenv("MARKET_PULSE_RANKER_MODEL", raising=False)
+
+    assert catalyst_ranker.default_model_id() == "gpt-5-nano"
