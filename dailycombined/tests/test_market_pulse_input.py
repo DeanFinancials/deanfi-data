@@ -306,3 +306,14 @@ def test_combine_workflow_validates_and_uploads_market_pulse_input():
     assert workflow.index("git commit -m") < workflow.index("git pull --rebase origin main")
     assert "git push origin HEAD:main" in workflow
     assert "Snapshot Commit Skipped" in workflow
+
+
+def test_r2_sync_workflow_uses_node_24_native_actions():
+    workflow = (REPO_ROOT / ".github" / "workflows" / "sync-to-r2.yml").read_text()
+
+    assert "actions/checkout@v5" in workflow
+    assert "actions/setup-node@v5" in workflow
+    assert "node-version: '22'" in workflow
+    assert "actions/checkout@v4" not in workflow
+    assert "actions/setup-node@v4" not in workflow
+    assert "node-version: '20'" not in workflow

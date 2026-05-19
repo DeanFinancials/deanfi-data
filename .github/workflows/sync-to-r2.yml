@@ -20,7 +20,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2  # Need 2 commits to detect changes
       
@@ -51,9 +51,9 @@ jobs:
       
       - name: Setup Node.js
         if: steps.changes.outputs.file_count > 0
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '22'
       
       - name: Install Wrangler
         if: steps.changes.outputs.file_count > 0
