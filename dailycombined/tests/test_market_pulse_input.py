@@ -298,3 +298,8 @@ def test_combine_workflow_validates_and_uploads_market_pulse_input():
     assert "dailycombined/market_pulse_input.json" in workflow
     assert "$R2_BUCKET_NAME/dailycombined/market_pulse_input.json" in workflow
     assert "cron: '00 23 * * 1-5'" in workflow
+    assert 'FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"' in workflow
+    assert "permissions:\n      contents: write" in workflow
+    assert "node-version: '22'" in workflow
+    assert workflow.index("git pull --rebase origin main") < workflow.index("git add dailycombined/market_snapshot.json")
+    assert "git push origin HEAD:main" in workflow
