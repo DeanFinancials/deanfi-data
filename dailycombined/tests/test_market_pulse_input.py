@@ -317,3 +317,4 @@ def test_r2_sync_workflow_uses_node_24_native_actions():
     assert "actions/checkout@v4" not in workflow
     assert "actions/setup-node@v4" not in workflow
     assert "node-version: '20'" not in workflow
+    assert "- '.github/workflows/sync-to-r2.yml'" in workflow
