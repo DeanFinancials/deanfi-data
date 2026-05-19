@@ -6,7 +6,6 @@ on:
   workflow_dispatch:  # Allow manual trigger
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   CLOUDFLARE_API_TOKEN: "${{ secrets.CLOUDFLARE_API_TOKEN }}"
   CLOUDFLARE_ACCOUNT_ID: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
   R2_BUCKET_NAME: "${{ secrets.R2_BUCKET_NAME }}"
@@ -22,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout deanfi-data repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -60,7 +59,7 @@ jobs:
           fi
       
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
       
@@ -112,7 +111,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           if [ ! -f dailycombined/market_snapshot.json ]; then
             echo "No market_snapshot.json to commit"
             exit 0
@@ -127,6 +125,21 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: update daily market snapshot - $(date -u +"%Y-%m-%d %H:%M UTC")"
-            git push origin HEAD:main
-            echo "✅ Combined snapshot also pushed to repository"
+            if git push origin HEAD:main; then
+              echo "✅ Combined snapshot also pushed to repository"
+            else
+              echo "Initial push failed; rebasing on latest origin/main and retrying..."
+              if git pull --rebase origin main && git push origin HEAD:main; then
+                echo "✅ Combined snapshot pushed after rebase"
+              else
+                git rebase --abort || true
+                {
+                  echo "## Snapshot Commit Skipped"
+                  echo ""
+                  echo "R2 upload completed, but the optional repository commit could not be pushed."
+                  echo "Re-run this workflow after checking for a concurrent update to these files."
+                } >> "$GITHUB_STEP_SUMMARY"
+                exit 0
+              fi
+            fi
           fi
