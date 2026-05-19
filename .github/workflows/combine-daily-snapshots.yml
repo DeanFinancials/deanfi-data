@@ -2,7 +2,7 @@ name: Combine Daily Snapshots
 
 on:
   schedule:
-    - cron: '15 21,22 * * 1-5'  # 5:15pm ET year-round (21:15=EDT, 22:15=EST)
+    - cron: '00 23 * * 1-5'  # Runs after daily-news catalysts at 22:30 UTC.
   workflow_dispatch:  # Allow manual trigger
 
 env:

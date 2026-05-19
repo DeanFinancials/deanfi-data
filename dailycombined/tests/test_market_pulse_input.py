@@ -297,3 +297,4 @@ def test_combine_workflow_validates_and_uploads_market_pulse_input():
     assert "python dailycombined/validate_market_pulse_input.py dailycombined/market_pulse_input.json" in workflow
     assert "dailycombined/market_pulse_input.json" in workflow
     assert "$R2_BUCKET_NAME/dailycombined/market_pulse_input.json" in workflow
+    assert "cron: '00 23 * * 1-5'" in workflow
