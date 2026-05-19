@@ -9,6 +9,9 @@ on:
       - '.github/workflows/sync-to-r2.yml'
   workflow_dispatch:  # Allow manual trigger
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   sync-to-r2:
     runs-on: ubuntu-latest
