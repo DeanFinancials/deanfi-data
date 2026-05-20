@@ -1,6 +1,8 @@
 name: Sync to Cloudflare R2
 
 on:
+  schedule:
+    - cron: '15 23 * * 1-5'  # 23:15 UTC — runs after combine-daily-snapshots (23:00 UTC) finishes
   push:
     branches:
       - main
