@@ -1,57 +1,57 @@
 {
   "metadata": {
-    "generated_at": "2026-05-20T23:25:02.765105+00:00",
+    "generated_at": "2026-05-21T13:04:57.922680+00:00",
     "description": "Combined daily market snapshot from all data collectors",
     "data_sources": [
       {
         "category": "market_breadth",
         "source": "advance-decline/daily_breadth.json",
-        "last_updated": "2026-05-20T20:29:53.108604+00:00"
+        "last_updated": "2026-05-21T13:00:56.811155+00:00"
       },
       {
         "category": "indexes_us_major",
         "source": "major-indexes/us_major_indices.json",
-        "last_updated": "2026-05-20T20:31:41Z"
+        "last_updated": "2026-05-21T13:02:49Z"
       },
       {
         "category": "indexes_us_sectors",
         "source": "major-indexes/us_sector_indices.json",
-        "last_updated": "2026-05-20T20:31:42Z"
+        "last_updated": "2026-05-21T13:02:50Z"
       },
       {
         "category": "indexes_us_growth_value",
         "source": "major-indexes/us_growth_value_indices.json",
-        "last_updated": "2026-05-20T20:31:43Z"
+        "last_updated": "2026-05-21T13:02:53Z"
       },
       {
         "category": "indexes_international",
         "source": "major-indexes/international_major_indices.json",
-        "last_updated": "2026-05-20T20:31:44Z"
+        "last_updated": "2026-05-21T13:02:58Z"
       },
       {
         "category": "indexes_bonds",
         "source": "major-indexes/bond_treasury_indices.json",
-        "last_updated": "2026-05-20T20:31:48Z"
+        "last_updated": "2026-05-21T13:03:11Z"
       },
       {
         "category": "indexes_commodities",
         "source": "major-indexes/commodity_indices.json",
-        "last_updated": "2026-05-20T20:31:50Z"
+        "last_updated": "2026-05-21T13:03:16Z"
       },
       {
         "category": "mean_reversion_ma_spreads",
         "source": "meanreversion/ma_spreads_snapshot.json",
-        "last_updated": "2026-05-20T20:31:54.111353+00:00"
+        "last_updated": "2026-05-21T13:03:23.358635+00:00"
       },
       {
         "category": "mean_reversion_price_vs_ma",
         "source": "meanreversion/price_vs_ma_snapshot.json",
-        "last_updated": "2026-05-20T20:31:52.075983+00:00"
+        "last_updated": "2026-05-21T13:03:19.733755+00:00"
       },
       {
         "category": "support_resistence",
         "source": "supportresistence/support_resistence.json",
-        "last_updated": "2026-05-20T11:04:11.889768+00:00"
+        "last_updated": "2026-05-21T11:07:04.632502+00:00"
       },
       {
         "category": "implied_volatility_vix",
@@ -121,7 +121,7 @@
       {
         "category": "stock_whales",
         "source": "stock-whales/stock_whale_summary.json",
-        "last_updated": "2026-05-20T18:28:16.987359"
+        "last_updated": "2026-05-21T03:58:33.047221"
       },
       {
         "category": "weekly_earnings_calendar",
@@ -144,10 +144,10 @@
       "market_breadth": {
         "status": "ok",
         "source": "advance-decline/daily_breadth.json",
-        "last_updated": "2026-05-20T20:29:53.108604+00:00"
+        "last_updated": "2026-05-21T13:00:56.811155+00:00"
       },
       "major_indexes": {
-        "status": "empty",
+        "status": "ok",
         "source": "major-indexes/*.json",
         "record_count": 6
       },
@@ -159,7 +159,7 @@
       "support_resistence": {
         "status": "ok",
         "source": "supportresistence/support_resistence.json",
-        "last_updated": "2026-05-20T11:04:11.889768+00:00"
+        "last_updated": "2026-05-21T11:07:04.632502+00:00"
       },
       "implied_volatility": {
         "status": "ok",
@@ -204,8 +204,8 @@
       "stock_whales": {
         "status": "ok",
         "source": "stock-whales/stock_whale_summary.json",
-        "last_updated": "2026-05-20T18:28:16.987359",
-        "record_count": 1121
+        "last_updated": "2026-05-21T03:58:33.047221",
+        "record_count": 4068
       },
       "weekly": {
         "status": "ok",
@@ -252,11 +252,11 @@
         "interpretation": "Advances > Declines suggests broad market strength"
       },
       "volume_metrics": {
-        "advancing_volume": 2091305505,
-        "declining_volume": 717243381,
-        "total_volume": 2825627875,
-        "volume_ratio": 2.916,
-        "advancing_volume_pct": 74.01,
+        "advancing_volume": 2361956312,
+        "declining_volume": 825502300,
+        "total_volume": 3206388012,
+        "volume_ratio": 2.861,
+        "advancing_volume_pct": 73.66,
         "interpretation": "Volume ratio > 1 means more volume in advancing stocks (bullish)"
       },
       "new_highs_lows": {
@@ -287,12 +287,1286 @@
       }
     },
     "major_indexes": {
-      "us_major": {},
-      "us_sectors": {},
-      "us_growth_value": {},
-      "international": {},
-      "bonds": {},
-      "commodities": {}
+      "us_major": {
+        "^GSPC": {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "description": "Large-cap benchmark (500 companies)",
+          "market_cap_segment": "Large-Cap",
+          "constituent_count": 500,
+          "current_price": null,
+          "daily_change": null,
+          "daily_change_percent": null,
+          "volume": null,
+          "day_high": null,
+          "day_low": null,
+          "day_open": null,
+          "52_week_high": 7501.24,
+          "52_week_low": 5802.82,
+          "distance_from_52w_high_percent": NaN,
+          "1_month_percent": NaN,
+          "3_month_percent": NaN,
+          "6_month_percent": NaN,
+          "pivot_points": {
+            "pivot_point": 7408.71,
+            "resistance_1": 7459.95,
+            "resistance_2": 7486.94,
+            "resistance_3": 7538.18,
+            "support_1": 7381.72,
+            "support_2": 7330.48,
+            "support_3": 7201.0
+          }
+        },
+        "^DJI": {
+          "name": "Dow Jones Industrial Average",
+          "symbol": "^DJI",
+          "description": "Blue-chip 30 companies",
+          "market_cap_segment": "Large-Cap",
+          "constituent_count": 30,
+          "current_price": null,
+          "daily_change": null,
+          "daily_change_percent": null,
+          "volume": null,
+          "day_high": null,
+          "day_low": null,
+          "day_open": null,
+          "52_week_high": 50188.14,
+          "52_week_low": 41603.07,
+          "distance_from_52w_high_percent": NaN,
+          "1_month_percent": NaN,
+          "3_month_percent": NaN,
+          "6_month_percent": NaN,
+          "pivot_points": {
+            "pivot_point": 49770.77,
+            "resistance_1": 50305.8,
+            "resistance_2": 50602.25,
+            "resistance_3": 51137.28,
+            "support_1": 49474.32,
+            "support_2": 48939.29,
+            "support_3": 47572.78
+          }
+        },
+        "^IXIC": {
+          "name": "Nasdaq Composite",
+          "symbol": "^IXIC",
+          "description": "Tech-heavy broad market",
+          "market_cap_segment": "All-Cap",
+          "constituent_count": 3000,
+          "current_price": null,
+          "daily_change": null,
+          "daily_change_percent": null,
+          "volume": null,
+          "day_high": null,
+          "day_low": null,
+          "day_open": null,
+          "52_week_high": 26635.22,
+          "52_week_low": 18737.21,
+          "distance_from_52w_high_percent": NaN,
+          "1_month_percent": NaN,
+          "3_month_percent": NaN,
+          "6_month_percent": NaN,
+          "pivot_points": {
+            "pivot_point": 26157.48,
+            "resistance_1": 26386.64,
+            "resistance_2": 26502.91,
+            "resistance_3": 26732.07,
+            "support_1": 26041.21,
+            "support_2": 25812.05,
+            "support_3": 25237.47
+          }
+        },
+        "^NDX": {
+          "name": "Nasdaq-100",
+          "symbol": "^NDX",
+          "description": "Top 100 non-financial Nasdaq stocks",
+          "market_cap_segment": "Large-Cap",
+          "constituent_count": 100,
+          "current_price": null,
+          "daily_change": null,
+          "daily_change_percent": null,
+          "volume": null,
+          "day_high": null,
+          "day_low": null,
+          "day_open": null,
+          "52_week_high": 29580.3,
+          "52_week_low": 20915.66,
+          "distance_from_52w_high_percent": NaN,
+          "1_month_percent": NaN,
+          "3_month_percent": NaN,
+          "6_month_percent": NaN,
+          "pivot_points": {
+            "pivot_point": 29172.81,
+            "resistance_1": 29426.17,
+            "resistance_2": 29554.65,
+            "resistance_3": 29808.01,
+            "support_1": 29044.33,
+            "support_2": 28790.97,
+            "support_3": 28155.76
+          }
+        },
+        "^RUT": {
+          "name": "Russell 2000",
+          "symbol": "^RUT",
+          "description": "Small-cap benchmark",
+          "market_cap_segment": "Small-Cap",
+          "constituent_count": 2000,
+          "current_price": null,
+          "daily_change": null,
+          "daily_change_percent": null,
+          "volume": null,
+          "day_high": null,
+          "day_low": null,
+          "day_open": null,
+          "52_week_high": 2886.77,
+          "52_week_low": 2039.85,
+          "distance_from_52w_high_percent": NaN,
+          "1_month_percent": NaN,
+          "3_month_percent": NaN,
+          "6_month_percent": NaN,
+          "pivot_points": {
+            "pivot_point": 2797.02,
+            "resistance_1": 2838.34,
+            "resistance_2": 2859.3,
+            "resistance_3": 2900.62,
+            "support_1": 2776.06,
+            "support_2": 2734.74,
+            "support_3": 2631.15
+          }
+        },
+        "^VIX": {
+          "name": "CBOE Volatility Index",
+          "symbol": "^VIX",
+          "description": "Market fear gauge (VIX)",
+          "market_cap_segment": "N/A",
+          "constituent_count": 0,
+          "current_price": 17.71,
+          "daily_change": 0.27,
+          "daily_change_percent": 1.55,
+          "volume": 0,
+          "day_high": 17.87,
+          "day_low": 17.15,
+          "day_open": 17.58,
+          "52_week_high": 31.05,
+          "52_week_low": 13.47,
+          "distance_from_52w_high_percent": -42.96,
+          "year_to_date_percent": 18.46,
+          "1_month_percent": -6.4,
+          "3_month_percent": -7.23,
+          "6_month_percent": -28.27,
+          "pivot_points": {
+            "pivot_point": 17.58,
+            "resistance_1": 18.04,
+            "resistance_2": 18.63,
+            "resistance_3": 19.09,
+            "support_1": 16.99,
+            "support_2": 16.53,
+            "support_3": 15.03
+          },
+          "special_notes": "Measures implied volatility, not price index"
+        }
+      },
+      "us_sectors": {
+        "XLK": {
+          "name": "Technology Select Sector SPDR Fund",
+          "symbol": "XLK",
+          "sector_name": "Technology",
+          "gics_code": "45",
+          "description": "Software, semiconductors, IT services, hardware",
+          "current_price": 177.14,
+          "daily_change": 3.9,
+          "daily_change_percent": 2.25,
+          "volume": 12624500,
+          "day_high": 177.25,
+          "day_low": 173.95,
+          "day_open": 174.66,
+          "52_week_high": 179.5,
+          "52_week_low": 113.4,
+          "distance_from_52w_high_percent": -1.31,
+          "year_to_date_percent": 23.04,
+          "1_month_percent": 14.51,
+          "3_month_percent": 26.34,
+          "6_month_percent": 24.9,
+          "relative_to_sp500_1d": 1.17,
+          "pivot_points": {
+            "pivot_point": 173.08,
+            "resistance_1": 175.34,
+            "resistance_2": 177.43,
+            "resistance_3": 179.69,
+            "support_1": 170.99,
+            "support_2": 168.73,
+            "support_3": 162.13
+          }
+        },
+        "XLV": {
+          "name": "Health Care Select Sector SPDR Fund",
+          "symbol": "XLV",
+          "sector_name": "Health Care",
+          "gics_code": "35",
+          "description": "Pharma, biotech, health equipment, providers",
+          "current_price": 147.13,
+          "daily_change": -0.19,
+          "daily_change_percent": -0.13,
+          "volume": 10522500,
+          "day_high": 148.02,
+          "day_low": 146.29,
+          "day_open": 147.54,
+          "52_week_high": 160.2,
+          "52_week_low": 129.01,
+          "distance_from_52w_high_percent": -8.16,
+          "year_to_date_percent": -4.95,
+          "1_month_percent": 0.83,
+          "3_month_percent": -6.44,
+          "6_month_percent": -3.01,
+          "relative_to_sp500_1d": -1.21,
+          "pivot_points": {
+            "pivot_point": 146.75,
+            "resistance_1": 148.64,
+            "resistance_2": 149.97,
+            "resistance_3": 151.86,
+            "support_1": 145.42,
+            "support_2": 143.53,
+            "support_3": 138.41
+          }
+        },
+        "XLF": {
+          "name": "Financial Select Sector SPDR Fund",
+          "symbol": "XLF",
+          "sector_name": "Financials",
+          "gics_code": "40",
+          "description": "Banks, insurance, capital markets, REITs",
+          "current_price": 51.66,
+          "daily_change": 0.56,
+          "daily_change_percent": 1.1,
+          "volume": 42145600,
+          "day_high": 51.71,
+          "day_low": 50.78,
+          "day_open": 51.23,
+          "52_week_high": 56.4,
+          "52_week_low": 47.81,
+          "distance_from_52w_high_percent": -8.4,
+          "year_to_date_percent": -5.68,
+          "1_month_percent": -1.22,
+          "3_month_percent": -0.94,
+          "6_month_percent": 0.41,
+          "relative_to_sp500_1d": 0.02,
+          "pivot_points": {
+            "pivot_point": 51.31,
+            "resistance_1": 51.58,
+            "resistance_2": 52.05,
+            "resistance_3": 52.32,
+            "support_1": 50.84,
+            "support_2": 50.57,
+            "support_3": 49.57
+          }
+        },
+        "XLY": {
+          "name": "Consumer Discretionary Select Sector SPDR Fund",
+          "symbol": "XLY",
+          "sector_name": "Consumer Discretionary",
+          "gics_code": "25",
+          "description": "Retail, automotive, leisure, hotels, restaurants",
+          "current_price": 117.94,
+          "daily_change": 2.91,
+          "daily_change_percent": 2.53,
+          "volume": 12155100,
+          "day_high": 117.95,
+          "day_low": 114.78,
+          "day_open": 115.27,
+          "52_week_high": 124.52,
+          "52_week_low": 104.72,
+          "distance_from_52w_high_percent": -5.28,
+          "year_to_date_percent": -1.23,
+          "1_month_percent": -0.87,
+          "3_month_percent": 1.46,
+          "6_month_percent": 3.13,
+          "relative_to_sp500_1d": 1.45,
+          "pivot_points": {
+            "pivot_point": 114.85,
+            "resistance_1": 115.5,
+            "resistance_2": 115.97,
+            "resistance_3": 116.62,
+            "support_1": 114.38,
+            "support_2": 113.73,
+            "support_3": 111.96
+          }
+        },
+        "XLI": {
+          "name": "Industrial Select Sector SPDR Fund",
+          "symbol": "XLI",
+          "sector_name": "Industrials",
+          "gics_code": "20",
+          "description": "Aerospace, defense, machinery, transportation",
+          "current_price": 170.73,
+          "daily_change": 1.99,
+          "daily_change_percent": 1.18,
+          "volume": 10524700,
+          "day_high": 171.48,
+          "day_low": 168.37,
+          "day_open": 169.23,
+          "52_week_high": 178.9,
+          "52_week_low": 140.83,
+          "distance_from_52w_high_percent": -4.57,
+          "year_to_date_percent": 10.06,
+          "1_month_percent": -0.41,
+          "3_month_percent": -3.18,
+          "6_month_percent": 13.43,
+          "relative_to_sp500_1d": 0.1,
+          "pivot_points": {
+            "pivot_point": 169.01,
+            "resistance_1": 169.91,
+            "resistance_2": 171.08,
+            "resistance_3": 171.98,
+            "support_1": 167.84,
+            "support_2": 166.94,
+            "support_3": 163.97
+          }
+        },
+        "XLP": {
+          "name": "Consumer Staples Select Sector SPDR Fund",
+          "symbol": "XLP",
+          "sector_name": "Consumer Staples",
+          "gics_code": "30",
+          "description": "Food, beverage, tobacco, household products",
+          "current_price": 85.52,
+          "daily_change": -0.57,
+          "daily_change_percent": -0.66,
+          "volume": 14033700,
+          "day_high": 86.07,
+          "day_low": 84.81,
+          "day_open": 85.58,
+          "52_week_high": 90.01,
+          "52_week_low": 75.6,
+          "distance_from_52w_high_percent": -4.99,
+          "year_to_date_percent": 10.09,
+          "1_month_percent": 4.5,
+          "3_month_percent": -2.45,
+          "6_month_percent": 11.4,
+          "relative_to_sp500_1d": -1.74,
+          "pivot_points": {
+            "pivot_point": 85.98,
+            "resistance_1": 86.81,
+            "resistance_2": 87.52,
+            "resistance_3": 88.35,
+            "support_1": 85.27,
+            "support_2": 84.44,
+            "support_3": 82.08
+          }
+        },
+        "XLE": {
+          "name": "Energy Select Sector SPDR Fund",
+          "symbol": "XLE",
+          "sector_name": "Energy",
+          "gics_code": "10",
+          "description": "Oil, gas, consumable fuels, energy equipment",
+          "current_price": 59.8,
+          "daily_change": -1.49,
+          "daily_change_percent": -2.43,
+          "volume": 61740800,
+          "day_high": 61.7,
+          "day_low": 59.68,
+          "day_open": 60.81,
+          "52_week_high": 62.56,
+          "52_week_low": 40.76,
+          "distance_from_52w_high_percent": -4.41,
+          "year_to_date_percent": 33.75,
+          "1_month_percent": 7.03,
+          "3_month_percent": 8.37,
+          "6_month_percent": 32.39,
+          "relative_to_sp500_1d": -3.51,
+          "pivot_points": {
+            "pivot_point": 61.03,
+            "resistance_1": 61.75,
+            "resistance_2": 62.22,
+            "resistance_3": 62.94,
+            "support_1": 60.56,
+            "support_2": 59.84,
+            "support_3": 57.92
+          }
+        },
+        "XLB": {
+          "name": "Materials Select Sector SPDR Fund",
+          "symbol": "XLB",
+          "sector_name": "Materials",
+          "gics_code": "15",
+          "description": "Chemicals, construction materials, metals, mining",
+          "current_price": 49.72,
+          "daily_change": 0.68,
+          "daily_change_percent": 1.39,
+          "volume": 20467000,
+          "day_high": 49.78,
+          "day_low": 48.9,
+          "day_open": 48.99,
+          "52_week_high": 53.62,
+          "52_week_low": 42.23,
+          "distance_from_52w_high_percent": -7.27,
+          "year_to_date_percent": 9.64,
+          "1_month_percent": -3.96,
+          "3_month_percent": -5.89,
+          "6_month_percent": 16.37,
+          "relative_to_sp500_1d": 0.31,
+          "pivot_points": {
+            "pivot_point": 49.26,
+            "resistance_1": 49.64,
+            "resistance_2": 50.23,
+            "resistance_3": 50.61,
+            "support_1": 48.67,
+            "support_2": 48.29,
+            "support_3": 46.95
+          }
+        },
+        "XLC": {
+          "name": "Communication Services Select Sector SPDR Fund",
+          "symbol": "XLC",
+          "sector_name": "Communication Services",
+          "gics_code": "50",
+          "description": "Media, entertainment, telecom, interactive media",
+          "current_price": 116.1,
+          "daily_change": 0.25,
+          "daily_change_percent": 0.22,
+          "volume": 5148800,
+          "day_high": 116.21,
+          "day_low": 114.81,
+          "day_open": 115.65,
+          "52_week_high": 120.08,
+          "52_week_low": 100.19,
+          "distance_from_52w_high_percent": -3.31,
+          "year_to_date_percent": -1.38,
+          "1_month_percent": -0.9,
+          "3_month_percent": 0.83,
+          "6_month_percent": 4.43,
+          "relative_to_sp500_1d": -0.86,
+          "pivot_points": {
+            "pivot_point": 116.23,
+            "resistance_1": 116.75,
+            "resistance_2": 117.66,
+            "resistance_3": 118.18,
+            "support_1": 115.33,
+            "support_2": 114.81,
+            "support_3": 112.86
+          }
+        },
+        "XLU": {
+          "name": "Utilities Select Sector SPDR Fund",
+          "symbol": "XLU",
+          "sector_name": "Utilities",
+          "gics_code": "55",
+          "description": "Electric, gas, water utilities, renewable energy",
+          "current_price": 44.51,
+          "daily_change": 0.17,
+          "daily_change_percent": 0.38,
+          "volume": 17582300,
+          "day_high": 44.86,
+          "day_low": 44.41,
+          "day_open": 44.66,
+          "52_week_high": 47.73,
+          "52_week_low": 40.05,
+          "distance_from_52w_high_percent": -6.75,
+          "year_to_date_percent": 4.26,
+          "1_month_percent": -0.98,
+          "3_month_percent": -3.47,
+          "6_month_percent": -0.6,
+          "relative_to_sp500_1d": -0.7,
+          "pivot_points": {
+            "pivot_point": 44.12,
+            "resistance_1": 44.63,
+            "resistance_2": 44.91,
+            "resistance_3": 45.42,
+            "support_1": 43.84,
+            "support_2": 43.33,
+            "support_3": 42.04
+          }
+        },
+        "XLRE": {
+          "name": "Real Estate Select Sector SPDR Fund",
+          "symbol": "XLRE",
+          "sector_name": "Real Estate",
+          "gics_code": "60",
+          "description": "REITs, real estate management and development",
+          "current_price": 44.43,
+          "daily_change": 0.49,
+          "daily_change_percent": 1.12,
+          "volume": 3861400,
+          "day_high": 44.45,
+          "day_low": 43.86,
+          "day_open": 43.86,
+          "52_week_high": 44.74,
+          "52_week_low": 40.01,
+          "distance_from_52w_high_percent": -0.69,
+          "year_to_date_percent": 10.11,
+          "1_month_percent": 1.48,
+          "3_month_percent": 2.85,
+          "6_month_percent": 9.22,
+          "relative_to_sp500_1d": 0.04,
+          "pivot_points": {
+            "pivot_point": 43.83,
+            "resistance_1": 44.15,
+            "resistance_2": 44.35,
+            "resistance_3": 44.67,
+            "support_1": 43.62,
+            "support_2": 43.3,
+            "support_3": 42.46
+          }
+        }
+      },
+      "us_growth_value": {
+        "^RLG": {
+          "name": "Russell 1000 Growth",
+          "symbol": "^RLG",
+          "description": "Large-cap growth stocks",
+          "style": "growth",
+          "market_cap": "large",
+          "current_price": 5018.71,
+          "daily_change": 65.49,
+          "daily_change_percent": 1.32,
+          "volume": null,
+          "day_high": 5018.81,
+          "day_low": 4951.73,
+          "day_open": 4960.68,
+          "52_week_high": 5067.78,
+          "52_week_low": 3930.52,
+          "distance_from_52w_high_percent": -0.97,
+          "year_to_date_percent": 5.33,
+          "1_month_percent": 5.77,
+          "3_month_percent": 10.67,
+          "6_month_percent": 6.87,
+          "pivot_points": {
+            "pivot_point": 4962.47,
+            "resistance_1": 4986.23,
+            "resistance_2": 5019.25,
+            "resistance_3": 5043.01,
+            "support_1": 4929.45,
+            "support_2": 4905.69,
+            "support_3": 4825.14
+          }
+        },
+        "^RLV": {
+          "name": "Russell 1000 Value",
+          "symbol": "^RLV",
+          "description": "Large-cap value stocks",
+          "style": "value",
+          "market_cap": "large",
+          "current_price": 2296.81,
+          "daily_change": 21.29,
+          "daily_change_percent": 0.94,
+          "volume": null,
+          "day_high": 2298.1,
+          "day_low": 2278.56,
+          "day_open": 2284.63,
+          "52_week_high": 2311.75,
+          "52_week_low": 1829.73,
+          "distance_from_52w_high_percent": -0.65,
+          "year_to_date_percent": 10.87,
+          "1_month_percent": 3.36,
+          "3_month_percent": 4.33,
+          "6_month_percent": 15.4,
+          "pivot_points": {
+            "pivot_point": 2277.11,
+            "resistance_1": 2287.45,
+            "resistance_2": 2299.37,
+            "resistance_3": 2309.71,
+            "support_1": 2265.19,
+            "support_2": 2254.85,
+            "support_3": 2222.26
+          }
+        },
+        "^RUO": {
+          "name": "Russell 2000 Growth",
+          "symbol": "^RUO",
+          "description": "Small-cap growth stocks",
+          "style": "growth",
+          "market_cap": "small",
+          "current_price": 1854.59,
+          "daily_change": 50.62,
+          "daily_change_percent": 2.81,
+          "volume": null,
+          "day_high": 1855.14,
+          "day_low": 1807.47,
+          "day_open": 1815.71,
+          "52_week_high": 1909.99,
+          "52_week_low": 1361.2,
+          "distance_from_52w_high_percent": -2.9,
+          "year_to_date_percent": 12.27,
+          "1_month_percent": 2.17,
+          "3_month_percent": 7.27,
+          "6_month_percent": 18.55,
+          "pivot_points": {
+            "pivot_point": 1803.65,
+            "resistance_1": 1824.28,
+            "resistance_2": 1844.58,
+            "resistance_3": 1865.21,
+            "support_1": 1783.35,
+            "support_2": 1762.72,
+            "support_3": 1701.17
+          }
+        },
+        "^RUJ": {
+          "name": "Russell 2000 Value",
+          "symbol": "^RUJ",
+          "description": "Small-cap value stocks",
+          "style": "value",
+          "market_cap": "small",
+          "current_price": 3121.14,
+          "daily_change": 69.94,
+          "daily_change_percent": 2.29,
+          "volume": null,
+          "day_high": 3121.59,
+          "day_low": 3064.53,
+          "day_open": 3069.46,
+          "52_week_high": 3180.36,
+          "52_week_low": 2226.99,
+          "distance_from_52w_high_percent": -1.86,
+          "year_to_date_percent": 14.87,
+          "1_month_percent": 1.61,
+          "3_month_percent": 4.08,
+          "6_month_percent": 22.28,
+          "pivot_points": {
+            "pivot_point": 3053.93,
+            "resistance_1": 3076.72,
+            "resistance_2": 3102.23,
+            "resistance_3": 3125.02,
+            "support_1": 3028.42,
+            "support_2": 3005.63,
+            "support_3": 2934.55
+          }
+        },
+        "^RUA": {
+          "name": "Russell 3000",
+          "symbol": "^RUA",
+          "description": "Total US equity market (98% coverage)",
+          "style": "blend",
+          "market_cap": "all",
+          "current_price": 4206.0,
+          "daily_change": 49.6,
+          "daily_change_percent": 1.19,
+          "volume": null,
+          "day_high": 4206.06,
+          "day_low": 4160.2,
+          "day_open": 4168.45,
+          "52_week_high": 4243.13,
+          "52_week_low": 3299.81,
+          "distance_from_52w_high_percent": -0.88,
+          "year_to_date_percent": 8.32,
+          "1_month_percent": 4.53,
+          "3_month_percent": 7.55,
+          "6_month_percent": 11.4,
+          "pivot_points": {
+            "pivot_point": 4160.3,
+            "resistance_1": 4176.0,
+            "resistance_2": 4195.59,
+            "resistance_3": 4211.29,
+            "support_1": 4140.71,
+            "support_2": 4125.01,
+            "support_3": 4074.03
+          },
+          "constituent_count": 3000
+        }
+      },
+      "international": {
+        "^FTSE": {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "country": "United Kingdom",
+          "currency": "GBP",
+          "region": "europe",
+          "current_price": 10400.52,
+          "daily_change": -31.82,
+          "daily_change_percent": -0.31,
+          "volume": null,
+          "day_high": 10440.97,
+          "day_low": 10353.47,
+          "day_open": 10432.54,
+          "52_week_high": 10910.6,
+          "52_week_low": 8716.5,
+          "distance_from_52w_high_percent": -4.68,
+          "year_to_date_percent": 4.72,
+          "1_month_percent": -0.93,
+          "3_month_percent": -2.67,
+          "6_month_percent": 8.88,
+          "pivot_points": {
+            "pivot_point": 10389.9,
+            "resistance_1": 10500.7,
+            "resistance_2": 10569.1,
+            "resistance_3": 10679.9,
+            "support_1": 10321.5,
+            "support_2": 10210.7,
+            "support_3": 9920.7
+          }
+        },
+        "^GDAXI": {
+          "name": "DAX",
+          "symbol": "^GDAXI",
+          "country": "Germany",
+          "currency": "EUR",
+          "region": "europe",
+          "current_price": 24558.41,
+          "daily_change": -178.83,
+          "daily_change_percent": -0.72,
+          "volume": null,
+          "day_high": 24894.63,
+          "day_low": 24535.9,
+          "day_open": 24692.21,
+          "52_week_high": 25420.66,
+          "52_week_low": 22300.75,
+          "distance_from_52w_high_percent": -3.39,
+          "year_to_date_percent": 0.28,
+          "1_month_percent": 1.18,
+          "3_month_percent": -2.85,
+          "6_month_percent": 2.86,
+          "pivot_points": {
+            "pivot_point": 24636.82,
+            "resistance_1": 24985.98,
+            "resistance_2": 25234.71,
+            "resistance_3": 25583.87,
+            "support_1": 24388.09,
+            "support_2": 24038.93,
+            "support_3": 23091.89
+          }
+        },
+        "^FCHI": {
+          "name": "CAC 40",
+          "symbol": "^FCHI",
+          "country": "France",
+          "currency": "EUR",
+          "region": "europe",
+          "current_price": 8073.85,
+          "daily_change": -43.57,
+          "daily_change_percent": -0.54,
+          "volume": null,
+          "day_high": 8153.55,
+          "day_low": 8055.89,
+          "day_open": 8109.77,
+          "52_week_high": 8620.93,
+          "52_week_low": 7537.57,
+          "distance_from_52w_high_percent": -6.35,
+          "year_to_date_percent": -0.93,
+          "1_month_percent": -1.97,
+          "3_month_percent": -4.21,
+          "6_month_percent": 1.33,
+          "pivot_points": {
+            "pivot_point": 8082.41,
+            "resistance_1": 8210.25,
+            "resistance_2": 8303.08,
+            "resistance_3": 8430.92,
+            "support_1": 7989.58,
+            "support_2": 7861.74,
+            "support_3": 7513.23
+          }
+        },
+        "^STOXX50E": {
+          "name": "EURO STOXX 50",
+          "symbol": "^STOXX50E",
+          "country": "Eurozone",
+          "currency": "EUR",
+          "region": "europe",
+          "current_price": 5944.03,
+          "daily_change": -32.04,
+          "daily_change_percent": -0.54,
+          "volume": null,
+          "day_high": 6008.17,
+          "day_low": 5924.65,
+          "day_open": 5966.87,
+          "52_week_high": 6173.32,
+          "52_week_low": 5197.03,
+          "distance_from_52w_high_percent": -3.74,
+          "year_to_date_percent": 2.53,
+          "1_month_percent": -0.67,
+          "3_month_percent": -1.32,
+          "6_month_percent": 2.68,
+          "pivot_points": {
+            "pivot_point": 5941.85,
+            "resistance_1": 6041.51,
+            "resistance_2": 6106.96,
+            "resistance_3": 6206.62,
+            "support_1": 5876.4,
+            "support_2": 5776.74,
+            "support_3": 5511.96
+          }
+        },
+        "^SSMI": {
+          "name": "Swiss Market Index",
+          "symbol": "^SSMI",
+          "country": "Switzerland",
+          "currency": "CHF",
+          "region": "europe",
+          "current_price": 13376.97,
+          "daily_change": -22.32,
+          "daily_change_percent": -0.17,
+          "volume": null,
+          "day_high": 13469.58,
+          "day_low": 13347.18,
+          "day_open": 13388.33,
+          "52_week_high": 14014.3,
+          "52_week_low": 11755.32,
+          "distance_from_52w_high_percent": -4.55,
+          "year_to_date_percent": 0.83,
+          "1_month_percent": 0.7,
+          "3_month_percent": -2.73,
+          "6_month_percent": 4.56,
+          "pivot_points": {
+            "pivot_point": 13384.9,
+            "resistance_1": 13513.71,
+            "resistance_2": 13628.12,
+            "resistance_3": 13756.93,
+            "support_1": 13270.49,
+            "support_2": 13141.68,
+            "support_3": 12769.66
+          }
+        },
+        "^N225": {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "country": "Japan",
+          "currency": "JPY",
+          "region": "asia_pacific",
+          "current_price": 61684.14,
+          "daily_change": 1879.73,
+          "daily_change_percent": 3.14,
+          "volume": null,
+          "day_high": 62043.53,
+          "day_low": 60282.35,
+          "day_open": 60374.84,
+          "52_week_high": 63272.11,
+          "52_week_low": 36985.87,
+          "distance_from_52w_high_percent": -2.51,
+          "year_to_date_percent": 22.54,
+          "1_month_percent": 3.64,
+          "3_month_percent": 8.33,
+          "6_month_percent": 21.16,
+          "pivot_points": {
+            "pivot_point": 59887.98,
+            "resistance_1": 60483.7,
+            "resistance_2": 61163.0,
+            "resistance_3": 61758.72,
+            "support_1": 59208.68,
+            "support_2": 58612.96,
+            "support_3": 56742.21
+          }
+        },
+        "^HSI": {
+          "name": "Hang Seng Index",
+          "symbol": "^HSI",
+          "country": "Hong Kong",
+          "currency": "HKD",
+          "region": "asia_pacific",
+          "current_price": 25386.52,
+          "daily_change": -264.6,
+          "daily_change_percent": -1.03,
+          "volume": null,
+          "day_high": 25833.71,
+          "day_low": 25341.73,
+          "day_open": 25833.24,
+          "52_week_high": 27968.09,
+          "52_week_low": 23157.97,
+          "distance_from_52w_high_percent": -9.23,
+          "year_to_date_percent": -0.95,
+          "1_month_percent": -4.16,
+          "3_month_percent": -6.09,
+          "6_month_percent": -5.71,
+          "pivot_points": {
+            "pivot_point": 25639.9,
+            "resistance_1": 25724.75,
+            "resistance_2": 25798.37,
+            "resistance_3": 25883.21,
+            "support_1": 25566.28,
+            "support_2": 25481.43,
+            "support_3": 25238.12
+          }
+        },
+        "^AXJO": {
+          "name": "S&P/ASX 200",
+          "symbol": "^AXJO",
+          "country": "Australia",
+          "currency": "AUD",
+          "region": "asia_pacific",
+          "current_price": 8621.7,
+          "daily_change": 125.1,
+          "daily_change_percent": 1.47,
+          "volume": null,
+          "day_high": 8649.7,
+          "day_low": 8496.6,
+          "day_open": 8496.6,
+          "52_week_high": 9198.6,
+          "52_week_low": 8361.0,
+          "distance_from_52w_high_percent": -6.27,
+          "year_to_date_percent": -1.06,
+          "1_month_percent": -2.51,
+          "3_month_percent": -5.11,
+          "6_month_percent": 1.8,
+          "pivot_points": {
+            "pivot_point": 8528.83,
+            "resistance_1": 8572.47,
+            "resistance_2": 8648.33,
+            "resistance_3": 8691.97,
+            "support_1": 8452.97,
+            "support_2": 8409.33,
+            "support_3": 8246.2
+          }
+        },
+        "^KS11": {
+          "name": "KOSPI Composite Index",
+          "symbol": "^KS11",
+          "country": "South Korea",
+          "currency": "KRW",
+          "region": "asia_pacific",
+          "current_price": 7815.59,
+          "daily_change": 606.64,
+          "daily_change_percent": 8.42,
+          "volume": 621082,
+          "day_high": 7819.23,
+          "day_low": 7486.37,
+          "day_open": 7486.37,
+          "52_week_high": 7981.41,
+          "52_week_low": 2592.09,
+          "distance_from_52w_high_percent": -2.08,
+          "year_to_date_percent": 85.46,
+          "1_month_percent": 25.67,
+          "3_month_percent": 41.92,
+          "6_month_percent": 87.4,
+          "pivot_points": {
+            "pivot_point": 7195.77,
+            "resistance_1": 7337.7,
+            "resistance_2": 7466.45,
+            "resistance_3": 7608.38,
+            "support_1": 7067.02,
+            "support_2": 6925.09,
+            "support_3": 6512.48
+          }
+        },
+        "^GSPTSE": {
+          "name": "S&P/TSX Composite",
+          "symbol": "^GSPTSE",
+          "country": "Canada",
+          "currency": "CAD",
+          "region": "other",
+          "current_price": 34161.82,
+          "daily_change": 420.58,
+          "daily_change_percent": 1.25,
+          "volume": 271209315,
+          "day_high": 34234.5,
+          "day_low": 33786.84,
+          "day_open": 33786.84,
+          "52_week_high": 34541.3,
+          "52_week_low": 25839.2,
+          "distance_from_52w_high_percent": -1.1,
+          "year_to_date_percent": 7.72,
+          "1_month_percent": -0.58,
+          "3_month_percent": 2.31,
+          "6_month_percent": 13.58,
+          "pivot_points": {
+            "pivot_point": 33825.37,
+            "resistance_1": 33929.73,
+            "resistance_2": 34118.26,
+            "resistance_3": 34222.63,
+            "support_1": 33636.83,
+            "support_2": 33532.47,
+            "support_3": 33135.2
+          }
+        },
+        "^TA125.TA": {
+          "name": "TA-125",
+          "symbol": "^TA125.TA",
+          "country": "Israel",
+          "currency": "ILS",
+          "region": "other",
+          "current_price": 4325.86,
+          "daily_change": 0.0,
+          "daily_change_percent": 0.0,
+          "volume": null,
+          "day_high": 4325.86,
+          "day_low": 4256.63,
+          "day_open": 4282.22,
+          "52_week_high": 4481.04,
+          "52_week_low": 2403.99,
+          "distance_from_52w_high_percent": -3.46,
+          "year_to_date_percent": 18.36,
+          "1_month_percent": 0.39,
+          "3_month_percent": 4.59,
+          "6_month_percent": 27.65,
+          "pivot_points": {
+            "pivot_point": 4248.46,
+            "resistance_1": 4286.2,
+            "resistance_2": 4320.02,
+            "resistance_3": 4357.76,
+            "support_1": 4214.64,
+            "support_2": 4176.9,
+            "support_3": 4067.59
+          }
+        }
+      },
+      "bonds": {
+        "^TNX": {
+          "name": "CBOE 10-Year Treasury Yield",
+          "symbol": "^TNX",
+          "maturity_years": 10,
+          "duration": "Intermediate",
+          "interpretation": "Benchmark for mortgage rates and corporate bonds",
+          "current_price": 4.61,
+          "daily_change": 0.03,
+          "daily_change_percent": 0.77,
+          "volume": null,
+          "day_high": 4.63,
+          "day_low": 4.6,
+          "day_open": 4.61,
+          "52_week_high": 4.67,
+          "52_week_low": 3.95,
+          "distance_from_52w_high_percent": -1.29,
+          "year_to_date_percent": 10.67,
+          "1_month_percent": 7.29,
+          "3_month_percent": 12.75,
+          "6_month_percent": 11.74,
+          "pivot_points": {
+            "pivot_point": 4.6,
+            "resistance_1": 4.63,
+            "resistance_2": 4.69,
+            "resistance_3": 4.72,
+            "support_1": 4.54,
+            "support_2": 4.51,
+            "support_3": 4.38
+          }
+        },
+        "^TYX": {
+          "name": "CBOE 30-Year Treasury Yield",
+          "symbol": "^TYX",
+          "maturity_years": 30,
+          "duration": "Long",
+          "interpretation": "Long-term rate expectations, most sensitive to inflation",
+          "current_price": 5.14,
+          "daily_change": 0.02,
+          "daily_change_percent": 0.43,
+          "volume": null,
+          "day_high": 5.15,
+          "day_low": 5.13,
+          "day_open": 5.14,
+          "52_week_high": 5.18,
+          "52_week_low": 4.54,
+          "distance_from_52w_high_percent": -0.83,
+          "year_to_date_percent": 6.16,
+          "1_month_percent": 4.81,
+          "3_month_percent": 8.74,
+          "6_month_percent": 8.33,
+          "pivot_points": {
+            "pivot_point": 5.13,
+            "resistance_1": 5.16,
+            "resistance_2": 5.2,
+            "resistance_3": 5.23,
+            "support_1": 5.09,
+            "support_2": 5.06,
+            "support_3": 4.96
+          }
+        },
+        "^FVX": {
+          "name": "CBOE 5-Year Treasury Yield",
+          "symbol": "^FVX",
+          "maturity_years": 5,
+          "duration": "Intermediate",
+          "interpretation": "Mid-term economic expectations",
+          "current_price": 4.27,
+          "daily_change": 0.05,
+          "daily_change_percent": 1.14,
+          "volume": null,
+          "day_high": 4.3,
+          "day_low": 4.27,
+          "day_open": 4.28,
+          "52_week_high": 4.33,
+          "52_week_low": 3.51,
+          "distance_from_52w_high_percent": -1.32,
+          "year_to_date_percent": 14.8,
+          "1_month_percent": 9.14,
+          "3_month_percent": 17.07,
+          "6_month_percent": 15.67,
+          "pivot_points": {
+            "pivot_point": 4.25,
+            "resistance_1": 4.29,
+            "resistance_2": 4.36,
+            "resistance_3": 4.4,
+            "support_1": 4.18,
+            "support_2": 4.14,
+            "support_3": 3.99
+          }
+        },
+        "^IRX": {
+          "name": "CBOE 13-Week Treasury Bill Yield",
+          "symbol": "^IRX",
+          "maturity_years": 0.25,
+          "duration": "Short",
+          "interpretation": "Risk-free rate, Fed policy indicator",
+          "current_price": 3.56,
+          "daily_change": 0.01,
+          "daily_change_percent": 0.22,
+          "volume": null,
+          "day_high": 3.57,
+          "day_low": 3.56,
+          "day_open": 3.56,
+          "52_week_high": 4.26,
+          "52_week_low": 3.51,
+          "distance_from_52w_high_percent": -16.28,
+          "year_to_date_percent": 0.51,
+          "1_month_percent": -0.83,
+          "3_month_percent": -0.83,
+          "6_month_percent": -5.49,
+          "pivot_points": {
+            "pivot_point": 3.56,
+            "resistance_1": 3.57,
+            "resistance_2": 3.58,
+            "resistance_3": 3.59,
+            "support_1": 3.55,
+            "support_2": 3.54,
+            "support_3": 3.51
+          }
+        }
+      },
+      "commodities": {
+        "GC=F": {
+          "name": "Gold Futures",
+          "symbol": "GC=F",
+          "commodity_type": "Precious Metal",
+          "unit": "$/troy ounce",
+          "is_etf": false,
+          "current_price": 4510.1,
+          "daily_change": -25.2,
+          "daily_change_percent": -0.56,
+          "volume": 61288,
+          "day_high": 4572.4,
+          "day_low": 4503.3,
+          "day_open": 4548.0,
+          "52_week_high": 5318.4,
+          "52_week_low": 3273.7,
+          "distance_from_52w_high_percent": -15.2,
+          "year_to_date_percent": 4.27,
+          "1_month_percent": -4.7,
+          "3_month_percent": -10.86,
+          "6_month_percent": 11.05,
+          "pivot_points": {
+            "pivot_point": 4509.23,
+            "resistance_1": 4553.37,
+            "resistance_2": 4575.43,
+            "resistance_3": 4619.57,
+            "support_1": 4487.17,
+            "support_2": 4443.03,
+            "support_3": 4332.7
+          }
+        },
+        "SI=F": {
+          "name": "Silver Futures",
+          "symbol": "SI=F",
+          "commodity_type": "Precious Metal",
+          "unit": "$/troy ounce",
+          "is_etf": false,
+          "current_price": 75.17,
+          "daily_change": -1.01,
+          "daily_change_percent": -1.32,
+          "volume": 14715,
+          "day_high": 77.31,
+          "day_low": 74.84,
+          "day_open": 76.19,
+          "52_week_high": 115.08,
+          "52_week_low": 32.89,
+          "distance_from_52w_high_percent": -34.68,
+          "year_to_date_percent": 7.19,
+          "1_month_percent": -3.49,
+          "3_month_percent": -8.64,
+          "6_month_percent": 49.01,
+          "pivot_points": {
+            "pivot_point": 75.82,
+            "resistance_1": 76.46,
+            "resistance_2": 77.07,
+            "resistance_3": 77.72,
+            "support_1": 75.21,
+            "support_2": 74.56,
+            "support_3": 72.66
+          }
+        },
+        "CL=F": {
+          "name": "Crude Oil Futures (WTI)",
+          "symbol": "CL=F",
+          "commodity_type": "Energy",
+          "unit": "$/barrel",
+          "is_etf": false,
+          "current_price": 101.04,
+          "daily_change": 2.78,
+          "daily_change_percent": 2.83,
+          "volume": 90227,
+          "day_high": 101.34,
+          "day_low": 97.25,
+          "day_open": 98.95,
+          "52_week_high": 112.95,
+          "52_week_low": 55.27,
+          "distance_from_52w_high_percent": -10.54,
+          "year_to_date_percent": 75.97,
+          "1_month_percent": 8.69,
+          "3_month_percent": 52.19,
+          "6_month_percent": 66.35,
+          "pivot_points": {
+            "pivot_point": 99.88,
+            "resistance_1": 102.83,
+            "resistance_2": 107.39,
+            "resistance_3": 110.34,
+            "support_1": 95.32,
+            "support_2": 92.37,
+            "support_3": 81.92
+          }
+        },
+        "NG=F": {
+          "name": "Natural Gas Futures",
+          "symbol": "NG=F",
+          "commodity_type": "Energy",
+          "unit": "$/MMBtu",
+          "is_etf": false,
+          "current_price": 3.15,
+          "daily_change": 0.0,
+          "daily_change_percent": 0.0,
+          "volume": 26962,
+          "day_high": 3.19,
+          "day_low": 3.13,
+          "day_open": 3.03,
+          "52_week_high": 7.46,
+          "52_week_low": 2.52,
+          "distance_from_52w_high_percent": -57.71,
+          "year_to_date_percent": -14.41,
+          "1_month_percent": 15.91,
+          "3_month_percent": 3.54,
+          "6_month_percent": -27.82,
+          "pivot_points": {
+            "pivot_point": 3.04,
+            "resistance_1": 3.1,
+            "resistance_2": 3.2,
+            "resistance_3": 3.25,
+            "support_1": 2.95,
+            "support_2": 2.89,
+            "support_3": 2.68
+          }
+        },
+        "DBC": {
+          "name": "Invesco DB Commodity Index Tracking Fund",
+          "symbol": "DBC",
+          "commodity_type": "Diversified",
+          "unit": null,
+          "is_etf": true,
+          "current_price": 30.88,
+          "daily_change": -0.73,
+          "daily_change_percent": -2.31,
+          "volume": 1288900,
+          "day_high": 31.41,
+          "day_low": 30.67,
+          "day_open": 31.36,
+          "52_week_high": 31.69,
+          "52_week_low": 20.2,
+          "distance_from_52w_high_percent": -2.56,
+          "year_to_date_percent": 38.1,
+          "1_month_percent": 5.72,
+          "3_month_percent": 26.4,
+          "6_month_percent": 39.14,
+          "pivot_points": {
+            "pivot_point": 31.57,
+            "resistance_1": 31.73,
+            "resistance_2": 31.85,
+            "resistance_3": 32.01,
+            "support_1": 31.45,
+            "support_2": 31.29,
+            "support_3": 30.85
+          }
+        }
+      }
     },
     "mean_reversion": {
       "ma_spreads": {},
@@ -302,52 +1576,33 @@
       "SPY": {
         "reference_bar": {
           "timeframe": "1Day",
-          "t": "2026-05-19T04:00:00+00:00",
-          "date": "2026-05-19",
-          "h": 737.62,
-          "l": 731.57,
-          "c": 733.8
+          "t": "2026-05-20T04:00:00+00:00",
+          "date": "2026-05-20",
+          "h": 741.8,
+          "l": 733.9,
+          "c": 741.31
         },
         "traditional_pivots": {
-          "P": 734.33,
-          "R1": 737.09,
-          "R2": 740.38,
-          "S1": 731.04,
-          "S2": 728.28
+          "P": 739.0,
+          "R1": 744.11,
+          "R2": 746.9,
+          "S1": 736.21,
+          "S2": 731.1
         },
         "fibonacci_pivots": {
-          "FP": 734.33,
-          "FR1": 736.64,
-          "FR2": 738.07,
-          "FS1": 732.02,
-          "FS2": 730.59
+          "FP": 739.0,
+          "FR1": 742.02,
+          "FR2": 743.89,
+          "FS1": 735.99,
+          "FS2": 734.12
         },
         "sma": {
-          "SMA20": 726.73,
-          "SMA50": 692.13,
-          "SMA200": 674.43
+          "SMA20": 728.24,
+          "SMA50": 693.45,
+          "SMA200": 675.01
         },
         "history": {
           "daily": [
-            {
-              "date": "2025-05-19",
-              "reference_date": "2025-05-16",
-              "close": 588.11,
-              "reference_close": 587.52,
-              "floor": {
-                "S2": 580.85,
-                "R2": 591.01
-              },
-              "fib": {
-                "S2": 582.79,
-                "R2": 589.07
-              },
-              "sma": {
-                "SMA20": 554.21,
-                "SMA50": 547.42,
-                "SMA200": 565.19
-              }
-            },
             {
               "date": "2025-05-20",
               "reference_date": "2025-05-19",
@@ -5116,12 +6371,31 @@
                 "SMA50": 690.98,
                 "SMA200": 673.85
               }
+            },
+            {
+              "date": "2026-05-20",
+              "reference_date": "2026-05-19",
+              "close": 741.31,
+              "reference_close": 733.8,
+              "floor": {
+                "S2": 728.28,
+                "R2": 740.38
+              },
+              "fib": {
+                "S2": 730.59,
+                "R2": 738.07
+              },
+              "sma": {
+                "SMA20": 726.73,
+                "SMA50": 692.13,
+                "SMA200": 674.43
+              }
             }
           ]
         },
         "inputs": {
-          "bars_used": 521,
-          "closes_used": 521,
+          "bars_used": 522,
+          "closes_used": 522,
           "feed": "iex",
           "adjustment": "all"
         }
@@ -5129,52 +6403,33 @@
       "QQQ": {
         "reference_bar": {
           "timeframe": "1Day",
-          "t": "2026-05-19T04:00:00+00:00",
-          "date": "2026-05-19",
-          "h": 706.44,
-          "l": 695.29,
-          "c": 701.52
+          "t": "2026-05-20T04:00:00+00:00",
+          "date": "2026-05-20",
+          "h": 713.1,
+          "l": 703.89,
+          "c": 713.07
         },
         "traditional_pivots": {
-          "P": 701.08,
-          "R1": 706.88,
-          "R2": 712.23,
-          "S1": 695.73,
-          "S2": 689.93
+          "P": 710.02,
+          "R1": 716.15,
+          "R2": 719.23,
+          "S1": 706.94,
+          "S2": 700.81
         },
         "fibonacci_pivots": {
-          "FP": 701.08,
-          "FR1": 705.34,
-          "FR2": 707.97,
-          "FS1": 696.82,
-          "FS2": 694.19
+          "FP": 710.02,
+          "FR1": 713.54,
+          "FR2": 715.71,
+          "FS1": 706.5,
+          "FS2": 704.33
         },
         "sma": {
-          "SMA20": 686.13,
-          "SMA50": 635.29,
-          "SMA200": 611.28
+          "SMA20": 689.03,
+          "SMA50": 637.41,
+          "SMA200": 612.04
         },
         "history": {
           "daily": [
-            {
-              "date": "2025-05-19",
-              "reference_date": "2025-05-16",
-              "close": 519.49,
-              "reference_close": 519.02,
-              "floor": {
-                "S2": 513.13,
-                "R2": 522.07
-              },
-              "fib": {
-                "S2": 514.84,
-                "R2": 520.37
-              },
-              "sma": {
-                "SMA20": 481.37,
-                "SMA50": 470.66,
-                "SMA200": 489.05
-              }
-            },
             {
               "date": "2025-05-20",
               "reference_date": "2025-05-19",
@@ -9943,12 +11198,31 @@
                 "SMA50": 633.4,
                 "SMA200": 610.54
               }
+            },
+            {
+              "date": "2026-05-20",
+              "reference_date": "2026-05-19",
+              "close": 713.07,
+              "reference_close": 701.52,
+              "floor": {
+                "S2": 689.93,
+                "R2": 712.23
+              },
+              "fib": {
+                "S2": 694.19,
+                "R2": 707.97
+              },
+              "sma": {
+                "SMA20": 686.13,
+                "SMA50": 635.29,
+                "SMA200": 611.28
+              }
             }
           ]
         },
         "inputs": {
-          "bars_used": 521,
-          "closes_used": 521,
+          "bars_used": 522,
+          "closes_used": 522,
           "feed": "iex",
           "adjustment": "all"
         }
@@ -9956,52 +11230,33 @@
       "IWM": {
         "reference_bar": {
           "timeframe": "1Day",
-          "t": "2026-05-19T04:00:00+00:00",
-          "date": "2026-05-19",
-          "h": 275.07,
-          "l": 270.63,
-          "c": 273.02
+          "t": "2026-05-20T04:00:00+00:00",
+          "date": "2026-05-20",
+          "h": 280.06,
+          "l": 273.42,
+          "c": 279.83
         },
         "traditional_pivots": {
-          "P": 272.91,
-          "R1": 275.19,
-          "R2": 277.35,
-          "S1": 270.74,
-          "S2": 268.46
+          "P": 277.77,
+          "R1": 282.12,
+          "R2": 284.42,
+          "S1": 275.48,
+          "S2": 271.13
         },
         "fibonacci_pivots": {
-          "FP": 272.91,
-          "FR1": 274.61,
-          "FR2": 275.66,
-          "FS1": 271.21,
-          "FS2": 270.16
+          "FP": 277.77,
+          "FR1": 280.31,
+          "FR2": 281.88,
+          "FS1": 275.23,
+          "FS2": 273.67
         },
         "sma": {
-          "SMA20": 279.22,
-          "SMA50": 264.68,
-          "SMA200": 250.81
+          "SMA20": 279.39,
+          "SMA50": 265.22,
+          "SMA200": 251.12
         },
         "history": {
           "daily": [
-            {
-              "date": "2025-05-19",
-              "reference_date": "2025-05-16",
-              "close": 206.71,
-              "reference_close": 207.67,
-              "floor": {
-                "S2": 204.78,
-                "R2": 209.32
-              },
-              "fib": {
-                "S2": 205.65,
-                "R2": 208.46
-              },
-              "sma": {
-                "SMA20": 196.24,
-                "SMA50": 194.95,
-                "SMA200": 212.92
-              }
-            },
             {
               "date": "2025-05-20",
               "reference_date": "2025-05-19",
@@ -14770,12 +16025,31 @@
                 "SMA50": 264.29,
                 "SMA200": 250.51
               }
+            },
+            {
+              "date": "2026-05-20",
+              "reference_date": "2026-05-19",
+              "close": 279.83,
+              "reference_close": 273.02,
+              "floor": {
+                "S2": 268.46,
+                "R2": 277.35
+              },
+              "fib": {
+                "S2": 270.16,
+                "R2": 275.66
+              },
+              "sma": {
+                "SMA20": 279.22,
+                "SMA50": 264.68,
+                "SMA200": 250.81
+              }
             }
           ]
         },
         "inputs": {
-          "bars_used": 521,
-          "closes_used": 521,
+          "bars_used": 522,
+          "closes_used": 522,
           "feed": "iex",
           "adjustment": "all"
         }
@@ -14783,52 +16057,33 @@
       "DIA": {
         "reference_bar": {
           "timeframe": "1Day",
-          "t": "2026-05-19T04:00:00+00:00",
-          "date": "2026-05-19",
-          "h": 496.29,
-          "l": 492.66,
-          "c": 493.94
+          "t": "2026-05-20T04:00:00+00:00",
+          "date": "2026-05-20",
+          "h": 500.86,
+          "l": 492.58,
+          "c": 500.25
         },
         "traditional_pivots": {
-          "P": 494.3,
-          "R1": 495.93,
-          "R2": 497.93,
-          "S1": 492.3,
-          "S2": 490.67
+          "P": 497.9,
+          "R1": 503.21,
+          "R2": 506.18,
+          "S1": 494.93,
+          "S2": 489.62
         },
         "fibonacci_pivots": {
-          "FP": 494.3,
-          "FR1": 495.68,
-          "FR2": 496.54,
-          "FS1": 492.91,
-          "FS2": 492.05
+          "FP": 497.9,
+          "FR1": 501.06,
+          "FR2": 503.01,
+          "FS1": 494.73,
+          "FS2": 492.78
         },
         "sma": {
-          "SMA20": 494.59,
-          "SMA50": 480.26,
-          "SMA200": 472.6
+          "SMA20": 494.87,
+          "SMA50": 480.75,
+          "SMA200": 472.92
         },
         "history": {
           "daily": [
-            {
-              "date": "2025-05-19",
-              "reference_date": "2025-05-16",
-              "close": 421.58,
-              "reference_close": 420.24,
-              "floor": {
-                "S2": 415.0,
-                "R2": 422.94
-              },
-              "fib": {
-                "S2": 416.52,
-                "R2": 421.42
-              },
-              "sma": {
-                "SMA20": 402.55,
-                "SMA50": 403.16,
-                "SMA200": 414.01
-              }
-            },
             {
               "date": "2025-05-20",
               "reference_date": "2025-05-19",
@@ -19597,21 +20852,860 @@
                 "SMA50": 479.91,
                 "SMA200": 472.28
               }
+            },
+            {
+              "date": "2026-05-20",
+              "reference_date": "2026-05-19",
+              "close": 500.25,
+              "reference_close": 493.94,
+              "floor": {
+                "S2": 490.67,
+                "R2": 497.93
+              },
+              "fib": {
+                "S2": 492.05,
+                "R2": 496.54
+              },
+              "sma": {
+                "SMA20": 494.59,
+                "SMA50": 480.26,
+                "SMA200": 472.6
+              }
             }
           ]
         },
         "inputs": {
-          "bars_used": 521,
-          "closes_used": 521,
+          "bars_used": 522,
+          "closes_used": 522,
           "feed": "iex",
           "adjustment": "all"
         }
       }
     },
     "implied_volatility": {
-      "vix_options": {},
-      "major_indices": {},
-      "sector_etfs": {}
+      "vix_options": {
+        "^VIX": {
+          "symbol": "^VIX",
+          "current_price": 17.72,
+          "timestamp": "2026-05-21T09:03:26.297322-04:00",
+          "expiration_date": "2026-06-02",
+          "days_to_expiration": 12,
+          "atm_call": {
+            "strike": 18.0,
+            "implied_volatility": 1.628908,
+            "last_price": 1.95,
+            "bid": 1.45,
+            "ask": 2.64,
+            "mid_price": 2.045,
+            "moneyness": 1.0158,
+            "pct_from_atm": 1.58,
+            "classification": "ATM",
+            "volume": 52,
+            "open_interest": 656,
+            "bid_ask_spread": 1.19,
+            "spread_pct": 58.19
+          },
+          "atm_put": {
+            "strike": 18.0,
+            "implied_volatility": 0.574223,
+            "last_price": 0.5,
+            "bid": 0.25,
+            "ask": 0.92,
+            "mid_price": 0.585,
+            "moneyness": 1.0158,
+            "pct_from_atm": 1.58,
+            "classification": "ATM",
+            "volume": 86,
+            "open_interest": 1001,
+            "bid_ask_spread": 0.67,
+            "spread_pct": 114.53
+          },
+          "average_iv": 1.101566,
+          "name": "CBOE Volatility Index",
+          "description": "Market's expectation of 30-day S&P 500 volatility",
+          "note": "VIX options measure volatility of volatility - unique characteristics",
+          "average_iv_formatted": "110.16%",
+          "iv_level": "Normal",
+          "historical_reference": {
+            "historical_avg": 0.21,
+            "historical_avg_formatted": "21%",
+            "typical_low": 0.12,
+            "typical_high": 0.3,
+            "current_vs_average": 0.8916,
+            "current_vs_average_pct": "424.56%",
+            "special_note": "VIX > 30 indicates high market uncertainty"
+          }
+        }
+      },
+      "major_indices": {
+        "SPY": {
+          "symbol": "SPY",
+          "current_price": 741.25,
+          "timestamp": "2026-05-21T09:03:27.420128-04:00",
+          "expiration_date": "2026-05-28",
+          "days_to_expiration": 7,
+          "atm_call": {
+            "strike": 741.0,
+            "implied_volatility": 1e-05,
+            "last_price": 6.2,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9997,
+            "pct_from_atm": -0.03,
+            "classification": "ATM",
+            "volume": 1288,
+            "open_interest": 861,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 741.0,
+            "implied_volatility": 0.000987,
+            "last_price": 5.71,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9997,
+            "pct_from_atm": -0.03,
+            "classification": "ATM",
+            "volume": 816,
+            "open_interest": 299,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000498,
+          "index": "S&P 500",
+          "name": "SPDR S&P 500 ETF Trust",
+          "description": "Largest 500 U.S. companies by market cap",
+          "average_iv_formatted": "0.05%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.17,
+            "historical_avg_formatted": "17%",
+            "typical_low": 0.12,
+            "typical_high": 0.25,
+            "current_vs_average": -0.1695,
+            "current_vs_average_pct": "-99.71%"
+          }
+        },
+        "QQQ": {
+          "symbol": "QQQ",
+          "current_price": 713.15,
+          "timestamp": "2026-05-21T09:03:27.994720-04:00",
+          "expiration_date": "2026-05-28",
+          "days_to_expiration": 7,
+          "atm_call": {
+            "strike": 713.0,
+            "implied_volatility": 1e-05,
+            "last_price": 9.0,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9998,
+            "pct_from_atm": -0.02,
+            "classification": "ATM",
+            "volume": 245,
+            "open_interest": 262,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 713.0,
+            "implied_volatility": 0.000498,
+            "last_price": 8.86,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9998,
+            "pct_from_atm": -0.02,
+            "classification": "ATM",
+            "volume": 64,
+            "open_interest": 112,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000254,
+          "index": "Nasdaq-100",
+          "name": "Invesco QQQ Trust",
+          "description": "100 largest non-financial Nasdaq companies",
+          "average_iv_formatted": "0.03%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.22,
+            "historical_avg_formatted": "22%",
+            "typical_low": 0.15,
+            "typical_high": 0.3,
+            "current_vs_average": -0.2197,
+            "current_vs_average_pct": "-99.88%"
+          }
+        },
+        "IWM": {
+          "symbol": "IWM",
+          "current_price": 279.87,
+          "timestamp": "2026-05-21T09:03:28.550875-04:00",
+          "expiration_date": "2026-05-28",
+          "days_to_expiration": 7,
+          "atm_call": {
+            "strike": 280.0,
+            "implied_volatility": 0.000987,
+            "last_price": 3.07,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0005,
+            "pct_from_atm": 0.05,
+            "classification": "ATM",
+            "volume": 296,
+            "open_interest": 422,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 280.0,
+            "implied_volatility": 1e-05,
+            "last_price": 3.63,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0005,
+            "pct_from_atm": 0.05,
+            "classification": "ATM",
+            "volume": 21,
+            "open_interest": 0,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000498,
+          "index": "Russell 2000",
+          "name": "iShares Russell 2000 ETF",
+          "description": "Small-cap U.S. equities",
+          "average_iv_formatted": "0.05%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.24,
+            "historical_avg_formatted": "24%",
+            "typical_low": 0.18,
+            "typical_high": 0.32,
+            "current_vs_average": -0.2395,
+            "current_vs_average_pct": "-99.79%"
+          }
+        },
+        "DIA": {
+          "symbol": "DIA",
+          "current_price": 500.24,
+          "timestamp": "2026-05-21T09:03:29.129154-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 500.0,
+            "implied_volatility": 1e-05,
+            "last_price": 4.55,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9995,
+            "pct_from_atm": -0.05,
+            "classification": "ATM",
+            "volume": 911,
+            "open_interest": 1355,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 500.0,
+            "implied_volatility": 0.000987,
+            "last_price": 4.05,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9995,
+            "pct_from_atm": -0.05,
+            "classification": "ATM",
+            "volume": 104,
+            "open_interest": 217,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000498,
+          "index": "Dow Jones",
+          "name": "SPDR Dow Jones Industrial Average ETF",
+          "description": "30 large U.S. blue-chip companies",
+          "average_iv_formatted": "0.05%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.16,
+            "historical_avg_formatted": "16%",
+            "typical_low": 0.11,
+            "typical_high": 0.23,
+            "current_vs_average": -0.1595,
+            "current_vs_average_pct": "-99.69%"
+          }
+        }
+      },
+      "sector_etfs": {
+        "XLK": {
+          "symbol": "XLK",
+          "current_price": 177.14,
+          "timestamp": "2026-05-21T09:03:30.529253-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 177.0,
+            "implied_volatility": 1e-05,
+            "last_price": 3.27,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9992,
+            "pct_from_atm": -0.08,
+            "classification": "ATM",
+            "volume": 15,
+            "open_interest": 37,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 177.0,
+            "implied_volatility": 0.001963,
+            "last_price": 3.0,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9992,
+            "pct_from_atm": -0.08,
+            "classification": "ATM",
+            "volume": 1,
+            "open_interest": 665,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000987,
+          "sector": "Technology",
+          "name": "Technology Select Sector SPDR Fund",
+          "description": "Information Technology sector companies",
+          "average_iv_formatted": "0.10%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.23,
+            "historical_avg_formatted": "23%",
+            "typical_low": 0.16,
+            "typical_high": 0.32,
+            "current_vs_average": -0.229,
+            "current_vs_average_pct": "-99.57%"
+          }
+        },
+        "XLV": {
+          "symbol": "XLV",
+          "current_price": 147.13,
+          "timestamp": "2026-05-21T09:03:30.776625-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 147.0,
+            "implied_volatility": 1e-05,
+            "last_price": 1.53,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9991,
+            "pct_from_atm": -0.09,
+            "classification": "ATM",
+            "volume": 5,
+            "open_interest": 106,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 147.0,
+            "implied_volatility": 0.001963,
+            "last_price": 1.04,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9991,
+            "pct_from_atm": -0.09,
+            "classification": "ATM",
+            "volume": 2,
+            "open_interest": 28,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000987,
+          "sector": "Health Care",
+          "name": "Health Care Select Sector SPDR Fund",
+          "description": "Health care equipment & services, pharmaceuticals, biotech",
+          "average_iv_formatted": "0.10%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.18,
+            "historical_avg_formatted": "18%",
+            "typical_low": 0.13,
+            "typical_high": 0.25,
+            "current_vs_average": -0.179,
+            "current_vs_average_pct": "-99.45%"
+          }
+        },
+        "XLF": {
+          "symbol": "XLF",
+          "current_price": 51.66,
+          "timestamp": "2026-05-21T09:03:31.085544-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 51.5,
+            "implied_volatility": 1e-05,
+            "last_price": 0.64,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9969,
+            "pct_from_atm": -0.31,
+            "classification": "ATM",
+            "volume": 3280,
+            "open_interest": 5783,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 51.5,
+            "implied_volatility": 0.007822,
+            "last_price": 0.43,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9969,
+            "pct_from_atm": -0.31,
+            "classification": "ATM",
+            "volume": 271,
+            "open_interest": 783,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.003916,
+          "sector": "Financials",
+          "name": "Financial Select Sector SPDR Fund",
+          "description": "Banks, insurance, real estate, capital markets",
+          "average_iv_formatted": "0.39%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.21,
+            "historical_avg_formatted": "21%",
+            "typical_low": 0.15,
+            "typical_high": 0.3,
+            "current_vs_average": -0.2061,
+            "current_vs_average_pct": "-98.14%"
+          }
+        },
+        "XLE": {
+          "symbol": "XLE",
+          "current_price": 59.8,
+          "timestamp": "2026-05-21T09:03:31.332810-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 60.0,
+            "implied_volatility": 0.007822,
+            "last_price": 1.18,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0033,
+            "pct_from_atm": 0.33,
+            "classification": "ATM",
+            "volume": 629,
+            "open_interest": 15207,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 60.0,
+            "implied_volatility": 1e-05,
+            "last_price": 1.2,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0033,
+            "pct_from_atm": 0.33,
+            "classification": "ATM",
+            "volume": 964,
+            "open_interest": 1363,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.003916,
+          "sector": "Energy",
+          "name": "Energy Select Sector SPDR Fund",
+          "description": "Oil, gas, consumable fuels, energy equipment & services",
+          "average_iv_formatted": "0.39%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.28,
+            "historical_avg_formatted": "28%",
+            "typical_low": 0.2,
+            "typical_high": 0.4,
+            "current_vs_average": -0.2761,
+            "current_vs_average_pct": "-98.60%"
+          }
+        },
+        "XLY": {
+          "symbol": "XLY",
+          "current_price": 117.94,
+          "timestamp": "2026-05-21T09:03:31.584279-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 118.0,
+            "implied_volatility": 0.001963,
+            "last_price": 1.4,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0005,
+            "pct_from_atm": 0.05,
+            "classification": "ATM",
+            "volume": 26,
+            "open_interest": 180,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 118.0,
+            "implied_volatility": 1e-05,
+            "last_price": 1.75,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0005,
+            "pct_from_atm": 0.05,
+            "classification": "ATM",
+            "volume": 1,
+            "open_interest": 50,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000987,
+          "sector": "Consumer Discretionary",
+          "name": "Consumer Discretionary Select Sector SPDR Fund",
+          "description": "Automobiles, consumer durables, hotels, restaurants, retail",
+          "average_iv_formatted": "0.10%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.2,
+            "historical_avg_formatted": "20%",
+            "typical_low": 0.14,
+            "typical_high": 0.28,
+            "current_vs_average": -0.199,
+            "current_vs_average_pct": "-99.51%"
+          }
+        },
+        "XLP": {
+          "symbol": "XLP",
+          "current_price": 85.52,
+          "timestamp": "2026-05-21T09:03:31.901511-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 85.5,
+            "implied_volatility": 1e-05,
+            "last_price": 0.9,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9998,
+            "pct_from_atm": -0.02,
+            "classification": "ATM",
+            "volume": 18,
+            "open_interest": 46,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 85.5,
+            "implied_volatility": 0.000987,
+            "last_price": 0.79,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9998,
+            "pct_from_atm": -0.02,
+            "classification": "ATM",
+            "volume": 4,
+            "open_interest": 11,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000498,
+          "sector": "Consumer Staples",
+          "name": "Consumer Staples Select Sector SPDR Fund",
+          "description": "Food, beverages, tobacco, household products",
+          "average_iv_formatted": "0.05%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.15,
+            "historical_avg_formatted": "15%",
+            "typical_low": 0.11,
+            "typical_high": 0.21,
+            "current_vs_average": -0.1495,
+            "current_vs_average_pct": "-99.67%"
+          }
+        },
+        "XLI": {
+          "symbol": "XLI",
+          "current_price": 170.73,
+          "timestamp": "2026-05-21T09:03:32.129629-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 171.0,
+            "implied_volatility": 0.003916,
+            "last_price": 2.0,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0016,
+            "pct_from_atm": 0.16,
+            "classification": "ATM",
+            "volume": 179,
+            "open_interest": 203,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 171.0,
+            "implied_volatility": 1e-05,
+            "last_price": 2.22,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 1.0016,
+            "pct_from_atm": 0.16,
+            "classification": "ATM",
+            "volume": 187,
+            "open_interest": 534,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.001963,
+          "sector": "Industrials",
+          "name": "Industrial Select Sector SPDR Fund",
+          "description": "Aerospace, defense, machinery, transportation",
+          "average_iv_formatted": "0.20%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.19,
+            "historical_avg_formatted": "19%",
+            "typical_low": 0.14,
+            "typical_high": 0.26,
+            "current_vs_average": -0.188,
+            "current_vs_average_pct": "-98.97%"
+          }
+        },
+        "XLU": {
+          "symbol": "XLU",
+          "current_price": 44.51,
+          "timestamp": "2026-05-21T09:03:32.331027-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 44.5,
+            "implied_volatility": 1e-05,
+            "last_price": 0.5,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9998,
+            "pct_from_atm": -0.02,
+            "classification": "ATM",
+            "volume": 17,
+            "open_interest": 329,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 44.5,
+            "implied_volatility": 0.000987,
+            "last_price": 0.37,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9998,
+            "pct_from_atm": -0.02,
+            "classification": "ATM",
+            "volume": 263,
+            "open_interest": 394,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000498,
+          "sector": "Utilities",
+          "name": "Utilities Select Sector SPDR Fund",
+          "description": "Electric, gas, water utilities",
+          "average_iv_formatted": "0.05%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.17,
+            "historical_avg_formatted": "17%",
+            "typical_low": 0.12,
+            "typical_high": 0.24,
+            "current_vs_average": -0.1695,
+            "current_vs_average_pct": "-99.71%"
+          }
+        },
+        "XLB": {
+          "symbol": "XLB",
+          "current_price": 49.72,
+          "timestamp": "2026-05-21T09:03:32.540462-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 49.5,
+            "implied_volatility": 1e-05,
+            "last_price": 0.76,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9956,
+            "pct_from_atm": -0.44,
+            "classification": "ATM",
+            "volume": 37,
+            "open_interest": 138,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 49.5,
+            "implied_volatility": 0.007822,
+            "last_price": 0.53,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9956,
+            "pct_from_atm": -0.44,
+            "classification": "ATM",
+            "volume": 237,
+            "open_interest": 215,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.003916,
+          "sector": "Materials",
+          "name": "Materials Select Sector SPDR Fund",
+          "description": "Chemicals, construction materials, metals & mining",
+          "average_iv_formatted": "0.39%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.22,
+            "historical_avg_formatted": "22%",
+            "typical_low": 0.16,
+            "typical_high": 0.3,
+            "current_vs_average": -0.2161,
+            "current_vs_average_pct": "-98.22%"
+          }
+        },
+        "XLRE": {
+          "symbol": "XLRE",
+          "current_price": 44.43,
+          "timestamp": "2026-05-21T09:03:32.717337-04:00",
+          "expiration_date": "2026-06-18",
+          "days_to_expiration": 28,
+          "atm_call": {
+            "strike": 44.0,
+            "implied_volatility": 1e-05,
+            "last_price": 1.03,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9903,
+            "pct_from_atm": -0.97,
+            "classification": "ATM",
+            "volume": 39,
+            "open_interest": 233,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 44.0,
+            "implied_volatility": 0.015635,
+            "last_price": 0.35,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9903,
+            "pct_from_atm": -0.97,
+            "classification": "ATM",
+            "volume": 10,
+            "open_interest": 19,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.007822,
+          "sector": "Real Estate",
+          "name": "Real Estate Select Sector SPDR Fund",
+          "description": "REITs and real estate management & development",
+          "average_iv_formatted": "0.78%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.2,
+            "historical_avg_formatted": "20%",
+            "typical_low": 0.14,
+            "typical_high": 0.28,
+            "current_vs_average": -0.1922,
+            "current_vs_average_pct": "-96.09%"
+          }
+        },
+        "XLC": {
+          "symbol": "XLC",
+          "current_price": 116.1,
+          "timestamp": "2026-05-21T09:03:32.907402-04:00",
+          "expiration_date": "2026-05-29",
+          "days_to_expiration": 8,
+          "atm_call": {
+            "strike": 116.0,
+            "implied_volatility": 1e-05,
+            "last_price": 1.05,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9991,
+            "pct_from_atm": -0.09,
+            "classification": "ATM",
+            "volume": 3,
+            "open_interest": 24,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "atm_put": {
+            "strike": 116.0,
+            "implied_volatility": 0.001963,
+            "last_price": 1.45,
+            "bid": 0.0,
+            "ask": 0.0,
+            "mid_price": 0.0,
+            "moneyness": 0.9991,
+            "pct_from_atm": -0.09,
+            "classification": "ATM",
+            "volume": 2,
+            "open_interest": 6,
+            "bid_ask_spread": null,
+            "spread_pct": null
+          },
+          "average_iv": 0.000987,
+          "sector": "Communication Services",
+          "name": "Communication Services Select Sector SPDR Fund",
+          "description": "Telecom, media & entertainment, interactive media",
+          "average_iv_formatted": "0.10%",
+          "iv_level": "Low",
+          "historical_reference": {
+            "historical_avg": 0.24,
+            "historical_avg_formatted": "24%",
+            "typical_low": 0.17,
+            "typical_high": 0.33,
+            "current_vs_average": -0.239,
+            "current_vs_average_pct": "-99.59%"
+          }
+        }
+      }
     },
     "news": {
       "top_news": [
@@ -25374,233 +27468,233 @@
         "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
       },
       "metadata": {
-        "collection_timestamp": "2026-05-20T18:28:16.987359",
-        "lookback_start": "2026-05-14T00:00:00",
-        "lookback_end": "2026-05-20T18:19:59.695440",
+        "collection_timestamp": "2026-05-21T03:58:33.047221",
+        "lookback_start": "2026-05-15T00:00:00",
+        "lookback_end": "2026-05-21T03:45:26.826446",
         "trading_days": 5,
         "tickers_scanned": 500,
-        "tickers_with_whales": 363,
+        "tickers_with_whales": 500,
         "tickers_skipped": 0,
         "total_raw_trades_scanned": 5000000,
-        "total_whale_trades": 1121,
+        "total_whale_trades": 4068,
         "minimum_share_threshold": 5000,
         "minimum_value_threshold": 1000000
       },
       "overall_sentiment": {
-        "direction": "BEARISH",
-        "high_confidence_direction": "BEARISH",
-        "buy_value": 2423460890.413599,
-        "sell_value": 2537377502.8673987,
-        "net_value": -113916612.45379972,
-        "buy_sell_ratio": 0.96,
-        "buy_count": 614,
-        "sell_count": 490,
-        "total_whale_trades": 1121,
-        "hc_buy_count": 611,
-        "hc_sell_count": 490,
-        "hc_buy_value": 2418761496.013599,
-        "hc_sell_value": 2537377502.8673987,
-        "hc_net_value": -118616006.85379982
+        "direction": "BULLISH",
+        "high_confidence_direction": "BULLISH",
+        "buy_value": 142827333624.43915,
+        "sell_value": 82002498101.74928,
+        "net_value": 60824835522.689865,
+        "buy_sell_ratio": 1.74,
+        "buy_count": 2719,
+        "sell_count": 1310,
+        "total_whale_trades": 4068,
+        "hc_buy_count": 2692,
+        "hc_sell_count": 1285,
+        "hc_buy_value": 142144547086.44995,
+        "hc_sell_value": 81306726310.60927,
+        "hc_net_value": 60837820775.84068
       },
       "dark_pool_sentiment": {
         "description": "Dark pool trades (Exchange D) - typically institutional block trades",
-        "direction": "BEARISH",
-        "high_confidence_direction": "BEARISH",
-        "trade_count": 876,
-        "total_value": 2000022332.1126,
-        "pct_of_whale_volume": 40.2,
-        "buy_value": 953514157.7376001,
-        "sell_value": 1032034155.25,
-        "net_value": -78519997.51239991,
-        "buy_sell_ratio": 0.92,
-        "hc_buy_value": 952004839.7376001,
-        "hc_sell_value": 1032034155.25,
-        "hc_net_value": -80029315.51239991
+        "direction": "BULLISH",
+        "high_confidence_direction": "BULLISH",
+        "trade_count": 1969,
+        "total_value": 23482711626.5395,
+        "pct_of_whale_volume": 10.4,
+        "buy_value": 14177811594.838682,
+        "sell_value": 9250989185.939297,
+        "net_value": 4926822408.899385,
+        "buy_sell_ratio": 1.53,
+        "hc_buy_value": 14113831670.72948,
+        "hc_sell_value": 9217007037.999296,
+        "hc_net_value": 4896824632.730185
       },
       "lit_exchange_sentiment": {
         "description": "Lit exchange trades (public exchanges)",
-        "direction": "BEARISH",
-        "high_confidence_direction": "BEARISH",
-        "trade_count": 245,
-        "total_value": 2975559710.5433974,
-        "pct_of_whale_volume": 59.8,
-        "buy_value": 1469946732.6760004,
-        "sell_value": 1505343347.6173997,
-        "net_value": -35396614.941399336,
-        "buy_sell_ratio": 0.98
+        "direction": "BULLISH",
+        "high_confidence_direction": "BULLISH",
+        "trade_count": 2099,
+        "total_value": 202229870096.22058,
+        "pct_of_whale_volume": 89.6,
+        "buy_value": 128649522029.6003,
+        "sell_value": 72751508915.80992,
+        "net_value": 55898013113.790375,
+        "buy_sell_ratio": 1.77
       },
       "top_bullish_trades": {
         "description": "Top 10 tickers with largest BUY activity (one per ticker)",
         "trades": [
           {
-            "ticker": "YUM",
-            "value": 80456250.0,
-            "shares": 525000,
-            "price": 153.25,
-            "timestamp": "2026-05-20T15:43:03.446063631Z",
-            "is_dark_pool": true,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Consumer Discretionary",
-            "industry": "Hotels, Restaurants & Leisure",
-            "sub_industry": "Restaurants",
-            "total_trades": 1,
-            "dark_pool_count": 1,
-            "dark_pool_value": 80456250.0,
-            "total_ticker_value": 80456250.0
-          },
-          {
-            "ticker": "EXE",
-            "value": 57188000.0,
-            "shares": 580000,
-            "price": 98.6,
-            "timestamp": "2026-05-20T16:37:45.131175937Z",
-            "is_dark_pool": true,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Energy",
-            "industry": "Oil, Gas & Consumable Fuels",
-            "sub_industry": "Oil & Gas Exploration & Production",
-            "total_trades": 3,
-            "dark_pool_count": 3,
-            "dark_pool_value": 72569681.7335,
-            "total_ticker_value": 72569681.7335
-          },
-          {
-            "ticker": "TMUS",
-            "value": 50344037.5,
-            "shares": 265000,
-            "price": 189.9775,
-            "timestamp": "2026-05-20T17:16:46.840282646Z",
+            "ticker": "AAPL",
+            "value": 1880717075.25,
+            "shares": 6222389,
+            "price": 302.25,
+            "timestamp": "2026-05-20T20:00:00.145605366Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
-            "sector": "Communication Services",
-            "industry": "Wireless Telecommunication Services",
-            "sub_industry": "Wireless Telecommunication Services",
-            "total_trades": 2,
-            "dark_pool_count": 1,
-            "dark_pool_value": 3531768.2399999998,
-            "total_ticker_value": 53875805.74
+            "sector": "Information Technology",
+            "industry": "Technology Hardware, Storage & Peripherals",
+            "sub_industry": "Technology Hardware, Storage & Peripherals",
+            "total_trades": 9,
+            "dark_pool_count": 6,
+            "dark_pool_value": 765007746.75,
+            "total_ticker_value": 6407158972.5
           },
           {
-            "ticker": "CRM",
-            "value": 44453750.0,
-            "shares": 250000,
-            "price": 177.815,
-            "timestamp": "2026-05-20T17:38:20.658904559Z",
+            "ticker": "MSFT",
+            "value": 1859952969.66,
+            "shares": 4417311,
+            "price": 421.06,
+            "timestamp": "2026-05-20T20:00:00.121692121Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
             "sector": "Information Technology",
             "industry": "Software",
-            "sub_industry": "Application Software",
-            "total_trades": 3,
-            "dark_pool_count": 1,
-            "dark_pool_value": 3254671.0799999996,
-            "total_ticker_value": 49042296.08
-          },
-          {
-            "ticker": "COF",
-            "value": 40568293.5,
-            "shares": 218697,
-            "price": 185.5,
-            "timestamp": "2026-05-20T17:43:23.1363851Z",
-            "is_dark_pool": true,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Financials",
-            "industry": "Consumer Finance",
-            "sub_industry": "Consumer Finance",
-            "total_trades": 2,
-            "dark_pool_count": 2,
-            "dark_pool_value": 41890065.48,
-            "total_ticker_value": 41890065.48
-          },
-          {
-            "ticker": "FDX",
-            "value": 38640000.0,
-            "shares": 100000,
-            "price": 386.4,
-            "timestamp": "2026-05-20T17:13:52.172351515Z",
-            "is_dark_pool": true,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Industrials",
-            "industry": "Air Freight & Logistics",
-            "sub_industry": "Air Freight & Logistics",
-            "total_trades": 3,
-            "dark_pool_count": 2,
-            "dark_pool_value": 61800000.0,
-            "total_ticker_value": 63167856.0
-          },
-          {
-            "ticker": "WST",
-            "value": 34347433.230000004,
-            "shares": 113011,
-            "price": 303.93,
-            "timestamp": "2026-05-19T23:00:00.000762741Z",
-            "is_dark_pool": false,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Health Care",
-            "industry": "Life Sciences Tools & Services",
-            "sub_industry": "Life Sciences Tools & Services",
-            "total_trades": 10,
-            "dark_pool_count": 3,
-            "dark_pool_value": 5772523.74,
-            "total_ticker_value": 181234783.35000002
-          },
-          {
-            "ticker": "ESS",
-            "value": 32885721.12,
-            "shares": 120624,
-            "price": 272.63,
-            "timestamp": "2026-05-19T23:00:00.002308672Z",
-            "is_dark_pool": false,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Real Estate",
-            "industry": "Residential REITs",
-            "sub_industry": "Multi-Family Residential REITs",
+            "sub_industry": "Systems Software",
             "total_trades": 6,
-            "dark_pool_count": 1,
-            "dark_pool_value": 3153148.48,
-            "total_ticker_value": 167581754.07999998
+            "dark_pool_count": 3,
+            "dark_pool_value": 363030773.98,
+            "total_ticker_value": 5942889682.960001
           },
           {
-            "ticker": "NVR",
-            "value": 31171234.480000004,
-            "shares": 5399,
-            "price": 5773.52,
-            "timestamp": "2026-05-19T23:00:00.002075986Z",
+            "ticker": "AMZN",
+            "value": 1256140509.74,
+            "shares": 4739974,
+            "price": 265.01,
+            "timestamp": "2026-05-20T20:00:00.713151264Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
             "sector": "Consumer Discretionary",
-            "industry": "Household Durables",
-            "sub_industry": "Homebuilding",
-            "total_trades": 10,
-            "dark_pool_count": 3,
-            "dark_pool_value": 15409018.18,
-            "total_ticker_value": 173383594.92
+            "industry": "Broadline Retail",
+            "sub_industry": "Broadline Retail",
+            "total_trades": 8,
+            "dark_pool_count": 6,
+            "dark_pool_value": 422011994.38,
+            "total_ticker_value": 2934293013.8600006
           },
           {
-            "ticker": "SBAC",
-            "value": 30842833.83,
-            "shares": 148633,
-            "price": 207.51,
-            "timestamp": "2026-05-19T20:00:00.076031059Z",
+            "ticker": "V",
+            "value": 921809511.0,
+            "shares": 2787028,
+            "price": 330.75,
+            "timestamp": "2026-05-20T20:09:25.730494827Z",
+            "is_dark_pool": true,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Financials",
+            "industry": "Financial Services",
+            "sub_industry": "Transaction & Payment Processing Services",
+            "total_trades": 9,
+            "dark_pool_count": 4,
+            "dark_pool_value": 995720559.75,
+            "total_ticker_value": 3076996356.0
+          },
+          {
+            "ticker": "JPM",
+            "value": 599111711.1,
+            "shares": 1983945,
+            "price": 301.98,
+            "timestamp": "2026-05-20T23:00:00.002365222Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
-            "sector": "Real Estate",
-            "industry": "Specialized REITs",
-            "sub_industry": "Telecom Tower REITs",
+            "sector": "Financials",
+            "industry": "Banks",
+            "sub_industry": "Diversified Banks",
+            "total_trades": 9,
+            "dark_pool_count": 4,
+            "dark_pool_value": 155126824.02,
+            "total_ticker_value": 3150685379.52
+          },
+          {
+            "ticker": "GS",
+            "value": 590446615.52,
+            "shares": 601196,
+            "price": 982.12,
+            "timestamp": "2026-05-20T23:00:00.002684118Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Financials",
+            "industry": "Capital Markets",
+            "sub_industry": "Investment Banking & Brokerage",
             "total_trades": 7,
             "dark_pool_count": 2,
-            "dark_pool_value": 5705864.4399999995,
-            "total_ticker_value": 100386955.33
+            "dark_pool_value": 34821064.6,
+            "total_ticker_value": 2987054142.2
+          },
+          {
+            "ticker": "COST",
+            "value": 562615842.46,
+            "shares": 523846,
+            "price": 1074.01,
+            "timestamp": "2026-05-20T20:00:00.502015493Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Consumer Staples",
+            "industry": "Consumer Staples Distribution & Retail",
+            "sub_industry": "Consumer Staples Merchandise Retail",
+            "total_trades": 9,
+            "dark_pool_count": 7,
+            "dark_pool_value": 216632113.04,
+            "total_ticker_value": 1341863797.9599998
+          },
+          {
+            "ticker": "LRCX",
+            "value": 548885596.9399999,
+            "shares": 1879166,
+            "price": 292.09,
+            "timestamp": "2026-05-20T20:00:00.544761905Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Information Technology",
+            "industry": "Semiconductors & Semiconductor Equipment",
+            "sub_industry": "Semiconductor Materials & Equipment",
+            "total_trades": 9,
+            "dark_pool_count": 7,
+            "dark_pool_value": 103276305.92999998,
+            "total_ticker_value": 1201047499.81
+          },
+          {
+            "ticker": "QCOM",
+            "value": 536254377.89,
+            "shares": 2648039,
+            "price": 202.51,
+            "timestamp": "2026-05-20T20:00:00.085573626Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Information Technology",
+            "industry": "Semiconductors & Semiconductor Equipment",
+            "sub_industry": "Semiconductors",
+            "total_trades": 6,
+            "dark_pool_count": 3,
+            "dark_pool_value": 121344397.02,
+            "total_ticker_value": 1730107530.69
+          },
+          {
+            "ticker": "LLY",
+            "value": 527991679.31,
+            "shares": 518213,
+            "price": 1018.87,
+            "timestamp": "2026-05-20T23:00:00.00210098Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Health Care",
+            "industry": "Pharmaceuticals",
+            "sub_industry": "Pharmaceuticals",
+            "total_trades": 8,
+            "dark_pool_count": 3,
+            "dark_pool_value": 333792000.70000005,
+            "total_ticker_value": 2973750397.25
           }
         ]
       },
@@ -25608,407 +27702,401 @@
         "description": "Top 10 tickers with largest SELL activity (one per ticker)",
         "trades": [
           {
+            "ticker": "GOOGL",
+            "value": 1691527098.5500002,
+            "shares": 4349405,
+            "price": 388.91,
+            "timestamp": "2026-05-20T20:00:00.048470277Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Communication Services",
+            "industry": "Interactive Media & Services",
+            "sub_industry": "Interactive Media & Services",
+            "total_trades": 7,
+            "dark_pool_count": 5,
+            "dark_pool_value": 1075892291.3,
+            "total_ticker_value": 4458946488.400001
+          },
+          {
             "ticker": "AVGO",
-            "value": 104645000.0,
-            "shares": 250000,
-            "price": 418.58,
-            "timestamp": "2026-05-20T18:03:16.288518081Z",
-            "is_dark_pool": true,
+            "value": 1197520737.28,
+            "shares": 2866528,
+            "price": 417.76,
+            "timestamp": "2026-05-20T20:00:00.428904582Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Information Technology",
+            "industry": "Semiconductors & Semiconductor Equipment",
+            "sub_industry": "Semiconductors",
+            "total_trades": 7,
+            "dark_pool_count": 5,
+            "dark_pool_value": 374410298.08,
+            "total_ticker_value": 2769451772.6399994
+          },
+          {
+            "ticker": "META",
+            "value": 956117627.18,
+            "shares": 1580203,
+            "price": 605.06,
+            "timestamp": "2026-05-20T20:00:00.748412485Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Communication Services",
+            "industry": "Interactive Media & Services",
+            "sub_industry": "Interactive Media & Services",
+            "total_trades": 9,
+            "dark_pool_count": 7,
+            "dark_pool_value": 189536860.18,
+            "total_ticker_value": 2101772114.5399997
+          },
+          {
+            "ticker": "WMT",
+            "value": 745820531.05,
+            "shares": 5699813,
+            "price": 130.85,
+            "timestamp": "2026-05-20T20:00:00.569841369Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Consumer Staples",
+            "industry": "Consumer Staples Distribution & Retail",
+            "sub_industry": "Consumer Staples Merchandise Retail",
+            "total_trades": 10,
+            "dark_pool_count": 8,
+            "dark_pool_value": 201855752.5,
+            "total_ticker_value": 1693496814.6000001
+          },
+          {
+            "ticker": "CSCO",
+            "value": 614956232.6999999,
+            "shares": 5377842,
+            "price": 114.35,
+            "timestamp": "2026-05-20T20:00:00.542178003Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Information Technology",
+            "industry": "Communications Equipment",
+            "sub_industry": "Communications Equipment",
+            "total_trades": 9,
+            "dark_pool_count": 7,
+            "dark_pool_value": 198809367.4,
+            "total_ticker_value": 1428721832.8
+          },
+          {
+            "ticker": "AMAT",
+            "value": 607787873.35,
+            "shares": 1423891,
+            "price": 426.85,
+            "timestamp": "2026-05-20T20:00:00.035454356Z",
+            "is_dark_pool": false,
+            "tier": "Mega Whale",
+            "direction_confidence": 95,
+            "sector": "Information Technology",
+            "industry": "Semiconductors & Semiconductor Equipment",
+            "sub_industry": "Semiconductor Materials & Equipment",
+            "total_trades": 9,
+            "dark_pool_count": 6,
+            "dark_pool_value": 77531326.60000001,
+            "total_ticker_value": 1900894946.65
+          },
+          {
+            "ticker": "TXN",
+            "value": 498864473.2,
+            "shares": 1636265,
+            "price": 304.88,
+            "timestamp": "2026-05-20T20:00:00.365797304Z",
+            "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
             "sector": "Information Technology",
             "industry": "Semiconductors & Semiconductor Equipment",
             "sub_industry": "Semiconductors",
             "total_trades": 6,
-            "dark_pool_count": 6,
-            "dark_pool_value": 159923824.8,
-            "total_ticker_value": 159923824.8
-          },
-          {
-            "ticker": "WELL",
-            "value": 71124900.0,
-            "shares": 330000,
-            "price": 215.53,
-            "timestamp": "2026-05-20T16:19:36.798722591Z",
-            "is_dark_pool": false,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Real Estate",
-            "industry": "Health Care REITs",
-            "sub_industry": "Health Care REITs",
-            "total_trades": 2,
-            "dark_pool_count": 1,
-            "dark_pool_value": 1135389.63,
-            "total_ticker_value": 72260289.63
-          },
-          {
-            "ticker": "LII",
-            "value": 51815806.12,
-            "shares": 107348,
-            "price": 482.69,
-            "timestamp": "2026-05-19T23:00:00.003041692Z",
-            "is_dark_pool": false,
-            "tier": "Mega Whale",
-            "direction_confidence": 82,
-            "sector": "Industrials",
-            "industry": "Building Products",
-            "sub_industry": "Building Products",
-            "total_trades": 9,
             "dark_pool_count": 4,
-            "dark_pool_value": 6666720.600000001,
-            "total_ticker_value": 265745751.20000002
+            "dark_pool_value": 181252379.51999998,
+            "total_ticker_value": 1178981325.92
           },
           {
-            "ticker": "GL",
-            "value": 47957650.65,
-            "shares": 319995,
-            "price": 149.87,
-            "timestamp": "2026-05-19T20:02:11.541202394Z",
-            "is_dark_pool": true,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Financials",
-            "industry": "Insurance",
-            "sub_industry": "Life & Health Insurance",
-            "total_trades": 10,
-            "dark_pool_count": 3,
-            "dark_pool_value": 53568933.32,
-            "total_ticker_value": 225145339.98999998
-          },
-          {
-            "ticker": "DOV",
-            "value": 44305698.5,
-            "shares": 213470,
-            "price": 207.55,
-            "timestamp": "2026-05-19T23:00:00.002426511Z",
-            "is_dark_pool": false,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Industrials",
-            "industry": "Machinery",
-            "sub_industry": "Industrial Machinery & Supplies & Components",
-            "total_trades": 5,
-            "dark_pool_count": 2,
-            "dark_pool_value": 4824084.65,
-            "total_ticker_value": 137741180.14999998
-          },
-          {
-            "ticker": "CDNS",
-            "value": 35680104.18,
-            "shares": 102600,
-            "price": 347.7593,
-            "timestamp": "2026-05-20T17:27:54.552228729Z",
+            "ticker": "ADI",
+            "value": 460732127.65000004,
+            "shares": 1157473,
+            "price": 398.05,
+            "timestamp": "2026-05-20T20:00:00.29608287Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
             "sector": "Information Technology",
-            "industry": "Software",
-            "sub_industry": "Application Software",
-            "total_trades": 1,
-            "dark_pool_count": 0,
-            "dark_pool_value": 0,
-            "total_ticker_value": 35680104.18
-          },
-          {
-            "ticker": "AVB",
-            "value": 35443196.81,
-            "shares": 191471,
-            "price": 185.11,
-            "timestamp": "2026-05-19T23:00:00.00290394Z",
-            "is_dark_pool": false,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Real Estate",
-            "industry": "Residential REITs",
-            "sub_industry": "Multi-Family Residential REITs",
-            "total_trades": 6,
-            "dark_pool_count": 1,
-            "dark_pool_value": 16889991.73,
-            "total_ticker_value": 194105975.78
-          },
-          {
-            "ticker": "LYV",
-            "value": 32319000,
-            "shares": 199500,
-            "price": 162,
-            "timestamp": "2026-05-20T16:53:12.697942174Z",
-            "is_dark_pool": true,
-            "tier": "Mega Whale",
-            "direction_confidence": 95,
-            "sector": "Communication Services",
-            "industry": "Entertainment",
-            "sub_industry": "Movies & Entertainment",
+            "industry": "Semiconductors & Semiconductor Equipment",
+            "sub_industry": "Semiconductors",
             "total_trades": 7,
-            "dark_pool_count": 6,
-            "dark_pool_value": 52455278.0,
-            "total_ticker_value": 55571099.2
+            "dark_pool_count": 5,
+            "dark_pool_value": 111383943.19999999,
+            "total_ticker_value": 1032848198.5
           },
           {
-            "ticker": "XEL",
-            "value": 27963250.0,
-            "shares": 350000,
-            "price": 79.895,
-            "timestamp": "2026-05-20T17:19:32.305640044Z",
+            "ticker": "JNJ",
+            "value": 459070433.64,
+            "shares": 2001877,
+            "price": 229.32,
+            "timestamp": "2026-05-20T23:00:00.00194427Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
-            "sector": "Utilities",
-            "industry": "Electric Utilities",
-            "sub_industry": "Electric Utilities",
-            "total_trades": 1,
-            "dark_pool_count": 0,
-            "dark_pool_value": 0,
-            "total_ticker_value": 27963250.0
+            "sector": "Health Care",
+            "industry": "Pharmaceuticals",
+            "sub_industry": "Pharmaceuticals",
+            "total_trades": 10,
+            "dark_pool_count": 5,
+            "dark_pool_value": 382537635.47999996,
+            "total_ticker_value": 2677889803.6799994
           },
           {
-            "ticker": "SNA",
-            "value": 26804036.7,
-            "shares": 74466,
-            "price": 359.95,
-            "timestamp": "2026-05-19T23:00:00.001706011Z",
+            "ticker": "BRK-B",
+            "value": 442412611.2,
+            "shares": 919968,
+            "price": 480.9,
+            "timestamp": "2026-05-20T23:00:00.002661434Z",
             "is_dark_pool": false,
             "tier": "Mega Whale",
             "direction_confidence": 95,
-            "sector": "Industrials",
-            "industry": "Machinery",
-            "sub_industry": "Industrial Machinery & Supplies & Components",
-            "total_trades": 7,
-            "dark_pool_count": 0,
-            "dark_pool_value": 0,
-            "total_ticker_value": 136237659.66000003
+            "sector": "Financials",
+            "industry": "Financial Services",
+            "sub_industry": "Multi-Sector Holdings",
+            "total_trades": 9,
+            "dark_pool_count": 4,
+            "dark_pool_value": 143796313.5,
+            "total_ticker_value": 2355859369.5
           }
         ]
       },
       "tier_breakdown": {
+        "mega_whale": {
+          "count": 2476,
+          "value": 220693083727.5287,
+          "dark_pool_count": 435
+        },
         "large": {
-          "count": 110,
-          "value": 374997816.3892,
-          "dark_pool_count": 88
+          "count": 398,
+          "value": 1437375023.7769,
+          "dark_pool_count": 392
         },
         "notable": {
-          "count": 845,
-          "value": 795963698.5613003,
-          "dark_pool_count": 728
+          "count": 852,
+          "value": 1116880667.9726007,
+          "dark_pool_count": 811
         },
         "whale": {
-          "count": 35,
-          "value": 247686952.55550003,
-          "dark_pool_count": 28
-        },
-        "mega_whale": {
-          "count": 131,
-          "value": 3556933575.1499996,
-          "dark_pool_count": 32
+          "count": 342,
+          "value": 2465242303.4814014,
+          "dark_pool_count": 331
         }
       },
       "exchange_breakdown": {
         "N": {
-          "count": 119,
-          "value": 2352251151.58,
+          "count": 1731,
+          "value": 142555521823.69055,
           "name": "NYSE",
           "is_dark_pool": false
         },
-        "D": {
-          "count": 876,
-          "value": 2000022332.1126,
-          "name": "Dark Pool (FINRA ADF)",
-          "is_dark_pool": true
-        },
-        "M": {
-          "count": 27,
-          "value": 347954381.6984,
-          "name": "CHX",
-          "is_dark_pool": false
-        },
         "Q": {
-          "count": 21,
-          "value": 138441655.53,
+          "count": 318,
+          "value": 52177888187.96001,
           "name": "NASDAQ",
           "is_dark_pool": false
         },
+        "D": {
+          "count": 1969,
+          "value": 23482711626.5395,
+          "name": "Dark Pool (FINRA ADF)",
+          "is_dark_pool": true
+        },
         "P": {
-          "count": 13,
-          "value": 48346629.75,
+          "count": 36,
+          "value": 7151487816.580001,
           "name": "NYSE Arca",
           "is_dark_pool": false
         },
-        "K": {
-          "count": 27,
-          "value": 32363389.39,
-          "name": "Cboe EDGX",
-          "is_dark_pool": false
-        },
-        "T": {
-          "count": 7,
-          "value": 18591687.97,
-          "name": "T",
-          "is_dark_pool": false
-        },
-        "V": {
-          "count": 17,
-          "value": 17551672.315,
-          "name": "IEX",
-          "is_dark_pool": false
-        },
-        "U": {
-          "count": 9,
-          "value": 10687411.639999999,
-          "name": "MEMX",
-          "is_dark_pool": false
-        },
         "Z": {
-          "count": 4,
-          "value": 5943730.67,
+          "count": 5,
+          "value": 252393160.60000002,
           "name": "Cboe BZX",
           "is_dark_pool": false
         },
-        "J": {
+        "M": {
+          "count": 5,
+          "value": 88237805.0,
+          "name": "CHX",
+          "is_dark_pool": false
+        },
+        "V": {
+          "count": 3,
+          "value": 3070202.39,
+          "name": "IEX",
+          "is_dark_pool": false
+        },
+        "K": {
           "count": 1,
-          "value": 3428000,
-          "name": "Cboe EDGA",
+          "value": 1271100.0,
+          "name": "Cboe EDGX",
           "is_dark_pool": false
         }
       },
       "sector_sentiment": {
-        "Industrials": {
-          "sentiment": "BEARISH",
-          "high_confidence_sentiment": "BEARISH",
-          "buy_value": 127438881.7088,
-          "sell_value": 1114712054.5730007,
-          "net_value": -987273172.8642007,
-          "buy_sell_ratio": 0.11,
-          "buy_count": 46,
-          "sell_count": 127,
-          "trade_count": 173,
-          "ticker_count": 54
+        "Information Technology": {
+          "sentiment": "BULLISH",
+          "high_confidence_sentiment": "BULLISH",
+          "buy_value": 30661918242.048996,
+          "sell_value": 20654863225.71111,
+          "net_value": 10007055016.337887,
+          "buy_sell_ratio": 1.48,
+          "buy_count": 348,
+          "sell_count": 222,
+          "trade_count": 570,
+          "ticker_count": 73
         },
         "Financials": {
           "sentiment": "BULLISH",
           "high_confidence_sentiment": "BULLISH",
-          "buy_value": 513639887.7525,
-          "sell_value": 292515618.59959996,
-          "net_value": 221124269.15290004,
-          "buy_sell_ratio": 1.76,
-          "buy_count": 101,
-          "sell_count": 44,
-          "trade_count": 145,
-          "ticker_count": 48
+          "buy_value": 25825980818.249416,
+          "sell_value": 11627727417.311495,
+          "net_value": 14198253400.937922,
+          "buy_sell_ratio": 2.22,
+          "buy_count": 395,
+          "sell_count": 201,
+          "trade_count": 610,
+          "ticker_count": 75
         },
-        "Real Estate": {
-          "sentiment": "BULLISH",
-          "high_confidence_sentiment": "BULLISH",
-          "buy_value": 512329887.90209997,
-          "sell_value": 275753305.94740003,
-          "net_value": 236576581.95469993,
-          "buy_sell_ratio": 1.86,
-          "buy_count": 59,
-          "sell_count": 21,
-          "trade_count": 81,
-          "ticker_count": 24
-        },
-        "Information Technology": {
+        "Industrials": {
           "sentiment": "BEARISH",
           "high_confidence_sentiment": "BEARISH",
-          "buy_value": 206363610.86060005,
-          "sell_value": 411064523.47190005,
-          "net_value": -204700912.6113,
-          "buy_sell_ratio": 0.5,
-          "buy_count": 80,
-          "sell_count": 85,
-          "trade_count": 165,
-          "ticker_count": 59
+          "buy_value": 13247861289.893898,
+          "sell_value": 15904085832.021484,
+          "net_value": -2656224542.1275864,
+          "buy_sell_ratio": 0.83,
+          "buy_count": 346,
+          "sell_count": 308,
+          "trade_count": 667,
+          "ticker_count": 79
         },
         "Health Care": {
           "sentiment": "BULLISH",
           "high_confidence_sentiment": "BULLISH",
-          "buy_value": 438553126.4182001,
-          "sell_value": 64301245.2563,
-          "net_value": 374251881.16190004,
-          "buy_sell_ratio": 6.82,
-          "buy_count": 105,
-          "sell_count": 33,
-          "trade_count": 146,
-          "ticker_count": 47
+          "buy_value": 17519687311.355007,
+          "sell_value": 9427360758.799406,
+          "net_value": 8092326552.555601,
+          "buy_sell_ratio": 1.86,
+          "buy_count": 349,
+          "sell_count": 129,
+          "trade_count": 478,
+          "ticker_count": 59
         },
         "Consumer Discretionary": {
           "sentiment": "BULLISH",
           "high_confidence_sentiment": "BULLISH",
-          "buy_value": 299862760.1459,
-          "sell_value": 40644780.103999995,
-          "net_value": 259217980.0419,
-          "buy_sell_ratio": 7.38,
-          "buy_count": 60,
-          "sell_count": 17,
-          "trade_count": 84,
-          "ticker_count": 30
-        },
-        "Utilities": {
-          "sentiment": "BULLISH",
-          "high_confidence_sentiment": "BULLISH",
-          "buy_value": 103788931.88729998,
-          "sell_value": 66899540.86799999,
-          "net_value": 36889391.01929999,
-          "buy_sell_ratio": 1.55,
-          "buy_count": 50,
-          "sell_count": 29,
-          "trade_count": 79,
-          "ticker_count": 24
-        },
-        "Communication Services": {
-          "sentiment": "BEARISH",
-          "high_confidence_sentiment": "BEARISH",
-          "buy_value": 71757294.65,
-          "sell_value": 92899851.36619999,
-          "net_value": -21142556.71619998,
-          "buy_sell_ratio": 0.77,
-          "buy_count": 25,
-          "sell_count": 37,
-          "trade_count": 62,
-          "ticker_count": 17
-        },
-        "Materials": {
-          "sentiment": "BEARISH",
-          "high_confidence_sentiment": "BEARISH",
-          "buy_value": 0,
-          "sell_value": 145338453.43099996,
-          "net_value": -145338453.43099996,
-          "buy_sell_ratio": 0.0,
-          "buy_count": 0,
-          "sell_count": 57,
-          "trade_count": 58,
-          "ticker_count": 18
-        },
-        "Energy": {
-          "sentiment": "BULLISH",
-          "high_confidence_sentiment": "BULLISH",
-          "buy_value": 111804577.0712,
-          "sell_value": 0,
-          "net_value": 111804577.0712,
-          "buy_sell_ratio": 999.99,
-          "buy_count": 41,
-          "sell_count": 0,
-          "trade_count": 41,
-          "ticker_count": 15
+          "buy_value": 14883290455.73039,
+          "sell_value": 2469671718.7655997,
+          "net_value": 12413618736.96479,
+          "buy_sell_ratio": 6.03,
+          "buy_count": 295,
+          "sell_count": 89,
+          "trade_count": 384,
+          "ticker_count": 48
         },
         "Consumer Staples": {
           "sentiment": "BULLISH",
           "high_confidence_sentiment": "BULLISH",
-          "buy_value": 37921932.017,
-          "sell_value": 33248129.250000004,
-          "net_value": 4673802.7669999935,
-          "buy_sell_ratio": 1.14,
-          "buy_count": 47,
-          "sell_count": 40,
-          "trade_count": 87,
-          "ticker_count": 27
+          "buy_value": 10772625111.767204,
+          "sell_value": 4602211902.305,
+          "net_value": 6170413209.462204,
+          "buy_sell_ratio": 2.34,
+          "buy_count": 199,
+          "sell_count": 80,
+          "trade_count": 283,
+          "ticker_count": 36
+        },
+        "Communication Services": {
+          "sentiment": "BEARISH",
+          "high_confidence_sentiment": "BEARISH",
+          "buy_value": 3197119439.9828,
+          "sell_value": 8937745675.199997,
+          "net_value": -5740626235.217197,
+          "buy_sell_ratio": 0.36,
+          "buy_count": 87,
+          "sell_count": 70,
+          "trade_count": 157,
+          "ticker_count": 20
+        },
+        "Energy": {
+          "sentiment": "BULLISH",
+          "high_confidence_sentiment": "BULLISH",
+          "buy_value": 9752857574.945406,
+          "sell_value": 518827791.1799999,
+          "net_value": 9234029783.765406,
+          "buy_sell_ratio": 18.8,
+          "buy_count": 153,
+          "sell_count": 18,
+          "trade_count": 171,
+          "ticker_count": 21
+        },
+        "Utilities": {
+          "sentiment": "BULLISH",
+          "high_confidence_sentiment": "BULLISH",
+          "buy_value": 7059101978.4556,
+          "sell_value": 2738478280.8451996,
+          "net_value": 4320623697.6104,
+          "buy_sell_ratio": 2.58,
+          "buy_count": 209,
+          "sell_count": 66,
+          "trade_count": 275,
+          "ticker_count": 31
+        },
+        "Materials": {
+          "sentiment": "BEARISH",
+          "high_confidence_sentiment": "BEARISH",
+          "buy_value": 2628322808.1299996,
+          "sell_value": 5121525499.610003,
+          "net_value": -2493202691.480004,
+          "buy_sell_ratio": 0.51,
+          "buy_count": 78,
+          "sell_count": 127,
+          "trade_count": 205,
+          "ticker_count": 26
+        },
+        "Real Estate": {
+          "sentiment": "BULLISH",
+          "high_confidence_sentiment": "BULLISH",
+          "buy_value": 6874899909.580005,
+          "sell_value": 0,
+          "net_value": 6874899909.580005,
+          "buy_sell_ratio": 999.99,
+          "buy_count": 252,
+          "sell_count": 0,
+          "trade_count": 260,
+          "ticker_count": 31
+        },
+        "Unknown": {
+          "sentiment": "BULLISH",
+          "high_confidence_sentiment": "BULLISH",
+          "buy_value": 403668684.29999995,
+          "sell_value": 0,
+          "net_value": 403668684.29999995,
+          "buy_sell_ratio": 999.99,
+          "buy_count": 8,
+          "sell_count": 0,
+          "trade_count": 8,
+          "ticker_count": 1
         }
       },
       "top_sectors": [
-        "Industrials",
-        "Financials",
-        "Real Estate",
         "Information Technology",
-        "Health Care"
+        "Financials",
+        "Industrials",
+        "Health Care",
+        "Consumer Discretionary"
       ]
     },
     "weekly": {
@@ -46923,7 +49011,7 @@
         "declines": 152,
         "unchanged": 2,
         "advance_decline_ratio": 2.296,
-        "advancing_volume_pct": 74.01,
+        "advancing_volume_pct": 73.66,
         "stocks_near_52w_high": 14,
         "stocks_near_52w_low": 0,
         "high_low_ratio": null,
@@ -46931,28 +49019,573 @@
         "above_50_day_ma_pct": 52.68,
         "above_200_day_ma_pct": 55.67
       },
+      "major_indexes_table": [
+        {
+          "symbol": "^GSPC",
+          "name": "S&P 500",
+          "close": null,
+          "change": null,
+          "change_percent": null
+        },
+        {
+          "symbol": "^DJI",
+          "name": "Dow Jones Industrial Average",
+          "close": null,
+          "change": null,
+          "change_percent": null
+        },
+        {
+          "symbol": "^IXIC",
+          "name": "Nasdaq Composite",
+          "close": null,
+          "change": null,
+          "change_percent": null
+        },
+        {
+          "symbol": "^RUT",
+          "name": "Russell 2000",
+          "close": null,
+          "change": null,
+          "change_percent": null
+        }
+      ],
+      "sector_leaders": [
+        {
+          "symbol": "XLY",
+          "sector_name": "Consumer Discretionary",
+          "close": 117.94,
+          "change_percent": 2.53
+        },
+        {
+          "symbol": "XLK",
+          "sector_name": "Technology",
+          "close": 177.14,
+          "change_percent": 2.25
+        },
+        {
+          "symbol": "XLB",
+          "sector_name": "Materials",
+          "close": 49.72,
+          "change_percent": 1.39
+        },
+        {
+          "symbol": "XLI",
+          "sector_name": "Industrials",
+          "close": 170.73,
+          "change_percent": 1.18
+        },
+        {
+          "symbol": "XLRE",
+          "sector_name": "Real Estate",
+          "close": 44.43,
+          "change_percent": 1.12
+        }
+      ],
+      "sector_laggards": [
+        {
+          "symbol": "XLE",
+          "sector_name": "Energy",
+          "close": 59.8,
+          "change_percent": -2.43
+        },
+        {
+          "symbol": "XLP",
+          "sector_name": "Consumer Staples",
+          "close": 85.52,
+          "change_percent": -0.66
+        },
+        {
+          "symbol": "XLV",
+          "sector_name": "Health Care",
+          "close": 147.13,
+          "change_percent": -0.13
+        },
+        {
+          "symbol": "XLC",
+          "sector_name": "Communication Services",
+          "close": 116.1,
+          "change_percent": 0.22
+        },
+        {
+          "symbol": "XLU",
+          "sector_name": "Utilities",
+          "close": 44.51,
+          "change_percent": 0.38
+        }
+      ],
+      "volatility_summary": {
+        "vix": {
+          "symbol": "^VIX",
+          "close": 17.72,
+          "change": null,
+          "change_percent": null
+        },
+        "major_index_iv": [
+          {
+            "symbol": "SPY",
+            "average_iv": 0.000498,
+            "average_iv_formatted": "0.05%",
+            "iv_level": "Low"
+          },
+          {
+            "symbol": "QQQ",
+            "average_iv": 0.000254,
+            "average_iv_formatted": "0.03%",
+            "iv_level": "Low"
+          },
+          {
+            "symbol": "IWM",
+            "average_iv": 0.000498,
+            "average_iv_formatted": "0.05%",
+            "iv_level": "Low"
+          },
+          {
+            "symbol": "DIA",
+            "average_iv": 0.000498,
+            "average_iv_formatted": "0.05%",
+            "iv_level": "Low"
+          }
+        ]
+      },
       "technical_levels": {
         "SPY": {
-          "reference_date": "2026-05-19",
+          "reference_date": "2026-05-20",
           "traditional_pivots": {
-            "P": 734.33,
-            "R1": 737.09,
-            "R2": 740.38,
-            "S1": 731.04,
-            "S2": 728.28
+            "P": 739.0,
+            "R1": 744.11,
+            "R2": 746.9,
+            "S1": 736.21,
+            "S2": 731.1
           },
           "fibonacci_pivots": {
-            "FP": 734.33,
-            "FR1": 736.64,
-            "FR2": 738.07,
-            "FS1": 732.02,
-            "FS2": 730.59
+            "FP": 739.0,
+            "FR1": 742.02,
+            "FR2": 743.89,
+            "FS1": 735.99,
+            "FS2": 734.12
           },
           "sma": {
+            "SMA20": 728.24,
+            "SMA50": 693.45,
+            "SMA200": 675.01
+          }
+        }
+      },
+      "index_table_3day": {
+        "dates": [
+          "2026-05-18",
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "rows": [
+          {
+            "symbol": "^GSPC",
+            "name": "S&P 500",
+            "values": [
+              {
+                "date": "2026-05-18",
+                "close": 7403.05,
+                "daily_return_percent": -0.07
+              },
+              {
+                "date": "2026-05-19",
+                "close": 7353.61,
+                "daily_return_percent": -0.67
+              },
+              {
+                "date": "2026-05-20",
+                "close": 7432.97,
+                "daily_return_percent": 1.08
+              }
+            ]
+          },
+          {
+            "symbol": "^DJI",
+            "name": "Dow Jones Industrial Average",
+            "values": [
+              {
+                "date": "2026-05-18",
+                "close": 49686.12,
+                "daily_return_percent": 0.32
+              },
+              {
+                "date": "2026-05-19",
+                "close": 49363.88,
+                "daily_return_percent": -0.65
+              },
+              {
+                "date": "2026-05-20",
+                "close": 50009.35,
+                "daily_return_percent": 1.31
+              }
+            ]
+          },
+          {
+            "symbol": "^IXIC",
+            "name": "Nasdaq Composite",
+            "values": [
+              {
+                "date": "2026-05-18",
+                "close": 26090.73,
+                "daily_return_percent": -0.51
+              },
+              {
+                "date": "2026-05-19",
+                "close": 25870.71,
+                "daily_return_percent": -0.84
+              },
+              {
+                "date": "2026-05-20",
+                "close": 26270.36,
+                "daily_return_percent": 1.54
+              }
+            ]
+          },
+          {
+            "symbol": "^RUT",
+            "name": "Russell 2000",
+            "values": [
+              {
+                "date": "2026-05-18",
+                "close": 2775.1,
+                "daily_return_percent": -0.65
+              },
+              {
+                "date": "2026-05-19",
+                "close": 2747.07,
+                "daily_return_percent": -1.01
+              },
+              {
+                "date": "2026-05-20",
+                "close": 2817.37,
+                "daily_return_percent": 2.56
+              }
+            ]
+          }
+        ],
+        "source": "major-indexes/us_major_indices_historical.json"
+      },
+      "index_table_5day": {
+        "dates": [
+          "2026-05-14",
+          "2026-05-15",
+          "2026-05-18",
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "rows": [
+          {
+            "symbol": "^GSPC",
+            "name": "S&P 500",
+            "values": [
+              {
+                "date": "2026-05-14",
+                "close": 7501.24,
+                "daily_return_percent": 0.77
+              },
+              {
+                "date": "2026-05-15",
+                "close": 7408.5,
+                "daily_return_percent": -1.24
+              },
+              {
+                "date": "2026-05-18",
+                "close": 7403.05,
+                "daily_return_percent": -0.07
+              },
+              {
+                "date": "2026-05-19",
+                "close": 7353.61,
+                "daily_return_percent": -0.67
+              },
+              {
+                "date": "2026-05-20",
+                "close": 7432.97,
+                "daily_return_percent": 1.08
+              }
+            ]
+          },
+          {
+            "symbol": "^DJI",
+            "name": "Dow Jones Industrial Average",
+            "values": [
+              {
+                "date": "2026-05-14",
+                "close": 50063.46,
+                "daily_return_percent": 0.75
+              },
+              {
+                "date": "2026-05-15",
+                "close": 49526.17,
+                "daily_return_percent": -1.07
+              },
+              {
+                "date": "2026-05-18",
+                "close": 49686.12,
+                "daily_return_percent": 0.32
+              },
+              {
+                "date": "2026-05-19",
+                "close": 49363.88,
+                "daily_return_percent": -0.65
+              },
+              {
+                "date": "2026-05-20",
+                "close": 50009.35,
+                "daily_return_percent": 1.31
+              }
+            ]
+          },
+          {
+            "symbol": "^IXIC",
+            "name": "Nasdaq Composite",
+            "values": [
+              {
+                "date": "2026-05-14",
+                "close": 26635.22,
+                "daily_return_percent": 0.88
+              },
+              {
+                "date": "2026-05-15",
+                "close": 26225.14,
+                "daily_return_percent": -1.54
+              },
+              {
+                "date": "2026-05-18",
+                "close": 26090.73,
+                "daily_return_percent": -0.51
+              },
+              {
+                "date": "2026-05-19",
+                "close": 25870.71,
+                "daily_return_percent": -0.84
+              },
+              {
+                "date": "2026-05-20",
+                "close": 26270.36,
+                "daily_return_percent": 1.54
+              }
+            ]
+          },
+          {
+            "symbol": "^RUT",
+            "name": "Russell 2000",
+            "values": [
+              {
+                "date": "2026-05-14",
+                "close": 2863.09,
+                "daily_return_percent": 0.67
+              },
+              {
+                "date": "2026-05-15",
+                "close": 2793.3,
+                "daily_return_percent": -2.44
+              },
+              {
+                "date": "2026-05-18",
+                "close": 2775.1,
+                "daily_return_percent": -0.65
+              },
+              {
+                "date": "2026-05-19",
+                "close": 2747.07,
+                "daily_return_percent": -1.01
+              },
+              {
+                "date": "2026-05-20",
+                "close": 2817.37,
+                "daily_return_percent": 2.56
+              }
+            ]
+          }
+        ],
+        "source": "major-indexes/us_major_indices_historical.json"
+      },
+      "vix_table": {
+        "dates": [
+          "2026-05-18",
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "symbol": "^VIX",
+        "name": "CBOE Volatility Index",
+        "values": [
+          {
+            "date": "2026-05-18",
+            "close": 17.82,
+            "daily_return_percent": -3.31
+          },
+          {
+            "date": "2026-05-19",
+            "close": 18.06,
+            "daily_return_percent": 1.35
+          },
+          {
+            "date": "2026-05-20",
+            "close": 17.44,
+            "daily_return_percent": -3.43
+          }
+        ],
+        "source": "major-indexes/us_major_indices_historical.json"
+      },
+      "vix_table_5day": {
+        "dates": [
+          "2026-05-14",
+          "2026-05-15",
+          "2026-05-18",
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "symbol": "^VIX",
+        "name": "CBOE Volatility Index",
+        "values": [
+          {
+            "date": "2026-05-14",
+            "close": 17.26,
+            "daily_return_percent": -3.41
+          },
+          {
+            "date": "2026-05-15",
+            "close": 18.43,
+            "daily_return_percent": 6.78
+          },
+          {
+            "date": "2026-05-18",
+            "close": 17.82,
+            "daily_return_percent": -3.31
+          },
+          {
+            "date": "2026-05-19",
+            "close": 18.06,
+            "daily_return_percent": 1.35
+          },
+          {
+            "date": "2026-05-20",
+            "close": 17.44,
+            "daily_return_percent": -3.43
+          }
+        ],
+        "source": "major-indexes/us_major_indices_historical.json"
+      },
+      "spy_sma_table_5day": {
+        "dates": [
+          "2026-05-14",
+          "2026-05-15",
+          "2026-05-18",
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "symbol": "SPY",
+        "name": "SPDR S&P 500 ETF Trust",
+        "values": [
+          {
+            "date": "2026-05-14",
+            "SMA20": 719.98,
+            "SMA50": 687.14,
+            "SMA200": 672.15
+          },
+          {
+            "date": "2026-05-15",
+            "SMA20": 722.31,
+            "SMA50": 688.44,
+            "SMA200": 672.74
+          },
+          {
+            "date": "2026-05-18",
+            "SMA20": 723.76,
+            "SMA50": 689.63,
+            "SMA200": 673.29
+          },
+          {
+            "date": "2026-05-19",
+            "SMA20": 725.24,
+            "SMA50": 690.98,
+            "SMA200": 673.85
+          },
+          {
+            "date": "2026-05-20",
             "SMA20": 726.73,
             "SMA50": 692.13,
             "SMA200": 674.43
           }
+        ],
+        "source": "supportresistence/support_resistence.json"
+      },
+      "breadth_lookback_5day": {
+        "dates": [
+          "2026-05-14",
+          "2026-05-15",
+          "2026-05-18",
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "values": [
+          {
+            "date": "2026-05-14",
+            "advances": 300,
+            "declines": 202,
+            "advance_decline_ratio": 1.485,
+            "advancing_volume_pct": 60.27,
+            "stocks_near_52w_high": 24,
+            "stocks_near_52w_low": 20,
+            "above_20_day_ma_pct": 41.35,
+            "above_50_day_ma_pct": 47.12,
+            "above_200_day_ma_pct": 55.27
+          },
+          {
+            "date": "2026-05-15",
+            "advances": 141,
+            "declines": 360,
+            "advance_decline_ratio": 0.392,
+            "advancing_volume_pct": 28.09,
+            "stocks_near_52w_high": 11,
+            "stocks_near_52w_low": 30,
+            "above_20_day_ma_pct": 35.59,
+            "above_50_day_ma_pct": 44.93,
+            "above_200_day_ma_pct": 52.49
+          },
+          {
+            "date": "2026-05-18",
+            "advances": 359,
+            "declines": 142,
+            "advance_decline_ratio": 2.528,
+            "advancing_volume_pct": 58.7,
+            "stocks_near_52w_high": 21,
+            "stocks_near_52w_low": 9,
+            "above_20_day_ma_pct": 44.53,
+            "above_50_day_ma_pct": 51.49,
+            "above_200_day_ma_pct": 56.26
+          },
+          {
+            "date": "2026-05-19",
+            "advances": 185,
+            "declines": 317,
+            "advance_decline_ratio": 0.584,
+            "advancing_volume_pct": 41.38,
+            "stocks_near_52w_high": 16,
+            "stocks_near_52w_low": 10,
+            "above_20_day_ma_pct": 39.96,
+            "above_50_day_ma_pct": 47.51,
+            "above_200_day_ma_pct": 54.27
+          },
+          {
+            "date": "2026-05-20",
+            "advances": 349,
+            "declines": 152,
+            "advance_decline_ratio": 2.296,
+            "advancing_volume_pct": 73.66,
+            "stocks_near_52w_high": 14,
+            "stocks_near_52w_low": 0,
+            "above_20_day_ma_pct": 48.11,
+            "above_50_day_ma_pct": 53.48,
+            "above_200_day_ma_pct": 56.66
+          }
+        ],
+        "sources": {
+          "advances_declines": "advance-decline/ad_line_historical.json",
+          "moving_averages": "advance-decline/ma_percentage_historical.json",
+          "highs_lows": "advance-decline/highs_lows_historical.json",
+          "volume": "advance-decline/volume_metrics_historical.json"
         }
       }
     },
@@ -46969,14 +49602,44 @@
       },
       "ranked": [
         {
-          "title": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260520a.htm",
-          "published_at": "2026-05-20T20:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 88.167,
-          "why_it_matters": "Federal Reserve Board requests public comment on a proposal to establish a &quot;payment account,&quot; which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
-          "source_tier": "official"
+          "title": "Jim Cramer's top 10 things to watch in the stock market Wednesday",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/05/20/jim-cramers-top-10-things-to-watch-in-the-stock-market-wednesday.html",
+          "published_at": "2026-05-20T12:48:14",
+          "category": "market_news",
+          "relevance_score": 63.6694,
+          "why_it_matters": "The S&P 500 is looking to snap a three-day losing skid. Nvidia earnings are tonight.",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Bond yields, oil fall amid hopes for Iran deal; stocks up with Nvidia results ahead - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbm1LU2ZBQUh2VnBuakxGMkh1VTV1RHNCS1pnRDV4QVVwTV9GWFNXZUpyZkllVjhqVEE4eU4tcXF5MW5LdWM3NkJrQ1p4ZXBxQ3g4TFhCS2tZakliQzg3ODlVcGczZ1RWOGxlUFcxN0pEcHFXN2VtUzI3cEV4UVByN19vVQ?oc=5",
+          "published_at": "2026-05-20T02:07:00",
+          "category": "market_news",
+          "relevance_score": 51.9899,
+          "why_it_matters": "Bond yields, oil fall amid hopes for Iran deal; stocks up with Nvidia results ahead\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Oil prices slide after Trump says US-Iran negotiations in 'final stages' - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbTZ0TjE5WjliV2w5YkY5aHlEUHVnVkdYNmx2ajdNd041OEZIdjA2MEpsT2tPaHRheVM1a3VaWmJSMjYzcEpENmxnb21Da2g3QVkxbGptaGJFOTRTcnpMVHZIUkgzRWVYdHdfbFpMSUZHZEhReV8xcTJzdXFGbWEzVzNrS0JsQjgtejAzSWM5VDFUTVZXdE15Q2xCT21QQzVfakp1N3RPUVpoSkxWdndXclp6Nzc3VktBeGc?oc=5",
+          "published_at": "2026-05-20T01:39:00",
+          "category": "market_news",
+          "relevance_score": 51.6982,
+          "why_it_matters": "Oil prices slide after Trump says US-Iran negotiations in 'final stages'\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Gold rises as Treasury yields, oil ease; market eyes MidEast developments - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbUk1OGlic0FLQWFSdFFJZkdXdWNnSzNhV3ctREFlVnlfTWRQLUsxOHJCN1dtMllxUFlGbjh0UmR6eTN5QTFRV0cza0NvUWJJeVNRRjNoeFJ3cV8tcVdac01manNkOEVpc250SElfaVZxRzNzejFVd190VHNsbHVWTmdibXVuSWVJVnFNZzVWMm83dkdreHBFcS1qb2h5cVhJNjM3V3FrRQ?oc=5",
+          "published_at": "2026-05-20T01:23:00",
+          "category": "market_news",
+          "relevance_score": 56.5316,
+          "why_it_matters": "Gold rises as Treasury yields, oil ease; market eyes MidEast developments\u00a0\u00a0Reuters",
+          "source_tier": "premium"
         },
         {
           "title": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
@@ -46986,6 +49649,16 @@
           "category": "monetary_policy",
           "relevance_score": 86.917,
           "why_it_matters": "Minutes of the Federal Open Market Committee, April 28-29, 2026",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve Board requests public comment on a proposal to establish a \"payment account,\" which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260520a.htm",
+          "published_at": "2026-05-20T20:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 88.167,
+          "why_it_matters": "Federal Reserve Board requests public comment on a proposal to establish a &quot;payment account,&quot; which legally eligible financial institutions could use for the specific purpose of clearing and settling their payments",
           "source_tier": "official"
         },
         {
@@ -47019,26 +49692,6 @@
           "source_tier": "official"
         },
         {
-          "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514a.htm",
-          "published_at": "2026-05-14T14:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
-          "source_tier": "official"
-        },
-        {
-          "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514b.htm",
-          "published_at": "2026-05-14T18:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
-          "source_tier": "official"
-        },
-        {
           "title": "Personal Income and Outlays, January 2026",
           "source": "BEA",
           "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-january-2026",
@@ -47059,43 +49712,93 @@
           "source_tier": "official"
         },
         {
-          "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm",
-          "published_at": "2026-05-15T21:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+          "title": "Stocks rally and oil falls. Plus, the implications of Samsung averting a strike",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/05/20/stocks-rally-and-oil-falls-plus-the-implications-of-samsung-averting-a-strike.html",
+          "published_at": "2026-05-20T18:13:12",
+          "category": "market_news",
+          "relevance_score": 62.0545,
+          "why_it_matters": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Jim Cramer says the world of tech investing has changed and it's not going back",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/05/20/jim-cramer-says-the-world-of-tech-investing-has-changed-and-its-not-going-back.html",
+          "published_at": "2026-05-20T22:41:07",
+          "category": "market_news",
+          "relevance_score": 59.8453,
+          "why_it_matters": "CNBC's Jim Cramer said semiconductor and AI infrastructure stocks have replaced software as the market's technology leaders.",
+          "source_tier": "premium"
+        },
+        {
+          "title": "New UAE oil pipeline bypassing Hormuz 50% complete ahead of 2027 start - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQb1EyS05JUV9zbW1BTHAtVzFQMXd3NXM0enZJOGplMEpsTjBNNkpGNEQ4WlB0YnFjZjM0TmlnTHU4QUlDM0ZaRGdUVWdpR2w4QXJzX2ZFU3pFOVhpVlpSRXdfY3J5X0dNdU5YdkdITElYenJHZDNFRmFpTHowUTlrUGlxZ29YQ3pJNjNrR1ptdy1hZnB0dmEwMTFzZHNCdHpZZ1RTZ0hxY2tPRHFQZ3dBa2MxMlpyMURITEE?oc=5",
+          "published_at": "2026-05-20T15:20:08",
+          "category": "market_news",
+          "relevance_score": 60.2517,
+          "why_it_matters": "New UAE oil pipeline bypassing Hormuz 50% complete ahead of 2027 start\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Germany will deploy Patriot air defence system to southeast Turkey, Ankara says - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOaUxaRzBNMkptc2lkM0V2LUN0WUpCVWtXMllPTDJrUHVyX2Z4S2hqOHd3c1ZsUzJfTzJaZnNRVDdpdkt3SGtfSThpT05xWkNieXFLR1B3eHdROGlsNE1HSGVhY3hjem5sYkFYRjhqVWdfMnFDWm9yazhzcnVuT0wtS0k0YldxSjNWLWhicjg2OUxNZ2tuMDF0UEY4U3RQUVMxRFRKSktqYkpKTW44M3Ryb0JkeTdaT2p5WmdMOHdaS3ZDM25rRFgyMw?oc=5",
+          "published_at": "2026-05-20T10:29:50",
+          "category": "market_news",
+          "relevance_score": 52.2278,
+          "why_it_matters": "Germany will deploy Patriot air defence system to southeast Turkey, Ankara says\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Sinkhole shuts runway at LaGuardia Airport, delaying flights, Port Authority warns",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/05/20/laguardia-airport-lga-flights.html",
+          "published_at": "2026-05-20T20:50:37",
+          "category": "market_news",
+          "relevance_score": 58.6943,
+          "why_it_matters": "The Port Authority said travelers should expect delays and cancellations, with thunderstorms expected also expected to roll in Wednesday.",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Iran is consolidating control of Hormuz with island checkpoints, diplomatic deals \u2013 and sometimes \u2018fees\u2019 - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOMzNJZTNOVW9ScHNEZjlhenY5VFdwa3ZmVXhCVk9MYWgxY0hnRlVmVUFUNERHS0ZsVlBJZXNBSEw5c3BHYTJxUFA2cDdlZjBBMXRsTDFFN2dXMEJybG9ycU44d1c5WDdwZ09EdDNCWm5kRE8yTW04clJnY05URDdadVZzanZTSFA0bkxFVF90Ym10a1RUYUdmYWNmN2dlNXc1SGdOelpZLU1UQm9aV0RXZkJZeEdRamlmbEl4SlFveEs4RVA0LVlN?oc=5",
+          "published_at": "2026-05-20T19:52:30",
+          "category": "market_news",
+          "relevance_score": 58.0889,
+          "why_it_matters": "Iran is consolidating control of Hormuz with island checkpoints, diplomatic deals \u2013 and sometimes \u2018fees\u2019\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Arts and Cultural Production Satellite Account, U.S. and States, 2023",
+          "source": "BEA",
+          "url": "https://www.bea.gov/news/2025/arts-and-cultural-production-satellite-account-us-and-states-2023",
+          "published_at": "2025-04-02T10:00:00-04:00",
+          "category": "growth_output",
+          "relevance_score": 70.0,
+          "why_it_matters": "The Arts and Cultural Production Satellite Account released by the U.S. Bureau of Economic Analysis shows that arts and cultural economic activity, adjusted for inflation, increased 6.6 percent in 2023 after increasing 3.8 percent in 2022. By comparison, the broader economy, as measured by real gross domestic product (GDP), increased 2.9 percent in 2023 after increasing 2.5 percent in 2022. Arts and cultural economic activity accounted for 4.2 percent of GDP, or $1.17 trillion, in 2023.    <!--Full Text Link--><a href='https://www.bea.gov/news/2025/arts-and-cultural-production-satellite-account-us-and-states-2023'>Full Text</a><!--Full Text Link-->",
           "source_tier": "official"
         },
         {
-          "title": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515a.htm",
-          "published_at": "2026-05-15T20:30:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
+          "title": "Travel and Tourism Satellite Accounts, 3rd quarter 2017",
+          "source": "BEA",
+          "url": "https://apps.bea.gov/newsreleases/industry/tourism/2017/tour317.htm",
+          "published_at": "2017-12-13T08:30:00-05:00",
+          "category": "growth_output",
+          "relevance_score": 70.0,
+          "why_it_matters": "Real spending (output) on travel and tourism accelerated in the third quarter of 2017, growing at an annual rate of 6.6 percent after increasing 6.0 percent (revised) in the second quarter, according to new statistics released by the Bureau of Economic Analysis. Real gross domestic product (GDP) for the nation also accelerated, increasing 3.3 percent in the third quarter (second estimate) after increasing 3.1 percent in the second quarter of 2017.    <!--Full Text Link--><a href='https://apps.bea.gov/newsreleases/industry/tourism/2017/tour317.htm'>Full Text</a><!--Full Text Link-->",
           "source_tier": "official"
         },
         {
-          "title": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
+          "title": "Minutes of the Board\u2019s discount rate meetings on February 9 and March 18, 2026",
           "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515b.htm",
-          "published_at": "2026-05-15T20:30:00+00:00",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260414a.htm",
+          "published_at": "2026-04-14T18:00:00+00:00",
           "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
-          "source_tier": "official"
-        },
-        {
-          "title": "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260515a.htm",
-          "published_at": "2026-05-15T15:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
+          "relevance_score": 65.0,
+          "why_it_matters": "Minutes of the Board\u2019s discount rate meetings on February 9 and March 18, 2026",
           "source_tier": "official"
         },
         {
@@ -47166,6 +49869,16 @@
           "category": "growth_output",
           "relevance_score": 65.0,
           "why_it_matters": "In 2023, real gross domestic product (GDP) increased in 2,357 counties, decreased in 734 counties, and was unchanged in 23 counties. The percent change in real GDP ranged from 125.8 percent in Throckmorton County, TX, to -39.6 percent in Lincoln County, WA.    <!--Full Text Link--><a href='https://www.bea.gov/news/2024/gross-domestic-product-county-and-metropolitan-area-2023'>Full Text</a><!--Full Text Link-->",
+          "source_tier": "official"
+        },
+        {
+          "title": "Gross Domestic Product for the Commonwealth of the Northern Mariana Islands, 2021 and 2022",
+          "source": "BEA",
+          "url": "https://www.bea.gov/news/2024/gross-domestic-product-commonwealth-northern-mariana-islands-2021-and-2022",
+          "published_at": "2024-11-21T18:00:00-05:00",
+          "category": "growth_output",
+          "relevance_score": 65.0,
+          "why_it_matters": "Real gross domestic product (GDP) for the Commonwealth of the Northern Mariana Islands increased 16.7 percent in 2022 and 5.1 percent in 2021 after decreasing 29.1 percent in 2020. The growth in real GDP from 2021 to 2022 reflected increases in exports, government spending, and private fixed investment. These increases were partly offset by a decrease in personal consumption expenditures. Imports, a subtraction item in the calculation of GDP, increased.    <!--Full Text Link--><a href='https://www.bea.gov/news/2024/gross-domestic-product-commonwealth-northern-mariana-islands-2021-and-2022'>Full Text</a><!--Full Text Link-->",
           "source_tier": "official"
         },
         {
@@ -47289,136 +50002,6 @@
           "source_tier": "official"
         },
         {
-          "title": "Jim Cramer's top 10 things to watch in the stock market Wednesday",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/05/20/jim-cramers-top-10-things-to-watch-in-the-stock-market-wednesday.html",
-          "published_at": "2026-05-20T12:48:14",
-          "category": "market_news",
-          "relevance_score": 63.6694,
-          "why_it_matters": "The S&P 500 is looking to snap a three-day losing skid. Nvidia earnings are tonight.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Stocks rally and oil falls. Plus, the implications of Samsung averting a strike",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/05/20/stocks-rally-and-oil-falls-plus-the-implications-of-samsung-averting-a-strike.html",
-          "published_at": "2026-05-20T18:13:12",
-          "category": "market_news",
-          "relevance_score": 62.0545,
-          "why_it_matters": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Rupee hits record low near 97/USD on oil, US Treasury yield strain - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQcnJWb2twbUxjXzhOTTJfMnJEWklqOHNfY3ZzNlM5NFhSbVd5WUxLdGpwYjQ5VEJTQ1c0ZDBBMFNxbW93WDFTTEdUMkxOTnY5a2l6RFg4VjI0QnBRSnFXOEtWSjF4Z0tNQkNQRENlbEN0ZHlySGpHSDhEZUpQWXhKMXVSY3pQRXZrRGxVeFJaUUd3eUhVUnJ6QVNiSnduRndFZllobXhKYzd5d0J4OGMwUXRqTFd0ZEJQTTJnRQ?oc=5",
-          "published_at": "2026-05-20T03:35:00",
-          "category": "market_news",
-          "relevance_score": 62.9066,
-          "why_it_matters": "Rupee hits record low near 97/USD on oil, US Treasury yield strain\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "New UAE oil pipeline bypassing Hormuz 50% complete ahead of 2027 start - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQb1EyS05JUV9zbW1BTHAtVzFQMXd3NXM0enZJOGplMEpsTjBNNkpGNEQ4WlB0YnFjZjM0TmlnTHU4QUlDM0ZaRGdUVWdpR2w4QXJzX2ZFU3pFOVhpVlpSRXdfY3J5X0dNdU5YdkdITElYenJHZDNFRmFpTHowUTlrUGlxZ29YQ3pJNjNrR1ptdy1hZnB0dmEwMTFzZHNCdHpZZ1RTZ0hxY2tPRHFQZ3dBa2MxMlpyMURITEE?oc=5",
-          "published_at": "2026-05-20T15:20:08",
-          "category": "market_news",
-          "relevance_score": 60.2517,
-          "why_it_matters": "New UAE oil pipeline bypassing Hormuz 50% complete ahead of 2027 start\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Oil prices slide after Trump says US-Iran negotiations in 'final stages' - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbTZ0TjE5WjliV2w5YkY5aHlEUHVnVkdYNmx2ajdNd041OEZIdjA2MEpsT2tPaHRheVM1a3VaWmJSMjYzcEpENmxnb21Da2g3QVkxbGptaGJFOTRTcnpMVHZIUkgzRWVYdHdfbFpMSUZHZEhReV8xcTJzdXFGbWEzVzNrS0JsQjgtejAzSWM5VDFUTVZXdE15Q2xCT21QQzVfakp1N3RPUVpoSkxWdndXclp6Nzc3VktBeGc?oc=5",
-          "published_at": "2026-05-20T01:39:00",
-          "category": "market_news",
-          "relevance_score": 51.6982,
-          "why_it_matters": "Oil prices slide after Trump says US-Iran negotiations in 'final stages'\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Gold rises as Treasury yields, oil ease; market eyes MidEast developments - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbUk1OGlic0FLQWFSdFFJZkdXdWNnSzNhV3ctREFlVnlfTWRQLUsxOHJCN1dtMllxUFlGbjh0UmR6eTN5QTFRV0cza0NvUWJJeVNRRjNoeFJ3cV8tcVdac01manNkOEVpc250SElfaVZxRzNzejFVd190VHNsbHVWTmdibXVuSWVJVnFNZzVWMm83dkdreHBFcS1qb2h5cVhJNjM3V3FrRQ?oc=5",
-          "published_at": "2026-05-20T01:23:00",
-          "category": "market_news",
-          "relevance_score": 56.5316,
-          "why_it_matters": "Gold rises as Treasury yields, oil ease; market eyes MidEast developments\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Jim Cramer says the world of tech investing has changed and it's not going back",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/05/20/jim-cramer-says-the-world-of-tech-investing-has-changed-and-its-not-going-back.html",
-          "published_at": "2026-05-20T22:41:07",
-          "category": "market_news",
-          "relevance_score": 59.8453,
-          "why_it_matters": "CNBC's Jim Cramer said semiconductor and AI infrastructure stocks have replaced software as the market's technology leaders.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Sinkhole shuts runway at LaGuardia Airport, delaying flights, Port Authority warns",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/05/20/laguardia-airport-lga-flights.html",
-          "published_at": "2026-05-20T20:50:37",
-          "category": "market_news",
-          "relevance_score": 58.6943,
-          "why_it_matters": "The Port Authority said travelers should expect delays and cancellations, with thunderstorms expected also expected to roll in Wednesday.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Iran is consolidating control of Hormuz with island checkpoints, diplomatic deals \u2013 and sometimes \u2018fees\u2019 - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOMzNJZTNOVW9ScHNEZjlhenY5VFdwa3ZmVXhCVk9MYWgxY0hnRlVmVUFUNERHS0ZsVlBJZXNBSEw5c3BHYTJxUFA2cDdlZjBBMXRsTDFFN2dXMEJybG9ycU44d1c5WDdwZ09EdDNCWm5kRE8yTW04clJnY05URDdadVZzanZTSFA0bkxFVF90Ym10a1RUYUdmYWNmN2dlNXc1SGdOelpZLU1UQm9aV0RXZkJZeEdRamlmbEl4SlFveEs4RVA0LVlN?oc=5",
-          "published_at": "2026-05-20T19:52:30",
-          "category": "market_news",
-          "relevance_score": 58.0889,
-          "why_it_matters": "Iran is consolidating control of Hormuz with island checkpoints, diplomatic deals \u2013 and sometimes \u2018fees\u2019\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Arts and Cultural Production Satellite Account, U.S. and States, 2023",
-          "source": "BEA",
-          "url": "https://www.bea.gov/news/2025/arts-and-cultural-production-satellite-account-us-and-states-2023",
-          "published_at": "2025-04-02T10:00:00-04:00",
-          "category": "growth_output",
-          "relevance_score": 70.0,
-          "why_it_matters": "The Arts and Cultural Production Satellite Account released by the U.S. Bureau of Economic Analysis shows that arts and cultural economic activity, adjusted for inflation, increased 6.6 percent in 2023 after increasing 3.8 percent in 2022. By comparison, the broader economy, as measured by real gross domestic product (GDP), increased 2.9 percent in 2023 after increasing 2.5 percent in 2022. Arts and cultural economic activity accounted for 4.2 percent of GDP, or $1.17 trillion, in 2023.    <!--Full Text Link--><a href='https://www.bea.gov/news/2025/arts-and-cultural-production-satellite-account-us-and-states-2023'>Full Text</a><!--Full Text Link-->",
-          "source_tier": "official"
-        },
-        {
-          "title": "Travel and Tourism Satellite Accounts, 3rd quarter 2017",
-          "source": "BEA",
-          "url": "https://apps.bea.gov/newsreleases/industry/tourism/2017/tour317.htm",
-          "published_at": "2017-12-13T08:30:00-05:00",
-          "category": "growth_output",
-          "relevance_score": 70.0,
-          "why_it_matters": "Real spending (output) on travel and tourism accelerated in the third quarter of 2017, growing at an annual rate of 6.6 percent after increasing 6.0 percent (revised) in the second quarter, according to new statistics released by the Bureau of Economic Analysis. Real gross domestic product (GDP) for the nation also accelerated, increasing 3.3 percent in the third quarter (second estimate) after increasing 3.1 percent in the second quarter of 2017.    <!--Full Text Link--><a href='https://apps.bea.gov/newsreleases/industry/tourism/2017/tour317.htm'>Full Text</a><!--Full Text Link-->",
-          "source_tier": "official"
-        },
-        {
-          "title": "Minutes of the Board\u2019s discount rate meetings on February 9 and March 18, 2026",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260414a.htm",
-          "published_at": "2026-04-14T18:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 65.0,
-          "why_it_matters": "Minutes of the Board\u2019s discount rate meetings on February 9 and March 18, 2026",
-          "source_tier": "official"
-        },
-        {
-          "title": "Gross Domestic Product for the Commonwealth of the Northern Mariana Islands, 2021 and 2022",
-          "source": "BEA",
-          "url": "https://www.bea.gov/news/2024/gross-domestic-product-commonwealth-northern-mariana-islands-2021-and-2022",
-          "published_at": "2024-11-21T18:00:00-05:00",
-          "category": "growth_output",
-          "relevance_score": 65.0,
-          "why_it_matters": "Real gross domestic product (GDP) for the Commonwealth of the Northern Mariana Islands increased 16.7 percent in 2022 and 5.1 percent in 2021 after decreasing 29.1 percent in 2020. The growth in real GDP from 2021 to 2022 reflected increases in exports, government spending, and private fixed investment. These increases were partly offset by a decrease in personal consumption expenditures. Imports, a subtraction item in the calculation of GDP, increased.    <!--Full Text Link--><a href='https://www.bea.gov/news/2024/gross-domestic-product-commonwealth-northern-mariana-islands-2021-and-2022'>Full Text</a><!--Full Text Link-->",
-          "source_tier": "official"
-        },
-        {
           "title": "Gross Domestic Product for the Commonwealth of the Northern Mariana Islands (CNMI), 2018",
           "source": "BEA",
           "url": "https://www.bea.gov/news/2019/gross-domestic-product-commonwealth-northern-mariana-islands-cnmi-2018",
@@ -47466,6 +50049,76 @@
           "category": "growth_output",
           "relevance_score": 65.0,
           "why_it_matters": "U.S. multinational companies: U.S. and foreign operations:  Worldwide employment by U.S. multinational companies (MNCs) increased 1.5 percent in 2011 to 34.5 million workers, with the increase primarily reflecting increases abroad.  Employment in the United States by majority-owned U.S. affiliates of foreign MNCs rose 3.3 percent in 2011, to 5.6 million workers, a rate of increase higher than the 1.8 percent increase in total U.S. private-industry employment in 2011.    <!--Full Text Link--><a href='https://apps.bea.gov/newsreleases/international/mnc/2013/mnc2011.htm'>Full Text</a><!--Full Text Link-->",
+          "source_tier": "official"
+        },
+        {
+          "title": "Rupee hits record low near 97/USD on oil, US Treasury yield strain - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQcnJWb2twbUxjXzhOTTJfMnJEWklqOHNfY3ZzNlM5NFhSbVd5WUxLdGpwYjQ5VEJTQ1c0ZDBBMFNxbW93WDFTTEdUMkxOTnY5a2l6RFg4VjI0QnBRSnFXOEtWSjF4Z0tNQkNQRENlbEN0ZHlySGpHSDhEZUpQWXhKMXVSY3pQRXZrRGxVeFJaUUd3eUhVUnJ6QVNiSnduRndFZllobXhKYzd5d0J4OGMwUXRqTFd0ZEJQTTJnRQ?oc=5",
+          "published_at": "2026-05-20T03:35:00",
+          "category": "market_news",
+          "relevance_score": 62.9066,
+          "why_it_matters": "Rupee hits record low near 97/USD on oil, US Treasury yield strain\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm",
+          "published_at": "2026-05-15T21:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515a.htm",
+          "published_at": "2026-05-15T20:30:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515b.htm",
+          "published_at": "2026-05-15T20:30:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260515a.htm",
+          "published_at": "2026-05-15T15:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
+          "source_tier": "official"
+        },
+        {
+          "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514b.htm",
+          "published_at": "2026-05-14T18:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514a.htm",
+          "published_at": "2026-05-14T14:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
           "source_tier": "official"
         },
         {
@@ -47796,26 +50449,6 @@
           "category": "market_news",
           "relevance_score": 53.016,
           "why_it_matters": "With mortgage rates reaching a record high on Tuesday, traders also increase likelihood that rates will go above 6.8%.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Germany will deploy Patriot air defence system to southeast Turkey, Ankara says - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOaUxaRzBNMkptc2lkM0V2LUN0WUpCVWtXMllPTDJrUHVyX2Z4S2hqOHd3c1ZsUzJfTzJaZnNRVDdpdkt3SGtfSThpT05xWkNieXFLR1B3eHdROGlsNE1HSGVhY3hjem5sYkFYRjhqVWdfMnFDWm9yazhzcnVuT0wtS0k0YldxSjNWLWhicjg2OUxNZ2tuMDF0UEY4U3RQUVMxRFRKSktqYkpKTW44M3Ryb0JkeTdaT2p5WmdMOHdaS3ZDM25rRFgyMw?oc=5",
-          "published_at": "2026-05-20T10:29:50",
-          "category": "market_news",
-          "relevance_score": 52.2278,
-          "why_it_matters": "Germany will deploy Patriot air defence system to southeast Turkey, Ankara says\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Bond yields, oil fall amid hopes for Iran deal; stocks up with Nvidia results ahead - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbm1LU2ZBQUh2VnBuakxGMkh1VTV1RHNCS1pnRDV4QVVwTV9GWFNXZUpyZkllVjhqVEE4eU4tcXF5MW5LdWM3NkJrQ1p4ZXBxQ3g4TFhCS2tZakliQzg3ODlVcGczZ1RWOGxlUFcxN0pEcHFXN2VtUzI3cEV4UVByN19vVQ?oc=5",
-          "published_at": "2026-05-20T02:07:00",
-          "category": "market_news",
-          "relevance_score": 51.9899,
-          "why_it_matters": "Bond yields, oil fall amid hopes for Iran deal; stocks up with Nvidia results ahead\u00a0\u00a0Reuters",
           "source_tier": "premium"
         },
         {
