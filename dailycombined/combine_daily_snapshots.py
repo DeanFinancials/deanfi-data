@@ -397,6 +397,67 @@ REQUIRED_MARKET_PULSE_CORE_FIELDS = [
 ]
 
 
+def is_number(value: Any) -> bool:
+    return isinstance(value, (int, float)) and value == value
+
+
+def latest_index_value_from_lookback(lookback: Dict[str, Any], symbol: str) -> Dict[str, Any]:
+    dates = lookback.get('dates') if isinstance(lookback, dict) else None
+    rows = lookback.get('rows') if isinstance(lookback, dict) else None
+    if not isinstance(dates, list) or not dates or not isinstance(rows, list):
+        return {}
+
+    latest_date = dates[-1]
+    for row in rows:
+        if not isinstance(row, dict) or row.get('symbol') != symbol:
+            continue
+        values = row.get('values')
+        if not isinstance(values, list):
+            return {}
+        values_by_date = {item.get('date'): item for item in values if isinstance(item, dict)}
+        latest = values_by_date.get(latest_date)
+        if not isinstance(latest, dict):
+            return {}
+
+        close = latest.get('close')
+        change_percent = latest.get('daily_return_percent')
+        change = None
+        previous_dates = [date for date in dates if date < latest_date]
+        if previous_dates:
+            previous = values_by_date.get(previous_dates[-1])
+            previous_close = previous.get('close') if isinstance(previous, dict) else None
+            if is_number(close) and is_number(previous_close):
+                change = round(float(close) - float(previous_close), 2)
+
+        return {
+            'close': close,
+            'change': change,
+            'change_percent': change_percent,
+        }
+
+    return {}
+
+
+def fill_major_index_closes_from_lookback(rows: Any, lookback: Any) -> list[Dict[str, Any]]:
+    if not isinstance(rows, list):
+        return []
+    if not isinstance(lookback, dict):
+        return [row for row in rows if isinstance(row, dict)]
+
+    filled = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        next_row = dict(row)
+        symbol = next_row.get('symbol')
+        fallback = latest_index_value_from_lookback(lookback, symbol) if isinstance(symbol, str) else {}
+        for field in ['close', 'change', 'change_percent']:
+            if not is_number(next_row.get(field)) and is_number(fallback.get(field)):
+                next_row[field] = fallback[field]
+        filled.append(next_row)
+    return filled
+
+
 def validate_market_pulse_core(core: Dict[str, Any]) -> Dict[str, Any]:
     failures = []
     field_status: Dict[str, str] = {}
@@ -406,6 +467,14 @@ def validate_market_pulse_core(core: Dict[str, Any]) -> Dict[str, Any]:
             field_status[field] = 'missing'
         else:
             field_status[field] = 'present'
+
+    for index, row in enumerate(core.get('major_index_closes') or []):
+        if not isinstance(row, dict):
+            failures.append(f'invalid core.major_index_closes[{index}]')
+            continue
+        for field in ['close', 'change', 'change_percent']:
+            if not is_number(row.get(field)):
+                failures.append(f'invalid core.major_index_closes[{index}].{field}')
 
     return {
         'is_valid': not failures,
@@ -441,10 +510,11 @@ def build_market_pulse_input(
     volatility = writer_ready.get('volatility_summary') if isinstance(writer_ready.get('volatility_summary'), dict) else {}
     technical_levels = writer_ready.get('technical_levels') if isinstance(writer_ready.get('technical_levels'), dict) else {}
     spy_levels = technical_levels.get('SPY') if isinstance(technical_levels.get('SPY'), dict) else {}
+    five_session_index_returns = writer_ready.get('index_table_5day') or {}
 
     core = {
-        'major_index_closes': writer_ready.get('major_indexes_table') or [],
-        'five_session_index_returns': writer_ready.get('index_table_5day') or {},
+        'major_index_closes': fill_major_index_closes_from_lookback(writer_ready.get('major_indexes_table') or [], five_session_index_returns),
+        'five_session_index_returns': five_session_index_returns,
         'breadth': breadth,
         'five_session_breadth_lookback': writer_ready.get('breadth_lookback_5day') or {},
         'moving_average_participation': {
@@ -1457,6 +1527,12 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
                     'volume': 'advance-decline/volume_metrics_historical.json',
                 },
             }
+
+    if writer_ready.get('major_indexes_table') and writer_ready.get('index_table_5day'):
+        writer_ready['major_indexes_table'] = fill_major_index_closes_from_lookback(
+            writer_ready.get('major_indexes_table'),
+            writer_ready.get('index_table_5day'),
+        )
 
     if writer_ready:
         combined['data']['writer_ready'] = writer_ready

@@ -210,6 +210,49 @@ def test_market_pulse_input_reports_sources_freshness_and_blocking_failures():
     assert "missing core.five_session_index_returns" in pulse_input["validation"]["blocking_failures"]
 
 
+def test_market_pulse_input_blocks_major_index_rows_with_blank_values():
+    combined = {
+        "metadata": {
+            "market_date": "2026-05-20",
+            "generated_at": "2026-05-20T21:20:00Z",
+            "timezone": "America/New_York",
+            "data_sources": [],
+        },
+        "data": {
+            "writer_ready": {
+                "major_indexes_table": [
+                    {
+                        "symbol": "^GSPC",
+                        "name": "S&P 500",
+                        "close": None,
+                        "change": None,
+                        "change_percent": None,
+                    }
+                ],
+                "index_table_5day": {"dates": ["2026-05-20"], "rows": [{"symbol": "^GSPC"}]},
+                "breadth_table": {"advances": 300},
+                "breadth_lookback_5day": {"dates": ["2026-05-20"]},
+                "sector_leaders": [{"symbol": "XLK"}],
+                "sector_laggards": [{"symbol": "XLE"}],
+                "volatility_summary": {
+                    "vix": {"close": 17.2},
+                    "major_index_iv": [{"symbol": "SPY"}],
+                },
+                "vix_table_5day": {"dates": ["2026-05-20"]},
+                "technical_levels": {"SPY": {"traditional_pivots": {"pivot": 100}}},
+                "spy_sma_table_5day": {"dates": ["2026-05-20"]},
+            }
+        },
+    }
+
+    pulse_input = combine_daily_snapshots.build_market_pulse_input(combined)
+
+    assert pulse_input["validation"]["is_valid"] is False
+    assert "invalid core.major_index_closes[0].close" in pulse_input["validation"]["blocking_failures"]
+    assert "invalid core.major_index_closes[0].change" in pulse_input["validation"]["blocking_failures"]
+    assert "invalid core.major_index_closes[0].change_percent" in pulse_input["validation"]["blocking_failures"]
+
+
 def test_market_pulse_input_marks_catalysts_as_phase_two_placeholder():
     pulse_input = combine_daily_snapshots.build_market_pulse_input({
         "metadata": {
