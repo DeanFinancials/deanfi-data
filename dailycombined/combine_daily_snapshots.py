@@ -1460,9 +1460,23 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
                     if isinstance(d, str) and isinstance(sma, dict):
                         sma_lookup[d] = sma
 
+                latest_reference_sma = spy.get('sma') if isinstance(spy.get('sma'), dict) else {}
+                latest_reference_date = None
+                reference_bar = spy.get('reference_bar') if isinstance(spy.get('reference_bar'), dict) else {}
+                if isinstance(reference_bar.get('date'), str):
+                    latest_reference_date = reference_bar.get('date')
+                prior_table_date = last_5_dates[-2] if len(last_5_dates) >= 2 else None
+
                 values = []
                 for d in last_5_dates:
                     sma = sma_lookup.get(d) or {}
+                    if (
+                        not sma
+                        and d == session_market_date
+                        and latest_reference_date == prior_table_date
+                        and latest_reference_sma
+                    ):
+                        sma = latest_reference_sma
                     values.append({
                         'date': d,
                         'SMA20': sma.get('SMA20'),

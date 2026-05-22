@@ -324,6 +324,64 @@ def test_generated_market_pulse_input_conforms_to_schema():
     assert schema_errors == []
 
 
+def test_combine_snapshots_fills_latest_spy_sma_from_reference_snapshot_when_history_lags(tmp_path):
+    (tmp_path / "advance-decline").mkdir()
+    (tmp_path / "major-indexes").mkdir()
+    (tmp_path / "supportresistence").mkdir()
+
+    (tmp_path / "advance-decline" / "daily_breadth.json").write_text(json.dumps({
+        "metadata": {"generated_at": "2026-05-21T20:45:00Z"},
+        "data": {
+            "date": "2026-05-21",
+            "advances_declines": {},
+            "volume_metrics": {},
+            "new_highs_lows": {},
+            "moving_averages": {},
+        },
+    }))
+    (tmp_path / "major-indexes" / "us_major_indices_historical.json").write_text(json.dumps({
+        "indices": {
+            "^GSPC": {
+                "data": [
+                    {"date": "2026-05-15", "close": 7300},
+                    {"date": "2026-05-18", "close": 7310},
+                    {"date": "2026-05-19", "close": 7320},
+                    {"date": "2026-05-20", "close": 7330},
+                    {"date": "2026-05-21", "close": 7340},
+                ]
+            }
+        }
+    }))
+    (tmp_path / "supportresistence" / "support_resistence.json").write_text(json.dumps({
+        "metadata": {"generated_at": "2026-05-21T11:07:00Z"},
+        "data": {
+            "SPY": {
+                "reference_bar": {"date": "2026-05-20"},
+                "traditional_pivots": {"P": 739.0},
+                "fibonacci_pivots": {"FP": 739.0},
+                "sma": {"SMA20": 728.24, "SMA50": 693.45, "SMA200": 675.01},
+                "history": {
+                    "daily": [
+                        {"date": "2026-05-15", "sma": {"SMA20": 722.31, "SMA50": 688.44, "SMA200": 672.74}},
+                        {"date": "2026-05-18", "sma": {"SMA20": 723.76, "SMA50": 689.63, "SMA200": 673.29}},
+                        {"date": "2026-05-19", "sma": {"SMA20": 725.24, "SMA50": 690.98, "SMA200": 673.85}},
+                        {"date": "2026-05-20", "sma": {"SMA20": 726.73, "SMA50": 692.13, "SMA200": 674.43}},
+                    ]
+                },
+            }
+        },
+    }))
+
+    combined = combine_daily_snapshots.combine_snapshots(tmp_path)
+
+    assert combined["data"]["writer_ready"]["spy_sma_table_5day"]["values"][-1] == {
+        "date": "2026-05-21",
+        "SMA20": 728.24,
+        "SMA50": 693.45,
+        "SMA200": 675.01,
+    }
+
+
 def test_combine_workflow_validates_and_uploads_market_pulse_input():
     workflow = (REPO_ROOT / ".github" / "workflows" / "combine-daily-snapshots.yml").read_text()
 
