@@ -74,13 +74,59 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-05-22T20:18:02.490925+00:00",
+    "generated_at": "2026-05-22T20:58:57.846100+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
+      "date": "2026-05-22",
+      "current_price": 745.64,
+      "moving_averages": {
+        "ma_20": 731.58,
+        "ma_50": 696.49,
+        "ma_200": 676.25
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": 35.09,
+          "spread_percent": 5.04,
+          "zscore": 2.32,
+          "signal": "extremely_overbought",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 55.34,
+          "spread_percent": 8.18,
+          "zscore": 0.72,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 20.25,
+          "spread_percent": 2.99,
+          "zscore": -0.54,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
     "QQQ": {
       "symbol": "QQQ",
       "name": "Invesco QQQ Trust",
@@ -134,7 +180,7 @@
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
       "date": "2026-05-22",
-      "current_price": 285.1,
+      "current_price": 285.12,
       "moving_averages": {
         "ma_20": 280.16,
         "ma_50": 266.58,
@@ -155,7 +201,7 @@
           "ma_short": 20,
           "ma_long": 200,
           "spread": 28.39,
-          "spread_percent": 11.27,
+          "spread_percent": 11.28,
           "zscore": 0.96,
           "signal": "normal_range",
           "alignment": "bullish",
