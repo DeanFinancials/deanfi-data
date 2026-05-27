@@ -74,33 +74,33 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-05-27T17:29:00.983000+00:00",
+    "generated_at": "2026-05-27T18:42:34.739955+00:00",
     "data_source": "Yahoo Finance (yfinance)",
     "etfs_count": 3,
     "description": "Moving average spread metrics for mean reversion analysis",
     "calculation_note": "All metrics use adjusted closing prices"
   },
   "indices": {
-    "QQQ": {
-      "symbol": "QQQ",
-      "name": "Invesco QQQ Trust",
-      "description": "Tracks Nasdaq-100 Index - Tech-heavy growth stocks",
-      "market_segment": "Tech/Growth",
-      "tracks_index": "Nasdaq-100",
+    "SPY": {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks S&P 500 Index - Large-cap benchmark (500 companies)",
+      "market_segment": "Large-Cap",
+      "tracks_index": "S&P 500",
       "date": "2026-05-27",
-      "current_price": 727.5,
+      "current_price": 750.66,
       "moving_averages": {
-        "ma_20": 701.71,
-        "ma_50": 647.32,
-        "ma_200": 615.19
+        "ma_20": 735.3,
+        "ma_50": 699.97,
+        "ma_200": 677.46
       },
       "ma_pairs": {
         "short_term_vs_intermediate": {
           "ma_short": 20,
           "ma_long": 50,
-          "spread": 54.39,
-          "spread_percent": 8.4,
-          "zscore": 2.96,
+          "spread": 35.34,
+          "spread_percent": 5.05,
+          "zscore": 2.28,
           "signal": "extremely_overbought",
           "alignment": "bullish",
           "alignment_note": "20-day MA is above 50-day MA"
@@ -108,8 +108,54 @@
         "short_term_vs_long_term": {
           "ma_short": 20,
           "ma_long": 200,
-          "spread": 86.52,
-          "spread_percent": 14.06,
+          "spread": 57.84,
+          "spread_percent": 8.54,
+          "zscore": 0.83,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 200-day MA"
+        },
+        "intermediate_vs_long_term": {
+          "ma_short": 50,
+          "ma_long": 200,
+          "spread": 22.5,
+          "spread_percent": 3.32,
+          "zscore": -0.45,
+          "signal": "normal_range",
+          "alignment": "bullish",
+          "alignment_note": "50-day MA is above 200-day MA"
+        }
+      }
+    },
+    "QQQ": {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "description": "Tracks Nasdaq-100 Index - Tech-heavy growth stocks",
+      "market_segment": "Tech/Growth",
+      "tracks_index": "Nasdaq-100",
+      "date": "2026-05-27",
+      "current_price": 729.35,
+      "moving_averages": {
+        "ma_20": 701.8,
+        "ma_50": 647.36,
+        "ma_200": 615.2
+      },
+      "ma_pairs": {
+        "short_term_vs_intermediate": {
+          "ma_short": 20,
+          "ma_long": 50,
+          "spread": 54.45,
+          "spread_percent": 8.41,
+          "zscore": 2.97,
+          "signal": "extremely_overbought",
+          "alignment": "bullish",
+          "alignment_note": "20-day MA is above 50-day MA"
+        },
+        "short_term_vs_long_term": {
+          "ma_short": 20,
+          "ma_long": 200,
+          "spread": 86.61,
+          "spread_percent": 14.08,
           "zscore": 1.75,
           "signal": "moderately_overbought",
           "alignment": "bullish",
@@ -118,8 +164,8 @@
         "intermediate_vs_long_term": {
           "ma_short": 50,
           "ma_long": 200,
-          "spread": 32.13,
-          "spread_percent": 5.22,
+          "spread": 32.16,
+          "spread_percent": 5.23,
           "zscore": -0.11,
           "signal": "normal_range",
           "alignment": "bullish",
@@ -134,7 +180,7 @@
       "market_segment": "Small-Cap",
       "tracks_index": "Russell 2000",
       "date": "2026-05-27",
-      "current_price": 290.61,
+      "current_price": 290.67,
       "moving_averages": {
         "ma_20": 281.66,
         "ma_50": 268.31,
@@ -145,7 +191,7 @@
           "ma_short": 20,
           "ma_long": 50,
           "spread": 13.35,
-          "spread_percent": 4.97,
+          "spread_percent": 4.98,
           "zscore": 1.71,
           "signal": "moderately_overbought",
           "alignment": "bullish",
