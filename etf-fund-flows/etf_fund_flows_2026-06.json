@@ -1,0 +1,2936 @@
+{
+  "_README": {
+    "title": "ETF Fund Flows (Derived)",
+    "description": "Daily derived ETF flow estimates per ticker (AUM/NAV + return adjustment).",
+    "purpose": "Track daily creation/redemption activity (fund flows) and aggregate by asset class/category/subcategory.",
+    "methodology": {
+      "overview": "Flows are derived by isolating changes in AUM not explained by market performance.",
+      "primary_formula": "Flow_t = AUM_t - (AUM_{t-1} * (NAV_t/NAV_{t-1}))",
+      "secondary_formula": "Flow_t_close = AUM_t - (AUM_{t-1} * (Close_t/Close_{t-1}))",
+      "notes": [
+        "AUM and NAV are sourced from yfinance when available (Ticker.info keys: totalAssets, navPrice).",
+        "Close prices are sourced from yfinance in a batched request to minimize API calls.",
+        "Optional fallbacks can be configured (e.g., Alpha Vantage ETF_PROFILE provides net_assets).",
+        "Differences vs paid providers can occur (NAV vs close basis, corporate actions, smoothing around holidays)."
+      ]
+    }
+  },
+  "metadata": {
+    "month": "2026-06",
+    "generated_at": "2026-06-01T22:35:33Z",
+    "data_source": {
+      "aum_nav": {
+        "provider_order": [
+          "yfinance",
+          "alphavantage"
+        ],
+        "providers": {
+          "yfinance": "yfinance.Ticker.info (totalAssets, navPrice)",
+          "alphavantage": "Alpha Vantage ETF_PROFILE (net_assets)"
+        }
+      },
+      "closes": "yfinance.download (Close)"
+    },
+    "calculation": {
+      "primary_return_basis": "nav",
+      "secondary_close_series": true
+    },
+    "tickers_total": 93,
+    "aum_nav_calls": {
+      "alphavantage": 1
+    },
+    "aum_nav_call_caps": {
+      "alphavantage": 25
+    },
+    "aum_nav_call_caps_applied": {
+      "alphavantage": false
+    }
+  },
+  "data": {
+    "AMLP": {
+      "ticker": "AMLP",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "MLP Energy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 12612549632.0,
+          "nav": 51.5876,
+          "close": 52.189998626708984,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 244488009.36659196,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "MLP Energy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "BLOK": {
+      "ticker": "BLOK",
+      "asset_class": "Crypto",
+      "category": "Crypto",
+      "subcategory": "Blockchain",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1167725440.0,
+          "nav": 68.0364,
+          "close": 68.7300033569336,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 17163245.556790188,
+          "asset_class": "Crypto",
+          "category": "Crypto",
+          "subcategory": "Blockchain",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "BND": {
+      "ticker": "BND",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Total Bond Market",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 389703467008.0,
+          "nav": 73.45,
+          "close": 73.18000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 5305697304.397549,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Total Bond Market",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "BOAT": {
+      "ticker": "BOAT",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Shipping",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 82696816.0,
+          "nav": 40.4135,
+          "close": 40.779998779296875,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 2046267.1137120023,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Shipping",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "CAOS": {
+      "ticker": "CAOS",
+      "asset_class": "Alternative",
+      "category": "Strategy",
+      "subcategory": "Tail Risk Hedge",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 650410496.0,
+          "nav": 90.4472,
+          "close": 90.37000274658203,
+          "aum_nav_updated_at": "2026-06-01T19:59:52Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 7191051.751740242,
+          "asset_class": "Alternative",
+          "category": "Strategy",
+          "subcategory": "Tail Risk Hedge",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "COPX": {
+      "ticker": "COPX",
+      "asset_class": "Commodity",
+      "category": "Metals & Mining",
+      "subcategory": "Copper Miners",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7406607872.0,
+          "nav": 88.07,
+          "close": 90.05999755859375,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 84099101.53287159,
+          "asset_class": "Commodity",
+          "category": "Metals & Mining",
+          "subcategory": "Copper Miners",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "CPER": {
+      "ticker": "CPER",
+      "asset_class": "Commodity",
+      "category": "Industrial Metals",
+      "subcategory": "Copper",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 700529664.0,
+          "nav": 38.856,
+          "close": 39.959999084472656,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 18028867.201976527,
+          "asset_class": "Commodity",
+          "category": "Industrial Metals",
+          "subcategory": "Copper",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "CWB": {
+      "ticker": "CWB",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Convertible Bonds",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 5698698752.0,
+          "nav": 107.91652,
+          "close": 109.43000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 52806546.68997851,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Convertible Bonds",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "DIA": {
+      "ticker": "DIA",
+      "asset_class": "Equity",
+      "category": "Index",
+      "subcategory": "Dow Jones",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 42719600640.0,
+          "nav": 510.71478,
+          "close": 511.44000244140625,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 83646689.52795923,
+          "asset_class": "Equity",
+          "category": "Index",
+          "subcategory": "Dow Jones",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "ETHA": {
+      "ticker": "ETHA",
+      "asset_class": "Crypto",
+      "category": "Crypto",
+      "subcategory": "Ethereum Spot ETF",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7115884544.0,
+          "nav": 15.19302,
+          "close": 15.109999656677246,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 468365377.2587675,
+          "asset_class": "Crypto",
+          "category": "Crypto",
+          "subcategory": "Ethereum Spot ETF",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "FCPI": {
+      "ticker": "FCPI",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Inflation Sensitive",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 272009600.0,
+          "nav": 54.81699,
+          "close": 54.810001373291016,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 4962140.38749665,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Inflation Sensitive",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "FNDX": {
+      "ticker": "FNDX",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Fundamental Weighting",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 25911465984.0,
+          "nav": 30.98,
+          "close": 30.93000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 836393350.0322789,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Fundamental Weighting",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "GDX": {
+      "ticker": "GDX",
+      "asset_class": "Commodity",
+      "category": "Metals & Mining",
+      "subcategory": "Gold Miners",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 27257202688.0,
+          "nav": 89.21,
+          "close": 86.68000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 305539767.8287188,
+          "asset_class": "Commodity",
+          "category": "Metals & Mining",
+          "subcategory": "Gold Miners",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "GRID": {
+      "ticker": "GRID",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Electric Energy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 10045891584.0,
+          "nav": 192.8,
+          "close": 193.36500549316406,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 52105246.80497925,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Electric Energy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "GRNY": {
+      "ticker": "GRNY",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Quality Strategy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 4373191168.0,
+          "nav": 27.6234,
+          "close": 27.68000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 158314732.0025775,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Quality Strategy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "GSG": {
+      "ticker": "GSG",
+      "asset_class": "Commodity",
+      "category": "Commodity",
+      "subcategory": "Broad Commodities",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1065757056.0,
+          "nav": 31.65009,
+          "close": 32.470001220703125,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 33673112.96745128,
+          "asset_class": "Commodity",
+          "category": "Commodity",
+          "subcategory": "Broad Commodities",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "GUNR": {
+      "ticker": "GUNR",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Natural Resources",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7493664768.0,
+          "nav": 53.9994,
+          "close": 54.220001220703125,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 138773111.70124114,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Natural Resources",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IAI": {
+      "ticker": "IAI",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Brokers & Exchanges",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1491516928.0,
+          "nav": 182.77187,
+          "close": 183.8800048828125,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 8160538.752489647,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Brokers & Exchanges",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IAK": {
+      "ticker": "IAK",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Insurance",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 370618912.0,
+          "nav": 128.38042,
+          "close": 128.1300048828125,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 2886880.351380686,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Insurance",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IAU": {
+      "ticker": "IAU",
+      "asset_class": "Commodity",
+      "category": "Precious Metals",
+      "subcategory": "Gold",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 71461920768.0,
+          "nav": 85.52011,
+          "close": 84.2699966430664,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 835615398.1560594,
+          "asset_class": "Commodity",
+          "category": "Precious Metals",
+          "subcategory": "Gold",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IAUM": {
+      "ticker": "IAUM",
+      "asset_class": "Commodity",
+      "category": "Precious Metals",
+      "subcategory": "Gold",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7233581568.0,
+          "nav": 45.30238,
+          "close": 44.63999938964844,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 159673323.30001205,
+          "asset_class": "Commodity",
+          "category": "Precious Metals",
+          "subcategory": "Gold",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IBB": {
+      "ticker": "IBB",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Biotechnology",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7946963968.0,
+          "nav": 172.32848,
+          "close": 169.3699951171875,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 46115209.557932615,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Biotechnology",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IBIT": {
+      "ticker": "IBIT",
+      "asset_class": "Crypto",
+      "category": "Crypto",
+      "subcategory": "Bitcoin Spot ETF",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 61891579904.0,
+          "nav": 41.58483,
+          "close": 40.4900016784668,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 1488321099.4009116,
+          "asset_class": "Crypto",
+          "category": "Crypto",
+          "subcategory": "Bitcoin Spot ETF",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "ICLN": {
+      "ticker": "ICLN",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Clean Energy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2502674688.0,
+          "nav": 23.51217,
+          "close": 23.040000915527344,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 106441672.03622635,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Clean Energy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IEF": {
+      "ticker": "IEF",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Intermediate Treasury",
+      "notes": "7 to 10 year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 48474525696.0,
+          "nav": 94.61273,
+          "close": 94.16999816894531,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 512346760.27211136,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Intermediate Treasury",
+          "notes": "7 to 10 year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IEI": {
+      "ticker": "IEI",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Intermediate Treasury",
+      "notes": "3 to 7 year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 18630875136.0,
+          "nav": 117.69867,
+          "close": 117.2300033569336,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 158292996.3099838,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Intermediate Treasury",
+          "notes": "3 to 7 year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IEMG": {
+      "ticker": "IEMG",
+      "asset_class": "Equity",
+      "category": "Broad",
+      "subcategory": "Emerging Markets",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 151167582208.0,
+          "nav": 83.47777,
+          "close": 85.18000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 1810872310.1731155,
+          "asset_class": "Equity",
+          "category": "Broad",
+          "subcategory": "Emerging Markets",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IGV": {
+      "ticker": "IGV",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Software",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 12107472896.0,
+          "nav": 101.62084,
+          "close": 107.69999694824219,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 119143601.80451176,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Software",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IHI": {
+      "ticker": "IHI",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Medical Devices",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 3193428992.0,
+          "nav": 48.96805,
+          "close": 48.84000015258789,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 65214542.78861421,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Medical Devices",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IJH": {
+      "ticker": "IJH",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Mid Cap",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 115693895680.0,
+          "nav": 74.57715,
+          "close": 74.54000091552734,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 1551331683.7664082,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Mid Cap",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IJR": {
+      "ticker": "IJR",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Small Cap",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 102561284096.0,
+          "nav": 138.62364,
+          "close": 138.4600067138672,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 739854213.1486375,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Small Cap",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "ISTB": {
+      "ticker": "ISTB",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Short Term Bond",
+      "notes": "1 to 5 year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 4747077632.0,
+          "nav": 48.33321,
+          "close": 48.16999816894531,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 98215649.9020032,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Short Term Bond",
+          "notes": "1 to 5 year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "ITA": {
+      "ticker": "ITA",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Aerospace & Defense",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 13564854272.0,
+          "nav": 235.5107,
+          "close": 229.91000366210938,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 57597613.49272028,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Aerospace & Defense",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "ITB": {
+      "ticker": "ITB",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Home Construction",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2540537344.0,
+          "nav": 92.98412,
+          "close": 93.0199966430664,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 27322271.200716853,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Home Construction",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IWF": {
+      "ticker": "IWF",
+      "asset_class": "Equity",
+      "category": "Index",
+      "subcategory": "Russell 1000 Growth",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 124668968960.0,
+          "nav": 127.82353,
+          "close": 128.77000427246094,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 975320967.58711,
+          "asset_class": "Equity",
+          "category": "Index",
+          "subcategory": "Russell 1000 Growth",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IWM": {
+      "ticker": "IWM",
+      "asset_class": "Equity",
+      "category": "Index",
+      "subcategory": "Russell 2000",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 76877807616.0,
+          "nav": 290.29184,
+          "close": 288.9800109863281,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 264829378.65563154,
+          "asset_class": "Equity",
+          "category": "Index",
+          "subcategory": "Russell 2000",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "IYT": {
+      "ticker": "IYT",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Transportation",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2027102848.0,
+          "nav": 83.81673,
+          "close": 84.83000183105469,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 24184943.12531639,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Transportation",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "JETS": {
+      "ticker": "JETS",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Airlines",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 738243584.0,
+          "nav": 29.3132,
+          "close": 28.93000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 25184680.758156735,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Airlines",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "KBWB": {
+      "ticker": "KBWB",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Banks",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 5500718592.0,
+          "nav": 87.12,
+          "close": 86.87999725341797,
+          "aum_nav_updated_at": "2026-06-01T20:00:01Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 63139561.43250688,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Banks",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "KCE": {
+      "ticker": "KCE",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Capital Markets",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 456007712.0,
+          "nav": 151.78867,
+          "close": 152.55999755859375,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 3004227.6014408716,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Capital Markets",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "KRE": {
+      "ticker": "KRE",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Regional Banks",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 4165366016.0,
+          "nav": 69.58568,
+          "close": 68.30999755859375,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 59859528.7996036,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Regional Banks",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "LIT": {
+      "ticker": "LIT",
+      "asset_class": "Commodity",
+      "category": "Industrial Metals",
+      "subcategory": "Lithium",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2134236672.0,
+          "nav": 87.39,
+          "close": 86.08999633789062,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 24421978.16683831,
+          "asset_class": "Commodity",
+          "category": "Industrial Metals",
+          "subcategory": "Lithium",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "LQD": {
+      "ticker": "LQD",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Corporate Bonds",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 30921228288.0,
+          "nav": 109.33448,
+          "close": 108.93000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 282813146.30114853,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Corporate Bonds",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "MADE": {
+      "ticker": "MADE",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "US Manufacturing",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 56778496.0,
+          "nav": 37.63818,
+          "close": 37.19580078125,
+          "aum_nav_updated_at": "2026-06-01T19:56:44Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 1508534.578451987,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "US Manufacturing",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "MOO": {
+      "ticker": "MOO",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Agribusiness",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1164515328.0,
+          "nav": 79.69,
+          "close": 79.33000183105469,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 14613067.23553771,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Agribusiness",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "NLR": {
+      "ticker": "NLR",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Nuclear Energy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 5147035648.0,
+          "nav": 133.03,
+          "close": 131.85000610351562,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 38690788.90475833,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Nuclear Energy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "OIH": {
+      "ticker": "OIH",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Oil Services",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2510627328.0,
+          "nav": 418.56,
+          "close": 420.5899963378906,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 5998249.541284404,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Oil Services",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "PAVE": {
+      "ticker": "PAVE",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Infrastructure",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 13361818624.0,
+          "nav": 56.31,
+          "close": 55.97999954223633,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 237290332.51642692,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Infrastructure",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "PFF": {
+      "ticker": "PFF",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Income Preferred Shares",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 13932547072.0,
+          "nav": 31.47495,
+          "close": 31.399999618530273,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 442655097.84765345,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Income Preferred Shares",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "POWR": {
+      "ticker": "POWR",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "US Power Infrastructure",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 289900000.0,
+          "nav": null,
+          "close": 27.260000228881836,
+          "aum_nav_updated_at": "2026-06-01T22:35:55Z",
+          "aum_nav_source": "alphavantage",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": null,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "US Power Infrastructure",
+          "notes": "",
+          "warnings": [
+            "yfinance_missing_aum_and_nav",
+            "missing_aum_or_nav",
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "PPH": {
+      "ticker": "PPH",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Pharmaceuticals",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 966481088.0,
+          "nav": 104.78,
+          "close": 102.27999877929688,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 9223908.074059935,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Pharmaceuticals",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "PPLT": {
+      "ticker": "PPLT",
+      "asset_class": "Commodity",
+      "category": "Precious Metals",
+      "subcategory": "Platinum",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2406283264.0,
+          "nav": 17.44199,
+          "close": 17.450000762939453,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 137959215.8922233,
+          "asset_class": "Commodity",
+          "category": "Precious Metals",
+          "subcategory": "Platinum",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "REM": {
+      "ticker": "REM",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Mortgage REITs",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 579921280.0,
+          "nav": 22.08349,
+          "close": 21.780000686645508,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 26260399.96395497,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Mortgage REITs",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SGOV": {
+      "ticker": "SGOV",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Ultra Short Treasury",
+      "notes": "1 to 3 month",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 85153767424.0,
+          "nav": 100.67725,
+          "close": 100.4000015258789,
+          "aum_nav_updated_at": "2026-06-01T20:00:23Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 845809429.8761637,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Ultra Short Treasury",
+          "notes": "1 to 3 month",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SHV": {
+      "ticker": "SHV",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Ultra Short Treasury",
+      "notes": "0 to 1 year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 20637573120.0,
+          "nav": 110.37754,
+          "close": 110.05999755859375,
+          "aum_nav_updated_at": "2026-06-01T20:00:19Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 186972577.21090722,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Ultra Short Treasury",
+          "notes": "0 to 1 year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SHY": {
+      "ticker": "SHY",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Short Term Treasury",
+      "notes": "1 to 3 year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 25083643904.0,
+          "nav": 82.28559,
+          "close": 82.01000213623047,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 304836410.6522175,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Short Term Treasury",
+          "notes": "1 to 3 year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SIL": {
+      "ticker": "SIL",
+      "asset_class": "Commodity",
+      "category": "Metals & Mining",
+      "subcategory": "Silver Miners",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 5286670848.0,
+          "nav": 93.58,
+          "close": 91.48999786376953,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 56493597.435349435,
+          "asset_class": "Commodity",
+          "category": "Metals & Mining",
+          "subcategory": "Silver Miners",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SKYY": {
+      "ticker": "SKYY",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Cloud Computing",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2441676800.0,
+          "nav": 144.51,
+          "close": 155.1699981689453,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 16896248.010518305,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Cloud Computing",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SLV": {
+      "ticker": "SLV",
+      "asset_class": "Commodity",
+      "category": "Precious Metals",
+      "subcategory": "Silver",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 35607912448.0,
+          "nav": 68.56421,
+          "close": 67.66999816894531,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 519336727.5434224,
+          "asset_class": "Commodity",
+          "category": "Precious Metals",
+          "subcategory": "Silver",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SMH": {
+      "ticker": "SMH",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Semiconductors",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 58790612992.0,
+          "nav": 598.65,
+          "close": 607.8099975585938,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 98205316.94980372,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Semiconductors",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SPMO": {
+      "ticker": "SPMO",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Momentum",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 15975757824.0,
+          "nav": 150.59,
+          "close": 152.32000732421875,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 106087773.58390331,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Momentum",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "SPY": {
+      "ticker": "SPY",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Large Cap",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 735060819968.0,
+          "nav": 756.2813,
+          "close": 758.5399780273438,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 971941022.4317328,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Large Cap",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "TAN": {
+      "ticker": "TAN",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Solar Energy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1624940032.0,
+          "nav": 73.83,
+          "close": 71.12999725341797,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 22009210.781525128,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Solar Energy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "TIP": {
+      "ticker": "TIP",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "TIPS",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 14751854592.0,
+          "nav": 111.1007,
+          "close": 109.9800033569336,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 132779132.73273705,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "TIPS",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "TLH": {
+      "ticker": "TLH",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Long Treasury",
+      "notes": "10 to 20 year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 12086102016.0,
+          "nav": 99.8614,
+          "close": 99.4800033569336,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 121028766.02971718,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Long Treasury",
+          "notes": "10 to 20 year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "TLT": {
+      "ticker": "TLT",
+      "asset_class": "Fixed Income",
+      "category": "Bonds",
+      "subcategory": "Ultra Long Treasury",
+      "notes": "20+ year",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 42905042944.0,
+          "nav": 85.70619,
+          "close": 85.47000122070312,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 500606116.59437895,
+          "asset_class": "Fixed Income",
+          "category": "Bonds",
+          "subcategory": "Ultra Long Treasury",
+          "notes": "20+ year",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "UNG": {
+      "ticker": "UNG",
+      "asset_class": "Commodity",
+      "category": "Energy",
+      "subcategory": "Natural Gas",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 533082912.0,
+          "nav": 11.926,
+          "close": 11.539999961853027,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 44699221.197383866,
+          "asset_class": "Commodity",
+          "category": "Energy",
+          "subcategory": "Natural Gas",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "URA": {
+      "ticker": "URA",
+      "asset_class": "Commodity",
+      "category": "Energy",
+      "subcategory": "Uranium",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7810848256.0,
+          "nav": 50.81,
+          "close": 50.540000915527344,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 153726594.2924621,
+          "asset_class": "Commodity",
+          "category": "Energy",
+          "subcategory": "Uranium",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "USO": {
+      "ticker": "USO",
+      "asset_class": "Commodity",
+      "category": "Energy",
+      "subcategory": "Oil",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1942278400.0,
+          "nav": 128.022,
+          "close": 135.5,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 15171442.408336068,
+          "asset_class": "Commodity",
+          "category": "Energy",
+          "subcategory": "Oil",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VEA": {
+      "ticker": "VEA",
+      "asset_class": "Equity",
+      "category": "Broad",
+      "subcategory": "Developed Markets",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 304263069696.0,
+          "nav": 71.82,
+          "close": 71.87000274658203,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 4236467135.8395996,
+          "asset_class": "Equity",
+          "category": "Broad",
+          "subcategory": "Developed Markets",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VFLO": {
+      "ticker": "VFLO",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Free Cash Flow",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 6689852416.0,
+          "nav": 46.55,
+          "close": 48.18000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 143713263.50161117,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Free Cash Flow",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VGT": {
+      "ticker": "VGT",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Technology",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 146529714176.0,
+          "nav": 121.06,
+          "close": 124.19000244140625,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 1210389180.3733685,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Technology",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VIG": {
+      "ticker": "VIG",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Dividend Growth",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 124645998592.0,
+          "nav": 234.67,
+          "close": 234.1699981689453,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 531154381.0116334,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Dividend Growth",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VNQ": {
+      "ticker": "VNQ",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Real Estate",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 69945008128.0,
+          "nav": 95.66,
+          "close": 94.08999633789062,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 731183442.6928706,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Real Estate",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VOO": {
+      "ticker": "VOO",
+      "asset_class": "Equity",
+      "category": "Index",
+      "subcategory": "SP 500",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 1600156336128.0,
+          "nav": 695.34,
+          "close": 697.2999877929688,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 2301257422.4523253,
+          "asset_class": "Equity",
+          "category": "Index",
+          "subcategory": "SP 500",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VTI": {
+      "ticker": "VTI",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Total Market",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 2202624327680.0,
+          "nav": 372.43,
+          "close": 373.3999938964844,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 5914196836.13028,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Total Market",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VTV": {
+      "ticker": "VTV",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Value",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 237831766016.0,
+          "nav": 211.82,
+          "close": 211.4199981689453,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 1122801274.742706,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Value",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VUG": {
+      "ticker": "VUG",
+      "asset_class": "Equity",
+      "category": "Size & Style",
+      "subcategory": "Growth",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 365000785920.0,
+          "nav": 89.59,
+          "close": 90.29000091552734,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 4074124187.07445,
+          "asset_class": "Equity",
+          "category": "Size & Style",
+          "subcategory": "Growth",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "VXUS": {
+      "ticker": "VXUS",
+      "asset_class": "Equity",
+      "category": "Broad",
+      "subcategory": "International Total",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 629147172864.0,
+          "nav": 85.98,
+          "close": 86.30999755859375,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 7317366513.8869505,
+          "asset_class": "Equity",
+          "category": "Broad",
+          "subcategory": "International Total",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "WOOD": {
+      "ticker": "WOOD",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Timber & Forestry",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 251349440.0,
+          "nav": 67.65518,
+          "close": 67.10910034179688,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 3715154.405028558,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Timber & Forestry",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLB": {
+      "ticker": "XLB",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Materials",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 7311751168.0,
+          "nav": 51.16228,
+          "close": 50.91999816894531,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 142912926.63266766,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Materials",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLC": {
+      "ticker": "XLC",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Communication Services",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 25642762240.0,
+          "nav": 115.71343,
+          "close": 115.61000061035156,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 221605756.9117085,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Communication Services",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLE": {
+      "ticker": "XLE",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Energy",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 41394286592.0,
+          "nav": 56.30346,
+          "close": 57.29999923706055,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 735199694.5125575,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Energy",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLF": {
+      "ticker": "XLF",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Financials",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 51460583424.0,
+          "nav": 51.56992,
+          "close": 51.43000030517578,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 997879838.1692272,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Financials",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLI": {
+      "ticker": "XLI",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Industrials",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 30091372544.0,
+          "nav": 173.13878,
+          "close": 172.39999389648438,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 173799148.5443065,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Industrials",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLP": {
+      "ticker": "XLP",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Consumer Staples",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 14545357824.0,
+          "nav": 82.93281,
+          "close": 82.02999877929688,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 175387254.13982716,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Consumer Staples",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLU": {
+      "ticker": "XLU",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Utilities",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 24051787776.0,
+          "nav": 44.4302,
+          "close": 43.099998474121094,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 541338724.0210488,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Utilities",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLV": {
+      "ticker": "XLV",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Healthcare",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 37880406016.0,
+          "nav": 149.54446,
+          "close": 147.83999633789062,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 253305311.45052117,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Healthcare",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XLY": {
+      "ticker": "XLY",
+      "asset_class": "Equity",
+      "category": "Sector",
+      "subcategory": "Consumer Discretionary",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 23127506944.0,
+          "nav": 120.90014,
+          "close": 118.19000244140625,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 191294294.15052786,
+          "asset_class": "Equity",
+          "category": "Sector",
+          "subcategory": "Consumer Discretionary",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XME": {
+      "ticker": "XME",
+      "asset_class": "Commodity",
+      "category": "Metals & Mining",
+      "subcategory": "Metals & Mining",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 5302542336.0,
+          "nav": 125.18823,
+          "close": 127.45999908447266,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 42356556.49097363,
+          "asset_class": "Commodity",
+          "category": "Metals & Mining",
+          "subcategory": "Metals & Mining",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XOP": {
+      "ticker": "XOP",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Oil & Gas Exploration",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 3564897792.0,
+          "nav": 163.98163,
+          "close": 167.8699951171875,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 21739616.760731064,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Oil & Gas Exploration",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XRT": {
+      "ticker": "XRT",
+      "asset_class": "Equity",
+      "category": "Industry",
+      "subcategory": "Retail",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 205956352.0,
+          "nav": 83.98015,
+          "close": 83.31999969482422,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 2452440.868467132,
+          "asset_class": "Equity",
+          "category": "Industry",
+          "subcategory": "Retail",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    },
+    "XYLD": {
+      "ticker": "XYLD",
+      "asset_class": "Equity",
+      "category": "Factor",
+      "subcategory": "Covered Call",
+      "notes": "",
+      "daily": [
+        {
+          "date": "2026-06-01",
+          "aum": 3106126848.0,
+          "nav": 40.69,
+          "close": 40.75,
+          "aum_nav_updated_at": "2026-06-01T20:00:00Z",
+          "aum_nav_source": "yfinance",
+          "return_factor_nav": null,
+          "return_factor_close": null,
+          "flow_nav": null,
+          "flow_close": null,
+          "flow_nav_pct_aum": null,
+          "flow_close_pct_aum": null,
+          "implied_shares": 76336368.83755223,
+          "asset_class": "Equity",
+          "category": "Factor",
+          "subcategory": "Covered Call",
+          "notes": "",
+          "warnings": [
+            "missing_prior_day"
+          ]
+        }
+      ]
+    }
+  }
+}
