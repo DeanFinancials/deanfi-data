@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-06-08T11:14:03.073534-04:00",
+    "generated_at": "2026-06-09T11:17:23.891528-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,8 +122,8 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-06-13",
-    "data_end": "2026-06-08"
+    "data_start": "2006-06-14",
+    "data_end": "2026-06-09"
   },
   "current": {
     "date": "2026-04-01",
@@ -131,7 +131,7 @@
       "grade": "C",
       "label": "Fair",
       "color": "warning",
-      "points": 2.1
+      "points": 2.4
     },
     "indicators": {
       "HOUST": {
@@ -202,20 +202,20 @@
       },
       "EXHOSLUSM495S": {
         "name": "Existing Home Sales",
-        "value": 4020000.0,
+        "value": 4170000.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 15.38,
+        "percentile": 84.62,
         "grade": {
-          "grade": "D",
-          "label": "Poor",
-          "color": "destructive",
-          "points": 1
+          "grade": "A",
+          "label": "Very Good",
+          "color": "success",
+          "points": 4
         },
         "trend": "increasing",
         "is_favorable": true,
         "changes": {
-          "1y": 0.0,
+          "1y": 3.22,
           "5y": null,
           "10y": null,
           "20y": null
@@ -334,22 +334,22 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.36,
+        "value": 2.35,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 78.26,
+        "percentile": 76.44,
         "grade": {
           "grade": "D",
           "label": "Poor",
           "color": "destructive",
           "points": 1
         },
-        "trend": "stable",
-        "is_favorable": null,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": 1.72,
-          "5y": -2.07,
-          "10y": 46.58,
+          "1y": 1.73,
+          "5y": -3.29,
+          "10y": 47.8,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -1813,7 +1813,6 @@
       },
       "EXHOSLUSM495S": {
         "dates": [
-          "2025-04-01",
           "2025-05-01",
           "2025-06-01",
           "2025-07-01",
@@ -1825,10 +1824,10 @@
           "2026-01-01",
           "2026-02-01",
           "2026-03-01",
-          "2026-04-01"
+          "2026-04-01",
+          "2026-05-01"
         ],
         "values": [
-          4020000.0,
           4040000.0,
           3980000.0,
           4030000.0,
@@ -1840,7 +1839,8 @@
           4020000.0,
           4130000.0,
           4010000.0,
-          4020000.0
+          4040000.0,
+          4170000.0
         ]
       },
       "CSUSHPINSA": {
@@ -4114,7 +4114,7 @@
           2.3,
           2.46,
           2.38,
-          2.36
+          2.35
         ]
       }
     }
