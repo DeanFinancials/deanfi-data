@@ -1,0 +1,18 @@
+# CODEOWNERS — education schema-bearing data files (NFR-18)
+#
+# Required by deanfi-website's educational-article-automation issue 25. The
+# website education pipeline consumes these files from R2 against a fixed shape,
+# so a change to their structure is a schema change and must require the
+# documented owner's review before merge. deanfi-website's CODEOWNERS cannot
+# govern these files — they live in this repo.
+#
+# IMPORTANT: CODEOWNERS alone does not block a merge. Pair this file with a
+# branch-protection rule on the protected branch:
+#   Settings → Branches → Branch protection → Require a pull request before
+#   merging → Require review from Code Owners.
+#
+# Owner: @GibsonNeo (Wes — documented primary owner, deanfi-website issue 02).
+# Confirm this is the correct GitHub handle (must have write access).
+
+/education/facts.json    @GibsonNeo
+/education/topics.json   @GibsonNeo
