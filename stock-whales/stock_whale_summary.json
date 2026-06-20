@@ -41,60 +41,60 @@
     "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
   },
   "metadata": {
-    "collection_timestamp": "2026-06-19T18:17:42.869928",
+    "collection_timestamp": "2026-06-20T03:59:15.738494",
     "lookback_start": "2026-06-12T00:00:00",
-    "lookback_end": "2026-06-19T18:09:31.056731",
+    "lookback_end": "2026-06-20T03:45:10.396735",
     "trading_days": 5,
     "tickers_scanned": 500,
     "tickers_with_whales": 500,
     "tickers_skipped": 0,
     "total_raw_trades_scanned": 5000000,
-    "total_whale_trades": 4205,
+    "total_whale_trades": 4193,
     "minimum_share_threshold": 5000,
     "minimum_value_threshold": 1000000
   },
   "overall_sentiment": {
     "direction": "BEARISH",
     "high_confidence_direction": "BEARISH",
-    "buy_value": 492571907361.894,
-    "sell_value": 555760698353.0668,
-    "net_value": -63188790991.17279,
-    "buy_sell_ratio": 0.89,
-    "buy_count": 1502,
-    "sell_count": 2634,
-    "total_whale_trades": 4205,
-    "hc_buy_count": 1487,
-    "hc_sell_count": 2611,
-    "hc_buy_value": 486367921433.53125,
-    "hc_sell_value": 548389163127.1238,
-    "hc_net_value": -62021241693.59253
+    "buy_value": 490489244663.4785,
+    "sell_value": 568882964573.8989,
+    "net_value": -78393719910.42041,
+    "buy_sell_ratio": 0.86,
+    "buy_count": 1493,
+    "sell_count": 2631,
+    "total_whale_trades": 4193,
+    "hc_buy_count": 1478,
+    "hc_sell_count": 2608,
+    "hc_buy_value": 484285258735.1158,
+    "hc_sell_value": 561511429347.9563,
+    "hc_net_value": -77226170612.84052
   },
   "dark_pool_sentiment": {
     "description": "Dark pool trades (Exchange D) - typically institutional block trades",
     "direction": "BEARISH",
     "high_confidence_direction": "BEARISH",
-    "trade_count": 2154,
-    "total_value": 55379979257.409584,
-    "pct_of_whale_volume": 5.3,
-    "buy_value": 26687589961.17393,
-    "sell_value": 28372328891.445805,
-    "net_value": -1684738930.2718735,
-    "buy_sell_ratio": 0.94,
-    "hc_buy_value": 26413942071.21143,
-    "hc_sell_value": 28086463833.003304,
-    "hc_net_value": -1672521761.791874
+    "trade_count": 2144,
+    "total_value": 58056165165.846,
+    "pct_of_whale_volume": 5.4,
+    "buy_value": 26475772739.698437,
+    "sell_value": 31260332021.3577,
+    "net_value": -4784559281.659264,
+    "buy_sell_ratio": 0.85,
+    "hc_buy_value": 26202124849.735935,
+    "hc_sell_value": 30974466962.91521,
+    "hc_net_value": -4772342113.1792755
   },
   "lit_exchange_sentiment": {
     "description": "Lit exchange trades (public exchanges)",
     "direction": "BEARISH",
     "high_confidence_direction": "BEARISH",
-    "trade_count": 2051,
-    "total_value": 999398665823.4028,
-    "pct_of_whale_volume": 94.7,
-    "buy_value": 465884317400.7197,
-    "sell_value": 527388369461.62085,
-    "net_value": -61504052060.90112,
-    "buy_sell_ratio": 0.88
+    "trade_count": 2049,
+    "total_value": 1007762083437.3821,
+    "pct_of_whale_volume": 94.6,
+    "buy_value": 464013471923.7798,
+    "sell_value": 537622632552.54065,
+    "net_value": -73609160628.76086,
+    "buy_sell_ratio": 0.86
   },
   "top_bullish_trades": {
     "description": "Top 10 tickers with largest BUY activity (one per ticker)",
@@ -275,6 +275,23 @@
     "description": "Top 10 tickers with largest SELL activity (one per ticker)",
     "trades": [
       {
+        "ticker": "FLEX",
+        "value": 5909883121.06,
+        "shares": 40037146,
+        "price": 147.61,
+        "timestamp": "2026-06-18T20:00:00.660554968Z",
+        "is_dark_pool": false,
+        "tier": "Mega Whale",
+        "direction_confidence": 95,
+        "sector": "Information Technology",
+        "industry": "Electronic Equipment, Instruments & Components",
+        "sub_industry": "Electronic Manufacturing Services",
+        "total_trades": 7,
+        "dark_pool_count": 5,
+        "dark_pool_value": 3145786236.3775,
+        "total_ticker_value": 14965552478.497501
+      },
+      {
         "ticker": "MSFT",
         "value": 4735006470.599999,
         "shares": 12480249,
@@ -426,36 +443,19 @@
         "dark_pool_count": 7,
         "dark_pool_value": 181469402.01500002,
         "total_ticker_value": 3326885973.0349994
-      },
-      {
-        "ticker": "VZ",
-        "value": 1534555680.32,
-        "shares": 33823136,
-        "price": 45.37,
-        "timestamp": "2026-06-18T23:00:00.000370078Z",
-        "is_dark_pool": false,
-        "tier": "Mega Whale",
-        "direction_confidence": 95,
-        "sector": "Communication Services",
-        "industry": "Diversified Telecommunication Services",
-        "sub_industry": "Integrated Telecommunication Services",
-        "total_trades": 9,
-        "dark_pool_count": 4,
-        "dark_pool_value": 228960863.58249998,
-        "total_ticker_value": 7901739265.182499
       }
     ]
   },
   "tier_breakdown": {
     "mega_whale": {
-      "count": 3040,
-      "value": 1049418820717.5662,
-      "dark_pool_count": 998
+      "count": 3034,
+      "value": 1060512723651.991,
+      "dark_pool_count": 994
     },
     "notable": {
-      "count": 293,
-      "value": 462179353.073,
-      "dark_pool_count": 289
+      "count": 294,
+      "value": 463746853.573,
+      "dark_pool_count": 290
     },
     "large": {
       "count": 383,
@@ -463,9 +463,9 @@
       "dark_pool_count": 382
     },
     "whale": {
-      "count": 489,
-      "value": 3474603416.1555014,
-      "dark_pool_count": 485
+      "count": 482,
+      "value": 3418736503.6474013,
+      "dark_pool_count": 478
     }
   },
   "exchange_breakdown": {
@@ -476,14 +476,14 @@
       "is_dark_pool": false
     },
     "Q": {
-      "count": 309,
-      "value": 263617810787.39,
+      "count": 307,
+      "value": 271981228401.37012,
       "name": "NASDAQ",
       "is_dark_pool": false
     },
     "D": {
-      "count": 2154,
-      "value": 55379979257.409584,
+      "count": 2144,
+      "value": 58056165165.846,
       "name": "Dark Pool (FINRA ADF)",
       "is_dark_pool": true
     },
@@ -510,14 +510,14 @@
     "Information Technology": {
       "sentiment": "BULLISH",
       "high_confidence_sentiment": "BULLISH",
-      "buy_value": 161842170020.29617,
-      "sell_value": 106477916402.65742,
-      "net_value": 55364253617.63875,
-      "buy_sell_ratio": 1.52,
-      "buy_count": 251,
-      "sell_count": 323,
-      "trade_count": 583,
-      "ticker_count": 72
+      "buy_value": 161843737520.79617,
+      "sell_value": 121443468881.15494,
+      "net_value": 40400268639.641235,
+      "buy_sell_ratio": 1.33,
+      "buy_count": 252,
+      "sell_count": 330,
+      "trade_count": 591,
+      "ticker_count": 74
     },
     "Financials": {
       "sentiment": "BULLISH",
@@ -558,14 +558,14 @@
     "Consumer Discretionary": {
       "sentiment": "BULLISH",
       "high_confidence_sentiment": "BULLISH",
-      "buy_value": 46930667593.717094,
+      "buy_value": 44846437394.8016,
       "sell_value": 34873651679.95041,
-      "net_value": 12057015913.766685,
-      "buy_sell_ratio": 1.35,
-      "buy_count": 195,
+      "net_value": 9972785714.851189,
+      "buy_sell_ratio": 1.29,
+      "buy_count": 185,
       "sell_count": 215,
-      "trade_count": 410,
-      "ticker_count": 48
+      "trade_count": 400,
+      "ticker_count": 47
     },
     "Communication Services": {
       "sentiment": "BEARISH",
@@ -583,13 +583,13 @@
       "sentiment": "BEARISH",
       "high_confidence_sentiment": "BEARISH",
       "buy_value": 9568115396.252497,
-      "sell_value": 48652662491.598755,
-      "net_value": -39084547095.34626,
+      "sell_value": 46809376233.93315,
+      "net_value": -37241260837.68066,
       "buy_sell_ratio": 0.2,
       "buy_count": 31,
-      "sell_count": 275,
-      "trade_count": 306,
-      "ticker_count": 36
+      "sell_count": 265,
+      "trade_count": 296,
+      "ticker_count": 35
     },
     "Energy": {
       "sentiment": "BEARISH",
