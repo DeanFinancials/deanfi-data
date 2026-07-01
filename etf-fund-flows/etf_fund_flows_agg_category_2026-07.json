@@ -1,0 +1,161 @@
+{
+  "_README": {
+    "title": "ETF Fund Flows Aggregates (category)",
+    "description": "Daily aggregate AUM and derived flows grouped by category.",
+    "formula": "For each date and group: sum(AUM), sum(flow_nav), sum(flow_close)."
+  },
+  "metadata": {
+    "month": "2026-07",
+    "generated_at": "2026-07-01T22:11:40Z",
+    "data_source": {
+      "aum_nav": {
+        "provider_order": [
+          "yfinance",
+          "alphavantage"
+        ],
+        "providers": {
+          "yfinance": "yfinance.Ticker.info (totalAssets, navPrice)",
+          "alphavantage": "Alpha Vantage ETF_PROFILE (net_assets)"
+        }
+      },
+      "closes": "yfinance.download (Close)"
+    },
+    "group_by": "category",
+    "tickers_total": 93
+  },
+  "data": {
+    "daily": [
+      {
+        "date": "2026-07-01",
+        "groups": {
+          "Industry": {
+            "aum": 194336955232.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 31,
+            "tickers_with_aum": 31,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Crypto": {
+            "aum": 65459266304.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 3,
+            "tickers_with_aum": 3,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Bonds": {
+            "aum": 709389585920.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 12,
+            "tickers_with_aum": 12,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Strategy": {
+            "aum": 668752448.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Metals & Mining": {
+            "aum": 45617987584.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 4,
+            "tickers_with_aum": 4,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Industrial Metals": {
+            "aum": 3038966016.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 2,
+            "tickers_with_aum": 2,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Index": {
+            "aum": 1959510589440.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 4,
+            "tickers_with_aum": 4,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Factor": {
+            "aum": 74636746272.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 7,
+            "tickers_with_aum": 7,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Commodity": {
+            "aum": 1039705408.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Precious Metals": {
+            "aum": 116257550336.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 4,
+            "tickers_with_aum": 4,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Broad": {
+            "aum": 1131634196480.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 3,
+            "tickers_with_aum": 3,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Size & Style": {
+            "aum": 4082009358336.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 7,
+            "tickers_with_aum": 7,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Energy": {
+            "aum": 9286135776.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 3,
+            "tickers_with_aum": 3,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Sector": {
+            "aum": 489877524992.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 11,
+            "tickers_with_aum": 11,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          }
+        }
+      }
+    ]
+  }
+}
