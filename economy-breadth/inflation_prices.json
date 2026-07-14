@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-13T15:01:10.839248-04:00",
+    "generated_at": "2026-07-14T11:24:27.152739-04:00",
     "data_source": "FRED API",
     "category": "Inflation & Prices",
     "indicators": [
@@ -48,58 +48,58 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-07-18",
-    "data_end": "2026-07-13"
+    "data_start": "2006-07-19",
+    "data_end": "2026-07-14"
   },
   "current": {
-    "date": "2026-05-01",
+    "date": "2026-06-01",
     "overall_grade": {
       "grade": "D",
       "label": "Poor",
       "color": "destructive",
-      "points": 1.1
+      "points": 1.0
     },
     "indicators": {
       "CPIAUCSL": {
         "name": "Consumer Price Index (All Items)",
-        "value": 333.98,
+        "value": 332.57,
         "unit": "Index 1982-84=100",
         "frequency": "Monthly",
-        "percentile": 99.58,
+        "percentile": 99.16,
         "grade": {
           "grade": "D",
           "label": "Poor",
           "color": "destructive",
           "points": 1
         },
-        "trend": "increasing",
-        "is_favorable": false,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": 4.27,
-          "5y": 25.27,
-          "10y": 39.74,
+          "1y": 3.73,
+          "5y": 23.92,
+          "10y": 38.83,
           "20y": null
         },
         "interpretation": "lower_is_better"
       },
       "CPILFESL": {
         "name": "Core CPI (Excluding Food and Energy)",
-        "value": 336.12,
+        "value": 336.06,
         "unit": "Index 1982-84=100",
         "frequency": "Monthly",
-        "percentile": 99.58,
+        "percentile": 99.16,
         "grade": {
           "grade": "D",
           "label": "Poor",
           "color": "destructive",
           "points": 1
         },
-        "trend": "increasing",
-        "is_favorable": false,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": 2.96,
-          "5y": 22.82,
-          "10y": 36.33,
+          "1y": 2.81,
+          "5y": 22.0,
+          "10y": 35.98,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -172,32 +172,10 @@
       },
       "T5YIE": {
         "name": "5-Year Breakeven Inflation Rate",
-        "value": 2.28,
+        "value": 2.31,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 73.13,
-        "grade": {
-          "grade": "C",
-          "label": "Fair",
-          "color": "warning",
-          "points": 2
-        },
-        "trend": "stable",
-        "is_favorable": null,
-        "changes": {
-          "1y": -4.6,
-          "5y": -8.43,
-          "10y": 49.02,
-          "20y": null
-        },
-        "interpretation": "lower_is_better"
-      },
-      "CPIENGSL": {
-        "name": "Energy Price Index (CPI Energy Component)",
-        "value": 338.64,
-        "unit": "Index 1982-84=100",
-        "frequency": "Monthly",
-        "percentile": 99.58,
+        "percentile": 75.38,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -207,9 +185,31 @@
         "trend": "increasing",
         "is_favorable": false,
         "changes": {
-          "1y": 22.1,
-          "5y": 49.01,
-          "10y": 81.37,
+          "1y": -2.94,
+          "5y": -5.71,
+          "10y": 55.03,
+          "20y": null
+        },
+        "interpretation": "lower_is_better"
+      },
+      "CPIENGSL": {
+        "name": "Energy Price Index (CPI Energy Component)",
+        "value": 319.29,
+        "unit": "Index 1982-84=100",
+        "frequency": "Monthly",
+        "percentile": 98.33,
+        "grade": {
+          "grade": "D",
+          "label": "Poor",
+          "color": "destructive",
+          "points": 1
+        },
+        "trend": "decreasing",
+        "is_favorable": true,
+        "changes": {
+          "1y": 15.95,
+          "5y": 38.91,
+          "10y": 69.3,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -458,7 +458,8 @@
           "2026-02-01",
           "2026-03-01",
           "2026-04-01",
-          "2026-05-01"
+          "2026-05-01",
+          "2026-06-01"
         ],
         "values": [
           202.9,
@@ -698,7 +699,8 @@
           327.46,
           330.293,
           332.407,
-          333.979
+          333.979,
+          332.568
         ]
       },
       "CPILFESL": {
@@ -940,7 +942,8 @@
           "2026-02-01",
           "2026-03-01",
           "2026-04-01",
-          "2026-05-01"
+          "2026-05-01",
+          "2026-06-01"
         ],
         "values": [
           206.3,
@@ -1180,7 +1183,8 @@
           333.512,
           334.165,
           335.423,
-          336.121
+          336.121,
+          336.065
         ]
       },
       "PCEPI": {
@@ -3120,7 +3124,7 @@
           2.67,
           2.52,
           2.26,
-          2.28
+          2.31
         ]
       },
       "CPIENGSL": {
@@ -3362,7 +3366,8 @@
           "2026-02-01",
           "2026-03-01",
           "2026-04-01",
-          "2026-05-01"
+          "2026-05-01",
+          "2026-06-01"
         ],
         "values": [
           207.9,
@@ -3602,7 +3607,8 @@
           283.223,
           314.019,
           325.978,
-          338.639
+          338.639,
+          319.29
         ]
       }
     }
