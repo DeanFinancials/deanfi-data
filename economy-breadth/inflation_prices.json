@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-14T14:23:33.746034-04:00",
+    "generated_at": "2026-07-15T11:27:12.732078-04:00",
     "data_source": "FRED API",
     "category": "Inflation & Prices",
     "indicators": [
@@ -48,8 +48,8 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-07-19",
-    "data_end": "2026-07-14"
+    "data_start": "2006-07-20",
+    "data_end": "2026-07-15"
   },
   "current": {
     "date": "2026-06-01",
@@ -57,7 +57,7 @@
       "grade": "D",
       "label": "Poor",
       "color": "destructive",
-      "points": 1.0
+      "points": 1.1
     },
     "indicators": {
       "CPIAUCSL": {
@@ -150,44 +150,44 @@
       },
       "PPIACO": {
         "name": "Producer Price Index (Final Demand)",
-        "value": 292.5,
+        "value": 286.83,
         "unit": "Index 1982=100",
         "frequency": "Monthly",
-        "percentile": 99.58,
+        "percentile": 99.17,
         "grade": {
           "grade": "D",
           "label": "Poor",
           "color": "destructive",
           "points": 1
         },
-        "trend": "increasing",
-        "is_favorable": false,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": 13.08,
-          "5y": 30.06,
-          "10y": 57.85,
+          "1y": 10.11,
+          "5y": 25.31,
+          "10y": 52.89,
           "20y": null
         },
         "interpretation": "lower_is_better"
       },
       "T5YIE": {
         "name": "5-Year Breakeven Inflation Rate",
-        "value": 2.31,
+        "value": 2.28,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 75.38,
+        "percentile": 73.13,
         "grade": {
-          "grade": "D",
-          "label": "Poor",
-          "color": "destructive",
-          "points": 1
+          "grade": "C",
+          "label": "Fair",
+          "color": "warning",
+          "points": 2
         },
-        "trend": "increasing",
-        "is_favorable": false,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -2.94,
-          "5y": -5.71,
-          "10y": 55.03,
+          "1y": -4.6,
+          "5y": -7.32,
+          "10y": 57.24,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -2395,7 +2395,8 @@
           "2026-02-01",
           "2026-03-01",
           "2026-04-01",
-          "2026-05-01"
+          "2026-05-01",
+          "2026-06-01"
         ],
         "values": [
           166.8,
@@ -2633,10 +2634,11 @@
           261.914,
           261.333,
           263.608,
-          269.553,
-          275.979,
-          282.7,
-          292.504
+          269.535,
+          276.046,
+          282.779,
+          290.489,
+          286.827
         ]
       },
       "T5YIE": {
@@ -3124,7 +3126,7 @@
           2.67,
           2.52,
           2.26,
-          2.31
+          2.28
         ]
       },
       "CPIENGSL": {
