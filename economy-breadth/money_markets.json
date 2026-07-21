@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-20T15:12:50.929727-04:00",
+    "generated_at": "2026-07-21T11:45:31.454641-04:00",
     "data_source": "FRED API",
     "category": "Money & Markets",
     "indicators": [
@@ -48,16 +48,16 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-07-25",
-    "data_end": "2026-07-20"
+    "data_start": "2006-07-26",
+    "data_end": "2026-07-21"
   },
   "current": {
-    "date": "2026-07-16",
+    "date": "2026-07-17",
     "overall_grade": {
       "grade": "C",
       "label": "Fair",
       "color": "warning",
-      "points": 2.3
+      "points": 2.1
     },
     "indicators": {
       "DFF": {
@@ -78,16 +78,38 @@
           "1y": -6.2,
           "5y": -20.74,
           "10y": 71.23,
-          "20y": 2492.86
+          "20y": 3933.33
         },
         "interpretation": "neutral"
       },
       "DGS10": {
         "name": "10-Year Treasury Constant Maturity Rate",
-        "value": 4.57,
+        "value": 4.55,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 93.16,
+        "percentile": 92.58,
+        "grade": {
+          "grade": "C",
+          "label": "Concerning",
+          "color": "destructive",
+          "points": 2
+        },
+        "trend": "decreasing",
+        "is_favorable": null,
+        "changes": {
+          "1y": 1.11,
+          "5y": 213.79,
+          "10y": 189.81,
+          "20y": null
+        },
+        "interpretation": "neutral"
+      },
+      "DGS2": {
+        "name": "2-Year Treasury Constant Maturity Rate",
+        "value": 4.18,
+        "unit": "Percent",
+        "frequency": "Daily",
+        "percentile": 85.03,
         "grade": {
           "grade": "C",
           "label": "Concerning",
@@ -97,41 +119,19 @@
         "trend": "increasing",
         "is_favorable": null,
         "changes": {
-          "1y": 3.16,
-          "5y": 206.71,
-          "10y": 185.62,
-          "20y": null
-        },
-        "interpretation": "neutral"
-      },
-      "DGS2": {
-        "name": "2-Year Treasury Constant Maturity Rate",
-        "value": 4.16,
-        "unit": "Percent",
-        "frequency": "Daily",
-        "percentile": 84.69,
-        "grade": {
-          "grade": "B",
-          "label": "Acceptable",
-          "color": "warning",
-          "points": 3
-        },
-        "trend": "increasing",
-        "is_favorable": null,
-        "changes": {
-          "1y": 6.67,
-          "5y": 1440.74,
-          "10y": 502.9,
+          "1y": 5.82,
+          "5y": 1572.0,
+          "10y": 497.14,
           "20y": null
         },
         "interpretation": "neutral"
       },
       "YIELD_SPREAD": {
         "name": "10Y minus 2Y Yield Spread",
-        "value": 0.41,
+        "value": 0.37,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 30.43,
+        "percentile": 29.57,
         "grade": {
           "grade": "C",
           "label": "Fair",
@@ -141,9 +141,9 @@
         "trend": "decreasing",
         "is_favorable": false,
         "changes": {
-          "1y": -22.64,
-          "5y": -66.39,
-          "10y": -54.95,
+          "1y": -32.73,
+          "5y": -69.17,
+          "10y": -57.47,
           "20y": null
         },
         "interpretation": "higher_is_better"
@@ -1192,7 +1192,7 @@
           4.4,
           4.45,
           4.44,
-          4.57
+          4.55
         ]
       },
       "DGS2": {
@@ -1680,7 +1680,7 @@
           3.88,
           3.98,
           4.14,
-          4.16
+          4.18
         ]
       },
       "YIELD_SPREAD": {
@@ -2168,7 +2168,7 @@
           0.5200000000000005,
           0.4700000000000002,
           0.3000000000000007,
-          0.41000000000000014
+          0.3700000000000001
         ]
       },
       "M2SL": {
