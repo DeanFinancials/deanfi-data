@@ -105,6 +105,14 @@ jobs:
             echo "❌ Failed to upload Market Pulse input to R2"
             exit 1
           fi
+
+          ARCHIVE_MARKET_DATE="$(python3 -c "import json; print(json.load(open('dailycombined/market_pulse_input.json'))['metadata']['market_date'])")"
+          if wrangler r2 object put "$R2_BUCKET_NAME/dailycombined/archive/$ARCHIVE_MARKET_DATE/market_pulse_input.json" --file="dailycombined/market_pulse_input.json" --remote; then
+            echo "✅ Successfully archived Market Pulse input for $ARCHIVE_MARKET_DATE"
+          else
+            echo "❌ Failed to archive Market Pulse input for $ARCHIVE_MARKET_DATE"
+            exit 1
+          fi
       
       - name: Optional - Commit to repository
         if: always()

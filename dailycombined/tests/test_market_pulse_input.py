@@ -398,6 +398,14 @@ def test_combine_workflow_validates_and_uploads_market_pulse_input():
     assert "python dailycombined/validate_market_pulse_input.py dailycombined/market_pulse_input.json" in workflow
     assert "dailycombined/market_pulse_input.json" in workflow
     assert "$R2_BUCKET_NAME/dailycombined/market_pulse_input.json" in workflow
+    assert 'ARCHIVE_MARKET_DATE="$(python3 -c' in workflow
+    assert "['metadata']['market_date']" in workflow
+    assert '$R2_BUCKET_NAME/dailycombined/archive/$ARCHIVE_MARKET_DATE/market_pulse_input.json' in workflow
+    assert (
+        'wrangler r2 object put "$R2_BUCKET_NAME/dailycombined/archive/$ARCHIVE_MARKET_DATE/market_pulse_input.json" '
+        '--file="dailycombined/market_pulse_input.json" --remote'
+    ) in workflow
+    assert workflow.index("Validate Market Pulse input") < workflow.index("Upload Market Pulse input to R2")
     assert "cron: '00 23 * * 1-5'" in workflow
     assert "actions/checkout@v5" in workflow
     assert "actions/setup-python@v6" in workflow
