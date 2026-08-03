@@ -1,0 +1,845 @@
+{
+  "_README": {
+    "title": "ETF Fund Flows Aggregates (subcategory)",
+    "description": "Daily aggregate AUM and derived flows grouped by subcategory.",
+    "formula": "For each date and group: sum(AUM), sum(flow_nav), sum(flow_close)."
+  },
+  "metadata": {
+    "month": "2026-08",
+    "generated_at": "2026-08-03T22:40:16Z",
+    "data_source": {
+      "aum_nav": {
+        "provider_order": [
+          "yfinance",
+          "alphavantage"
+        ],
+        "providers": {
+          "yfinance": "yfinance.Ticker.info (totalAssets, navPrice)",
+          "alphavantage": "Alpha Vantage ETF_PROFILE (net_assets)"
+        }
+      },
+      "closes": "yfinance.download (Close)"
+    },
+    "group_by": "subcategory",
+    "tickers_total": 93
+  },
+  "data": {
+    "daily": [
+      {
+        "date": "2026-08-03",
+        "groups": {
+          "MLP Energy": {
+            "aum": 12160584704.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Blockchain": {
+            "aum": 1164569600.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Total Bond Market": {
+            "aum": 397862928384.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Shipping": {
+            "aum": 67047328.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Tail Risk Hedge": {
+            "aum": 705090432.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Copper Miners": {
+            "aum": 7154050560.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Copper": {
+            "aum": 737944704.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Convertible Bonds": {
+            "aum": 6197490688.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Dow Jones": {
+            "aum": 44062826496.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Ethereum Spot ETF": {
+            "aum": 4276033536.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Inflation Sensitive": {
+            "aum": 275763360.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Fundamental Weighting": {
+            "aum": 25939793920.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Gold Miners": {
+            "aum": 22753128448.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Electric Energy": {
+            "aum": 12076603392.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Quality Strategy": {
+            "aum": 4392313856.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Broad Commodities": {
+            "aum": 839283008.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Natural Resources": {
+            "aum": 6723008512.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Brokers & Exchanges": {
+            "aum": 1333200768.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Insurance": {
+            "aum": 421508544.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Gold": {
+            "aum": 66444832256.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 2,
+            "tickers_with_aum": 2,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Biotechnology": {
+            "aum": 9087528960.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Bitcoin Spot ETF": {
+            "aum": 43234205696.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Clean Energy": {
+            "aum": 2908022016.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Intermediate Treasury": {
+            "aum": 65354328064.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 2,
+            "tickers_with_aum": 2,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Emerging Markets": {
+            "aum": 160718422016.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Software": {
+            "aum": 13542322176.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Medical Devices": {
+            "aum": 3023981056.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Mid Cap": {
+            "aum": 124330491904.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Small Cap": {
+            "aum": 111317172224.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Short Term Bond": {
+            "aum": 5038184448.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Aerospace & Defense": {
+            "aum": 14444112896.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Home Construction": {
+            "aum": 2602911744.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Russell 1000 Growth": {
+            "aum": 128899137536.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Russell 2000": {
+            "aum": 82970353664.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Transportation": {
+            "aum": 2252120832.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Airlines": {
+            "aum": 959064192.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Banks": {
+            "aum": 6505184256.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Capital Markets": {
+            "aum": 419440480.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Regional Banks": {
+            "aum": 4740203520.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Lithium": {
+            "aum": 1772738304.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Corporate Bonds": {
+            "aum": 33113137152.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "US Manufacturing": {
+            "aum": 62704896.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Agribusiness": {
+            "aum": 943893312.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Nuclear Energy": {
+            "aum": 4214125568.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Oil Services": {
+            "aum": 1991713408.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Infrastructure": {
+            "aum": 14567146496.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Income Preferred Shares": {
+            "aum": 13096669184.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "US Power Infrastructure": {
+            "aum": 419545856.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Pharmaceuticals": {
+            "aum": 879456640.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Platinum": {
+            "aum": 1773133312.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Mortgage REITs": {
+            "aum": 547945600.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Ultra Short Treasury": {
+            "aum": 116838289408.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 2,
+            "tickers_with_aum": 2,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Short Term Treasury": {
+            "aum": 25358272512.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Silver Miners": {
+            "aum": 4207305472.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Cloud Computing": {
+            "aum": 2719586048.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Silver": {
+            "aum": 28194189312.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Semiconductors": {
+            "aum": 77198270464.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Momentum": {
+            "aum": 22210627584.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Large Cap": {
+            "aum": 781188857856.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Solar Energy": {
+            "aum": 1719587200.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "TIPS": {
+            "aum": 14696782848.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Long Treasury": {
+            "aum": 11252374528.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Ultra Long Treasury": {
+            "aum": 41099935744.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Natural Gas": {
+            "aum": 418879104.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Uranium": {
+            "aum": 5997526528.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Oil": {
+            "aum": 1880301184.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Developed Markets": {
+            "aum": 316309798912.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Free Cash Flow": {
+            "aum": 7757980672.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Technology": {
+            "aum": 169247817728.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Dividend Growth": {
+            "aum": 129462992896.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Real Estate": {
+            "aum": 71348019200.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "SP 500": {
+            "aum": 1670882131968.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Total Market": {
+            "aum": 2297940410368.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Value": {
+            "aum": 254461837312.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Growth": {
+            "aum": 379207221248.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "International Total": {
+            "aum": 650318381056.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Timber & Forestry": {
+            "aum": 246789344.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Materials": {
+            "aum": 8166011392.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Communication Services": {
+            "aum": 22262224896.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Energy": {
+            "aum": 35721338880.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Financials": {
+            "aum": 51353821184.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Industrials": {
+            "aum": 33963890688.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Consumer Staples": {
+            "aum": 13649293312.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Utilities": {
+            "aum": 23111417856.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Healthcare": {
+            "aum": 40598945792.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Consumer Discretionary": {
+            "aum": 22593435648.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Metals & Mining": {
+            "aum": 4383336448.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Oil & Gas Exploration": {
+            "aum": 2914506496.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Retail": {
+            "aum": 381375040.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Covered Call": {
+            "aum": 3197810176.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          }
+        }
+      }
+    ]
+  }
+}
