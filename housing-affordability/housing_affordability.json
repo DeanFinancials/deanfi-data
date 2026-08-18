@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-08-17T13:42:54.407317-04:00",
+    "generated_at": "2026-08-18T10:35:18.486597-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,46 +122,24 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-08-22",
-    "data_end": "2026-08-17"
+    "data_start": "2006-08-23",
+    "data_end": "2026-08-18"
   },
   "current": {
-    "date": "2026-06-01",
+    "date": "2026-07-01",
     "overall_grade": {
       "grade": "C",
       "label": "Fair",
       "color": "warning",
-      "points": 2.3
+      "points": 2.2
     },
     "indicators": {
       "HOUST": {
         "name": "Housing Starts",
-        "value": 1427.0,
+        "value": 1239.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 79.92,
-        "grade": {
-          "grade": "A",
-          "label": "Very Good",
-          "color": "success",
-          "points": 4
-        },
-        "trend": "increasing",
-        "is_favorable": true,
-        "changes": {
-          "1y": 3.48,
-          "5y": -14.24,
-          "10y": 18.62,
-          "20y": null
-        },
-        "interpretation": "higher_is_better"
-      },
-      "PERMIT": {
-        "name": "Building Permits",
-        "value": 1374.0,
-        "unit": "Thousands of Units",
-        "frequency": "Monthly",
-        "percentile": 61.51,
+        "percentile": 52.92,
         "grade": {
           "grade": "B",
           "label": "Good",
@@ -171,9 +149,31 @@
         "trend": "decreasing",
         "is_favorable": false,
         "changes": {
-          "1y": -1.79,
-          "5y": -17.33,
-          "10y": 13.74,
+          "1y": -13.48,
+          "5y": -22.56,
+          "10y": 0.0,
+          "20y": null
+        },
+        "interpretation": "higher_is_better"
+      },
+      "PERMIT": {
+        "name": "Building Permits",
+        "value": 1443.0,
+        "unit": "Thousands of Units",
+        "frequency": "Monthly",
+        "percentile": 69.58,
+        "grade": {
+          "grade": "B",
+          "label": "Good",
+          "color": "warning",
+          "points": 3
+        },
+        "trend": "increasing",
+        "is_favorable": true,
+        "changes": {
+          "1y": 3.07,
+          "5y": -13.39,
+          "10y": 20.45,
           "20y": null
         },
         "interpretation": "higher_is_better"
@@ -334,10 +334,10 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.27,
+        "value": 2.28,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 61.33,
+        "percentile": 63.23,
         "grade": {
           "grade": "C",
           "label": "Fair",
@@ -347,9 +347,9 @@
         "trend": "increasing",
         "is_favorable": false,
         "changes": {
-          "1y": -4.62,
-          "5y": -6.58,
-          "10y": 52.35,
+          "1y": -3.8,
+          "5y": -5.0,
+          "10y": 53.02,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -599,7 +599,8 @@
           "2026-03-01",
           "2026-04-01",
           "2026-05-01",
-          "2026-06-01"
+          "2026-06-01",
+          "2026-07-01"
         ],
         "values": [
           1650.0,
@@ -839,8 +840,9 @@
           1346.0,
           1522.0,
           1414.0,
-          1199.0,
-          1427.0
+          1182.0,
+          1415.0,
+          1239.0
         ]
       },
       "PERMIT": {
@@ -1083,7 +1085,8 @@
           "2026-03-01",
           "2026-04-01",
           "2026-05-01",
-          "2026-06-01"
+          "2026-06-01",
+          "2026-07-01"
         ],
         "values": [
           1722.0,
@@ -1324,7 +1327,8 @@
           1363.0,
           1423.0,
           1410.0,
-          1374.0
+          1374.0,
+          1443.0
         ]
       },
       "HSN1F": {
@@ -4114,7 +4118,7 @@
           2.38,
           2.24,
           2.28,
-          2.27
+          2.28
         ]
       }
     }
