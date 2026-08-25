@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-08-24T13:51:37.649343-04:00",
+    "generated_at": "2026-08-25T10:48:21.069792-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,8 +122,8 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-08-29",
-    "data_end": "2026-08-24"
+    "data_start": "2006-08-30",
+    "data_end": "2026-08-25"
   },
   "current": {
     "date": "2026-07-01",
@@ -158,10 +158,10 @@
       },
       "PERMIT": {
         "name": "Building Permits",
-        "value": 1443.0,
+        "value": 1433.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 69.58,
+        "percentile": 69.17,
         "grade": {
           "grade": "B",
           "label": "Good",
@@ -171,31 +171,31 @@
         "trend": "increasing",
         "is_favorable": true,
         "changes": {
-          "1y": 3.07,
-          "5y": -13.39,
-          "10y": 20.45,
+          "1y": 2.36,
+          "5y": -13.99,
+          "10y": 19.62,
           "20y": null
         },
         "interpretation": "higher_is_better"
       },
       "HSN1F": {
         "name": "New One Family Houses Sold",
-        "value": 628.0,
+        "value": 607.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 57.32,
+        "percentile": 51.67,
         "grade": {
           "grade": "B",
           "label": "Good",
           "color": "warning",
           "points": 3
         },
-        "trend": "increasing",
-        "is_favorable": true,
+        "trend": "decreasing",
+        "is_favorable": false,
         "changes": {
-          "1y": -5.56,
-          "5y": -12.04,
-          "10y": 12.75,
+          "1y": -6.33,
+          "5y": -18.52,
+          "10y": -3.34,
           "20y": null
         },
         "interpretation": "higher_is_better"
@@ -334,22 +334,22 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.34,
+        "value": 2.32,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 74.83,
+        "percentile": 70.67,
         "grade": {
           "grade": "C",
           "label": "Fair",
           "color": "warning",
           "points": 2
         },
-        "trend": "stable",
-        "is_favorable": null,
+        "trend": "decreasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -0.43,
-          "5y": 0.43,
-          "10y": 54.97,
+          "1y": -1.28,
+          "5y": -2.11,
+          "10y": 54.67,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -1328,7 +1328,7 @@
           1423.0,
           1410.0,
           1374.0,
-          1443.0
+          1433.0
         ]
       },
       "HSN1F": {
@@ -1571,7 +1571,8 @@
           "2026-03-01",
           "2026-04-01",
           "2026-05-01",
-          "2026-06-01"
+          "2026-06-01",
+          "2026-07-01"
         ],
         "values": [
           1035.0,
@@ -1810,9 +1811,10 @@
           576.0,
           630.0,
           659.0,
-          646.0,
-          618.0,
-          628.0
+          641.0,
+          630.0,
+          678.0,
+          607.0
         ]
       },
       "EXHOSLUSM495S": {
@@ -4118,7 +4120,7 @@
           2.38,
           2.24,
           2.28,
-          2.34
+          2.32
         ]
       }
     }
