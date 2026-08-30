@@ -1,0 +1,109 @@
+name: Market Data Recovery Import
+
+on:
+  push:
+    paths:
+      - '.github/workflows/market-data-recovery-import.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  import-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout deanfi-data
+        uses: actions/checkout@v5
+
+      - name: Import verified recovery files
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE='https://raw.githubusercontent.com/DeanFinancials/deanfi-collectors/recovery/market-pulse-backfill-2026-08-30/.recovery'
+          FILES=(
+            'advance-decline/ad_line_historical.json'
+            'advance-decline/daily_breadth.json'
+            'advance-decline/highs_lows_historical.json'
+            'advance-decline/ma_percentage_historical.json'
+            'advance-decline/volume_metrics_historical.json'
+            'major-indexes/us_major_indices.json'
+            'major-indexes/us_major_indices_historical.json'
+            'major-indexes/us_major_etf_prices.json'
+            'major-indexes/us_sector_indices.json'
+            'major-indexes/us_sector_indices_historical.json'
+            'major-indexes/us_growth_value_indices.json'
+            'major-indexes/us_growth_value_indices_historical.json'
+            'major-indexes/international_major_indices.json'
+            'major-indexes/international_major_indices_historical.json'
+            'major-indexes/bond_treasury_indices.json'
+            'major-indexes/bond_treasury_indices_historical.json'
+            'major-indexes/commodity_indices.json'
+            'major-indexes/commodity_indices_historical.json'
+            'meanreversion/ma_spreads_snapshot.json'
+            'meanreversion/ma_spreads_historical.json'
+            'meanreversion/price_vs_ma_snapshot.json'
+            'meanreversion/price_vs_ma_historical.json'
+            'implied-volatility/vix_options_snapshot.json'
+            'implied-volatility/major_indices_iv_snapshot.json'
+            'implied-volatility/sector_etfs_iv_snapshot.json'
+          )
+
+          for rel in "${FILES[@]}"; do
+            mkdir -p "$(dirname "$rel")"
+            echo "Importing $rel"
+            curl --fail --location --silent --show-error --retry 3 "$BASE/$rel" --output "$rel"
+          done
+
+      - name: Verify recovered dates
+        run: |
+          python3 << 'PY'
+          import json
+          from pathlib import Path
+
+          breadth = json.loads(Path('advance-decline/daily_breadth.json').read_text())
+          breadth_date = breadth['data']['date']
+          majors = json.loads(Path('major-indexes/us_major_indices_historical.json').read_text())
+          major_end = majors['metadata']['end_date']
+          if breadth_date != '2026-08-28':
+              raise SystemExit(f'Expected breadth date 2026-08-28, got {breadth_date}')
+          if major_end != '2026-08-28':
+              raise SystemExit(f'Expected major-index history through 2026-08-28, got {major_end}')
+          print('Verified reconstructed market data through 2026-08-28')
+          PY
+
+      - name: Update freshness metadata
+        run: |
+          python3 << 'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          fp = Path('data_freshness.json')
+          data = json.loads(fp.read_text()) if fp.exists() else {'sections': {}}
+          now = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+          for section in ('advance-decline', 'major-indexes', 'meanreversion', 'implied-volatility'):
+              data.setdefault('sections', {})[section] = {
+                  'last_updated': now,
+                  'recovered_through_market_date': '2026-08-28'
+              }
+          fp.write_text(json.dumps(data, indent=2) + '\n')
+          PY
+
+      - name: Commit recovered market data
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add advance-decline/ major-indexes/ meanreversion/ implied-volatility/ data_freshness.json
+          if git diff --staged --quiet; then
+            echo 'No recovered changes to commit'
+            exit 0
+          fi
+          git commit -m 'recovery: restore market data through 2026-08-28'
+          git push origin main
