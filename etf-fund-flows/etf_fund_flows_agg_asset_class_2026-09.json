@@ -1,0 +1,80 @@
+{
+  "_README": {
+    "title": "ETF Fund Flows Aggregates (asset_class)",
+    "description": "Daily aggregate AUM and derived flows grouped by asset_class.",
+    "formula": "For each date and group: sum(AUM), sum(flow_nav), sum(flow_close)."
+  },
+  "metadata": {
+    "month": "2026-09",
+    "generated_at": "2026-09-01T23:34:43Z",
+    "data_source": {
+      "aum_nav": {
+        "provider_order": [
+          "yfinance",
+          "alphavantage"
+        ],
+        "providers": {
+          "yfinance": "yfinance.Ticker.info (totalAssets, navPrice)",
+          "alphavantage": "Alpha Vantage ETF_PROFILE (net_assets)"
+        }
+      },
+      "closes": "yfinance.download (Close)"
+    },
+    "group_by": "asset_class",
+    "tickers_total": 93
+  },
+  "data": {
+    "daily": [
+      {
+        "date": "2026-09-01",
+        "groups": {
+          "Equity": {
+            "aum": 7889153016576.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 63,
+            "tickers_with_aum": 63,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Crypto": {
+            "aum": 53009665728.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 3,
+            "tickers_with_aum": 3,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Fixed Income": {
+            "aum": 718036615680.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 12,
+            "tickers_with_aum": 12,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Alternative": {
+            "aum": 719047424.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 1,
+            "tickers_with_aum": 1,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          },
+          "Commodity": {
+            "aum": 144893251552.0,
+            "flow_nav": null,
+            "flow_close": null,
+            "tickers": 14,
+            "tickers_with_aum": 14,
+            "tickers_with_flow_nav": 0,
+            "tickers_with_flow_close": 0
+          }
+        }
+      }
+    ]
+  }
+}
