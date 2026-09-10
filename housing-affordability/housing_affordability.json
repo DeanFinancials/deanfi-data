@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-09-09T15:46:22.708089-04:00",
+    "generated_at": "2026-09-10T13:32:35.540680-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,8 +122,8 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-09-14",
-    "data_end": "2026-09-09"
+    "data_start": "2006-09-15",
+    "data_end": "2026-09-10"
   },
   "current": {
     "date": "2026-07-01",
@@ -131,7 +131,7 @@
       "grade": "C",
       "label": "Fair",
       "color": "warning",
-      "points": 2.1
+      "points": 2.0
     },
     "indicators": {
       "HOUST": {
@@ -202,20 +202,20 @@
       },
       "EXHOSLUSM495S": {
         "name": "Existing Home Sales",
-        "value": 4060000.0,
+        "value": 3980000.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 38.46,
+        "percentile": 0.0,
         "grade": {
-          "grade": "C",
-          "label": "Fair",
-          "color": "warning",
-          "points": 2
+          "grade": "D",
+          "label": "Poor",
+          "color": "destructive",
+          "points": 1
         },
         "trend": "decreasing",
         "is_favorable": false,
         "changes": {
-          "1y": 0.74,
+          "1y": -1.24,
           "5y": null,
           "10y": null,
           "20y": null
@@ -246,10 +246,10 @@
       },
       "MORTGAGE30US": {
         "name": "30-Year Fixed Mortgage Rate",
-        "value": 6.71,
+        "value": 6.76,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 91.08,
+        "percentile": 92.43,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -259,19 +259,19 @@
         "trend": "increasing",
         "is_favorable": false,
         "changes": {
-          "1y": 3.23,
-          "5y": 132.99,
-          "10y": 91.71,
-          "20y": 6.34
+          "1y": 6.46,
+          "5y": 136.36,
+          "10y": 94.25,
+          "20y": 7.3
         },
         "interpretation": "lower_is_better"
       },
       "MORTGAGE15US": {
         "name": "15-Year Fixed Mortgage Rate",
-        "value": 6.04,
+        "value": 6.09,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 90.32,
+        "percentile": 92.33,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -281,10 +281,10 @@
         "trend": "increasing",
         "is_favorable": false,
         "changes": {
-          "1y": 7.86,
-          "5y": 175.8,
-          "10y": 118.05,
-          "20y": 1.0
+          "1y": 10.73,
+          "5y": 187.26,
+          "10y": 120.65,
+          "20y": 1.84
         },
         "interpretation": "lower_is_better"
       },
@@ -344,12 +344,12 @@
           "color": "destructive",
           "points": 1
         },
-        "trend": "increasing",
-        "is_favorable": false,
+        "trend": "stable",
+        "is_favorable": null,
         "changes": {
-          "1y": -0.42,
+          "1y": 0.0,
           "5y": 4.41,
-          "10y": 56.95,
+          "10y": 59.06,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -1813,7 +1813,6 @@
       },
       "EXHOSLUSM495S": {
         "dates": [
-          "2025-07-01",
           "2025-08-01",
           "2025-09-01",
           "2025-10-01",
@@ -1825,10 +1824,10 @@
           "2026-04-01",
           "2026-05-01",
           "2026-06-01",
-          "2026-07-01"
+          "2026-07-01",
+          "2026-08-01"
         ],
         "values": [
-          4030000.0,
           4030000.0,
           4080000.0,
           4110000.0,
@@ -1840,7 +1839,8 @@
           4040000.0,
           4190000.0,
           4130000.0,
-          4060000.0
+          4060000.0,
+          3980000.0
         ]
       },
       "CSUSHPINSA": {
@@ -2570,7 +2570,7 @@
           "2026-09-30"
         ],
         "values": [
-          6.38,
+          6.355,
           6.3575,
           6.24,
           6.135,
@@ -2810,7 +2810,7 @@
           6.49,
           6.542,
           6.6675,
-          6.71
+          6.734999999999999
         ]
       },
       "MORTGAGE15US": {
@@ -3058,7 +3058,7 @@
           "2026-09-30"
         ],
         "values": [
-          6.05,
+          6.02,
           6.05,
           5.956,
           5.88,
@@ -3298,7 +3298,7 @@
           5.82,
           5.9079999999999995,
           5.975,
-          6.04
+          6.0649999999999995
         ]
       },
       "TDSP": {
