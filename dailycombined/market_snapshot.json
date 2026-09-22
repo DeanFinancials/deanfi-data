@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "generated_at": "2026-09-22T01:17:57.327403+00:00",
+    "generated_at": "2026-09-22T12:25:42.709987+00:00",
     "description": "Combined daily market snapshot from all data collectors",
     "data_sources": [
       {
         "category": "market_breadth",
         "source": "advance-decline/daily_breadth.json",
-        "last_updated": "2026-09-22T00:11:22.169854+00:00"
+        "last_updated": "2026-09-21T20:57:37.582247+00:00"
       },
       {
         "category": "indexes_us_major",
@@ -16,7 +16,7 @@
       {
         "category": "indexes_us_sectors",
         "source": "major-indexes/us_sector_indices.json",
-        "last_updated": "2026-09-22T00:11:42Z"
+        "last_updated": "2026-09-21T20:58:05Z"
       },
       {
         "category": "indexes_us_growth_value",
@@ -41,12 +41,12 @@
       {
         "category": "mean_reversion_ma_spreads",
         "source": "meanreversion/ma_spreads_snapshot.json",
-        "last_updated": "2026-09-22T00:12:14.818855+00:00"
+        "last_updated": "2026-09-21T20:58:50.883432+00:00"
       },
       {
         "category": "mean_reversion_price_vs_ma",
         "source": "meanreversion/price_vs_ma_snapshot.json",
-        "last_updated": "2026-09-22T00:12:12.187504+00:00"
+        "last_updated": "2026-09-21T20:58:46.802312+00:00"
       },
       {
         "category": "support_resistence",
@@ -144,7 +144,7 @@
       "market_breadth": {
         "status": "ok",
         "source": "advance-decline/daily_breadth.json",
-        "last_updated": "2026-09-22T00:11:22.169854+00:00"
+        "last_updated": "2026-09-21T20:57:37.582247+00:00"
       },
       "major_indexes": {
         "status": "ok",
@@ -242,45 +242,45 @@
     "market_breadth": {
       "date": "2026-09-21",
       "advances_declines": {
-        "advances": 0,
-        "declines": 0,
-        "unchanged": 0,
-        "total_stocks": 0,
-        "advance_decline_ratio": null,
-        "advance_percentage": 0,
+        "advances": 291,
+        "declines": 210,
+        "unchanged": 2,
+        "total_stocks": 503,
+        "advance_decline_ratio": 1.386,
+        "advance_percentage": 57.85,
         "interpretation": "Advances > Declines suggests broad market strength"
       },
       "volume_metrics": {
-        "advancing_volume": 0,
-        "declining_volume": 0,
-        "total_volume": 3287872630,
-        "volume_ratio": null,
-        "advancing_volume_pct": 0.0,
+        "advancing_volume": 2287903941,
+        "declining_volume": 972362118,
+        "total_volume": 3265620816,
+        "volume_ratio": 2.353,
+        "advancing_volume_pct": 70.06,
         "interpretation": "Volume ratio > 1 means more volume in advancing stocks (bullish)"
       },
       "new_highs_lows": {
-        "stocks_near_52w_high": 0,
-        "stocks_near_52w_low": 0,
-        "pct_near_52w_high": 0,
-        "pct_near_52w_low": 0,
-        "high_low_ratio": null,
+        "stocks_near_52w_high": 6,
+        "stocks_near_52w_low": 15,
+        "pct_near_52w_high": 1.19,
+        "pct_near_52w_low": 2.98,
+        "high_low_ratio": 0.4,
         "threshold_note": "Near high: within 1%, Near low: within 1%",
         "interpretation": "More new highs than lows indicates strong market leadership"
       },
       "moving_averages": {
         "above_20_day_ma": {
-          "count": 0,
-          "percentage": 0,
+          "count": 128,
+          "percentage": 25.45,
           "interpretation": ">70% = strong short-term trend, <30% = weak short-term trend"
         },
         "above_50_day_ma": {
-          "count": 0,
-          "percentage": 0,
+          "count": 150,
+          "percentage": 29.82,
           "interpretation": ">70% = strong intermediate trend, <30% = weak trend"
         },
         "above_200_day_ma": {
-          "count": 0,
-          "percentage": 0,
+          "count": 242,
+          "percentage": 48.11,
           "interpretation": ">70% = strong long-term trend, <30% = weak trend"
         }
       }
@@ -477,21 +477,21 @@
           "sector_name": "Technology",
           "gics_code": "45",
           "description": "Software, semiconductors, IT services, hardware",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 9016429,
+          "current_price": 194.85,
+          "daily_change": 5.25,
+          "daily_change_percent": 2.77,
+          "volume": 9002408,
           "day_high": 195.08,
           "day_low": 190.97,
           "day_open": 191.79,
           "52_week_high": 198.21,
           "52_week_low": 127.5,
-          "distance_from_52w_high_percent": -4.34,
-          "year_to_date_percent": 31.69,
-          "1_month_percent": 3.25,
-          "3_month_percent": -0.96,
-          "6_month_percent": 36.96,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -1.7,
+          "year_to_date_percent": 35.34,
+          "1_month_percent": 6.42,
+          "3_month_percent": 1.41,
+          "6_month_percent": 44.02,
+          "relative_to_sp500_1d": 1.28,
           "pivot_points": {
             "pivot_point": 188.98,
             "resistance_1": 190.43,
@@ -508,21 +508,21 @@
           "sector_name": "Health Care",
           "gics_code": "35",
           "description": "Pharma, biotech, health equipment, providers",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 7156204,
+          "current_price": 169.01,
+          "daily_change": 0.62,
+          "daily_change_percent": 0.37,
+          "volume": 7152454,
           "day_high": 169.52,
           "day_low": 166.85,
           "day_open": 167.32,
           "52_week_high": 175.68,
           "52_week_low": 134.13,
-          "distance_from_52w_high_percent": -4.15,
-          "year_to_date_percent": 8.78,
-          "1_month_percent": -4.15,
-          "3_month_percent": 12.71,
-          "6_month_percent": 14.86,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -3.8,
+          "year_to_date_percent": 9.18,
+          "1_month_percent": -1.96,
+          "3_month_percent": 12.63,
+          "6_month_percent": 16.29,
+          "relative_to_sp500_1d": -1.12,
           "pivot_points": {
             "pivot_point": 168.41,
             "resistance_1": 169.04,
@@ -539,21 +539,21 @@
           "sector_name": "Financials",
           "gics_code": "40",
           "description": "Banks, insurance, capital markets, REITs",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 30031170,
+          "current_price": 55.9,
+          "daily_change": 0.04,
+          "daily_change_percent": 0.07,
+          "volume": 29360774,
           "day_high": 56.21,
           "day_low": 55.72,
           "day_open": 56.05,
           "52_week_high": 58.56,
           "52_week_low": 47.81,
-          "distance_from_52w_high_percent": -4.61,
-          "year_to_date_percent": 1.99,
-          "1_month_percent": -2.82,
-          "3_month_percent": 4.27,
-          "6_month_percent": 14.02,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -4.54,
+          "year_to_date_percent": 2.06,
+          "1_month_percent": -1.84,
+          "3_month_percent": 4.1,
+          "6_month_percent": 13.9,
+          "relative_to_sp500_1d": -1.42,
           "pivot_points": {
             "pivot_point": 55.77,
             "resistance_1": 56.07,
@@ -570,21 +570,21 @@
           "sector_name": "Consumer Discretionary",
           "gics_code": "25",
           "description": "Retail, automotive, leisure, hotels, restaurants",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 4878042,
+          "current_price": 112.23,
+          "daily_change": 1.2,
+          "daily_change_percent": 1.08,
+          "volume": 4859632,
           "day_high": 112.61,
           "day_low": 111.12,
           "day_open": 111.54,
           "52_week_high": 124.52,
           "52_week_low": 105.66,
-          "distance_from_52w_high_percent": -10.83,
-          "year_to_date_percent": -7.02,
-          "1_month_percent": -6.37,
-          "3_month_percent": -5.23,
-          "6_month_percent": 1.21,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -9.87,
+          "year_to_date_percent": -6.01,
+          "1_month_percent": -3.81,
+          "3_month_percent": -2.36,
+          "6_month_percent": 4.17,
+          "relative_to_sp500_1d": -0.41,
           "pivot_points": {
             "pivot_point": 111.14,
             "resistance_1": 111.66,
@@ -601,21 +601,21 @@
           "sector_name": "Industrials",
           "gics_code": "20",
           "description": "Aerospace, defense, machinery, transportation",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 8510062,
+          "current_price": 169.98,
+          "daily_change": 0.23,
+          "daily_change_percent": 0.14,
+          "volume": 8504674,
           "day_high": 170.69,
           "day_low": 168.56,
           "day_open": 170.36,
           "52_week_high": 186.51,
           "52_week_low": 147.83,
-          "distance_from_52w_high_percent": -8.99,
-          "year_to_date_percent": 9.43,
-          "1_month_percent": -6.71,
-          "3_month_percent": -6.17,
-          "6_month_percent": 3.47,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -8.86,
+          "year_to_date_percent": 9.58,
+          "1_month_percent": -5.45,
+          "3_month_percent": -6.5,
+          "6_month_percent": 5.14,
+          "relative_to_sp500_1d": -1.35,
           "pivot_points": {
             "pivot_point": 169.38,
             "resistance_1": 170.29,
@@ -632,21 +632,21 @@
           "sector_name": "Consumer Staples",
           "gics_code": "30",
           "description": "Food, beverage, tobacco, household products",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 8493031,
+          "current_price": 81.92,
+          "daily_change": -0.88,
+          "daily_change_percent": -1.06,
+          "volume": 8485398,
           "day_high": 82.31,
           "day_low": 81.74,
           "day_open": 82.1,
           "52_week_high": 90.01,
           "52_week_low": 75.6,
-          "distance_from_52w_high_percent": -8.01,
-          "year_to_date_percent": 6.59,
-          "1_month_percent": -4.32,
-          "3_month_percent": -0.6,
-          "6_month_percent": 1.01,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -8.99,
+          "year_to_date_percent": 5.46,
+          "1_month_percent": -3.98,
+          "3_month_percent": -0.32,
+          "6_month_percent": 0.77,
+          "relative_to_sp500_1d": -2.55,
           "pivot_points": {
             "pivot_point": 82.93,
             "resistance_1": 83.07,
@@ -663,21 +663,21 @@
           "sector_name": "Energy",
           "gics_code": "10",
           "description": "Oil, gas, consumable fuels, energy equipment",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 36066964,
+          "current_price": 62.46,
+          "daily_change": -1.85,
+          "daily_change_percent": -2.88,
+          "volume": 36053557,
           "day_high": 63.7,
           "day_low": 62.37,
           "day_open": 63.17,
           "52_week_high": 65.93,
           "52_week_low": 42.61,
-          "distance_from_52w_high_percent": -2.46,
-          "year_to_date_percent": 43.84,
-          "1_month_percent": 1.15,
-          "3_month_percent": 19.6,
-          "6_month_percent": 8.34,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -5.26,
+          "year_to_date_percent": 39.7,
+          "1_month_percent": -2.02,
+          "3_month_percent": 15.54,
+          "6_month_percent": 5.31,
+          "relative_to_sp500_1d": -4.37,
           "pivot_points": {
             "pivot_point": 64.39,
             "resistance_1": 64.67,
@@ -694,21 +694,21 @@
           "sector_name": "Materials",
           "gics_code": "15",
           "description": "Chemicals, construction materials, metals, mining",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 10562393,
+          "current_price": 49.71,
+          "daily_change": -0.28,
+          "daily_change_percent": -0.56,
+          "volume": 10558539,
           "day_high": 50.17,
           "day_low": 49.65,
           "day_open": 50.13,
           "52_week_high": 53.67,
           "52_week_low": 42.23,
-          "distance_from_52w_high_percent": -6.86,
-          "year_to_date_percent": 10.23,
-          "1_month_percent": -4.82,
-          "3_month_percent": -3.51,
-          "6_month_percent": 4.71,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -7.38,
+          "year_to_date_percent": 9.61,
+          "1_month_percent": -5.17,
+          "3_month_percent": -3.7,
+          "6_month_percent": 5.81,
+          "relative_to_sp500_1d": -2.05,
           "pivot_points": {
             "pivot_point": 50.16,
             "resistance_1": 50.45,
@@ -725,21 +725,21 @@
           "sector_name": "Communication Services",
           "gics_code": "50",
           "description": "Media, entertainment, telecom, interactive media",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 8388609,
+          "current_price": 114.75,
+          "daily_change": 3.94,
+          "daily_change_percent": 3.56,
+          "volume": 8365635,
           "day_high": 115.51,
           "day_low": 111.62,
           "day_open": 111.62,
           "52_week_high": 120.08,
           "52_week_low": 105.38,
-          "distance_from_52w_high_percent": -7.72,
-          "year_to_date_percent": -5.87,
-          "1_month_percent": -0.46,
-          "3_month_percent": 1.24,
-          "6_month_percent": -2.06,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -4.44,
+          "year_to_date_percent": -2.52,
+          "1_month_percent": 3.68,
+          "3_month_percent": 7.38,
+          "6_month_percent": 2.25,
+          "relative_to_sp500_1d": 2.07,
           "pivot_points": {
             "pivot_point": 111.31,
             "resistance_1": 111.89,
@@ -756,21 +756,21 @@
           "sector_name": "Utilities",
           "gics_code": "55",
           "description": "Electric, gas, water utilities, renewable energy",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 20628195,
+          "current_price": 40.66,
+          "daily_change": -0.44,
+          "daily_change_percent": -1.07,
+          "volume": 20552927,
           "day_high": 40.93,
           "day_low": 40.58,
           "day_open": 40.77,
           "52_week_high": 47.73,
-          "52_week_low": 41.1,
-          "distance_from_52w_high_percent": -13.89,
-          "year_to_date_percent": -3.72,
-          "1_month_percent": -6.63,
-          "3_month_percent": -8.18,
-          "6_month_percent": -11.69,
-          "relative_to_sp500_1d": null,
+          "52_week_low": 40.66,
+          "distance_from_52w_high_percent": -14.81,
+          "year_to_date_percent": -4.76,
+          "1_month_percent": -7.11,
+          "3_month_percent": -9.08,
+          "6_month_percent": -8.94,
+          "relative_to_sp500_1d": -2.56,
           "pivot_points": {
             "pivot_point": 41.23,
             "resistance_1": 41.37,
@@ -787,21 +787,21 @@
           "sector_name": "Real Estate",
           "gics_code": "60",
           "description": "REITs, real estate management and development",
-          "current_price": null,
-          "daily_change": null,
-          "daily_change_percent": null,
-          "volume": 5153059,
+          "current_price": 42.59,
+          "daily_change": 0.06,
+          "daily_change_percent": 0.14,
+          "volume": 5152996,
           "day_high": 42.63,
           "day_low": 42.29,
           "day_open": 42.35,
           "52_week_high": 46.01,
           "52_week_low": 40.01,
-          "distance_from_52w_high_percent": -7.56,
-          "year_to_date_percent": 5.4,
-          "1_month_percent": -5.47,
-          "3_month_percent": -3.03,
-          "6_month_percent": 1.46,
-          "relative_to_sp500_1d": null,
+          "distance_from_52w_high_percent": -7.43,
+          "year_to_date_percent": 5.55,
+          "1_month_percent": -5.52,
+          "3_month_percent": -3.25,
+          "6_month_percent": 4.93,
+          "relative_to_sp500_1d": -1.35,
           "pivot_points": {
             "pivot_point": 42.61,
             "resistance_1": 42.72,
@@ -47312,17 +47312,17 @@
     "writer_ready": {
       "breadth_table": {
         "market_date": "2026-09-21",
-        "advances": 0,
-        "declines": 0,
-        "unchanged": 0,
-        "advance_decline_ratio": null,
-        "advancing_volume_pct": 0.0,
-        "stocks_near_52w_high": 0,
-        "stocks_near_52w_low": 0,
-        "high_low_ratio": null,
-        "above_20_day_ma_pct": 0,
-        "above_50_day_ma_pct": 0,
-        "above_200_day_ma_pct": 0
+        "advances": 291,
+        "declines": 210,
+        "unchanged": 2,
+        "advance_decline_ratio": 1.386,
+        "advancing_volume_pct": 70.06,
+        "stocks_near_52w_high": 6,
+        "stocks_near_52w_low": 15,
+        "high_low_ratio": 0.4,
+        "above_20_day_ma_pct": 25.45,
+        "above_50_day_ma_pct": 29.82,
+        "above_200_day_ma_pct": 48.11
       },
       "major_indexes_table": [
         {
@@ -47352,6 +47352,70 @@
           "close": 2875.36,
           "change": 14.96,
           "change_percent": 0.52
+        }
+      ],
+      "sector_leaders": [
+        {
+          "symbol": "XLC",
+          "sector_name": "Communication Services",
+          "close": 114.75,
+          "change_percent": 3.56
+        },
+        {
+          "symbol": "XLK",
+          "sector_name": "Technology",
+          "close": 194.85,
+          "change_percent": 2.77
+        },
+        {
+          "symbol": "XLY",
+          "sector_name": "Consumer Discretionary",
+          "close": 112.23,
+          "change_percent": 1.08
+        },
+        {
+          "symbol": "XLV",
+          "sector_name": "Health Care",
+          "close": 169.01,
+          "change_percent": 0.37
+        },
+        {
+          "symbol": "XLI",
+          "sector_name": "Industrials",
+          "close": 169.98,
+          "change_percent": 0.14
+        }
+      ],
+      "sector_laggards": [
+        {
+          "symbol": "XLE",
+          "sector_name": "Energy",
+          "close": 62.46,
+          "change_percent": -2.88
+        },
+        {
+          "symbol": "XLU",
+          "sector_name": "Utilities",
+          "close": 40.66,
+          "change_percent": -1.07
+        },
+        {
+          "symbol": "XLP",
+          "sector_name": "Consumer Staples",
+          "close": 81.92,
+          "change_percent": -1.06
+        },
+        {
+          "symbol": "XLB",
+          "sector_name": "Materials",
+          "close": 49.71,
+          "change_percent": -0.56
+        },
+        {
+          "symbol": "XLF",
+          "sector_name": "Financials",
+          "close": 55.9,
+          "change_percent": 0.07
         }
       ],
       "volatility_summary": {
@@ -47767,11 +47831,11 @@
             "declines": 340,
             "advance_decline_ratio": 0.476,
             "advancing_volume_pct": 34.48,
-            "stocks_near_52w_high": 17,
-            "stocks_near_52w_low": 20,
-            "above_20_day_ma_pct": 24.25,
-            "above_50_day_ma_pct": 35.98,
-            "above_200_day_ma_pct": 57.06
+            "stocks_near_52w_high": 16,
+            "stocks_near_52w_low": 24,
+            "above_20_day_ma_pct": 22.86,
+            "above_50_day_ma_pct": 34.99,
+            "above_200_day_ma_pct": 51.09
           },
           {
             "date": "2026-09-16",
@@ -47780,10 +47844,10 @@
             "advance_decline_ratio": 0.478,
             "advancing_volume_pct": 36.86,
             "stocks_near_52w_high": 5,
-            "stocks_near_52w_low": 22,
-            "above_20_day_ma_pct": 19.48,
-            "above_50_day_ma_pct": 32.8,
-            "above_200_day_ma_pct": 53.88
+            "stocks_near_52w_low": 27,
+            "above_20_day_ma_pct": 18.69,
+            "above_50_day_ma_pct": 31.01,
+            "above_200_day_ma_pct": 48.31
           },
           {
             "date": "2026-09-17",
@@ -47791,11 +47855,11 @@
             "declines": 204,
             "advance_decline_ratio": 1.451,
             "advancing_volume_pct": 68.79,
-            "stocks_near_52w_high": 10,
-            "stocks_near_52w_low": 15,
-            "above_20_day_ma_pct": 22.07,
-            "above_50_day_ma_pct": 32.01,
-            "above_200_day_ma_pct": 53.88
+            "stocks_near_52w_high": 11,
+            "stocks_near_52w_low": 18,
+            "above_20_day_ma_pct": 21.07,
+            "above_50_day_ma_pct": 30.82,
+            "above_200_day_ma_pct": 48.51
           },
           {
             "date": "2026-09-18",
@@ -47804,22 +47868,22 @@
             "advance_decline_ratio": 0.451,
             "advancing_volume_pct": 30.32,
             "stocks_near_52w_high": 4,
-            "stocks_near_52w_low": 25,
-            "above_20_day_ma_pct": 20.28,
-            "above_50_day_ma_pct": 29.22,
-            "above_200_day_ma_pct": 52.88
+            "stocks_near_52w_low": 28,
+            "above_20_day_ma_pct": 19.09,
+            "above_50_day_ma_pct": 28.03,
+            "above_200_day_ma_pct": 47.91
           },
           {
             "date": "2026-09-21",
-            "advances": 0,
-            "declines": 0,
-            "advance_decline_ratio": null,
-            "advancing_volume_pct": 0.0,
-            "stocks_near_52w_high": 0,
-            "stocks_near_52w_low": 0,
-            "above_20_day_ma_pct": 0,
-            "above_50_day_ma_pct": 0,
-            "above_200_day_ma_pct": 0
+            "advances": 291,
+            "declines": 210,
+            "advance_decline_ratio": 1.386,
+            "advancing_volume_pct": 70.06,
+            "stocks_near_52w_high": 7,
+            "stocks_near_52w_low": 15,
+            "above_20_day_ma_pct": 25.45,
+            "above_50_day_ma_pct": 29.82,
+            "above_200_day_ma_pct": 48.11
           }
         ],
         "sources": {
@@ -47836,10 +47900,8 @@
         "generated_at": "2026-09-22T00:56:54.738065+00:00",
         "weekly_mode": false,
         "expected_min_catalysts": 3,
-        "ranking_method": "ai",
-        "market_context_applied": true,
-        "previous_ranking_method": "deterministic",
-        "ranker_model": "gpt-5.4-nano"
+        "ranking_method": "deterministic",
+        "market_context_applied": true
       },
       "ranked": [
         {
@@ -47863,16 +47925,6 @@
           "source_tier": "official"
         },
         {
-          "title": "U.S. International Trade in Goods and Services, July 2026",
-          "source": "BEA",
-          "url": "https://www.bea.gov/news/2026/us-international-trade-goods-and-services-july-2026",
-          "published_at": "2026-09-03T08:30:00-04:00",
-          "category": "growth_output",
-          "relevance_score": 60.0,
-          "why_it_matters": "<p>The U.S. goods and services trade deficit increased in July 2026 according to the U.S. Bureau of Economic Analysis and the U.S. Census Bureau. The deficit increased from $71.2 billion in June (revised) to $88.6 billion in July, as imports increased and exports decreased. The goods deficit increased $17.6 billion in July to $119.6 billion. The services surplus increased $0.2 billion in July to $31.0 billion.</p>",
-          "source_tier": "official"
-        },
-        {
           "title": "Personal Income and Outlays, June 2026",
           "source": "BEA",
           "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026",
@@ -47880,76 +47932,6 @@
           "category": "growth_output",
           "relevance_score": 70.0,
           "why_it_matters": "Personal income increased $54.9 billion (0.2 percent at a monthly rate) in June, according to estimates released today by the U.S. Bureau of Economic Analysis (BEA). Disposable personal income (DPI)-personal income less personal current taxes-increased $48.3 billion (0.2 percent), and personal consumption expenditures (PCE) increased $65.2 billion (0.3 percent). Personal outlays-the sum of PCE, personal interest payments, and personal current transfer payments-increased $70.0 billion in June. Personal saving was $646.1 billion in June, and the personal saving rate-personal saving as a percentage of DPI-was 2.7 percent.<!--Full Text Link--><a href='https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026'>Full Text</a><!--Full Text Link-->",
-          "source_tier": "official"
-        },
-        {
-          "title": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm",
-          "published_at": "2026-09-16T18:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 65.0,
-          "why_it_matters": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
-          "source_tier": "official"
-        },
-        {
-          "title": "Federal Reserve issues FOMC statement",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
-          "published_at": "2026-09-16T18:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 65.0,
-          "why_it_matters": "Federal Reserve issues FOMC statement",
-          "source_tier": "official"
-        },
-        {
-          "title": "Intel surges 12% as CPU stocks rally. Here's what's driving the move",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/09/21/intel-surges-12percent-as-cpu-stocks-rally-heres-whats-driving-the-move.html",
-          "published_at": "2026-09-21T18:37:57",
-          "category": "market_news",
-          "relevance_score": 56.0525,
-          "why_it_matters": "Every weekday, the Investing Club releases the Homestretch, an actionable afternoon update just in time for the last hour of trading.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Our top 10 things to watch in the stock market Monday",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/09/21/our-top-10-things-to-watch-in-the-stock-market-monday.html",
-          "published_at": "2026-09-21T12:56:57",
-          "category": "market_news",
-          "relevance_score": 52.5004,
-          "why_it_matters": "Stocks are headed for a strong open, and Meta landed a big price target boost at Wells Fargo.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Wall Street ends sharply higher as AI optimism reignites and Treasury yields retreat - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbUY0bG1IQkExN3pxSFZoX1VGN0hTNkluZ1hFd1F6VzZwdWtPRExzOXRnS0prRjV1M0I3U2tfUnhZcmJSQkV6STFKbUo2YXB6S1RhNUkycUFJUXg3UXA0WW9CWkRYaVVVUGRqRmRtUERCU1I4M3ZMYXhETmY1Q3FZQU9Ob1MtMzRONFc3NVFrNzVpcTQySVRzd1dENmcxdw?oc=5",
-          "published_at": "2026-09-21T20:01:13",
-          "category": "market_news",
-          "relevance_score": 61.9198,
-          "why_it_matters": "Wall Street ends sharply higher as AI optimism reignites and Treasury yields retreat\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "EXCLUSIVE: Trump approval falls to record low of 32% as high costs bite, Reuters/Ipsos poll finds - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOa2xXN3ZZR05LSzJLYVpOTFZTVlJkLWhnZUxnRDVlckVJT0pDN3RDRFJoTnJObVJGY0RYMGJLYUpGT0pNVUlrUFlBTVlzS0hNbUhWNk1lYzBNUEdRYmQwNy04X3ZHQzAzY1NGZDZxVEhsOTl3LWFrcjFDMEJhaUxPS2hlbnlUMkRsYml0bnBkSVBUR3F0YUtXbWxDdnVScmE4dGw1LUhXelhOVVNyVm9YbWRJMXI1R2wybnNz?oc=5",
-          "published_at": "2026-09-21T23:25:27",
-          "category": "market_news",
-          "relevance_score": 59.0473,
-          "why_it_matters": "EXCLUSIVE: Trump approval falls to record low of 32% as high costs bite, Reuters/Ipsos poll finds\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Direct Investment by Country and Industry, 2025",
-          "source": "BEA",
-          "url": "https://www.bea.gov/news/2026/direct-investment-country-and-industry-2025",
-          "published_at": "2026-07-21T08:30:00-04:00",
-          "category": "growth_output",
-          "relevance_score": 60.0,
-          "why_it_matters": "The U.S. direct investment abroad position, or cumulative level of investment, increased $438.1 billion to $7.14 trillion at the end of 2025, according to statistics released today by the U.S. Bureau of Economic Analysis. The increase was led by a $350.2 billion increase in the position in Europe, primarily in the United Kingdom and Luxembourg. By industry, manufacturing had the largest increase, led by chemical manufacturing. \n                    \n                    The foreign direct investment in the United States position increased $266.0 billion to $5.86 trillion at the end of 2025. The increase was led by a $182.4 billion increase in the position from Europe. The largest increase in position was from German multinationals, with a $49.0 billion increase, and the second-largest increase in position was from Canadian multinationals, with a $39.2 billion increase. By industry, manufacturing increased the most, led by electrical equipment and components manufacturing.    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/direct-investment-country-and-industry-2025'>Full Text</a><!--Full Text Link-->",
           "source_tier": "official"
         },
         {
@@ -47993,116 +47975,6 @@
           "source_tier": "official"
         },
         {
-          "title": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260911a.htm",
-          "published_at": "2026-09-11T14:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 65.0,
-          "why_it_matters": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
-          "source_tier": "official"
-        },
-        {
-          "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260910a.htm",
-          "published_at": "2026-09-10T20:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
-          "source_tier": "official"
-        },
-        {
-          "title": "Minutes of the Federal Open Market Committee, July 28\u201329, 2026",
-          "source": "Federal Reserve",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260819a.htm",
-          "published_at": "2026-08-19T18:00:00+00:00",
-          "category": "monetary_policy",
-          "relevance_score": 60.0,
-          "why_it_matters": "Minutes of the Federal Open Market Committee, July 28\u201329, 2026",
-          "source_tier": "official"
-        },
-        {
-          "title": "U.S. International Transactions and Investment Position, 1st Quarter 2026 and Annual Update",
-          "source": "BEA",
-          "url": "https://www.bea.gov/news/2026/us-international-transactions-and-investment-position-1st-quarter-2026-and-annual-update",
-          "published_at": "2026-06-24T08:30:00-04:00",
-          "category": "growth_output",
-          "relevance_score": 60.0,
-          "why_it_matters": "<![CDATA[The U.S. current-account deficit resulting from international economic transactions widened by $5.8 billion, or 2.6 percent, to $226.8 billion in the first quarter of 2026, according to statistics released today by the U.S. Bureau of Economic Analysis. The revised fourth-quarter deficit was $221.1 billion. The first-quarter deficit was 2.9 percent of current-dollar gross domestic product, up from 2.8 percent in the fourth quarter. The U.S. net international investment position, the difference between U.S. residents? foreign financial assets and liabilities, was ?$21.27 trillion at the end of the first quarter of 2026. Assets totaled $43.37 trillion, and liabilities totaled $64.64 trillion. At the end of the fourth quarter of 2025, the net investment position was ?$21.87 trillion (revised).    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/us-international-transactions-and-investment-position-1st-quarter-2026-and-annual-update'>Full Text</a><!--Full Text Link-->]]>",
-          "source_tier": "official"
-        },
-        {
-          "title": "New Foreign Direct Investment in the United States, 2025",
-          "source": "BEA",
-          "url": "https://www.bea.gov/news/2026/new-foreign-direct-investment-united-states-2025",
-          "published_at": "2026-06-10T08:30:00-04:00",
-          "category": "growth_output",
-          "relevance_score": 60.0,
-          "why_it_matters": "Expenditures by foreign direct investors to acquire, establish, or expand U.S. businesses totaled $232.2 billion in 2025, according to preliminary statistics released today by the U.S. Bureau of Economic Analysis. Expenditures increased $76.8 billion, or 49.5 percent, from 2024 levels.  As in previous years, acquisitions of existing U.S. businesses accounted for most of the expenditures. Acquisition expenditures in 2025 were $218.4 billion, expenditures to establish new U.S. businesses were $4.6 billion, and expenditures to expand existing foreign-owned businesses were $9.2 billion. Planned total expenditures, which include both first-year and planned future expenditures, were $284.5 billion.    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/new-foreign-direct-investment-united-states-2025'>Full Text</a><!--Full Text Link-->",
-          "source_tier": "official"
-        },
-        {
-          "title": "Global diesel prices hit record highs, further rises possible - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbTJkVThNdEJxOWJFWkljaTdsVjJZbTJlUXU4M19XSm1fMFVQSUZ1VUxRYjV6dkNaTE5FZnkwWndvX2UzcTlYVU5IV1JEVGUwSXprOTJEMjI3eTlJWkJodFVhWDFsX1N2akxCMm1pQ2hWbVRhR3huTjlPSTg5cGtwMjJpQ2J5RUd0SlZ1RUJWeW1lMXB2VXd0NWdYLWk3bmw1T3ZTclRLazF0RW1MVUFHZThB?oc=5",
-          "published_at": "2026-09-21T16:03:43",
-          "category": "market_news",
-          "relevance_score": 54.4459,
-          "why_it_matters": "Global diesel prices hit record highs, further rises possible\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Budget airline king Bill Franke warms to first-class seats and premium upgrades",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/09/20/bill-franke-frontier-spirit-budget-airlines.html",
-          "published_at": "2026-09-20T12:00:01",
-          "category": "market_news",
-          "relevance_score": 36.9073,
-          "why_it_matters": "Serial airline investor Bill Franke is embracing more upmarket changes like first-class seats.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "These Gen Z-approved investment funds are having a moment\u2014what investors should know",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/09/21/themed-etfs-gen-z-investors.html",
-          "published_at": "2026-09-21T13:00:01",
-          "category": "market_news",
-          "relevance_score": 52.5323,
-          "why_it_matters": "Themed ETFs for industries like AI and energy are coming back into favor and are especially popular with Gen Z investors. Here are a few tips to keep in mind.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Photos of the week - Reuters",
-          "source": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBVbWt1dlZJemExYk1VZ0ZNdFVMNlNkN2lqSTh3eUFfb3BROVZzVkdWeExYZWx6Ym5pbHU3dVcxYktSUHIyaTNYbWFfNXFCZmduVF9nbk9UQmpBRmx4RGlZc0NGM2hMdnM?oc=5",
-          "published_at": "2026-09-18T20:10:00",
-          "category": "market_news",
-          "relevance_score": 30.0,
-          "why_it_matters": "Photos of the week\u00a0\u00a0Reuters",
-          "source_tier": "premium"
-        },
-        {
-          "title": "Kind Snacks founder Daniel Lubetzky: The No.1 piece of advice I give my kids about failure",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/09/21/kind-snacks-founder-daniel-lubetzky-the-advice-i-give-my-kids-about-failure.html",
-          "published_at": "2026-09-21T14:30:02",
-          "category": "market_news",
-          "relevance_score": 53.47,
-          "why_it_matters": "Kind Snacks founder and \"Build or Break\" host Daniel Lubetzky reveals the lessons about success and failure that he imparts to his children.",
-          "source_tier": "premium"
-        },
-        {
-          "title": "What it will take for us to buy the dip in DuPont. Plus, profit-taking hits cyber stocks",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/2026/09/18/what-it-will-take-for-us-to-buy-the-dip-in-dupont-plus-profit-taking-hits-cyber-stocks.html",
-          "published_at": "2026-09-18T18:32:55",
-          "category": "market_news",
-          "relevance_score": 30.0,
-          "why_it_matters": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
-          "source_tier": "premium"
-        },
-        {
           "title": "Arts and Cultural Production Satellite Account, U.S. and States, 2023",
           "source": "BEA",
           "url": "https://www.bea.gov/news/2025/arts-and-cultural-production-satellite-account-us-and-states-2023",
@@ -48120,6 +47992,36 @@
           "category": "growth_output",
           "relevance_score": 70.0,
           "why_it_matters": "Real spending (output) on travel and tourism accelerated in the third quarter of 2017, growing at an annual rate of 6.6 percent after increasing 6.0 percent (revised) in the second quarter, according to new statistics released by the Bureau of Economic Analysis. Real gross domestic product (GDP) for the nation also accelerated, increasing 3.3 percent in the third quarter (second estimate) after increasing 3.1 percent in the second quarter of 2017.    <!--Full Text Link--><a href='https://apps.bea.gov/newsreleases/industry/tourism/2017/tour317.htm'>Full Text</a><!--Full Text Link-->",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve issues FOMC statement",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+          "published_at": "2026-09-16T18:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 65.0,
+          "why_it_matters": "Federal Reserve issues FOMC statement",
+          "source_tier": "official"
+        },
+        {
+          "title": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm",
+          "published_at": "2026-09-16T18:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 65.0,
+          "why_it_matters": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
+          "source_tier": "official"
+        },
+        {
+          "title": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260911a.htm",
+          "published_at": "2026-09-11T14:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 65.0,
+          "why_it_matters": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
           "source_tier": "official"
         },
         {
@@ -48383,6 +48285,16 @@
           "source_tier": "official"
         },
         {
+          "title": "Wall Street ends sharply higher as AI optimism reignites and Treasury yields retreat - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbUY0bG1IQkExN3pxSFZoX1VGN0hTNkluZ1hFd1F6VzZwdWtPRExzOXRnS0prRjV1M0I3U2tfUnhZcmJSQkV6STFKbUo2YXB6S1RhNUkycUFJUXg3UXA0WW9CWkRYaVVVUGRqRmRtUERCU1I4M3ZMYXhETmY1Q3FZQU9Ob1MtMzRONFc3NVFrNzVpcTQySVRzd1dENmcxdw?oc=5",
+          "published_at": "2026-09-21T20:01:13",
+          "category": "market_news",
+          "relevance_score": 61.9198,
+          "why_it_matters": "Wall Street ends sharply higher as AI optimism reignites and Treasury yields retreat\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
           "title": "Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula",
           "source": "Federal Reserve",
           "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260918b.htm",
@@ -48400,6 +48312,16 @@
           "category": "monetary_policy",
           "relevance_score": 60.0,
           "why_it_matters": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
+          "source_tier": "official"
+        },
+        {
+          "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260910a.htm",
+          "published_at": "2026-09-10T20:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
           "source_tier": "official"
         },
         {
@@ -48450,6 +48372,16 @@
           "category": "monetary_policy",
           "relevance_score": 60.0,
           "why_it_matters": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
+          "source_tier": "official"
+        },
+        {
+          "title": "Minutes of the Federal Open Market Committee, July 28\u201329, 2026",
+          "source": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260819a.htm",
+          "published_at": "2026-08-19T18:00:00+00:00",
+          "category": "monetary_policy",
+          "relevance_score": 60.0,
+          "why_it_matters": "Minutes of the Federal Open Market Committee, July 28\u201329, 2026",
           "source_tier": "official"
         },
         {
@@ -48523,6 +48455,26 @@
           "source_tier": "official"
         },
         {
+          "title": "U.S. International Trade in Goods and Services, July 2026",
+          "source": "BEA",
+          "url": "https://www.bea.gov/news/2026/us-international-trade-goods-and-services-july-2026",
+          "published_at": "2026-09-03T08:30:00-04:00",
+          "category": "growth_output",
+          "relevance_score": 60.0,
+          "why_it_matters": "<p>The U.S. goods and services trade deficit increased in July 2026 according to the U.S. Bureau of Economic Analysis and the U.S. Census Bureau. The deficit increased from $71.2 billion in June (revised) to $88.6 billion in July, as imports increased and exports decreased. The goods deficit increased $17.6 billion in July to $119.6 billion. The services surplus increased $0.2 billion in July to $31.0 billion.</p>",
+          "source_tier": "official"
+        },
+        {
+          "title": "Direct Investment by Country and Industry, 2025",
+          "source": "BEA",
+          "url": "https://www.bea.gov/news/2026/direct-investment-country-and-industry-2025",
+          "published_at": "2026-07-21T08:30:00-04:00",
+          "category": "growth_output",
+          "relevance_score": 60.0,
+          "why_it_matters": "The U.S. direct investment abroad position, or cumulative level of investment, increased $438.1 billion to $7.14 trillion at the end of 2025, according to statistics released today by the U.S. Bureau of Economic Analysis. The increase was led by a $350.2 billion increase in the position in Europe, primarily in the United Kingdom and Luxembourg. By industry, manufacturing had the largest increase, led by chemical manufacturing. \n                    \n                    The foreign direct investment in the United States position increased $266.0 billion to $5.86 trillion at the end of 2025. The increase was led by a $182.4 billion increase in the position from Europe. The largest increase in position was from German multinationals, with a $49.0 billion increase, and the second-largest increase in position was from Canadian multinationals, with a $39.2 billion increase. By industry, manufacturing increased the most, led by electrical equipment and components manufacturing.    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/direct-investment-country-and-industry-2025'>Full Text</a><!--Full Text Link-->",
+          "source_tier": "official"
+        },
+        {
           "title": "Activities of U.S. Affiliates of Foreign Multinational Enterprises, 2024",
           "source": "BEA",
           "url": "https://www.bea.gov/news/2026/activities-us-affiliates-foreign-multinational-enterprises-2024",
@@ -48530,6 +48482,26 @@
           "category": "growth_output",
           "relevance_score": 60.0,
           "why_it_matters": "Majority-owned U.S. affiliates of foreign multinational enterprises employed 8.57 million workers in the United States in 2024, a 0.2 percent increase from 8.56 million workers in 2023, according to statistics on U.S. affiliate operations and finances released today by the U.S. Bureau of Economic Analysis.    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/activities-us-affiliates-foreign-multinational-enterprises-2024'>Full Text</a><!--Full Text Link-->",
+          "source_tier": "official"
+        },
+        {
+          "title": "U.S. International Transactions and Investment Position, 1st Quarter 2026 and Annual Update",
+          "source": "BEA",
+          "url": "https://www.bea.gov/news/2026/us-international-transactions-and-investment-position-1st-quarter-2026-and-annual-update",
+          "published_at": "2026-06-24T08:30:00-04:00",
+          "category": "growth_output",
+          "relevance_score": 60.0,
+          "why_it_matters": "<![CDATA[The U.S. current-account deficit resulting from international economic transactions widened by $5.8 billion, or 2.6 percent, to $226.8 billion in the first quarter of 2026, according to statistics released today by the U.S. Bureau of Economic Analysis. The revised fourth-quarter deficit was $221.1 billion. The first-quarter deficit was 2.9 percent of current-dollar gross domestic product, up from 2.8 percent in the fourth quarter. The U.S. net international investment position, the difference between U.S. residents? foreign financial assets and liabilities, was ?$21.27 trillion at the end of the first quarter of 2026. Assets totaled $43.37 trillion, and liabilities totaled $64.64 trillion. At the end of the fourth quarter of 2025, the net investment position was ?$21.87 trillion (revised).    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/us-international-transactions-and-investment-position-1st-quarter-2026-and-annual-update'>Full Text</a><!--Full Text Link-->]]>",
+          "source_tier": "official"
+        },
+        {
+          "title": "New Foreign Direct Investment in the United States, 2025",
+          "source": "BEA",
+          "url": "https://www.bea.gov/news/2026/new-foreign-direct-investment-united-states-2025",
+          "published_at": "2026-06-10T08:30:00-04:00",
+          "category": "growth_output",
+          "relevance_score": 60.0,
+          "why_it_matters": "Expenditures by foreign direct investors to acquire, establish, or expand U.S. businesses totaled $232.2 billion in 2025, according to preliminary statistics released today by the U.S. Bureau of Economic Analysis. Expenditures increased $76.8 billion, or 49.5 percent, from 2024 levels.  As in previous years, acquisitions of existing U.S. businesses accounted for most of the expenditures. Acquisition expenditures in 2025 were $218.4 billion, expenditures to establish new U.S. businesses were $4.6 billion, and expenditures to expand existing foreign-owned businesses were $9.2 billion. Planned total expenditures, which include both first-year and planned future expenditures, were $284.5 billion.    <!--Full Text Link--><a href='https://www.bea.gov/news/2026/new-foreign-direct-investment-united-states-2025'>Full Text</a><!--Full Text Link-->",
           "source_tier": "official"
         },
         {
@@ -48633,6 +48605,16 @@
           "source_tier": "premium"
         },
         {
+          "title": "EXCLUSIVE: Trump approval falls to record low of 32% as high costs bite, Reuters/Ipsos poll finds - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOa2xXN3ZZR05LSzJLYVpOTFZTVlJkLWhnZUxnRDVlckVJT0pDN3RDRFJoTnJObVJGY0RYMGJLYUpGT0pNVUlrUFlBTVlzS0hNbUhWNk1lYzBNUEdRYmQwNy04X3ZHQzAzY1NGZDZxVEhsOTl3LWFrcjFDMEJhaUxPS2hlbnlUMkRsYml0bnBkSVBUR3F0YUtXbWxDdnVScmE4dGw1LUhXelhOVVNyVm9YbWRJMXI1R2wybnNz?oc=5",
+          "published_at": "2026-09-21T23:25:27",
+          "category": "market_news",
+          "relevance_score": 59.0473,
+          "why_it_matters": "EXCLUSIVE: Trump approval falls to record low of 32% as high costs bite, Reuters/Ipsos poll finds\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
           "title": "Stocks had a great day on the surface. But something alarming occurred not seen since 1999",
           "source": "CNBC",
           "url": "https://www.cnbc.com/2026/09/21/stocks-had-a-great-day-on-the-surface-but-something-alarming-occurred-not-seen-since-1999.html",
@@ -48660,6 +48642,16 @@
           "category": "market_news",
           "relevance_score": 57.1447,
           "why_it_matters": "PODCAST: Paramount deal, Germany elections and AI at the UN (Updated)\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Intel surges 12% as CPU stocks rally. Here's what's driving the move",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/09/21/intel-surges-12percent-as-cpu-stocks-rally-heres-whats-driving-the-move.html",
+          "published_at": "2026-09-21T18:37:57",
+          "category": "market_news",
+          "relevance_score": 56.0525,
+          "why_it_matters": "Every weekday, the Investing Club releases the Homestretch, an actionable afternoon update just in time for the last hour of trading.",
           "source_tier": "premium"
         },
         {
@@ -48693,6 +48685,16 @@
           "source_tier": "premium"
         },
         {
+          "title": "Global diesel prices hit record highs, further rises possible - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbTJkVThNdEJxOWJFWkljaTdsVjJZbTJlUXU4M19XSm1fMFVQSUZ1VUxRYjV6dkNaTE5FZnkwWndvX2UzcTlYVU5IV1JEVGUwSXprOTJEMjI3eTlJWkJodFVhWDFsX1N2akxCMm1pQ2hWbVRhR3huTjlPSTg5cGtwMjJpQ2J5RUd0SlZ1RUJWeW1lMXB2VXd0NWdYLWk3bmw1T3ZTclRLazF0RW1MVUFHZThB?oc=5",
+          "published_at": "2026-09-21T16:03:43",
+          "category": "market_news",
+          "relevance_score": 54.4459,
+          "why_it_matters": "Global diesel prices hit record highs, further rises possible\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
           "title": "Houthis push for control of Yemen highlands as Trump is said to have called off strikes - Reuters",
           "source": "Reuters",
           "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNbHBmWjNkMFR2Skw0MWVFaENxamFwbXN0RGxRei1RenlFVk11R1loSlZtdm16SW5ITGFMalY1bkNBOUVONnVVdENtbDZSdzByT0l0NkJiZUlSSzBvRHBBNWxKd01ja09Eb1Nla205aW5oQkxGVGpiUjZQUTJVYy1EWGx6R2JPN2pGWXVUU29CQ1ZyQmpSMWlzQ1VYUzhidC1SZ3VSMFhyVndUYUZYTXItOGgyTktsQnV1QW1ETzN4NnI2eWhZMXhoZ1h4eEU?oc=5",
@@ -48700,6 +48702,16 @@
           "category": "market_news",
           "relevance_score": 54.0601,
           "why_it_matters": "Houthis push for control of Yemen highlands as Trump is said to have called off strikes\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Kind Snacks founder Daniel Lubetzky: The No.1 piece of advice I give my kids about failure",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/09/21/kind-snacks-founder-daniel-lubetzky-the-advice-i-give-my-kids-about-failure.html",
+          "published_at": "2026-09-21T14:30:02",
+          "category": "market_news",
+          "relevance_score": 53.47,
+          "why_it_matters": "Kind Snacks founder and \"Build or Break\" host Daniel Lubetzky reveals the lessons about success and failure that he imparts to his children.",
           "source_tier": "premium"
         },
         {
@@ -48730,6 +48742,26 @@
           "category": "market_news",
           "relevance_score": 53.1334,
           "why_it_matters": "Trump, in call with Yemen president, did not pledge military support against Houthis, say sources\u00a0\u00a0Reuters",
+          "source_tier": "premium"
+        },
+        {
+          "title": "These Gen Z-approved investment funds are having a moment\u2014what investors should know",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/09/21/themed-etfs-gen-z-investors.html",
+          "published_at": "2026-09-21T13:00:01",
+          "category": "market_news",
+          "relevance_score": 52.5323,
+          "why_it_matters": "Themed ETFs for industries like AI and energy are coming back into favor and are especially popular with Gen Z investors. Here are a few tips to keep in mind.",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Our top 10 things to watch in the stock market Monday",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/09/21/our-top-10-things-to-watch-in-the-stock-market-monday.html",
+          "published_at": "2026-09-21T12:56:57",
+          "category": "market_news",
+          "relevance_score": 52.5004,
+          "why_it_matters": "Stocks are headed for a strong open, and Meta landed a big price target boost at Wells Fargo.",
           "source_tier": "premium"
         },
         {
@@ -48943,6 +48975,16 @@
           "source_tier": "premium"
         },
         {
+          "title": "Budget airline king Bill Franke warms to first-class seats and premium upgrades",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/09/20/bill-franke-frontier-spirit-budget-airlines.html",
+          "published_at": "2026-09-20T12:00:01",
+          "category": "market_news",
+          "relevance_score": 36.9073,
+          "why_it_matters": "Serial airline investor Bill Franke is embracing more upmarket changes like first-class seats.",
+          "source_tier": "premium"
+        },
+        {
           "title": "European Commissioner discussed EU-Israel relationship, Gaza with Israeli minister - Reuters",
           "source": "Reuters",
           "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOcWJqeXlJTjQxcDVjYU03Q09mYWE3clFzVVBpRENyRGoydU1BVzl2dHlxR3Y0Zm83WjJOVmJJaEhuQlVnUEtLNTZxcXlsbDhQeUlja2lGNHozV3M1Ym5UTUxCQ1ZBamtILVBqSlo4QUQ2YjNvNE9saE1tN1BKTUU0U245dzBOYWIzYzMzZC1OZVdPMElfZHllUHY4TmtLU19VdU1nM0k2d0pBR0dicU92ZHlhZXk1SS1uVXZCVENCQktYVWpv?oc=5",
@@ -49050,6 +49092,16 @@
           "category": "market_news",
           "relevance_score": 30.0,
           "why_it_matters": "Cumulative rainfall during the June to September monsoon season is 15% below the long-term average so far, according IMD",
+          "source_tier": "premium"
+        },
+        {
+          "title": "What it will take for us to buy the dip in DuPont. Plus, profit-taking hits cyber stocks",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/09/18/what-it-will-take-for-us-to-buy-the-dip-in-dupont-plus-profit-taking-hits-cyber-stocks.html",
+          "published_at": "2026-09-18T18:32:55",
+          "category": "market_news",
+          "relevance_score": 30.0,
+          "why_it_matters": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
           "source_tier": "premium"
         },
         {
@@ -49360,6 +49412,16 @@
           "category": "market_news",
           "relevance_score": 30.0,
           "why_it_matters": "Russia sanctions bill gives Trump sweeping new tariff powers\u00a0\u00a0reuters.com",
+          "source_tier": "premium"
+        },
+        {
+          "title": "Photos of the week - Reuters",
+          "source": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBVbWt1dlZJemExYk1VZ0ZNdFVMNlNkN2lqSTh3eUFfb3BROVZzVkdWeExYZWx6Ym5pbHU3dVcxYktSUHIyaTNYbWFfNXFCZmduVF9nbk9UQmpBRmx4RGlZc0NGM2hMdnM?oc=5",
+          "published_at": "2026-09-18T20:10:00",
+          "category": "market_news",
+          "relevance_score": 30.0,
+          "why_it_matters": "Photos of the week\u00a0\u00a0Reuters",
           "source_tier": "premium"
         },
         {
