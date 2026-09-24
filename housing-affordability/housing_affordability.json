@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-09-23T15:58:57.736833-04:00",
+    "generated_at": "2026-09-24T14:18:52.306375-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,8 +122,8 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-09-28",
-    "data_end": "2026-09-23"
+    "data_start": "2006-09-29",
+    "data_end": "2026-09-24"
   },
   "current": {
     "date": "2026-08-01",
@@ -131,7 +131,7 @@
       "grade": "C",
       "label": "Fair",
       "color": "warning",
-      "points": 2.2
+      "points": 2.1
     },
     "indicators": {
       "HOUST": {
@@ -158,10 +158,10 @@
       },
       "PERMIT": {
         "name": "Building Permits",
-        "value": 1394.0,
+        "value": 1403.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 63.75,
+        "percentile": 65.0,
         "grade": {
           "grade": "B",
           "label": "Good",
@@ -171,31 +171,31 @@
         "trend": "decreasing",
         "is_favorable": false,
         "changes": {
-          "1y": 3.49,
-          "5y": -19.89,
-          "10y": 16.07,
+          "1y": 4.16,
+          "5y": -19.37,
+          "10y": 16.82,
           "20y": null
         },
         "interpretation": "higher_is_better"
       },
       "HSN1F": {
         "name": "New One Family Houses Sold",
-        "value": 607.0,
+        "value": 684.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 51.88,
+        "percentile": 73.75,
         "grade": {
           "grade": "B",
           "label": "Good",
           "color": "warning",
           "points": 3
         },
-        "trend": "decreasing",
-        "is_favorable": false,
+        "trend": "increasing",
+        "is_favorable": true,
         "changes": {
-          "1y": -6.33,
-          "5y": -18.52,
-          "10y": -3.34,
+          "1y": -2.01,
+          "5y": -0.58,
+          "10y": 18.96,
           "20y": null
         },
         "interpretation": "higher_is_better"
@@ -246,10 +246,10 @@
       },
       "MORTGAGE30US": {
         "name": "30-Year Fixed Mortgage Rate",
-        "value": 6.95,
+        "value": 7.03,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 96.55,
+        "percentile": 97.51,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -259,19 +259,19 @@
         "trend": "increasing",
         "is_favorable": false,
         "changes": {
-          "1y": 11.02,
-          "5y": 141.32,
-          "10y": 103.22,
-          "20y": 9.11
+          "1y": 11.59,
+          "5y": 133.55,
+          "10y": 105.56,
+          "20y": 10.53
         },
         "interpretation": "lower_is_better"
       },
       "MORTGAGE15US": {
         "name": "15-Year Fixed Mortgage Rate",
-        "value": 6.26,
+        "value": 6.42,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 95.88,
+        "percentile": 98.08,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -281,10 +281,10 @@
         "trend": "increasing",
         "is_favorable": false,
         "changes": {
-          "1y": 15.71,
-          "5y": 191.16,
-          "10y": 130.15,
-          "20y": 3.3
+          "1y": 16.94,
+          "5y": 181.58,
+          "10y": 136.03,
+          "20y": 5.94
         },
         "interpretation": "lower_is_better"
       },
@@ -334,22 +334,22 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.33,
+        "value": 2.35,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 72.69,
+        "percentile": 77.62,
         "grade": {
-          "grade": "C",
-          "label": "Fair",
-          "color": "warning",
-          "points": 2
+          "grade": "D",
+          "label": "Poor",
+          "color": "destructive",
+          "points": 1
         },
-        "trend": "decreasing",
-        "is_favorable": true,
+        "trend": "increasing",
+        "is_favorable": false,
         "changes": {
-          "1y": -2.1,
-          "5y": -0.43,
-          "10y": 58.5,
+          "1y": -1.67,
+          "5y": -0.42,
+          "10y": 58.78,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -1328,7 +1328,7 @@
           1410.0,
           1374.0,
           1433.0,
-          1394.0
+          1403.0
         ]
       },
       "HSN1F": {
@@ -1571,7 +1571,8 @@
           "2026-04-01",
           "2026-05-01",
           "2026-06-01",
-          "2026-07-01"
+          "2026-07-01",
+          "2026-08-01"
         ],
         "values": [
           1016.0,
@@ -1810,9 +1811,10 @@
           630.0,
           659.0,
           641.0,
-          630.0,
-          678.0,
-          607.0
+          636.0,
+          672.0,
+          643.0,
+          684.0
         ]
       },
       "EXHOSLUSM495S": {
@@ -2331,7 +2333,6 @@
       },
       "MORTGAGE30US": {
         "dates": [
-          "2006-09-30",
           "2006-10-31",
           "2006-11-30",
           "2006-12-31",
@@ -2574,7 +2575,6 @@
           "2026-09-30"
         ],
         "values": [
-          6.31,
           6.3575,
           6.24,
           6.135,
@@ -2814,12 +2814,11 @@
           6.49,
           6.542,
           6.6675,
-          6.8066666666666675
+          6.8625
         ]
       },
       "MORTGAGE15US": {
         "dates": [
-          "2006-09-30",
           "2006-10-31",
           "2006-11-30",
           "2006-12-31",
@@ -3062,7 +3061,6 @@
           "2026-09-30"
         ],
         "values": [
-          5.98,
           6.05,
           5.956,
           5.88,
@@ -3302,7 +3300,7 @@
           5.82,
           5.9079999999999995,
           5.975,
-          6.13
+          6.2025
         ]
       },
       "TDSP": {
@@ -4122,7 +4120,7 @@
           2.24,
           2.28,
           2.31,
-          2.33
+          2.35
         ]
       }
     }
