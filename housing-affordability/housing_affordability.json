@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-10-27T15:16:07.372912-04:00",
+    "generated_at": "2026-10-27T17:08:07.529494-04:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -131,7 +131,7 @@
       "grade": "C",
       "label": "Fair",
       "color": "warning",
-      "points": 2.2
+      "points": 2.1
     },
     "indicators": {
       "HOUST": {
@@ -224,22 +224,22 @@
       },
       "CSUSHPINSA": {
         "name": "S&P/Case-Shiller U.S. National Home Price Index",
-        "value": 337.306,
+        "value": 336.741,
         "unit": "Index Jan 2000=100",
         "frequency": "Monthly",
-        "percentile": 99.58,
+        "percentile": 98.74,
         "grade": {
           "grade": "D",
           "label": "Extreme",
           "color": "destructive",
           "points": 1
         },
-        "trend": "increasing",
+        "trend": "decreasing",
         "is_favorable": null,
         "changes": {
-          "1y": 1.93,
-          "5y": 27.08,
-          "10y": 84.32,
+          "1y": 2.09,
+          "5y": 25.32,
+          "10y": 83.37,
           "20y": null
         },
         "interpretation": "neutral"
@@ -334,22 +334,22 @@
       },
       "T10YIE": {
         "name": "10-Year Breakeven Inflation Rate",
-        "value": 2.34,
+        "value": 2.35,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 74.77,
+        "percentile": 77.4,
         "grade": {
-          "grade": "C",
-          "label": "Fair",
-          "color": "warning",
-          "points": 2
+          "grade": "D",
+          "label": "Poor",
+          "color": "destructive",
+          "points": 1
         },
-        "trend": "stable",
-        "is_favorable": null,
+        "trend": "increasing",
+        "is_favorable": false,
         "changes": {
-          "1y": 2.18,
-          "5y": -4.88,
-          "10y": 49.04,
+          "1y": 2.17,
+          "5y": -6.0,
+          "10y": 52.6,
           "20y": null
         },
         "interpretation": "lower_is_better"
@@ -2081,7 +2081,8 @@
           "2026-04-01",
           "2026-05-01",
           "2026-06-01",
-          "2026-07-01"
+          "2026-07-01",
+          "2026-08-01"
         ],
         "values": [
           183.63,
@@ -2297,30 +2298,31 @@
           323.696,
           325.256,
           325.566,
-          325.003,
-          324.621,
+          325.002,
+          324.622,
           323.937,
-          323.654,
+          323.655,
           323.275,
-          323.631,
-          325.097,
+          323.629,
+          325.098,
           327.696,
-          329.848,
-          331.367,
-          331.564,
-          330.923,
-          329.845,
+          329.849,
+          331.369,
+          331.565,
+          330.924,
+          329.844,
           328.874,
-          328.233,
+          328.232,
           327.853,
-          327.028,
+          327.027,
           326.764,
-          327.824,
-          330.408,
-          333.15,
-          335.584,
-          336.908,
-          337.306
+          327.828,
+          330.435,
+          333.177,
+          335.604,
+          336.918,
+          337.262,
+          336.741
         ]
       },
       "MORTGAGE30US": {
@@ -4106,7 +4108,7 @@
           2.28,
           2.31,
           2.36,
-          2.34
+          2.35
         ]
       }
     }
