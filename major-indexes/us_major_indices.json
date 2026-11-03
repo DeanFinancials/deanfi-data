@@ -5,7 +5,7 @@
     "purpose": "Track overall US market performance across different market capitalizations",
     "update_frequency": "Daily after market close (4:00 PM ET)",
     "data_source": "Yahoo Finance (yfinance)",
-    "last_updated": "2026-11-03T21:37:16Z",
+    "last_updated": "2026-11-03T21:57:22Z",
     "trading_days": "252 trading days per year",
     "indices_included": {
       "^GSPC": "S&P 500 - Large-cap benchmark (500 companies)",
@@ -47,16 +47,16 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-11-03T21:37:17Z",
+    "generated_at": "2026-11-03T21:57:23Z",
     "market_date": "2026-11-03",
     "market_status": "post",
     "indices_count": 6,
     "data_source": "Yahoo Finance (yfinance)",
     "data_quality": {
-      "status": "partial",
-      "missing_days": 1,
-      "completeness_percent": 83.3,
-      "last_update": "2026-11-03T21:37:17Z",
+      "status": "complete",
+      "missing_days": 0,
+      "completeness_percent": 100.0,
+      "last_update": "2026-11-03T21:57:23Z",
       "market_hours": "post"
     }
   },
@@ -130,7 +130,7 @@
       "current_price": 25372.01,
       "daily_change": 207.7,
       "daily_change_percent": 0.83,
-      "volume": 7424783000,
+      "volume": 7453983000,
       "day_high": 25474.46,
       "day_low": 25246.63,
       "day_open": 25246.63,
@@ -160,7 +160,7 @@
       "current_price": 28180.26,
       "daily_change": 190.44,
       "daily_change_percent": 0.68,
-      "volume": 1290968000,
+      "volume": 1297427000,
       "day_high": 28307.9,
       "day_low": 28085.5,
       "day_open": 28085.5,
@@ -179,6 +179,36 @@
         "support_1": 27720.38,
         "support_2": 27450.93,
         "support_3": 26395.54
+      }
+    },
+    "^RUT": {
+      "name": "Russell 2000",
+      "symbol": "^RUT",
+      "description": "Small-cap benchmark",
+      "market_cap_segment": "Small-Cap",
+      "constituent_count": 2000,
+      "current_price": 2812.45,
+      "daily_change": 6.57,
+      "daily_change_percent": 0.23,
+      "volume": 0,
+      "day_high": 2836.8,
+      "day_low": 2810.68,
+      "day_open": 2812.37,
+      "52_week_high": 3068.42,
+      "52_week_low": 2305.11,
+      "distance_from_52w_high_percent": -8.34,
+      "year_to_date_percent": 13.32,
+      "1_month_percent": -1.22,
+      "3_month_percent": -6.85,
+      "6_month_percent": -1.14,
+      "pivot_points": {
+        "pivot_point": 2819.01,
+        "resistance_1": 2832.9,
+        "resistance_2": 2859.93,
+        "resistance_3": 2873.82,
+        "support_1": 2791.98,
+        "support_2": 2778.09,
+        "support_3": 2723.27
       }
     },
     "^VIX": {
@@ -215,11 +245,11 @@
     }
   },
   "market_summary": {
-    "indices_up": 3,
+    "indices_up": 4,
     "indices_down": 2,
-    "average_daily_return": -0.0,
+    "average_daily_return": 0.03,
     "median_daily_return": 0.36,
     "market_sentiment": "bullish",
-    "breadth_score": 60.0
+    "breadth_score": 66.7
   }
 }
