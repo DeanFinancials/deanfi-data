@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "generated_at": "2026-11-11T18:20:30.371248-05:00",
+    "generated_at": "2026-11-12T16:21:04.723796-05:00",
     "data_source": "FRED API",
     "category": "Housing & Affordability",
     "indicators": [
@@ -122,8 +122,8 @@
       }
     ],
     "history_days": 7300,
-    "data_start": "2006-11-16",
-    "data_end": "2026-11-11"
+    "data_start": "2006-11-17",
+    "data_end": "2026-11-12"
   },
   "current": {
     "date": "2026-09-01",
@@ -202,20 +202,20 @@
       },
       "EXHOSLUSM495S": {
         "name": "Existing Home Sales",
-        "value": 3990000.0,
+        "value": 3750000.0,
         "unit": "Thousands of Units",
         "frequency": "Monthly",
-        "percentile": 7.69,
+        "percentile": 0.0,
         "grade": {
           "grade": "D",
           "label": "Poor",
           "color": "destructive",
           "points": 1
         },
-        "trend": "increasing",
-        "is_favorable": true,
+        "trend": "decreasing",
+        "is_favorable": false,
         "changes": {
-          "1y": -2.21,
+          "1y": -8.76,
           "5y": null,
           "10y": null,
           "20y": null
@@ -246,10 +246,10 @@
       },
       "MORTGAGE30US": {
         "name": "30-Year Fixed Mortgage Rate",
-        "value": 7.18,
+        "value": 7.11,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 97.99,
+        "percentile": 97.7,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -259,19 +259,19 @@
         "trend": "decreasing",
         "is_favorable": true,
         "changes": {
-          "1y": 15.43,
-          "5y": 140.94,
-          "10y": 82.23,
-          "20y": 16.94
+          "1y": 13.94,
+          "5y": 129.35,
+          "10y": 76.43,
+          "20y": 16.37
         },
         "interpretation": "lower_is_better"
       },
       "MORTGAGE15US": {
         "name": "15-Year Fixed Mortgage Rate",
-        "value": 6.57,
+        "value": 6.45,
         "unit": "Percent",
         "frequency": "Weekly",
-        "percentile": 98.56,
+        "percentile": 97.7,
         "grade": {
           "grade": "D",
           "label": "Poor",
@@ -281,10 +281,10 @@
         "trend": "decreasing",
         "is_favorable": true,
         "changes": {
-          "1y": 19.45,
-          "5y": 189.43,
-          "10y": 109.24,
-          "20y": 11.93
+          "1y": 17.49,
+          "5y": 169.87,
+          "10y": 98.46,
+          "20y": 10.45
         },
         "interpretation": "lower_is_better"
       },
@@ -337,7 +337,7 @@
         "value": 2.2,
         "unit": "Percent",
         "frequency": "Daily",
-        "percentile": 51.73,
+        "percentile": 51.74,
         "grade": {
           "grade": "C",
           "label": "Fair",
@@ -1813,7 +1813,6 @@
       },
       "EXHOSLUSM495S": {
         "dates": [
-          "2025-09-01",
           "2025-10-01",
           "2025-11-01",
           "2025-12-01",
@@ -1825,10 +1824,10 @@
           "2026-06-01",
           "2026-07-01",
           "2026-08-01",
-          "2026-09-01"
+          "2026-09-01",
+          "2026-10-01"
         ],
         "values": [
-          4080000.0,
           4110000.0,
           4090000.0,
           4270000.0,
@@ -1840,7 +1839,8 @@
           4130000.0,
           4060000.0,
           3930000.0,
-          3990000.0
+          3970000.0,
+          3750000.0
         ]
       },
       "CSUSHPINSA": {
@@ -2570,7 +2570,7 @@
           "2026-11-30"
         ],
         "values": [
-          6.186666666666667,
+          6.16,
           6.135,
           6.2175,
           6.285,
@@ -2810,7 +2810,7 @@
           6.6675,
           6.862500000000001,
           7.328,
-          7.18
+          7.145
         ]
       },
       "MORTGAGE15US": {
@@ -3058,7 +3058,7 @@
           "2026-11-30"
         ],
         "values": [
-          5.906666666666667,
+          5.890000000000001,
           5.88,
           5.965000000000001,
           6.02,
@@ -3298,7 +3298,7 @@
           5.975,
           6.2025,
           6.664,
-          6.57
+          6.51
         ]
       },
       "TDSP": {
