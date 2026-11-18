@@ -167,3 +167,69 @@ def test_default_model_id_has_fallback_when_env_unset(monkeypatch):
     monkeypatch.delenv("MARKET_PULSE_RANKER_MODEL", raising=False)
 
     assert catalyst_ranker.default_model_id()
+
+
+def _with_stale(payload):
+    payload["ranked"].append(
+        {"title": "Old satellite account", "url": "https://www.bea.gov/old",
+         "source": "BEA", "source_tier": "official",
+         "published_at": "2017-12-13T08:30:00-05:00",
+         "category": "growth_output", "relevance_score": 90.0,
+         "why_it_matters": "old release"}
+    )
+    return payload
+
+
+def test_ai_rerank_sends_market_date_and_excludes_stale_candidates():
+    fake = _FakeClient({"ranked_urls": ["https://www.bloomberg.com/a"]})
+
+    out = catalyst_ranker.ai_rerank(
+        _with_stale(_payload()),
+        market_summary="anything",
+        model_id="gpt-mini",
+        client=fake,
+    )
+
+    sent = json.loads(fake.calls[0]["messages"][1]["content"])
+    assert sent["market_date"] == "2026-05-15"
+    assert "https://www.bea.gov/old" not in [c["url"] for c in sent["candidates"]]
+    urls = [c["url"] for c in out["ranked"]]
+    assert urls[0] == "https://www.bloomberg.com/a"
+    assert urls[-1] == "https://www.bea.gov/old"
+    assert len(urls) == 4
+    outcome = out["metadata"]["ranker_outcome"]
+    assert outcome["status"] == "ai"
+    assert outcome["candidates_sent"] == 3
+    assert outcome["stale_excluded"] == 1
+
+
+def test_ai_rerank_records_fallback_reason():
+    class Boom:
+        def rank(self, **_):
+            raise RuntimeError("openai down")
+
+    out = catalyst_ranker.ai_rerank(_payload(), market_summary="x", model_id="gpt-mini", client=Boom())
+
+    outcome = out["metadata"]["ranker_outcome"]
+    assert outcome["status"] == "fallback"
+    assert "openai down" in outcome["reason"]
+    assert [c["title"] for c in out["ranked"]] == ["FOMC", "CPI", "Bloomberg recap"]
+
+
+def test_demote_stale_catalysts_keeps_every_item_and_moves_old_ones_last():
+    payload = _with_stale(_payload())
+    payload["ranked"].insert(0, payload["ranked"].pop())  # stale item ranked first
+    payload["ranked"].append({"title": "Undated", "url": "https://x.test/u", "source_tier": "premium"})
+
+    out = catalyst_ranker.demote_stale_catalysts(payload)
+
+    titles = [c["title"] for c in out["ranked"]]
+    assert titles == ["FOMC", "CPI", "Bloomberg recap", "Undated", "Old satellite account"]
+    assert out["metadata"]["stale_demoted_count"] == 1
+
+
+def test_is_stale_candidate_ignores_unknown_dates():
+    assert not catalyst_ranker.is_stale_candidate({"published_at": "2010-01-01"}, None)
+    assert not catalyst_ranker.is_stale_candidate({"published_at": None}, "2026-05-15")
+    assert not catalyst_ranker.is_stale_candidate({"published_at": "garbage"}, "2026-05-15")
+    assert catalyst_ranker.is_stale_candidate({"published_at": "2010-01-01"}, "2026-05-15")

@@ -417,3 +417,33 @@ def test_r2_sync_workflow_triggers_on_its_own_changes():
     workflow = (REPO_ROOT / ".github" / "workflows" / "sync-to-r2.yml").read_text()
 
     assert "- '.github/workflows/sync-to-r2.yml'" in workflow
+
+
+def test_maybe_ai_rerank_records_skip_when_api_key_missing():
+    payload = {"metadata": {"market_date": "2026-11-17"}, "ranked": [{"url": "https://a.test", "title": "A"}]}
+
+    out = combine_daily_snapshots.maybe_ai_rerank_market_catalysts(payload, {}, env={"PATH": "/usr/bin"})
+
+    assert out["ranked"] == payload["ranked"]
+    assert out["metadata"]["ranker_outcome"]["status"] == "skipped"
+    assert "OPENAI_API_KEY" in out["metadata"]["ranker_outcome"]["reason"]
+
+
+def test_market_pulse_input_exposes_ranker_outcome_on_catalysts_block():
+    catalysts = {
+        "metadata": {
+            "market_date": "2026-11-17",
+            "expected_min_catalysts": 1,
+            "ranking_method": "deterministic",
+            "stale_demoted_count": 0,
+            "ranker_outcome": {"status": "fallback", "reason": "boom"},
+        },
+        "ranked": [{"url": "https://a.test", "title": "A", "source_tier": "premium"}],
+    }
+    combined = {"metadata": {"market_date": "2026-11-17"}, "data": {}}
+
+    package = combine_daily_snapshots.build_market_pulse_input(combined, catalysts=catalysts)
+
+    assert package["catalysts"]["ranker_outcome"] == {"status": "fallback", "reason": "boom"}
+    assert package["catalysts"]["stale_demoted_count"] == 0
+

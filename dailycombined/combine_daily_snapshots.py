@@ -149,12 +149,16 @@ def maybe_ai_rerank_market_catalysts(
 ) -> Dict[str, Any]:
     """Optionally re-rank catalysts with OpenAI, preserving deterministic fallback."""
     resolved_env = env or os.environ
-    if not resolved_env.get('OPENAI_API_KEY'):
-        return market_catalysts
-    if not (market_catalysts.get('ranked') or []):
-        return market_catalysts
-
     model_id = resolved_env.get('MARKET_PULSE_RANKER_MODEL') or catalyst_ranker.default_model_id()
+    if not resolved_env.get('OPENAI_API_KEY'):
+        return catalyst_ranker.with_ranker_outcome(
+            market_catalysts, {'status': 'skipped', 'model': model_id, 'reason': 'OPENAI_API_KEY not set'}
+        )
+    if not (market_catalysts.get('ranked') or []):
+        return catalyst_ranker.with_ranker_outcome(
+            market_catalysts, {'status': 'skipped', 'model': model_id, 'reason': 'no catalysts to rank'}
+        )
+
     try:
         if client_factory is None:
             from openai import OpenAI  # type: ignore
@@ -169,7 +173,10 @@ def maybe_ai_rerank_market_catalysts(
         )
     except Exception as exc:
         print(f"WARNING: optional AI catalyst ranker unavailable; using deterministic order: {exc}")
-        return market_catalysts
+        return catalyst_ranker.with_ranker_outcome(
+            market_catalysts,
+            {'status': 'fallback', 'model': model_id, 'reason': f'ranker setup failed: {type(exc).__name__}: {exc}'[:300]},
+        )
 
 
 def pick_first_present(payload: Dict[str, Any], keys: list[str], default: Any) -> Any:
@@ -613,6 +620,10 @@ def build_market_pulse_input(
             'completeness': completeness,
             'source_file': 'daily-news/market_catalysts.json',
         }
+        if isinstance(catalyst_meta.get('ranker_outcome'), dict):
+            catalysts_block['ranker_outcome'] = catalyst_meta['ranker_outcome']
+        if 'stale_demoted_count' in catalyst_meta:
+            catalysts_block['stale_demoted_count'] = catalyst_meta['stale_demoted_count']
         if not completeness['is_valid']:
             for err in completeness['errors']:
                 validation['blocking_failures'].append(f'catalysts: {err}')
@@ -1621,7 +1632,11 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
             sector_leaders=(combined.get('data', {}).get('writer_ready') or {}).get('sector_leaders'),
             sector_laggards=(combined.get('data', {}).get('writer_ready') or {}).get('sector_laggards'),
         )
+        market_catalysts = catalyst_ranker.demote_stale_catalysts(market_catalysts)
         market_catalysts = maybe_ai_rerank_market_catalysts(market_catalysts, combined)
+        outcome = (market_catalysts.get('metadata') or {}).get('ranker_outcome') or {}
+        if outcome.get('status') != 'ai':
+            print(f"WARNING: catalyst ranker {outcome.get('status', 'unknown')}: {outcome.get('reason')}")
         combined['data']['market_catalysts'] = market_catalysts
         combined['metadata']['data_sources'].append({
             'category': 'market_catalysts',

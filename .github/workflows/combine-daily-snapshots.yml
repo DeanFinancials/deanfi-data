@@ -37,6 +37,43 @@ jobs:
           cd dailycombined
           python combine_daily_snapshots.py
           echo "✅ Daily snapshots combined"
+
+      # The catalyst ranker falls back to deterministic order silently; surface what happened.
+      - name: Summarize catalyst ranking and input warnings
+        if: always()
+        continue-on-error: true
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+
+          path = Path('dailycombined/market_pulse_input.json')
+          if not path.exists():
+              print('## Market Pulse input\n\nmarket_pulse_input.json was not written.')
+              raise SystemExit(0)
+          data = json.loads(path.read_text())
+          catalysts = data.get('catalysts') or {}
+          outcome = catalysts.get('ranker_outcome') or {}
+          print(f"## Market Pulse input: {(data.get('metadata') or {}).get('market_date')}")
+          print()
+          print(f"- Catalyst ranking method: **{catalysts.get('ranking_method', 'n/a')}**")
+          print(f"- Ranker: {outcome.get('status', 'n/a')} (model {outcome.get('model', 'n/a')})"
+                + (f" — {outcome['reason']}" if outcome.get('reason') else ''))
+          if 'candidates_sent' in outcome:
+              print(f"- Candidates sent to ranker: {outcome['candidates_sent']}; stale excluded: {outcome.get('stale_excluded', 0)}")
+          print(f"- Stale catalysts demoted: {catalysts.get('stale_demoted_count', 'n/a')}")
+          print(f"- Catalyst status: {catalysts.get('status', 'n/a')}")
+          for name, module in (data.get('optional_context') or {}).items():
+              reason = f" ({module.get('reason')})" if isinstance(module, dict) and module.get('reason') else ''
+              print(f"- optional_context.{name}: {(module or {}).get('status', 'n/a')}{reason}")
+          for warning in (data.get('validation') or {}).get('warnings') or []:
+              print(f"- ⚠️ {warning}")
+          PY
+          if python3 -c "import json,sys; o=(json.load(open('dailycombined/market_pulse_input.json')).get('catalysts') or {}).get('ranker_outcome') or {}; sys.exit(0 if o.get('status') in (None, 'ai') else 1)" 2>/dev/null; then
+            :
+          else
+            echo "::warning title=Catalyst ranker did not run::Catalysts kept the deterministic order; see the job summary for the reason."
+          fi
       
       - name: Verify output file exists
         run: |
