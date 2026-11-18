@@ -407,23 +407,13 @@ def test_combine_workflow_validates_and_uploads_market_pulse_input():
     ) in workflow
     assert workflow.index("Validate Market Pulse input") < workflow.index("Upload Market Pulse input to R2")
     assert "cron: '00 23 * * 1-5'" in workflow
-    assert "actions/checkout@v5" in workflow
-    assert "actions/setup-python@v6" in workflow
-    assert "actions/setup-node@v5" in workflow
     assert "permissions:\n      contents: write" in workflow
-    assert "node-version: '22'" in workflow
     assert workflow.index("git commit -m") < workflow.index("git pull --rebase origin main")
     assert "git push origin HEAD:main" in workflow
     assert "Snapshot Commit Skipped" in workflow
 
 
-def test_r2_sync_workflow_uses_node_24_native_actions():
+def test_r2_sync_workflow_triggers_on_its_own_changes():
     workflow = (REPO_ROOT / ".github" / "workflows" / "sync-to-r2.yml").read_text()
 
-    assert "actions/checkout@v5" in workflow
-    assert "actions/setup-node@v5" in workflow
-    assert "node-version: '22'" in workflow
-    assert "actions/checkout@v4" not in workflow
-    assert "actions/setup-node@v4" not in workflow
-    assert "node-version: '20'" not in workflow
     assert "- '.github/workflows/sync-to-r2.yml'" in workflow

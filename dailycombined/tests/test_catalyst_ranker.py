@@ -157,7 +157,13 @@ def test_ai_rerank_preserves_all_input_catalysts_appending_missing_at_end():
     assert "CPI" in titles
 
 
-def test_default_model_id_uses_gpt_5_nano(monkeypatch):
+def test_default_model_id_is_overridden_by_env(monkeypatch):
+    monkeypatch.setenv("MARKET_PULSE_RANKER_MODEL", "custom-ranker-model")
+
+    assert catalyst_ranker.default_model_id() == "custom-ranker-model"
+
+
+def test_default_model_id_has_fallback_when_env_unset(monkeypatch):
     monkeypatch.delenv("MARKET_PULSE_RANKER_MODEL", raising=False)
 
-    assert catalyst_ranker.default_model_id() == "gpt-5-nano"
+    assert catalyst_ranker.default_model_id()

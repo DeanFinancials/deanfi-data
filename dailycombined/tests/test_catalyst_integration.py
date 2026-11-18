@@ -178,7 +178,7 @@ def test_optional_ai_ranker_reorders_loaded_catalysts_when_configured(tmp_path, 
             pass
 
         def rank(self, *, model, messages, response_format):
-            assert model == "gpt-5-nano"
+            assert model == "test-ranker-model"
             assert "Major indexes" in messages[1]["content"] or "Daily market snapshot" in messages[1]["content"]
             assert response_format["type"] == "json_schema"
             return {
@@ -192,7 +192,7 @@ def test_optional_ai_ranker_reorders_loaded_catalysts_when_configured(tmp_path, 
     monkeypatch.setattr(combine_daily_snapshots.catalyst_ranker, "OpenAIRankerClient", FakeRankerClient)
     monkeypatch.setitem(sys.modules, "openai", types.SimpleNamespace(OpenAI=lambda api_key: object()))
     monkeypatch.setenv("OPENAI_API_KEY", "test-key")
-    monkeypatch.setenv("MARKET_PULSE_RANKER_MODEL", "gpt-5-nano")
+    monkeypatch.setenv("MARKET_PULSE_RANKER_MODEL", "test-ranker-model")
 
     combined = combine_daily_snapshots.combine_snapshots(tmp_path)
     pulse = combine_daily_snapshots.build_market_pulse_input(combined)
