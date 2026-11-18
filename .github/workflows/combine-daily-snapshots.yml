@@ -150,6 +150,26 @@ jobs:
             echo "❌ Failed to archive Market Pulse input for $ARCHIVE_MARKET_DATE"
             exit 1
           fi
+
+      # Start the website's Market Pulse run as soon as its input is in R2, instead of
+      # waiting for its fixed cron (which GitHub starts hours late). The website keeps
+      # that cron as a fallback and skips dates that already have an article or open PR.
+      # Requires secret MARKET_PULSE_DISPATCH_TOKEN: a fine-grained PAT scoped to
+      # DeanFinancials/deanfi-website with "Actions: Read and write".
+      - name: Trigger Market Pulse generation
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.MARKET_PULSE_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::notice title=Market Pulse not dispatched::MARKET_PULSE_DISPATCH_TOKEN is not set; the website's scheduled run will pick up this input."
+            exit 0
+          fi
+          if gh workflow run market-pulse-daily.yml --repo DeanFinancials/deanfi-website --ref main; then
+            echo "✅ Dispatched deanfi-website market-pulse-daily.yml" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning title=Market Pulse dispatch failed::The website's scheduled run remains the fallback."
+          fi
       
       - name: Optional - Commit to repository
         if: always()
