@@ -308,10 +308,25 @@ With gzip compression (automatic with most CDNs): typically **~150–350 KB**
 
 ### GitHub Actions Workflow
 - **Location:** `.github/workflows/combine-daily-snapshots.yml`
-- **Schedule:** `38 21 * * 1-5` (4:38pm ET, weekdays only)
-- **Runtime:** ~5-10 seconds
-- **Deployment:** Directly uploads to R2 bucket at `dailycombined/market_snapshot.json`
-- **Optional:** Also commits to repository (with `continue-on-error: true`)
+- **Schedule:** `00 23 * * 1-5` (after the daily-news catalysts run; GitHub often starts it hours late)
+- **Deployment:** Uploads `dailycombined/market_snapshot.json` to R2, validates `dailycombined/market_pulse_input.json`, and only then uploads it (plus `dailycombined/archive/<market_date>/market_pulse_input.json`) and dispatches the website's `market-pulse-daily.yml`
+- **Commit:** Also commits both files to this repository. That commit uses `GITHUB_TOKEN`, so it does not trigger `sync-to-r2.yml`
+
+## Market Pulse Input (`market_pulse_input.json`)
+
+Schema: `dailycombined/market_pulse_input.schema.json`. Besides `core` and `optional_context`, two blocks matter for publishing:
+
+**`catalysts`** (built from `daily-news/market_catalysts.json`):
+- `status`: `ready`, `incomplete`, `load_error`, or `phase_2_pending`
+- `ranked`, `ranking_method` (`deterministic` or `ai`), `official_release_today`, `official_release_kinds`, `completeness`
+- `ranker_outcome` *(when present)*: what the optional AI ranker did, with `model` and `status`: `ai` (model order applied; `ranked_by_model` / `omitted_by_model` counts), `fallback` (deterministic order kept; `reason` says why), or `skipped` (`reason`, e.g. `OPENAI_API_KEY not set`)
+- `stale_demoted_count` *(when present)*: how many stale catalysts were moved to the end of `ranked` (items are demoted, never removed)
+
+**`validation`**:
+- `is_valid` / `blocking_failures`: any blocking failure stops the R2 upload and the website dispatch
+- `warnings`: non-blocking notes that still publish, currently:
+  - implausible major-ETF implied volatility values that were marked missing
+  - `macro release calendar ends YYYY-12-31; add YYYY+1 dates ...` within 60 days of the end of the last year in `catalyst_integration.py`'s macro release calendar. A market date in a year the calendar does not cover is a blocking failure (`macro release calendar stale`), so add the next year's FOMC/BLS/BEA dates when this warning appears
 
 ## Data Freshness
 
