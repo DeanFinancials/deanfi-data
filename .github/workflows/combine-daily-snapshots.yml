@@ -2,8 +2,14 @@ name: Combine Daily Snapshots
 
 on:
   schedule:
-    - cron: '00 23 * * 1-5'  # Runs after daily-news catalysts at 22:30 UTC.
+    - cron: '00 23 * * 1-5'  # Fallback; deanfi-collectors daily-news.yml dispatches this after pushing catalysts.
   workflow_dispatch:  # Allow manual trigger
+
+# One combine at a time; a manual run queued behind the cron run waits instead of
+# racing it for the R2 keys and the commit.
+concurrency:
+  group: combine-daily-snapshots
+  cancel-in-progress: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
@@ -22,10 +28,10 @@ jobs:
 
     steps:
       - name: Checkout deanfi-data repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
       
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: '3.11'
 
@@ -97,12 +103,12 @@ jobs:
           fi
       
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444  # v5
         with:
-          node-version: '22'
+          node-version: '24'
       
       - name: Install Wrangler
-        run: npm install -g wrangler
+        run: npm install -g wrangler@4
       
       - name: Upload market snapshot to R2
         run: |
