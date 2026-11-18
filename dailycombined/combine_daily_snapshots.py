@@ -81,6 +81,21 @@ def load_json_file(file_path: Path) -> Optional[Dict[str, Any]]:
         return None
 
 
+def payload_section(payload: Optional[Dict[str, Any]], *keys: str, default: Any = None) -> Any:
+    """Return the first present top-level section of a collector payload.
+
+    Collectors do not share one envelope: some use ``data``, others use
+    ``indices``, ``current`` or a named list. Reading only ``data`` silently
+    produced empty blocks for those files.
+    """
+    if not isinstance(payload, dict):
+        return {} if default is None else default
+    for key in keys:
+        if key in payload and payload[key] is not None:
+            return payload[key]
+    return {} if default is None else default
+
+
 def build_market_summary_for_ranker(combined: Dict[str, Any]) -> str:
     """Build a compact market summary for optional catalyst re-ranking."""
     data = combined.get('data', {}) if isinstance(combined.get('data'), dict) else {}
@@ -483,6 +498,25 @@ def validate_market_pulse_core(core: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def build_spy_close(data: Dict[str, Any], market_date: Optional[str]) -> Optional[Dict[str, Any]]:
+    """SPY close for ``market_date`` from the mean-reversion snapshot, or None.
+
+    Optional context for the technical section: only returned when the
+    snapshot's date matches the market date, so a stale price is never shown.
+    """
+    mean_reversion = data.get('mean_reversion') if isinstance(data.get('mean_reversion'), dict) else {}
+    price_vs_ma = mean_reversion.get('price_vs_ma') if isinstance(mean_reversion.get('price_vs_ma'), dict) else {}
+    spy = price_vs_ma.get('SPY') if isinstance(price_vs_ma.get('SPY'), dict) else {}
+    close = spy.get('current_price')
+    if not market_date or spy.get('date') != market_date or not is_number(close):
+        return None
+    return {
+        'date': market_date,
+        'close': round(float(close), 2),
+        'source': 'meanreversion/price_vs_ma_snapshot.json',
+    }
+
+
 def build_market_pulse_input(
     combined: Dict[str, Any],
     *,
@@ -533,6 +567,10 @@ def build_market_pulse_input(
     validation = validate_market_pulse_core(core)
 
     market_date = metadata.get('market_date') or metadata.get('date')
+
+    spy_close = build_spy_close(data, market_date)
+    if spy_close:
+        core['spy_close'] = spy_close
 
     if catalyst_load_error is not None:
         # File exists but is corrupted — block publication. This must not
@@ -734,7 +772,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     ma_spreads = load_json_file(data_dir / 'meanreversion' / 'ma_spreads_snapshot.json')
     if ma_spreads:
-        mean_reversion_data['ma_spreads'] = ma_spreads.get('data', {})
+        mean_reversion_data['ma_spreads'] = payload_section(ma_spreads, 'data', 'indices')
         combined['metadata']['data_sources'].append({
             'category': 'mean_reversion_ma_spreads',
             'source': 'meanreversion/ma_spreads_snapshot.json',
@@ -744,7 +782,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     price_vs_ma = load_json_file(data_dir / 'meanreversion' / 'price_vs_ma_snapshot.json')
     if price_vs_ma:
-        mean_reversion_data['price_vs_ma'] = price_vs_ma.get('data', {})
+        mean_reversion_data['price_vs_ma'] = payload_section(price_vs_ma, 'data', 'indices')
         combined['metadata']['data_sources'].append({
             'category': 'mean_reversion_price_vs_ma',
             'source': 'meanreversion/price_vs_ma_snapshot.json',
@@ -981,7 +1019,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     growth_output = load_json_file(data_dir / 'economy-breadth' / 'growth_output.json')
     if growth_output:
-        economy_data['growth_output'] = growth_output.get('data', {})
+        economy_data['growth_output'] = payload_section(growth_output, 'data', 'current')
         combined['metadata']['data_sources'].append({
             'category': 'economy_growth',
             'source': 'economy-breadth/growth_output.json',
@@ -991,7 +1029,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     inflation_prices = load_json_file(data_dir / 'economy-breadth' / 'inflation_prices.json')
     if inflation_prices:
-        economy_data['inflation_prices'] = inflation_prices.get('data', {})
+        economy_data['inflation_prices'] = payload_section(inflation_prices, 'data', 'current')
         combined['metadata']['data_sources'].append({
             'category': 'economy_inflation',
             'source': 'economy-breadth/inflation_prices.json',
@@ -1001,7 +1039,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     labor_employment = load_json_file(data_dir / 'economy-breadth' / 'labor_employment.json')
     if labor_employment:
-        economy_data['labor_employment'] = labor_employment.get('data', {})
+        economy_data['labor_employment'] = payload_section(labor_employment, 'data', 'current')
         combined['metadata']['data_sources'].append({
             'category': 'economy_labor',
             'source': 'economy-breadth/labor_employment.json',
@@ -1011,7 +1049,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     money_markets = load_json_file(data_dir / 'economy-breadth' / 'money_markets.json')
     if money_markets:
-        economy_data['money_markets'] = money_markets.get('data', {})
+        economy_data['money_markets'] = payload_section(money_markets, 'data', 'current')
         combined['metadata']['data_sources'].append({
             'category': 'economy_money_markets',
             'source': 'economy-breadth/money_markets.json',
@@ -1169,7 +1207,7 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     earnings_calendar = load_json_file(data_dir / 'earnings-calendar' / 'earnings_calendar.json')
     if earnings_calendar:
-        weekly_data['earnings_calendar'] = earnings_calendar.get('data', {})
+        weekly_data['earnings_calendar'] = payload_section(earnings_calendar, 'data', 'earnings_calendar', default=[])
         combined['metadata']['data_sources'].append({
             'category': 'weekly_earnings_calendar',
             'source': 'earnings-calendar/earnings_calendar.json',

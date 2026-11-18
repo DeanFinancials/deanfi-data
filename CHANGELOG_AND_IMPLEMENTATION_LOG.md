@@ -79,6 +79,25 @@ Downstream consumers (website + Market Pulse workflow) should not have to revers
 ### Rationale
 Supports Friday / end-of-week Market Pulse writeups while keeping existing 3-session keys for backward compatibility.
 
+---
+
+## [2026-11-18] - Combined Snapshot Reads Every Collector Envelope + SPY Close
+
+### Fixed
+- `dailycombined/combine_daily_snapshots.py` read only the `data` key from every source file, so files with a different envelope loaded as empty blocks. A new `payload_section()` helper now reads the right key:
+  - `economy-breadth/*.json` → `current` (history is still excluded)
+  - `earnings-calendar/earnings_calendar.json` → `earnings_calendar`
+  - `meanreversion/ma_spreads_snapshot.json`, `meanreversion/price_vs_ma_snapshot.json` → `indices`
+- `daily-news/top_news.json` (`articles`) and `daily-news/sector_news.json` (`sectors`) have the same mismatch but do not feed Market Pulse and are unchanged.
+
+### Added
+- `market_pulse_input.json` `core.spy_close` (`date`, `close`, `source`), taken from the mean-reversion snapshot only when its SPY date equals the market date. Optional; not part of the required core fields.
+
+### Rationale
+The Market Pulse article gained earnings, economy, and SPY-close content that depended on these blocks.
+
+---
+
 ## [2025-12-08] - SP500 Growth Data Added
 
 ### Added
@@ -477,3 +496,4 @@ Followed by remote upload successes.
 3. Keep this file historical (what changed and why)
 4. Cross-reference between documents
 5. Update version numbers and dates
+
