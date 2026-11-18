@@ -608,6 +608,11 @@ def build_market_pulse_input(
 
     market_date = metadata.get('market_date') or metadata.get('date')
 
+    calendar_warning = catalyst_integration.calendar_expiry_warning(market_date)
+    if calendar_warning:
+        validation['warnings'].append(calendar_warning)
+        print(f"WARNING: {calendar_warning}")
+
     spy_close = build_spy_close(data, market_date)
     if spy_close:
         core['spy_close'] = spy_close
@@ -937,9 +942,8 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     top_news = load_json_file(data_dir / 'daily-news' / 'top_news.json')
     if top_news:
-        raw_top_news = top_news.get('data', [])
-        if is_empty_value(raw_top_news):
-            raw_top_news = top_news.get('articles', [])
+        # The collector's envelope is `articles`; `data` is a legacy fallback.
+        raw_top_news = payload_section(top_news, 'articles', 'data', default=[])
 
         news_data['top_news'] = raw_top_news
         combined['metadata']['data_sources'].append({
@@ -967,9 +971,8 @@ def combine_snapshots(data_dir: Path) -> Dict[str, Any]:
     
     sector_news = load_json_file(data_dir / 'daily-news' / 'sector_news.json')
     if sector_news:
-        raw_sector_news = sector_news.get('data', {})
-        if is_empty_value(raw_sector_news):
-            raw_sector_news = sector_news.get('sectors', {})
+        # The collector's envelope is `sectors`; `data` is a legacy fallback.
+        raw_sector_news = payload_section(sector_news, 'sectors', 'data', default={})
 
         news_data['sector_news'] = raw_sector_news
         combined['metadata']['data_sources'].append({

@@ -12,97 +12,104 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 from pathlib import Path
 from typing import Iterable
 
 
 # Phase 2 macro/policy release calendar (US, America/New_York).
-# Keep deliberately small + auditable. Sources: FOMC schedule, BLS / BEA
-# release calendars. Update annually.
+# Keep deliberately small + auditable. Update annually (a validation warning
+# fires within CALENDAR_EXPIRY_WARNING_DAYS of the last covered year's end).
 #
 # Covers: FOMC decision days, BLS Employment Situation (NFP), BLS CPI, BLS
 # PPI, BEA GDP, and BEA Personal Income & Outlays (PCE) — the six release
 # kinds the Phase 2 runbook commits to enforcing official-source coverage
-# for. Schedule based on BLS / BEA published 2026 release calendars.
-MACRO_RELEASE_CALENDAR_2026: tuple[dict, ...] = (
-    # FOMC meeting decision days (statement at 2pm ET).
-    {"date": "2026-01-28", "kind": "FOMC"},
-    {"date": "2026-03-18", "kind": "FOMC"},
-    {"date": "2026-04-29", "kind": "FOMC"},
-    {"date": "2026-06-17", "kind": "FOMC"},
-    {"date": "2026-07-29", "kind": "FOMC"},
-    {"date": "2026-09-16", "kind": "FOMC"},
-    {"date": "2026-10-28", "kind": "FOMC"},
-    {"date": "2026-12-09", "kind": "FOMC"},
-    # BLS Employment Situation (first-Friday cadence).
-    {"date": "2026-01-09", "kind": "NFP"},
-    {"date": "2026-02-06", "kind": "NFP"},
-    {"date": "2026-03-06", "kind": "NFP"},
-    {"date": "2026-04-03", "kind": "NFP"},
-    {"date": "2026-05-08", "kind": "NFP"},
-    {"date": "2026-06-05", "kind": "NFP"},
-    {"date": "2026-07-02", "kind": "NFP"},
-    {"date": "2026-08-07", "kind": "NFP"},
-    {"date": "2026-09-04", "kind": "NFP"},
-    {"date": "2026-10-02", "kind": "NFP"},
-    {"date": "2026-11-06", "kind": "NFP"},
-    {"date": "2026-12-04", "kind": "NFP"},
-    # BLS CPI (mid-month).
-    {"date": "2026-01-13", "kind": "CPI"},
-    {"date": "2026-02-11", "kind": "CPI"},
-    {"date": "2026-03-12", "kind": "CPI"},
-    {"date": "2026-04-14", "kind": "CPI"},
-    {"date": "2026-05-13", "kind": "CPI"},
-    {"date": "2026-06-10", "kind": "CPI"},
-    {"date": "2026-07-15", "kind": "CPI"},
-    {"date": "2026-08-12", "kind": "CPI"},
-    {"date": "2026-09-10", "kind": "CPI"},
-    {"date": "2026-10-15", "kind": "CPI"},
-    {"date": "2026-11-13", "kind": "CPI"},
-    {"date": "2026-12-10", "kind": "CPI"},
-    # BLS PPI (typically one business day after CPI).
-    {"date": "2026-01-14", "kind": "PPI"},
-    {"date": "2026-02-12", "kind": "PPI"},
-    {"date": "2026-03-13", "kind": "PPI"},
-    {"date": "2026-04-15", "kind": "PPI"},
-    {"date": "2026-05-14", "kind": "PPI"},
-    {"date": "2026-06-11", "kind": "PPI"},
-    {"date": "2026-07-16", "kind": "PPI"},
-    {"date": "2026-08-13", "kind": "PPI"},
-    {"date": "2026-09-11", "kind": "PPI"},
-    {"date": "2026-10-16", "kind": "PPI"},
-    {"date": "2026-11-16", "kind": "PPI"},
-    {"date": "2026-12-11", "kind": "PPI"},
-    # BEA GDP (advance/second/third estimates, monthly cadence).
-    {"date": "2026-01-29", "kind": "GDP"},
-    {"date": "2026-02-26", "kind": "GDP"},
-    {"date": "2026-03-26", "kind": "GDP"},
-    {"date": "2026-04-29", "kind": "GDP"},
-    {"date": "2026-05-28", "kind": "GDP"},
-    {"date": "2026-06-25", "kind": "GDP"},
-    {"date": "2026-07-30", "kind": "GDP"},
-    {"date": "2026-08-27", "kind": "GDP"},
-    {"date": "2026-09-24", "kind": "GDP"},
-    {"date": "2026-10-29", "kind": "GDP"},
-    {"date": "2026-11-25", "kind": "GDP"},
-    {"date": "2026-12-22", "kind": "GDP"},
-    # BEA Personal Income & Outlays / PCE.
-    {"date": "2026-01-30", "kind": "PCE"},
-    {"date": "2026-02-27", "kind": "PCE"},
-    {"date": "2026-03-27", "kind": "PCE"},
-    {"date": "2026-04-30", "kind": "PCE"},
-    {"date": "2026-05-29", "kind": "PCE"},
-    {"date": "2026-06-26", "kind": "PCE"},
-    {"date": "2026-07-31", "kind": "PCE"},
-    {"date": "2026-08-28", "kind": "PCE"},
-    {"date": "2026-09-25", "kind": "PCE"},
-    {"date": "2026-10-30", "kind": "PCE"},
-    {"date": "2026-11-25", "kind": "PCE"},
-    {"date": "2026-12-23", "kind": "PCE"},
+# for.
+#
+# Sources (fetched 2026-11-18):
+# - FOMC: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+#   (page last updated 2026-11-12). The 2027 dates are TENTATIVE: the Fed
+#   confirms each one at the preceding meeting, so re-check them during 2027.
+# - BLS: https://www.bls.gov/schedule/2026/home.htm,
+#   https://www.bls.gov/schedule/2027/home.htm and
+#   https://www.bls.gov/schedule/news_release/{empsit,cpi,ppi}.htm
+# - BEA: https://www.bea.gov/news/schedule/full (2026) and
+#   https://www.bea.gov/news/schedule/next-year (2027, modified 2026-11-18).
+#   GDP and Personal Income & Outlays (PCE) are released on the same day.
+#   2026-01-22 is the updated Q3 2025 GDP estimate.
+_RELEASE_DATES_BY_YEAR: dict[str, dict[str, tuple[str, ...]]] = {
+    "2026": {
+        # FOMC decision days (statement at 2pm ET).
+        "FOMC": ("01-28", "03-18", "04-29", "06-17", "07-29", "09-16", "10-28", "12-09"),
+        "NFP": ("01-09", "02-11", "03-06", "04-03", "05-08", "06-05", "07-02", "08-07",
+                "09-04", "10-02", "11-06", "12-04"),
+        "CPI": ("01-13", "02-13", "03-11", "04-10", "05-12", "06-10", "07-14", "08-12",
+                "09-11", "10-14", "11-10", "12-10"),
+        "PPI": ("01-14", "01-30", "02-27", "03-18", "04-14", "05-13", "06-11", "07-15",
+                "08-13", "09-10", "10-15", "11-13", "12-15"),
+        "GDP": ("01-22", "02-20", "03-13", "04-09", "04-30", "05-28", "06-25", "07-30",
+                "08-26", "09-30", "10-29", "11-25", "12-23"),
+        "PCE": ("01-22", "02-20", "03-13", "04-09", "04-30", "05-28", "06-25", "07-30",
+                "08-26", "09-30", "10-29", "11-25", "12-23"),
+    },
+    "2027": {
+        # FOMC 2027 dates are tentative until confirmed at the preceding meeting.
+        "FOMC": ("01-27", "03-17", "04-28", "06-09", "07-28", "09-15", "10-27", "11-17"),
+        "NFP": ("01-08", "02-05", "03-05", "04-02", "05-07", "06-04", "07-02", "08-06",
+                "09-03", "10-08", "11-05", "12-03"),
+        "CPI": ("01-13", "02-11", "03-10", "04-13", "05-12", "06-10", "07-14", "08-11",
+                "09-14", "10-14", "11-10", "12-10"),
+        "PPI": ("01-14", "02-12", "03-12", "04-14", "05-13", "06-11", "07-15", "08-10",
+                "09-10", "10-15", "11-12", "12-15"),
+        "GDP": ("01-28", "02-25", "03-31", "04-29", "05-27", "06-25", "07-29", "08-25",
+                "09-30", "10-28", "11-24", "12-22"),
+        "PCE": ("01-28", "02-25", "03-31", "04-29", "05-27", "06-25", "07-29", "08-25",
+                "09-30", "10-28", "11-24", "12-22"),
+    },
+}
+
+MACRO_RELEASE_CALENDAR: tuple[dict, ...] = tuple(
+    {"date": f"{year}-{month_day}", "kind": kind}
+    for year, kinds in _RELEASE_DATES_BY_YEAR.items()
+    for kind, dates in kinds.items()
+    for month_day in dates
 )
 
-_RELEASE_DATES = {entry["date"] for entry in MACRO_RELEASE_CALENDAR_2026}
-_CALENDAR_YEARS = {entry["date"][:4] for entry in MACRO_RELEASE_CALENDAR_2026}
+# Backward-compatible name for callers/tests that predate the multi-year calendar.
+MACRO_RELEASE_CALENDAR_2026: tuple[dict, ...] = tuple(
+    entry for entry in MACRO_RELEASE_CALENDAR if entry["date"].startswith("2026-")
+)
+
+_RELEASE_DATES = {entry["date"] for entry in MACRO_RELEASE_CALENDAR}
+_CALENDAR_YEARS = {entry["date"][:4] for entry in MACRO_RELEASE_CALENDAR}
+
+# Warn (non-blocking) this many days before the calendar's last covered year ends.
+CALENDAR_EXPIRY_WARNING_DAYS = 60
+
+
+def calendar_expiry_warning(market_date: str | None) -> str | None:
+    """Return a non-blocking warning when the calendar is about to run out.
+
+    Fires when ``market_date`` is within :data:`CALENDAR_EXPIRY_WARNING_DAYS`
+    of 31 December of the last covered year. Dates in uncovered years are
+    handled by the blocking :class:`CalendarYearMissing` path instead.
+    """
+    if not market_date:
+        return None
+    try:
+        current = date.fromisoformat(market_date[:10])
+    except ValueError:
+        return None
+    last_year = max(int(year) for year in _CALENDAR_YEARS)
+    if current.year > last_year:
+        return None
+    calendar_end = date(last_year, 12, 31)
+    if (calendar_end - current).days <= CALENDAR_EXPIRY_WARNING_DAYS:
+        return (
+            f"macro release calendar ends {calendar_end.isoformat()}; "
+            f"add {last_year + 1} dates to dailycombined/catalyst_integration.py"
+        )
+    return None
 
 
 class CalendarYearMissing(Exception):
@@ -116,7 +123,7 @@ def is_release_day(market_date: str | None) -> bool:
     the calendar does not cover, so a stale calendar produces a loud,
     publish-blocking failure instead of silently returning False (which would
     let articles publish on real release days without official-source
-    coverage). Update :data:`MACRO_RELEASE_CALENDAR_2026` annually.
+    coverage). Add each new year to :data:`_RELEASE_DATES_BY_YEAR` annually.
     """
     if not market_date:
         return False
@@ -124,8 +131,8 @@ def is_release_day(market_date: str | None) -> bool:
     if year not in _CALENDAR_YEARS:
         raise CalendarYearMissing(
             f"macro release calendar covers {sorted(_CALENDAR_YEARS)}; "
-            f"market_date {market_date!r} is outside that range — update "
-            f"MACRO_RELEASE_CALENDAR_{year}."
+            f"market_date {market_date!r} is outside that range — add "
+            f"{year} release dates to _RELEASE_DATES_BY_YEAR."
         )
     return market_date in _RELEASE_DATES
 
@@ -281,5 +288,5 @@ def required_official_release_today(market_date: str | None) -> dict:
         return {"official_release_today": False, "official_release_kinds": []}
     if not on_release_day:
         return {"official_release_today": False, "official_release_kinds": []}
-    kinds = sorted({entry["kind"] for entry in MACRO_RELEASE_CALENDAR_2026 if entry["date"] == market_date})
+    kinds = sorted({entry["kind"] for entry in MACRO_RELEASE_CALENDAR if entry["date"] == market_date})
     return {"official_release_today": True, "official_release_kinds": kinds}

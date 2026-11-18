@@ -390,3 +390,95 @@ def test_build_market_pulse_input_propagates_catalyst_blocking_failure():
     pulse_input = combine_daily_snapshots.build_market_pulse_input(combined, catalysts=catalysts)
     assert pulse_input["validation"]["is_valid"] is False
     assert any("catalysts" in err.lower() for err in pulse_input["validation"]["blocking_failures"])
+
+
+def _three_unofficial_catalysts():
+    return {
+        "metadata": {"weekly_mode": False, "expected_min_catalysts": 3},
+        "ranked": [
+            _ranked_catalyst(source="Bloomberg", source_tier="premium",
+                             url="https://www.bloomberg.com/x", title="market recap"),
+            _ranked_catalyst(source="CNBC", source_tier="premium",
+                             url="https://www.cnbc.com/y", title="sector watch"),
+            _ranked_catalyst(source="SeekingAlpha", source_tier="standard",
+                             url="https://seekingalpha.com/z", title="stock watch"),
+        ],
+    }
+
+
+def test_calendar_covers_next_year_release_days():
+    # 2027 CPI (BLS) and FOMC (tentative) dates are release days.
+    assert catalyst_integration.is_release_day("2027-01-13") is True
+    assert catalyst_integration.is_release_day("2027-01-27") is True
+    kinds = catalyst_integration.required_official_release_today("2027-01-28")["official_release_kinds"]
+    assert kinds == ["GDP", "PCE"]
+    result = catalyst_integration.validate_completeness(
+        _three_unofficial_catalysts(), market_date="2027-01-13"
+    )
+    assert result["is_valid"] is False
+    assert any("official" in err.lower() for err in result["errors"])
+
+
+def test_calendar_non_release_day_in_next_year_passes():
+    # First 2027 market day: no scheduled release, no calendar-stale error.
+    assert catalyst_integration.is_release_day("2027-01-04") is False
+    result = catalyst_integration.validate_completeness(
+        _three_unofficial_catalysts(), market_date="2027-01-04"
+    )
+    assert result == {"is_valid": True, "errors": []}
+
+
+def test_calendar_2026_dates_match_official_schedules():
+    # Spot-check dates corrected against the BLS/BEA published schedules.
+    assert catalyst_integration.required_official_release_today("2026-11-10")["official_release_kinds"] == ["CPI"]
+    assert catalyst_integration.required_official_release_today("2026-11-13")["official_release_kinds"] == ["PPI"]
+    assert catalyst_integration.required_official_release_today("2026-09-30")["official_release_kinds"] == ["GDP", "PCE"]
+    assert catalyst_integration.is_release_day("2026-11-16") is False
+
+
+def test_calendar_expiry_warning_only_near_end_of_last_covered_year():
+    last_year = max(int(e["date"][:4]) for e in catalyst_integration.MACRO_RELEASE_CALENDAR)
+    near_end = f"{last_year}-11-20"
+    warning = catalyst_integration.calendar_expiry_warning(near_end)
+    assert warning is not None
+    assert f"ends {last_year}-12-31" in warning
+    assert str(last_year + 1) in warning
+    assert catalyst_integration.calendar_expiry_warning(f"{last_year}-06-01") is None
+    assert catalyst_integration.calendar_expiry_warning(f"{last_year - 1}-12-15") is None
+    assert catalyst_integration.calendar_expiry_warning(None) is None
+
+
+def test_build_market_pulse_input_appends_calendar_warning_without_blocking():
+    last_year = max(int(e["date"][:4]) for e in catalyst_integration.MACRO_RELEASE_CALENDAR)
+    market_date = f"{last_year}-12-20"
+    combined = {
+        "metadata": {"market_date": market_date, "generated_at": f"{market_date}T21:20:00Z",
+                     "timezone": "America/New_York", "data_sources": []},
+        "data": {"writer_ready": {}},
+    }
+    catalysts = {
+        "metadata": {"weekly_mode": False, "expected_min_catalysts": 3, "market_date": market_date},
+        "ranked": [
+            _ranked_catalyst(title="FOMC", url="https://www.federalreserve.gov/a"),
+            _ranked_catalyst(title="CPI", source="BLS", url="https://www.bls.gov/cpi"),
+            _ranked_catalyst(title="recap", source="Bloomberg", url="https://www.bloomberg.com/r",
+                             source_tier="premium"),
+        ],
+    }
+    pulse_input = combine_daily_snapshots.build_market_pulse_input(combined, catalysts=catalysts)
+    warnings = pulse_input["validation"]["warnings"]
+    assert any("macro release calendar ends" in w for w in warnings)
+    assert pulse_input["catalysts"]["status"] == "ready"
+    assert not any("calendar" in f for f in pulse_input["validation"]["blocking_failures"])
+
+
+def test_missing_calendar_year_still_blocks_build():
+    combined = {
+        "metadata": {"market_date": "2099-05-15", "generated_at": "2099-05-15T21:20:00Z",
+                     "timezone": "America/New_York", "data_sources": []},
+        "data": {"writer_ready": {}},
+    }
+    catalysts = {"metadata": {"expected_min_catalysts": 1}, "ranked": [_ranked_catalyst()]}
+    pulse_input = combine_daily_snapshots.build_market_pulse_input(combined, catalysts=catalysts)
+    assert pulse_input["validation"]["is_valid"] is False
+    assert any("calendar stale" in f for f in pulse_input["validation"]["blocking_failures"])

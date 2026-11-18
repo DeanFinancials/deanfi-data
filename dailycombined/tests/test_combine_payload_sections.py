@@ -69,3 +69,35 @@ def test_build_spy_close_requires_matching_market_date():
     }
     assert combine_daily_snapshots.build_spy_close(data, "2026-11-18") is None
     assert combine_daily_snapshots.build_spy_close({}, "2026-11-17") is None
+
+
+def test_combine_reads_news_envelopes_articles_and_sectors(tmp_path):
+    _write(
+        tmp_path / "daily-news" / "top_news.json",
+        {"metadata": {"generated_at": "2026-11-18T03:40:00+00:00"},
+         "articles": [{"headline": "Wall Street ends lower", "source": "Reuters", "url": "https://a.test"}]},
+    )
+    _write(
+        tmp_path / "daily-news" / "sector_news.json",
+        {"metadata": {"generated_at": "2026-11-18T03:40:00+00:00"},
+         "sectors": {"XLK": {"sector_name": "Technology",
+                             "articles": [{"headline": "Nvidia earnings", "url": "https://b.test"}]}}},
+    )
+
+    news = combine_daily_snapshots.combine_snapshots(tmp_path)["data"]["news"]
+
+    assert news["top_news"][0]["headline"] == "Wall Street ends lower"
+    assert news["normalized"]["top_news"][0]["title"] == "Wall Street ends lower"
+    assert news["normalized"]["sector_news"]["XLK"]["articles"][0]["title"] == "Nvidia earnings"
+
+
+def test_combine_news_falls_back_to_legacy_data_envelope(tmp_path):
+    _write(
+        tmp_path / "daily-news" / "top_news.json",
+        {"metadata": {"generated_at": "2026-11-18T03:40:00+00:00"},
+         "data": [{"headline": "Legacy", "url": "https://c.test"}]},
+    )
+
+    news = combine_daily_snapshots.combine_snapshots(tmp_path)["data"]["news"]
+
+    assert news["top_news"][0]["headline"] == "Legacy"
