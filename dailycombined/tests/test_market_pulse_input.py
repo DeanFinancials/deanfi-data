@@ -447,3 +447,36 @@ def test_market_pulse_input_exposes_ranker_outcome_on_catalysts_block():
     assert package["catalysts"]["ranker_outcome"] == {"status": "fallback", "reason": "boom"}
     assert package["catalysts"]["stale_demoted_count"] == 0
 
+
+def test_sanitize_major_etf_iv_marks_placeholder_values_missing():
+    rows = [
+        {'symbol': 'SPY', 'average_iv': 0.226814, 'average_iv_formatted': '22.68%', 'iv_level': 'Normal'},
+        {'symbol': 'DIA', 'average_iv': 0.000498, 'average_iv_formatted': '0.05%', 'iv_level': 'Low'},
+        {'symbol': 'IWM', 'average_iv': None, 'average_iv_formatted': None, 'iv_level': None},
+    ]
+
+    cleaned, warnings = combine_daily_snapshots.sanitize_major_etf_iv(rows)
+
+    assert [row['symbol'] for row in cleaned] == ['SPY', 'DIA', 'IWM']
+    assert cleaned[0] == rows[0]
+    assert cleaned[1]['average_iv'] is None
+    assert cleaned[1]['average_iv_formatted'] is None
+    assert cleaned[1]['iv_quality'] == 'implausible'
+    assert len(warnings) == 1 and 'DIA' in warnings[0]
+
+
+def test_market_pulse_input_reports_implausible_iv_as_warning_not_failure():
+    combined = {
+        'metadata': {'market_date': '2026-11-18'},
+        'data': {'writer_ready': {'volatility_summary': {'major_index_iv': [
+            {'symbol': 'SPY', 'average_iv': 0.23},
+            {'symbol': 'DIA', 'average_iv': 0.000498},
+        ]}}},
+    }
+
+    package = combine_daily_snapshots.build_market_pulse_input(combined)
+
+    iv = package['core']['major_etf_implied_volatility']
+    assert iv[1]['average_iv'] is None
+    assert any('DIA' in w for w in package['validation']['warnings'])
+    assert not any('implied_volatility' in f for f in package['validation']['blocking_failures'])

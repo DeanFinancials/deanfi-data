@@ -480,6 +480,35 @@ def fill_major_index_closes_from_lookback(rows: Any, lookback: Any) -> list[Dict
     return filled
 
 
+# Index-ETF implied volatility outside this range is a data error (Yahoo returns
+# placeholder IVs such as 1e-05 for contracts with no live quote), not a reading.
+PLAUSIBLE_ETF_IV_RANGE = (0.01, 3.0)
+
+
+def sanitize_major_etf_iv(rows: Any) -> tuple[list[Dict[str, Any]], list[str]]:
+    """Mark implausible ETF IV rows as missing instead of publishing them.
+
+    Rows are kept (the renderer shows a dash for a missing value) so the
+    required core array never empties; each change is reported as a warning.
+    """
+    cleaned: list[Dict[str, Any]] = []
+    warnings: list[str] = []
+    low, high = PLAUSIBLE_ETF_IV_RANGE
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        value = row.get('average_iv')
+        if value is None or (is_number(value) and low <= float(value) <= high):
+            cleaned.append(row)
+            continue
+        cleaned.append({**row, 'average_iv': None, 'average_iv_formatted': None, 'iv_level': None, 'iv_quality': 'implausible'})
+        warnings.append(
+            f"core.major_etf_implied_volatility {row.get('symbol', '?')}: average_iv {value!r} "
+            f"is outside the plausible range {low}-{high}; marked missing"
+        )
+    return cleaned, warnings
+
+
 def validate_market_pulse_core(core: Dict[str, Any]) -> Dict[str, Any]:
     failures = []
     field_status: Dict[str, str] = {}
@@ -567,11 +596,15 @@ def build_market_pulse_input(
         'sector_laggards': writer_ready.get('sector_laggards') or [],
         'vix': volatility.get('vix') if isinstance(volatility.get('vix'), dict) else {},
         'five_session_vix_lookback': writer_ready.get('vix_table_5day') or {},
-        'major_etf_implied_volatility': volatility.get('major_index_iv') or [],
+        'major_etf_implied_volatility': [],
         'spy_technical_levels': spy_levels,
         'five_session_spy_sma': writer_ready.get('spy_sma_table_5day') or {},
     }
+    core['major_etf_implied_volatility'], iv_warnings = sanitize_major_etf_iv(volatility.get('major_index_iv') or [])
     validation = validate_market_pulse_core(core)
+    validation['warnings'] = list(iv_warnings)
+    for warning in iv_warnings:
+        print(f"WARNING: {warning}")
 
     market_date = metadata.get('market_date') or metadata.get('date')
 
