@@ -54,7 +54,7 @@ console.log(snapshot.data.support_resistence); // Pivot points + SMAs (support/r
 
 **Includes:** Market breadth, major indexes, mean reversion, implied volatility, news, economy data, and weekly earnings data. Updated daily at 4:38pm ET.
 
-See [`dailycombined/README.md`](dailycombined/README.md) for full documentation.
+See [`dailycombined/README.md`](dailycombined/README.md) for full documentation, including the Market Pulse input's `catalysts.ranker_outcome`, `catalysts.stale_demoted_count` and `validation.warnings` (e.g. the macro release calendar expiry warning).
 
 ---
 
@@ -331,11 +331,12 @@ cat daily-news/top_news.json
 
 The R2 sync workflow (`.github/workflows/sync-to-r2.yml`) intelligently uploads only changed files:
 
-- **Trigger**: On push to `main` when `*.json` files change
-- **Detection**: Uses `git diff` to identify modified files
+- **Trigger**: On push to `main` when `*.json` files change (no cron; see below)
+- **Detection**: Uses `git diff` across the whole push (`github.event.before..github.sha`), falling back to the last commit when the before SHA is unavailable; `cache/` is excluded
 - **Upload**: Only syncs files that actually changed (not entire directory)
 - **Efficiency**: Reduces upload time and R2 write operations
 - **Fallback**: Manual trigger available for full sync if needed
+- **Combine outputs**: `combine-daily-snapshots.yml` commits with `GITHUB_TOKEN`, which does not trigger this workflow, so it uploads `dailycombined/market_snapshot.json`, `dailycombined/market_pulse_input.json` (only after validation) and `dailycombined/archive/<market_date>/market_pulse_input.json` to R2 itself
 
 ### Cloudflare R2 Authentication (Important)
 

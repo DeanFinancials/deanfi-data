@@ -110,8 +110,8 @@ All JSON files follow a consistent structure:
 
 ### sync-to-r2.yml
 
-**Trigger**: On push to `main` branch when `*.json` files change  
-**Purpose**: Upload only changed JSON files to Cloudflare R2 bucket  
+**Trigger**: On push to `main` branch when `*.json` files change (no schedule; `combine-daily-snapshots.yml` uploads its own outputs)  
+**Purpose**: Upload the JSON files changed across the whole push (`before..sha`) to Cloudflare R2 bucket  
 **Concurrency**: Single sync at a time to prevent conflicts
 
 **Required Secrets** (Organization or Repository level):

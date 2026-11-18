@@ -1,8 +1,9 @@
 name: Sync to Cloudflare R2
 
+# No schedule trigger: combine-daily-snapshots.yml uploads its own outputs to R2
+# (market_pulse_input.json only after validation). A cron here only re-uploaded
+# combine's commit, including inputs that had failed validation.
 on:
-  schedule:
-    - cron: '15 23 * * 1-5'  # 23:15 UTC — runs after combine-daily-snapshots (23:00 UTC) finishes
   push:
     branches:
       - main
@@ -13,6 +14,9 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+permissions:
+  contents: read
 
 jobs:
   sync-to-r2:
@@ -27,9 +31,9 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
         with:
-          fetch-depth: 2  # Need 2 commits to detect changes
+          fetch-depth: 2  # HEAD^ fallback; the push's before SHA is fetched on demand below
       
       - name: Detect changed JSON files
         id: changes
@@ -40,8 +44,25 @@ jobs:
             echo "Manual trigger - syncing all JSON files (excluding cache/)"
             find . -name "*.json" -not -path "./.git/*" -not -path "./cache/*" > changed_files.txt
           else
-            # Auto trigger: only sync changed files (except cache)
-            git diff --name-only HEAD^ HEAD | grep '\.json$' | grep -v '^cache/' > changed_files.txt || true
+            # Push trigger: sync every JSON file changed across the whole push
+            # (before..after), not just the last commit, so multi-commit pushes
+            # don't skip files. Fall back to HEAD^..HEAD when the before SHA is
+            # missing, all zeros (new branch) or unreachable (force push).
+            # Only the before commit is fetched (depth 1): a tree diff needs no
+            # history, and the full data-repo history is several GB.
+            BEFORE="${{ github.event.before }}"
+            AFTER="${{ github.sha }}"
+            if [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$' \
+              && { git cat-file -e "${BEFORE}^{commit}" 2>/dev/null \
+                   || git fetch --no-tags --depth=1 origin "$BEFORE"; } \
+              && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+              echo "Diffing push range $BEFORE..$AFTER"
+              RANGE="$BEFORE $AFTER"
+            else
+              echo "Push before SHA unavailable ('$BEFORE') - diffing HEAD^..HEAD"
+              RANGE="HEAD^ HEAD"
+            fi
+            git diff --name-only --diff-filter=d $RANGE | grep '\.json$' | grep -v '^cache/' > changed_files.txt || true
           fi
           
           # Count files
@@ -58,13 +79,13 @@ jobs:
       
       - name: Setup Node.js
         if: steps.changes.outputs.file_count > 0
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444  # v5
         with:
           node-version: '24'
       
       - name: Install Wrangler
         if: steps.changes.outputs.file_count > 0
-        run: npm install -g wrangler
+        run: npm install -g wrangler@4
       
       - name: Upload changed files to R2
         if: steps.changes.outputs.file_count > 0

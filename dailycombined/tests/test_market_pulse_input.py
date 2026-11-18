@@ -419,6 +419,23 @@ def test_r2_sync_workflow_triggers_on_its_own_changes():
     assert "- '.github/workflows/sync-to-r2.yml'" in workflow
 
 
+def test_r2_sync_workflow_has_no_cron_and_diffs_whole_push():
+    workflow = (REPO_ROOT / ".github" / "workflows" / "sync-to-r2.yml").read_text()
+    on_block = workflow.split("\non:\n", 1)[1].split("\nenv:", 1)[0]
+
+    # combine-daily-snapshots uploads its own outputs (the Market Pulse input
+    # only after validation); a cron re-upload could overwrite the last valid key.
+    assert "schedule:" not in on_block
+    assert "cron:" not in on_block
+    assert "push:" in on_block
+    assert "workflow_dispatch" in on_block
+    assert "${{ github.event.before }}" in workflow
+    assert "${{ github.sha }}" in workflow
+    assert "HEAD^ HEAD" in workflow  # fallback when the before SHA is unusable
+    assert "grep -v '^cache/'" in workflow
+    assert "permissions:\n  contents: read" in workflow
+
+
 def test_maybe_ai_rerank_records_skip_when_api_key_missing():
     payload = {"metadata": {"market_date": "2026-11-17"}, "ranked": [{"url": "https://a.test", "title": "A"}]}
 
