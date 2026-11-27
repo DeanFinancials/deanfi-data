@@ -53,33 +53,33 @@
     "update_schedule": "Daily at Noon ET (mid-market) and 9 PM ET (post-market)"
   },
   "metadata": {
-    "generated_at": "2026-11-27T01:02:23Z",
+    "generated_at": "2026-11-27T10:57:08Z",
     "lookback_start": "2026-11-20",
     "lookback_end": "2026-11-27",
     "trading_days": 5,
     "data_source": "Alpaca Markets Options API",
     "tickers_scanned": 500,
     "tickers_with_whales": 196,
-    "total_whale_trades": 528,
+    "total_whale_trades": 538,
     "sweeps_detected": 21
   },
   "overall_sentiment": {
     "direction": "BULLISH",
-    "call_premium_total": 118984023.0,
-    "put_premium_total": 100451720.0,
-    "call_put_ratio": 1.18,
-    "call_count": 286,
-    "put_count": 242,
-    "total_whale_trades": 528,
-    "net_premium": 18532303.0
+    "call_premium_total": 118776628.0,
+    "put_premium_total": 101677685.0,
+    "call_put_ratio": 1.17,
+    "call_count": 289,
+    "put_count": 249,
+    "total_whale_trades": 538,
+    "net_premium": 17098943.0
   },
   "big_whale_sentiment": {
     "description": "Trades with premium >= $250K",
     "direction": "BULLISH",
-    "call_premium": 98881891.0,
-    "put_premium": 85564843.0,
-    "call_put_ratio": 1.16,
-    "trade_count": 284
+    "call_premium": 98516169.0,
+    "put_premium": 86109778.0,
+    "call_put_ratio": 1.14,
+    "trade_count": 288
   },
   "top_bullish_trades": {
     "description": "Top 10 tickers with largest call trades (one per ticker, bullish bets)",
@@ -148,26 +148,9 @@
         "industry": "Aerospace & Defense",
         "sub_industry": "Aerospace & Defense",
         "total_trades": 8,
-        "additional_above_threshold": 1,
-        "threshold_comparison": 1600152.0,
-        "total_ticker_premium": 10663750.0
-      },
-      {
-        "ticker": "INTC",
-        "contract": "INTC261204C00058000",
-        "strike": 58.0,
-        "expiration": "2026-12-04",
-        "dte": 6,
-        "premium": 1600152.0,
-        "contracts": 6558,
-        "tier": "STRONG WHALE",
-        "sector": "Information Technology",
-        "industry": "Semiconductors & Semiconductor Equipment",
-        "sub_industry": "Semiconductors",
-        "total_trades": 3,
-        "additional_above_threshold": 0,
+        "additional_above_threshold": 2,
         "threshold_comparison": 1558656.0,
-        "total_ticker_premium": 2834236.0
+        "total_ticker_premium": 10663750.0
       },
       {
         "ticker": "NXPI",
@@ -250,9 +233,26 @@
         "industry": "Biotechnology",
         "sub_industry": "Biotechnology",
         "total_trades": 10,
-        "additional_above_threshold": 9,
-        "threshold_comparison": 100000,
+        "additional_above_threshold": 1,
+        "threshold_comparison": 970584.0,
         "total_ticker_premium": 5959340.0
+      },
+      {
+        "ticker": "INTC",
+        "contract": "INTC261204C00061000",
+        "strike": 61.0,
+        "expiration": "2026-12-04",
+        "dte": 6,
+        "premium": 970584.0,
+        "contracts": 6558,
+        "tier": "WHALE",
+        "sector": "Information Technology",
+        "industry": "Semiconductors & Semiconductor Equipment",
+        "sub_industry": "Semiconductors",
+        "total_trades": 2,
+        "additional_above_threshold": 1,
+        "threshold_comparison": 100000,
+        "total_ticker_premium": 1234084.0
       }
     ]
   },
@@ -433,20 +433,20 @@
   },
   "tier_breakdown": {
     "unusual": {
-      "count": 184,
-      "premium": 63403574.0
+      "count": 188,
+      "premium": 64807524.0
     },
     "notable": {
-      "count": 244,
-      "premium": 34989009.0
+      "count": 250,
+      "premium": 35828366.0
     },
     "strong_whale": {
-      "count": 27,
-      "premium": 37143095.0
+      "count": 26,
+      "premium": 35542943.0
     },
     "whale": {
-      "count": 62,
-      "premium": 42750926.0
+      "count": 63,
+      "premium": 43126341.0
     },
     "headline": {
       "count": 11,
@@ -455,9 +455,9 @@
   },
   "expiration_breakdown": {
     "8_30_days": {
-      "count": 203,
-      "premium": 92360646.0,
-      "contracts": 601948
+      "count": 207,
+      "premium": 92877746.0,
+      "contracts": 602909
     },
     "90_plus": {
       "count": 45,
@@ -465,14 +465,14 @@
       "contracts": 58166
     },
     "3_7_days": {
-      "count": 102,
-      "premium": 41878231.0,
-      "contracts": 224871
+      "count": 104,
+      "premium": 40753569.0,
+      "contracts": 222307
     },
     "0dte": {
-      "count": 121,
-      "premium": 41413915.0,
-      "contracts": 189056
+      "count": 126,
+      "premium": 43332047.0,
+      "contracts": 190050
     },
     "31_90_days": {
       "count": 53,
@@ -480,44 +480,44 @@
       "contracts": 156990
     },
     "1_2_days": {
-      "count": 4,
-      "premium": 1239540.0,
-      "contracts": 3780
+      "count": 3,
+      "premium": 947540.0,
+      "contracts": 3580
     }
   },
   "sector_sentiment": {
     "Information Technology": {
       "sentiment": "BULLISH",
-      "call_premium": 45673001.0,
-      "put_premium": 32892507.0,
-      "call_put_ratio": 1.39,
+      "call_premium": 44605006.0,
+      "put_premium": 34129627.0,
+      "call_put_ratio": 1.31,
       "call_count": 108,
-      "put_count": 81,
-      "trade_count": 189,
+      "put_count": 84,
+      "trade_count": 192,
       "ticker_count": 48,
-      "net_premium": 12780494.0
+      "net_premium": 10475379.0
     },
     "Financials": {
-      "sentiment": "BEARISH",
-      "call_premium": 21567163.0,
-      "put_premium": 21606730.0,
-      "call_put_ratio": 1.0,
-      "call_count": 28,
-      "put_count": 42,
-      "trade_count": 70,
+      "sentiment": "BULLISH",
+      "call_premium": 21890163.0,
+      "put_premium": 21595575.0,
+      "call_put_ratio": 1.01,
+      "call_count": 30,
+      "put_count": 46,
+      "trade_count": 76,
       "ticker_count": 22,
-      "net_premium": -39567.0
+      "net_premium": 294588.0
     },
     "Industrials": {
       "sentiment": "BULLISH",
-      "call_premium": 14885185.0,
+      "call_premium": 15422785.0,
       "put_premium": 11353090.0,
-      "call_put_ratio": 1.31,
-      "call_count": 23,
+      "call_put_ratio": 1.36,
+      "call_count": 24,
       "put_count": 36,
-      "trade_count": 59,
+      "trade_count": 60,
       "ticker_count": 27,
-      "net_premium": 3532095.0
+      "net_premium": 4069695.0
     },
     "Health Care": {
       "sentiment": "BULLISH",
@@ -628,10 +628,10 @@
   ],
   "sweeps_summary": {
     "total_count": 21,
-    "total_premium": 47284930.0,
+    "total_premium": 46384435.0,
     "bullish_count": 9,
     "bullish_premium": 27827297.0,
     "bearish_count": 12,
-    "bearish_premium": 19457633.0
+    "bearish_premium": 18557138.0
   }
 }
